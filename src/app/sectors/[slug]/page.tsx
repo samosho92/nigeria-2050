@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { IconArrowLeft } from "@tabler/icons-react";
 import { AssumptionsPanel } from "@/components/ui/AssumptionsPanel";
 import { MotifDivider } from "@/components/ui/MotifDivider";
 import { Section } from "@/components/ui/Section";
@@ -38,16 +36,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
   return (
     <div>
-      <Section>
-        <Link
-          href="/sectors"
-          className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition hover:text-foreground"
-        >
-          <IconArrowLeft className="size-4" stroke={1.5} aria-hidden />
-          All sectors
-        </Link>
-        <SectorHero sector={sector} />
-      </Section>
+      <SectorHero sector={sector} />
 
       <Section variant="surface">
         <FadeIn>

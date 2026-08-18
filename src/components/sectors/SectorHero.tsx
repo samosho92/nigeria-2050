@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
+import { PageHero } from "@/components/layout/PageHero";
 import { AutoGlossary } from "@/components/ui/GlossaryTerm";
 import { StatSnapshot, type StatSnapshotSection } from "@/components/ui/StatSnapshot";
 import { FadeIn } from "@/components/motion";
@@ -26,9 +27,7 @@ function buildSnapshotSections(sector: Sector): StatSnapshotSection[] {
       value: String(value),
     }));
 
-  const sections: StatSnapshotSection[] = [
-    { heading: "Today", rows: baselineRows },
-  ];
+  const sections: StatSnapshotSection[] = [{ heading: "Today", rows: baselineRows }];
 
   const primaryScenario = sector.scenarioRanges?.[0];
   if (primaryScenario) {
@@ -54,13 +53,19 @@ export function SectorHero({ sector }: SectorHeroProps) {
 
   return (
     <FadeIn>
-      <header>
-        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b border-border pb-6">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            Sector {sectorNumber}
-            <span className="mx-2 font-normal text-border">·</span>
-            {SECTORS.length} flagship projections
-          </p>
+      <PageHero
+        backLink={{ href: "/sectors", label: "All sectors" }}
+        eyebrow={`Sector ${sectorNumber} · ${SECTORS.length} flagship projections`}
+        title={sector.title}
+        description={sector.tagline}
+        aside={
+          <div className="px-6 pb-10 lg:px-0 lg:pb-0">
+            <StatSnapshot sections={buildSnapshotSections(sector)} />
+          </div>
+        }
+        contentClassName="max-w-none lg:col-span-7"
+      >
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
           {sector.reviewStatus && (
             <p
               className={cn(
@@ -75,29 +80,18 @@ export function SectorHero({ sector }: SectorHeroProps) {
           )}
         </div>
 
-        <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(260px,320px)] lg:items-start">
-          <div>
-            <h1 className="text-4xl font-bold tracking-tight text-balance md:text-5xl lg:leading-[1.08]">
-              {sector.title}
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-snug text-muted-foreground md:text-xl">
-              {sector.tagline}
-            </p>
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/90 md:text-lg md:leading-8">
-              <AutoGlossary text={sector.headline2050} />
-            </p>
-            <Link
-              href="/methodology"
-              className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition hover:text-accent"
-            >
-              How we model projections
-              <IconArrowRight className="size-3.5" stroke={1.5} aria-hidden />
-            </Link>
-          </div>
+        <p className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/90 md:text-lg md:leading-8">
+          <AutoGlossary text={sector.headline2050} />
+        </p>
 
-          <StatSnapshot sections={buildSnapshotSections(sector)} />
-        </div>
-      </header>
+        <Link
+          href="/methodology"
+          className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition hover:text-accent"
+        >
+          How we model projections
+          <IconArrowRight className="size-3.5" stroke={1.5} aria-hidden />
+        </Link>
+      </PageHero>
     </FadeIn>
   );
 }

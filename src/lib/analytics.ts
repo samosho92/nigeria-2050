@@ -6,6 +6,7 @@ type AnalyticsEvent =
   | { name: "milestone_select"; year: number }
   | { name: "g7_sector_filter"; sector: string }
   | { name: "ask_archive_query"; grounded: boolean }
+  | { name: "ask_archive_blocked"; reason: "abusive" | "nsfw" | "spam" }
   | { name: "page_view"; path: string };
 
 const STORAGE_KEY = "naija2050-analytics";
@@ -39,6 +40,9 @@ function mirrorProductionAnalytics(event: AnalyticsEvent) {
       break;
     case "ask_archive_query":
       window.plausible("Ask Archive", { props: { grounded: event.grounded } });
+      break;
+    case "ask_archive_blocked":
+      window.plausible("Ask Archive Blocked", { props: { reason: event.reason } });
       break;
     case "page_view":
       window.plausible("pageview");

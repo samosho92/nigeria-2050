@@ -2,6 +2,8 @@ import { GLOSSARY } from "@/content/glossary";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
 import { getSourceById } from "@/content/sources";
+import { checkAskGuardrails } from "@/lib/ask-guardrails";
+import type { GuardrailReason } from "@/lib/ask-guardrails";
 
 export interface ArchiveChunk {
   id: string;
@@ -72,9 +74,21 @@ export interface ArchiveResponse {
   chunks: ArchiveChunk[];
   sources: { id: string; title: string; publisher: string }[];
   isGrounded: boolean;
+  blocked?: GuardrailReason;
 }
 
 export function queryArchive(question: string): ArchiveResponse {
+  const guardrail = checkAskGuardrails(question);
+  if (!guardrail.allowed) {
+    return {
+      answer: guardrail.message,
+      chunks: [],
+      sources: [],
+      isGrounded: false,
+      blocked: guardrail.reason,
+    };
+  }
+
   const scored = ARCHIVE_CHUNKS.map((chunk) => ({
     chunk,
     score: scoreChunk(question, chunk),

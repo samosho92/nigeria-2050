@@ -29,7 +29,7 @@ export const REVIEW_QUEUE: ReviewItem[] = [
     type: "art",
     title: "Era portal illustrated art — editorial approval",
     status: "pending-review",
-    notes: "Abstract CSS placeholders approved for MVP; commissioned/AI art queued for Phase 2.",
+    notes: "Abstract CSS placeholders approved for launch; commissioned art pending editorial sign-off.",
   },
   {
     id: "timeline-pre-colonial",

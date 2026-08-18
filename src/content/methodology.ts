@@ -1,6 +1,5 @@
 export const METHODOLOGY_META = {
   lastUpdated: "August 17, 2026",
-  version: "MVP 1.0",
 };
 
 export interface MethodologyLink {
@@ -17,10 +16,10 @@ export interface MethodologySection {
 }
 
 export const METHODOLOGY_PRINCIPLES = [
-  "Optimistic, not naive — scenarios with stated assumptions, not guarantees",
-  "Non-partisan — no current officeholders, parties, or campaign imagery",
-  "Show the data — every big claim is sourced and traceable",
-  "Built for the skeptic — methodology, ranges, and corrections are public",
+  "Optimistic, not naive. Scenarios with stated assumptions, not guarantees.",
+  "Non-partisan. No current officeholders, parties, or campaign imagery.",
+  "Show the data. Every big claim is sourced and traceable.",
+  "Built for the skeptic. Methodology, ranges, and corrections are public.",
 ];
 
 export const METHODOLOGY_SECTIONS: MethodologySection[] = [
@@ -103,9 +102,9 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     title: "AI & Interactive Tools",
     summary: "AI features are scoped, labeled, and grounded in our curated content store.",
     points: [
-      "Ask the Archive retrieves answers only from Naija2050’s own timeline, sector, glossary, and source content — not the open web.",
+      "Ask the Archive retrieves answers only from Naija2050’s own timeline, sector, glossary, and source content. Out-of-scope, abusive, and explicit messages are declined before retrieval.",
       "Out-of-scope questions are declined rather than hallucinated; answers include links back to source pages.",
-      "All AI-assisted UI is labeled. Era portal art uses abstract CSS placeholders at MVP — settings only, no depictions of real historical figures.",
+      "All AI-assisted UI is labeled. Era portal art uses abstract CSS placeholders for settings only, with no depictions of real historical figures.",
       "AI-generated media promoted into the permanent library requires human editorial review before publication.",
     ],
     links: [{ href: "/ask", label: "Ask the Archive" }],
@@ -127,7 +126,7 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     points: [
       "Each sector page, timeline era entry, and promoted AI asset is flagged in the editorial review queue until signed off.",
       "Corrections are published with a dated note when a material error is confirmed.",
-      "Baseline data is refreshed on a quarterly manual cadence at MVP — not live feeds.",
+      "Baseline data is refreshed on a quarterly manual cadence, not via live feeds.",
       "G7 and comparator datasets are updated when upstream publishers release new vintages; reference years on each row will change accordingly.",
     ],
     links: [{ href: "/editorial/review", label: "Editorial review queue" }],

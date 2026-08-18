@@ -14,7 +14,8 @@ import {
   IconWorld,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
-import { Badge } from "@/components/ui/Badge";
+import { PageHero } from "@/components/layout/PageHero";
+import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { MotifDivider } from "@/components/ui/MotifDivider";
 import {
@@ -105,27 +106,17 @@ function MethodologyCard({ section }: { section: MethodologySection }) {
 export function MethodologyPageContent() {
   return (
     <>
-      <header className="border-b border-border pb-10">
-        <div className="flex flex-wrap items-center gap-3">
-          <Badge variant="accent">Editorial policy</Badge>
-          <span className="text-xs text-muted-foreground">
-            {METHODOLOGY_META.version} · Updated {METHODOLOGY_META.lastUpdated}
-          </span>
-        </div>
-        <h1 className="mt-6 text-4xl font-bold tracking-tight text-balance md:text-5xl">
-          How Naija2050 works
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          Sourcing rules, projection methodology, G7 benchmark standards, AI guardrails, and
-          how we handle corrections — written for skeptics first.
+      <PageHero
+        eyebrow="Editorial policy"
+        title="How Naija2050 works"
+        description="Sourcing rules, projection methodology, G7 benchmark standards, AI guardrails, and how we handle corrections. Written for skeptics first."
+      >
+        <p className="mt-2 text-xs text-muted-foreground">
+          Updated {METHODOLOGY_META.lastUpdated}
         </p>
-
         <ul className="mt-8 grid gap-3 sm:grid-cols-2">
           {METHODOLOGY_PRINCIPLES.map((principle) => (
-            <li
-              key={principle}
-              className="flex gap-2 text-sm text-foreground/90"
-            >
+            <li key={principle} className="flex gap-2 text-sm text-foreground/90">
               <IconCircleCheck
                 className="mt-0.5 size-4 shrink-0 text-accent"
                 stroke={1.5}
@@ -135,58 +126,58 @@ export function MethodologyPageContent() {
             </li>
           ))}
         </ul>
-      </header>
+      </PageHero>
 
-      <div className="mt-10">
+      <Container className="py-12 md:py-16">
         <MethodologyNav />
-      </div>
 
-      <div className="mt-10 space-y-6">
-        {METHODOLOGY_SECTIONS.map((section) => (
-          <MethodologyCard key={section.id} section={section} />
-        ))}
-      </div>
-
-      <MotifDivider />
-
-      <section className="rounded-xl border border-border bg-surface p-6 md:p-8">
-        <h2 className="text-lg font-bold">What we are not</h2>
-        <ul className="mt-4 space-y-2">
-          {METHODOLOGY_NON_GOALS.map((item) => (
-            <li key={item} className="flex gap-2 text-sm text-muted-foreground">
-              <span className="text-border" aria-hidden>
-                —
-              </span>
-              {item}
-            </li>
+        <div className="mt-10 space-y-6">
+          {METHODOLOGY_SECTIONS.map((section) => (
+            <MethodologyCard key={section.id} section={section} />
           ))}
-        </ul>
-      </section>
-
-      <section
-        id="corrections"
-        className={cn(
-          "mt-8 rounded-xl border border-accent/30 bg-accent/5 p-6 md:p-8",
-        )}
-      >
-        <h2 className="text-lg font-bold text-foreground">Report an error</h2>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          Found a factual error, broken source link, or misleading projection? Email us with
-          the page URL, the specific claim, and your counter-source. We review every message
-          and publish dated corrections when warranted.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-4">
-          <LinkButton href={`mailto:${CORRECTIONS_EMAIL}`} variant="primary">
-            {CORRECTIONS_EMAIL}
-          </LinkButton>
-          <LinkButton href="/editorial/review" variant="secondary">
-            Review queue
-          </LinkButton>
-          <LinkButton href="/sources" variant="secondary">
-            Source library
-          </LinkButton>
         </div>
-      </section>
+
+        <MotifDivider />
+
+        <section className="rounded-xl border border-border bg-surface p-6 md:p-8">
+          <h2 className="text-lg font-bold">What we are not</h2>
+          <ul className="mt-4 space-y-2">
+            {METHODOLOGY_NON_GOALS.map((item) => (
+              <li key={item} className="flex gap-2 text-sm text-muted-foreground">
+                <span className="text-border" aria-hidden>
+                  ·
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section
+          id="corrections"
+          className={cn(
+            "mt-8 rounded-xl border border-accent/30 bg-accent/5 p-6 md:p-8",
+          )}
+        >
+          <h2 className="text-lg font-bold text-foreground">Report an error</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            Found a factual error, broken source link, or misleading projection? Email us with
+            the page URL, the specific claim, and your counter-source. We review every message
+            and publish dated corrections when warranted.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <LinkButton href={`mailto:${CORRECTIONS_EMAIL}`} variant="primary">
+              {CORRECTIONS_EMAIL}
+            </LinkButton>
+            <LinkButton href="/editorial/review" variant="secondary">
+              Review queue
+            </LinkButton>
+            <LinkButton href="/sources" variant="secondary">
+              Source library
+            </LinkButton>
+          </div>
+        </section>
+      </Container>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
-import { PageHeader } from "@/components/ui/PageHeader";
+import { PageHero } from "@/components/layout/PageHero";
 import { SourceLibrary } from "@/components/sources/SourceLibrary";
 import { SOURCES } from "@/content/sources";
 
@@ -11,12 +11,15 @@ export const metadata: Metadata = {
 
 export default function SourcesPage() {
   return (
-    <Container className="py-16">
-      <PageHeader
+    <>
+      <PageHero
+        eyebrow="Credibility"
         title="Source Library"
         description="Every quantitative claim on Naija2050 traces back here. Filter by sector or era, then click through to verify independently."
       />
-      <SourceLibrary sources={SOURCES} />
-    </Container>
+      <Container className="py-12 md:py-16">
+        <SourceLibrary sources={SOURCES} />
+      </Container>
+    </>
   );
 }

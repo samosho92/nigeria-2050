@@ -1,0 +1,49 @@
+---
+description: Core engineering principles for Naija2050 — DRY, performance, security, scalability
+alwaysApply: true
+---
+
+# Naija2050 Engineering Principles
+
+## DRY and maintainability
+
+- **One source of truth for content** — structured data lives in `src/content/`; pages compose, they do not duplicate copy or metrics.
+- **Reuse layout primitives** — page heroes use `PageHero` from `src/components/layout/PageHero.tsx`; do not hand-roll hero markup on new pages.
+- **Shared formatters** — metric/currency formatting belongs in `src/lib/` (e.g. `comparator-format.ts`, `format.ts`), not inline in components.
+- **Semantic design tokens only** — colors, fonts, and radii come from CSS variables in `globals.css`; never hardcode hex or font families in components.
+- **Extend before inventing** — check existing UI in `src/components/ui/` and motion helpers before adding new abstractions.
+
+## Performance
+
+- **Static-first** — prefer Server Components and static generation; add `"use client"` only when interactivity requires it.
+- **Respect motion budgets** — every animated component needs a static or reduced-motion fallback (`prefers-reduced-motion`, data-saver mode).
+- **Lazy-load heavy assets** — era art, charts, and WebGL load on demand; never block first paint for decorative media.
+- **Keep client bundles lean** — import icons individually; avoid pulling full libraries into client components.
+- **Target real-world networks** — design for 4G and slower connections in Nigeria; test with throttling before shipping visual features.
+
+## Security
+
+- **No secrets in the client** — API keys and tokens stay server-side or in deployment env vars; never commit `.env`.
+- **Scope AI to curated content** — Ask the Archive retrieves only from site content; decline out-of-scope questions rather than hallucinate.
+- **No generated portraits of real people** — AI art is for settings and scenes only, never identifiable historical or political figures.
+- **Validate external links** — source URLs are editorially reviewed; use `rel="noopener noreferrer"` on third-party links opened in new tabs.
+- **Sanitize user-facing output** — treat chat and search results as untrusted HTML; render as text or through safe components.
+
+## Scalability
+
+- **Content-driven pages** — new sectors, timeline entries, and sources are data additions, not route rewrites.
+- **Typed content contracts** — extend `src/types/content.ts` when adding fields; keep loaders in `src/lib/content/`.
+- **Composable page shells** — hero + `Container` + sections; major pages follow the same vertical rhythm (`py-12 md:py-16` below hero).
+- **Analytics without PII** — track cross-pillar navigation via `src/lib/analytics.ts`; no personal data collection.
+- **Version content, not code** — methodology dates, source vintages, and review status live in content files for editorial updates without refactors.
+
+## Page hero convention
+
+All major public pages use `PageHero` with:
+
+1. Eyebrow (uppercase kicker with green square)
+2. Serif title with left accent rule
+3. One clear description paragraph
+4. Optional `backLink`, `actions`, `aside`, or `rail` slots
+
+Homepage uses `HomeHero`; sector detail uses `SectorHero` (wraps `PageHero`). Do not reintroduce `PageHeader` or ad-hoc hero markup.

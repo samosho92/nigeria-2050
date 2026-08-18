@@ -1,0 +1,49 @@
+---
+description: React and Next.js component patterns for Naija2050
+globs: src/**/*.{tsx,ts}
+alwaysApply: false
+---
+
+# React & Next.js Patterns
+
+## Server vs client
+
+```tsx
+// ✅ Server page — default
+export default function SourcesPage() {
+  return (
+    <>
+      <PageHero eyebrow="Credibility" title="Source Library" description="..." />
+      <Container className="py-12 md:py-16">{/* content */}</Container>
+    </>
+  );
+}
+
+// ✅ Client only when needed (motion, hooks, browser APIs)
+"use client";
+export function AnimatedCounter() { /* ... */ }
+```
+
+## Page layout
+
+```tsx
+// ❌ BAD — hero inside Container, inconsistent spacing
+<Container className="py-16">
+  <h1>Title</h1>
+</Container>
+
+// ✅ GOOD — full-bleed hero, contained body
+<PageHero eyebrow="..." title="..." description="..." />
+<Container className="py-12 md:py-16">{children}</Container>
+```
+
+## Styling
+
+- Use `cn()` from `@/lib/utils` for conditional classes.
+- Prefer semantic tokens: `bg-primary`, `text-muted-foreground`, `border-accent`.
+- Tabler icons: `stroke={1.5}`, `aria-hidden` on decorative icons.
+
+## Content
+
+- Import sector/timeline/source data from `@/content/*` or `@/lib/content`.
+- Never duplicate comparator metric formatting; use `@/lib/comparator-format`.

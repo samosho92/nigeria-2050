@@ -32,11 +32,21 @@ export function SiteFooter() {
           ))}
         </div>
       </Container>
-      <Container className="mt-8 text-xs text-muted-foreground">
-        <span suppressHydrationWarning>
-          © {new Date().getFullYear()} Naija2050.
-        </span>{" "}
-        Optimistic, not naive — every projection is a scenario built on stated assumptions.
+      <Container className="mt-8 flex flex-col gap-3 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          <span suppressHydrationWarning>
+            © {new Date().getFullYear()} Naija2050.
+          </span>{" "}
+          Optimistic, not naive. Every projection is a scenario built on stated assumptions.
+        </p>
+        <div className="flex flex-wrap gap-x-4 gap-y-1">
+          <Link href="/privacy" className="transition hover:text-foreground">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="transition hover:text-foreground">
+            Terms of Use
+          </Link>
+        </div>
       </Container>
     </footer>
   );

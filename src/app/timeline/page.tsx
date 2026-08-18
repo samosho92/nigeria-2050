@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
-import { PageHeader } from "@/components/ui/PageHeader";
 import { TimelineExperience } from "@/components/timeline/TimelineExperience";
+import { PageHero } from "@/components/layout/PageHero";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
 
 export const metadata: Metadata = {
@@ -12,12 +12,15 @@ export const metadata: Metadata = {
 
 export default function TimelinePage() {
   return (
-    <Container className="py-16">
-      <PageHeader
+    <>
+      <PageHero
+        eyebrow="Interactive history"
         title="The Nigeria Story"
-        description="Scroll through eight eras — from pre-colonial kingdoms to the reforms setting up 2050. Every entry links forward to the sectors it shaped."
+        description="Scroll through eight eras, from pre-colonial kingdoms to the reforms setting up 2050. Every entry links forward to the sectors it shaped."
       />
-      <TimelineExperience entries={TIMELINE_ENTRIES} />
-    </Container>
+      <Container className="py-12 md:py-16">
+        <TimelineExperience entries={TIMELINE_ENTRIES} />
+      </Container>
+    </>
   );
 }

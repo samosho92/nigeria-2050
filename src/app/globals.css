@@ -240,7 +240,7 @@
     animation: milestone-panel-enter 0.25s ease-out;
   }
 
-  .home-hero-grid {
+  .page-hero-grid {
     background-image:
       linear-gradient(
         to right,
@@ -256,7 +256,7 @@
     mask-image: radial-gradient(ellipse 80% 70% at 18% 42%, #000 25%, transparent 78%);
   }
 
-  .home-hero-weave {
+  .page-hero-weave {
     background-image: repeating-linear-gradient(
       -22deg,
       transparent 0,
@@ -266,11 +266,11 @@
     );
   }
 
-  .home-hero-year {
-    animation: home-hero-year 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+  .page-hero-watermark {
+    animation: page-hero-watermark 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
-  @keyframes home-hero-year {
+  @keyframes page-hero-watermark {
     from {
       opacity: 0;
       transform: translate3d(1.5rem, 0.75rem, 0);
@@ -286,7 +286,7 @@
       animation: none;
     }
 
-    .home-hero-year {
+    .page-hero-watermark {
       animation: none;
     }
   }
