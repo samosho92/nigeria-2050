@@ -169,6 +169,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     relatedSectorSlugs: ["security", "governance"],
     sourceIds: ["cbo-nigeria-history", "sipri-security-africa"],
     artDirection: "conflict",
+    reviewStatus: "pending-review",
   },
   {
     id: "post-war-reconstruction",

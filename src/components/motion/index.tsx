@@ -2,6 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useDataSaver } from "@/components/providers/DataSaverProvider";
 
 interface AnimatedCounterProps {
   value: number;
@@ -9,6 +10,10 @@ interface AnimatedCounterProps {
   prefix?: string;
   duration?: number;
   decimals?: number;
+}
+
+function formatDisplay(display: number, decimals: number) {
+  return decimals > 0 ? display.toFixed(decimals) : Math.round(display).toLocaleString();
 }
 
 export function AnimatedCounter({
@@ -21,15 +26,25 @@ export function AnimatedCounter({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const prefersReducedMotion = useReducedMotion();
-  const [display, setDisplay] = useState(prefersReducedMotion ? value : 0);
+  const [mounted, setMounted] = useState(false);
+  // Match SSR + first client paint to avoid hydration mismatch
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     if (prefersReducedMotion) {
       setDisplay(value);
       return;
     }
+
     if (!isInView) return;
 
+    setDisplay(0);
     const startTime = performance.now();
 
     const animate = (now: number) => {
@@ -41,17 +56,12 @@ export function AnimatedCounter({
     };
 
     requestAnimationFrame(animate);
-  }, [isInView, value, duration, prefersReducedMotion]);
-
-  const formatted =
-    decimals > 0
-      ? display.toFixed(decimals)
-      : Math.round(display).toLocaleString();
+  }, [mounted, isInView, value, duration, prefersReducedMotion]);
 
   return (
     <span ref={ref}>
       {prefix}
-      {formatted}
+      {formatDisplay(display, decimals)}
       {suffix}
     </span>
   );
@@ -61,12 +71,14 @@ interface FadeInProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  disabled?: boolean;
 }
 
-export function FadeIn({ children, className, delay = 0 }: FadeInProps) {
+export function FadeIn({ children, className, delay = 0, disabled }: FadeInProps) {
   const prefersReducedMotion = useReducedMotion();
+  const { enabled: dataSaver } = useDataSaver();
 
-  if (prefersReducedMotion) {
+  if (prefersReducedMotion || disabled || dataSaver) {
     return <div className={className}>{children}</div>;
   }
 

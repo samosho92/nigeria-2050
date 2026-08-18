@@ -14,6 +14,11 @@ export const SECTORS: Sector[] = [
       manufacturingShare: "9%",
       informalEconomyShare: "~58%",
     },
+    scenarioRanges: [
+      { label: "GDP per capita (2050)", unit: "USD", low: 8000, base: 12500, high: 18000 },
+      { label: "Total GDP (2050)", unit: "USD T", low: "2.8", base: "4.2", high: "5.5" },
+    ],
+    reviewStatus: "pending-review",
     projections: [
       {
         year: 2030,
@@ -88,6 +93,11 @@ export const SECTORS: Sector[] = [
       internetPenetration: "55%",
       fintechUsers: "70M+",
     },
+    scenarioRanges: [
+      { label: "Internet penetration (2050)", unit: "%", low: 92, base: 98, high: 99 },
+      { label: "Tech contribution to GDP (2050)", unit: "%", low: 12, base: 18, high: 24 },
+    ],
+    reviewStatus: "reviewed",
     projections: [
       {
         year: 2030,
@@ -153,6 +163,11 @@ export const SECTORS: Sector[] = [
       eGovIndex: "Low-middle",
       civilServiceDigitalization: "~35%",
     },
+    scenarioRanges: [
+      { label: "Corruption index rank (2050)", unit: "global rank", low: 80, base: 50, high: 35 },
+      { label: "Voter turnout (2050)", unit: "%", low: 50, base: 65, high: 75 },
+    ],
+    reviewStatus: "reviewed",
     projections: [
       {
         year: 2030,
@@ -224,6 +239,11 @@ export const SECTORS: Sector[] = [
       doctorsPer1000: "0.4",
       annualGraduates: "600,000",
     },
+    scenarioRanges: [
+      { label: "Adult literacy (2050)", unit: "%", low: 88, base: 94, high: 97 },
+      { label: "Tertiary enrollment (2050)", unit: "%", low: 32, base: 45, high: 55 },
+    ],
+    reviewStatus: "reviewed",
     projections: [
       {
         year: 2030,
@@ -290,6 +310,11 @@ export const SECTORS: Sector[] = [
       renewableShare: "18%",
       perCapitaConsumption: "150 kWh/yr",
     },
+    scenarioRanges: [
+      { label: "Grid delivery (2050)", unit: "GW", low: 55, base: 85, high: 110 },
+      { label: "Renewable share (2050)", unit: "%", low: 50, base: 65, high: 78 },
+    ],
+    reviewStatus: "reviewed",
     projections: [
       {
         year: 2030,
@@ -356,6 +381,11 @@ export const SECTORS: Sector[] = [
       kidnappingIncidents: "Elevated",
       justiceCaseBacklog: "Millions",
     },
+    scenarioRanges: [
+      { label: "Global Peace Index rank (2050)", unit: "rank", low: 120, base: 100, high: 75 },
+      { label: "Police per 100k (2050)", unit: "officers", low: 350, base: 450, high: 550 },
+    ],
+    reviewStatus: "pending-review",
     projections: [
       {
         year: 2030,

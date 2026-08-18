@@ -1,6 +1,6 @@
 import type { Source } from "@/types/content";
 
-export const SOURCES: Source[] = [
+const RAW_SOURCES: Source[] = [
   {
     id: "world-bank-nigeria-overview",
     title: "Nigeria Economic Overview",
@@ -113,6 +113,30 @@ export const SOURCES: Source[] = [
     url: "https://nationalplanning.gov.ng",
   },
 ];
+
+const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
+  "world-bank-nigeria-overview": { sectors: ["economy", "governance", "energy", "security"] },
+  "nbs-gdp-report-2024": { sectors: ["economy"] },
+  "mckinsey-nigeria-2050": { sectors: ["economy", "technology", "education"] },
+  "pwc-nigeria-2050": { sectors: ["economy"] },
+  "undp-hdi-nigeria": { sectors: ["education", "security"] },
+  "unesco-literacy-nigeria": { sectors: ["education"] },
+  "iea-nigeria-energy": { sectors: ["energy"] },
+  "gsma-nigeria-digital": { sectors: ["technology"] },
+  "transparency-corruption-index": { sectors: ["governance"] },
+  "world-bank-doing-business": { sectors: ["economy", "governance"] },
+  "sipri-security-africa": { sectors: ["security"], eras: ["civil-war", "military-rule"] },
+  "npc-population-projection": { sectors: ["economy", "education"] },
+  "afdb-industrialization": { sectors: ["economy", "energy"] },
+  "heritage-economic-freedom": { sectors: ["governance", "economy"] },
+  "cbo-nigeria-history": { eras: ["pre-colonial", "colonial", "independence", "civil-war", "military-rule", "democracy"] },
+  "agenda-2050-npc": { sectors: ["economy", "energy", "education", "governance"] },
+};
+
+export const SOURCES: Source[] = RAW_SOURCES.map((source) => ({
+  ...source,
+  ...SOURCE_META[source.id],
+}));
 
 export function getSourceById(id: string): Source | undefined {
   return SOURCES.find((s) => s.id === id);

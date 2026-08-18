@@ -1,3 +1,11 @@
+export interface ScenarioRange {
+  label: string;
+  unit?: string;
+  low: number | string;
+  base: number | string;
+  high: number | string;
+}
+
 export interface Source {
   id: string;
   title: string;
@@ -5,6 +13,8 @@ export interface Source {
   year: number;
   url?: string;
   accessedAt?: string;
+  sectors?: string[];
+  eras?: string[];
 }
 
 export interface HistoricalWaypoint {
@@ -26,11 +36,13 @@ export interface Sector {
   tagline: string;
   headline2050: string;
   baseline: Record<string, number | string>;
+  scenarioRanges?: ScenarioRange[];
   projections: SectorProjection[];
   historicalWaypoints: HistoricalWaypoint[];
   assumptions: string[];
   risks: string[];
   sourceIds: string[];
+  reviewStatus?: "draft" | "pending-review" | "reviewed";
 }
 
 export interface TimelineEntry {
@@ -43,6 +55,7 @@ export interface TimelineEntry {
   relatedSectorSlugs: string[];
   sourceIds: string[];
   artDirection: "pre-colonial" | "colonial" | "independence" | "conflict" | "military" | "democracy" | "reform";
+  reviewStatus?: "draft" | "pending-review" | "reviewed";
 }
 
 export interface GlossaryTerm {
@@ -57,5 +70,16 @@ export interface ComparatorMetric {
   unit: string;
   current: number;
   projected2050: number;
+  projected2050Low?: number;
+  projected2050High?: number;
   sourceId: string;
 }
+
+export type ReviewItem = {
+  id: string;
+  type: "sector" | "timeline" | "art";
+  title: string;
+  status: "pending-review" | "reviewed";
+  reviewer?: string;
+  notes?: string;
+};

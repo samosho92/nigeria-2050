@@ -7,6 +7,8 @@ export const COMPARATOR_METRICS: ComparatorMetric[] = [
     unit: "USD",
     current: 2200,
     projected2050: 12500,
+    projected2050Low: 8000,
+    projected2050High: 18000,
     sourceId: "world-bank-nigeria-overview",
   },
   {

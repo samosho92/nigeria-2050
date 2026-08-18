@@ -22,23 +22,23 @@
   --brand-white-green: #f3f8f5;
 }
 
-/* ─── Design tokens: light theme ─────────────────────────────────────────── */
+/* ─── Design tokens: light theme (default — white + Nigerian green accent) ─ */
 :root,
 [data-theme="light"] {
-  --background: var(--brand-white-green);
+  --background: var(--brand-white);
   --foreground: var(--brand-green-950);
 
   --card: var(--brand-white);
   --card-foreground: var(--brand-green-950);
 
-  --surface: var(--brand-green-50);
+  --surface: var(--brand-white-soft);
   --surface-elevated: var(--brand-white);
 
-  --muted: var(--brand-green-100);
+  --muted: #f4f4f5;
   --muted-foreground: var(--brand-green-800);
 
-  --border: var(--brand-green-200);
-  --input: var(--brand-green-200);
+  --border: #e4e4e7;
+  --input: #e4e4e7;
   --ring: var(--brand-green-700);
 
   --primary: var(--brand-green-700);
@@ -47,16 +47,16 @@
 
   --secondary: var(--brand-white);
   --secondary-foreground: var(--brand-green-900);
-  --secondary-hover: var(--brand-green-100);
+  --secondary-hover: var(--brand-green-50);
 
   --accent: var(--brand-green-700);
   --accent-foreground: var(--brand-white);
-  --accent-muted: var(--brand-green-400);
+  --accent-muted: var(--brand-green-600);
 
   --code: var(--brand-green-800);
 
-  --header-background: rgb(243 248 245 / 0.92);
-  --hero-gradient-from: rgb(0 135 81 / 0.14);
+  --header-background: rgb(255 255 255 / 0.92);
+  --hero-gradient-from: rgb(0 135 81 / 0.08);
 }
 
 /* ─── Design tokens: dark theme ───────────────────────────────────────────── */
@@ -141,6 +141,14 @@
 
 /* ─── Base styles ─────────────────────────────────────────────────────────── */
 @layer base {
+  html[data-saver="true"] *,
+  html[data-saver="true"] *::before,
+  html[data-saver="true"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
   html {
     scroll-behavior: smooth;
   }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { IconMessageChatbot, IconRobot, IconSend } from "@tabler/icons-react";
 import { queryArchive, SUGGESTED_QUESTIONS } from "@/lib/ask-archive";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
@@ -43,6 +44,7 @@ export function AskArchiveChat() {
           links: response.chunks.map((c) => ({ title: c.title, href: c.href })),
         },
       ]);
+      trackEvent({ name: "ask_archive_query", grounded: response.isGrounded });
       setLoading(false);
     }, 600);
   };

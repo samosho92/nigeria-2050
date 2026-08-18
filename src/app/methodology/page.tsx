@@ -66,9 +66,12 @@ export default function MethodologyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-foreground">Corrections</h2>
+          <h2 className="text-xl font-bold text-foreground">Corrections & Review</h2>
           <p>
-            Found an error? We welcome corrections. Email{" "}
+            <Link href="/editorial/review" className="text-accent hover:underline">
+              View the editorial review queue
+            </Link>{" "}
+            for content pending subject-matter sign-off. Found an error? Email{" "}
             <a href="mailto:corrections@naija2050.org" className="text-accent hover:underline">
               corrections@naija2050.org
             </a>{" "}

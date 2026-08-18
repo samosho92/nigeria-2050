@@ -1,4 +1,6 @@
 {
   "git.openRepositoryInParentFolders": "never",
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "npm.packageManager": "npm",
+  "npm.autoDetect": "on"
 }

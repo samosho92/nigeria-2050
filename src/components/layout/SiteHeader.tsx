@@ -8,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { DataSaverToggle } from "@/components/ui/DataSaverToggle";
 import { SearchDialog } from "@/components/search/SearchDialog";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
@@ -47,6 +48,7 @@ export function SiteHeader() {
             ))}
           </nav>
           <SearchDialog />
+          <DataSaverToggle />
           <ThemeToggle />
         </div>
       </Container>

@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { IconHistory } from "@tabler/icons-react";
 import type { HistoricalWaypoint } from "@/types/content";
+import { TrackedLink } from "@/components/ui/TrackedLink";
 import { FadeIn } from "@/components/motion";
 
 interface HowWeGotHereProps {
@@ -17,15 +17,16 @@ export function HowWeGotHere({ waypoints }: HowWeGotHereProps) {
         </h2>
         <div className="grid gap-4 md:grid-cols-3">
           {waypoints.map((wp, i) => (
-            <Link
+            <TrackedLink
               key={wp.timelineEntryId}
               href={`/timeline#${wp.timelineEntryId}`}
+              trackFrom="sector"
               className="group rounded-lg border border-border bg-card p-4 transition hover:border-accent hover:bg-surface-elevated"
             >
               <span className="text-xs font-medium text-accent">Waypoint {i + 1}</span>
               <h3 className="mt-1 font-semibold group-hover:text-accent">{wp.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{wp.summary}</p>
-            </Link>
+            </TrackedLink>
           ))}
         </div>
       </div>

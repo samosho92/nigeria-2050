@@ -5,6 +5,7 @@ import { IconArrowRight } from "@tabler/icons-react";
 import type { ComparatorMetric } from "@/types/content";
 import { AnimatedCounter } from "@/components/motion";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 interface MorphSliderProps {
   metrics: ComparatorMetric[];
@@ -33,7 +34,10 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
           <button
             key={m.id}
             type="button"
-            onClick={() => setActiveMetric(i)}
+            onClick={() => {
+              setActiveMetric(i);
+              trackEvent({ name: "morph_slider_use", metric: m.id });
+            }}
             className={cn(
               "rounded-lg px-3 py-2 text-sm font-medium transition",
               activeMetric === i

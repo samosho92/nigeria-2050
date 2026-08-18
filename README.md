@@ -27,10 +27,8 @@ An independent, design-forward public web app exploring Nigeria's history and cr
 
 All colors, fonts, and radii live in `src/app/globals.css` as CSS custom properties — components use semantic tokens only (`bg-background`, `text-foreground`, `bg-primary`, `text-accent`, etc.). Never hardcode hex values or font families in components.
 
-- **Accent:** Nigerian flag green (`#008751`) across both themes
-- **Light mode:** White and soft green-tinted backgrounds with deep green text
-- **Dark mode:** Deep green backgrounds with white and mint foreground tones
-- Toggle via the header theme control (respects system preference)
+- **Light mode** (default): Clean white background with Nigerian green (`#008751`) accents on CTAs, links, and highlights
+- **Dark mode**: Optional via header toggle — deep green backgrounds
 
 ## Getting started
 

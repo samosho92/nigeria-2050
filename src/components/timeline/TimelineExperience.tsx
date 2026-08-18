@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { IconChevronRight } from "@tabler/icons-react";
+import { TrackedLink } from "@/components/ui/TrackedLink";
+import { AutoGlossary } from "@/components/ui/GlossaryTerm";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import type { TimelineEntry } from "@/types/content";
 import { TIMELINE_ERAS } from "@/content/timeline";
@@ -143,7 +144,9 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
           </div>
         </div>
         <p className="mt-2 font-medium text-muted-foreground">{entry.summary}</p>
-        <p className="mt-4 text-sm leading-relaxed text-foreground/90">{entry.content}</p>
+        <p className="mt-4 text-sm leading-relaxed text-foreground/90">
+          <AutoGlossary text={entry.content} />
+        </p>
 
         {entry.relatedSectorSlugs.length > 0 && (
           <div className="mt-6 border-t border-border pt-4">
@@ -152,14 +155,15 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
             </p>
             <div className="flex flex-wrap gap-2">
               {entry.relatedSectorSlugs.map((slug) => (
-                <Link
+                <TrackedLink
                   key={slug}
                   href={`/sectors/${slug}`}
+                  trackFrom="timeline"
                   className="inline-flex items-center gap-1 rounded-md bg-muted px-3 py-1.5 text-xs font-medium capitalize transition hover:bg-accent hover:text-accent-foreground"
                 >
                   {slug}
                   <IconChevronRight className="size-3" stroke={1.5} aria-hidden />
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>

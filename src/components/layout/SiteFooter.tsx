@@ -33,8 +33,10 @@ export function SiteFooter() {
         </div>
       </Container>
       <Container className="mt-8 text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Naija2050. Optimistic, not naive — every
-        projection is a scenario built on stated assumptions.
+        <span suppressHydrationWarning>
+          © {new Date().getFullYear()} Naija2050.
+        </span>{" "}
+        Optimistic, not naive — every projection is a scenario built on stated assumptions.
       </Container>
     </footer>
   );
