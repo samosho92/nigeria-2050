@@ -1,0 +1,2 @@
+/** @type {import('next').NextConfig} */
+// Placeholder for future content-layer config (MDX, etc.)

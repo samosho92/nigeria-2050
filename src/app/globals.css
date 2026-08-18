@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  /* Nigerian-inspired palette — dark-mode-first (PRD §8.1) */
+  --color-adire-indigo: #1e3a5f;
+  --color-adire-indigo-light: #2d5a8a;
+  --color-terracotta: #c45c3e;
+  --color-terracotta-muted: #a04a32;
+  --color-earth: #8b6914;
+  --color-earth-muted: #6b5010;
+  --color-lagos-night: #0a0e17;
+  --color-lagos-surface: #121826;
+  --color-lagos-elevated: #1a2234;
+  --color-lagos-border: #2a3548;
+  --color-optimism-gold: #e8b84a;
+  --color-optimism-warm: #f5d78e;
+  --color-text-primary: #f0f2f5;
+  --color-text-secondary: #a8b2c1;
+  --color-text-muted: #6b7789;
+
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-lagos-night text-text-primary antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
