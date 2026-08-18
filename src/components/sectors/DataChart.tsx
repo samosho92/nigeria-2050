@@ -9,6 +9,7 @@ import {
   YAxis,
 } from "recharts";
 import { FadeIn } from "@/components/motion";
+import { useDataSaver } from "@/components/providers/DataSaverProvider";
 import { formatMetricKey } from "@/lib/format";
 
 interface DataChartProps {
@@ -17,6 +18,7 @@ interface DataChartProps {
 }
 
 export function DataChart({ data, title }: DataChartProps) {
+  const { enabled: dataSaver } = useDataSaver();
   const chartData = Object.entries(data).map(([key, value]) => ({
     name: formatMetricKey(key),
     value: typeof value === "string" ? parseFloat(value.replace(/[^0-9.]/g, "")) || 0 : value,
@@ -25,7 +27,7 @@ export function DataChart({ data, title }: DataChartProps) {
 
   const isNumeric = chartData.some((d) => d.value > 0);
 
-  if (!isNumeric) {
+  if (dataSaver || !isNumeric) {
     return (
       <FadeIn>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

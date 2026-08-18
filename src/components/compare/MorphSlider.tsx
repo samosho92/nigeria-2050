@@ -6,7 +6,7 @@ import type { ComparatorMetric } from "@/types/content";
 import { AnimatedCounter } from "@/components/motion";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
-import { comparatorCounterProps } from "@/lib/comparator-format";
+import { comparatorCounterProps, formatComparatorValue } from "@/lib/comparator-format";
 import { SCENARIO_UI_NOTE } from "@/content/methodology";
 
 interface MorphSliderProps {
@@ -78,16 +78,14 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
             <div className="text-center">
               <p className="text-xs uppercase tracking-widest text-muted-foreground">Now</p>
               <p className="text-2xl font-bold lg:text-4xl">
-                {metric.current.toLocaleString()}
-                <span className="text-lg text-muted-foreground">{metric.unit !== "%" && metric.unit !== "M" ? ` ${metric.unit}` : metric.unit === "%" ? "%" : "M"}</span>
+                {formatComparatorValue(metric.current, metric.unit)}
               </p>
             </div>
             <IconArrowRight className="size-8 text-accent opacity-60" stroke={1.5} aria-hidden />
             <div className="text-center">
               <p className="text-xs uppercase tracking-widest text-accent">2050 scenario</p>
               <p className="text-2xl font-bold text-accent lg:text-4xl">
-                {metric.projected2050.toLocaleString()}
-                <span className="text-lg opacity-70">{metric.unit !== "%" && metric.unit !== "M" ? ` ${metric.unit}` : metric.unit === "%" ? "%" : "M"}</span>
+                {formatComparatorValue(metric.projected2050, metric.unit)}
               </p>
             </div>
           </div>

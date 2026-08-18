@@ -6,6 +6,7 @@ import { IconChevronRight } from "@tabler/icons-react";
 import { useReducedMotion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
 import { useDataSaver } from "@/components/providers/DataSaverProvider";
+import { useMounted } from "@/hooks/useMounted";
 import {
   NIGERIA_MAP_CITIES,
   NIGERIA_MAP_REGIONS,
@@ -157,9 +158,10 @@ function RegionDetail({ region }: { region: NigeriaMapRegion }) {
 
 export function NigeriaMapBeta() {
   const [activeId, setActiveId] = useState("south-west");
+  const mounted = useMounted();
   const prefersReducedMotion = useReducedMotion();
   const { enabled: dataSaver } = useDataSaver();
-  const tilt = !prefersReducedMotion && !dataSaver;
+  const tilt = mounted && !prefersReducedMotion && !dataSaver;
 
   const region =
     NIGERIA_MAP_REGIONS.find((entry) => entry.id === activeId) ?? NIGERIA_MAP_REGIONS[3];
@@ -210,9 +212,8 @@ export function NigeriaMapBeta() {
             </div>
           </div>
           <p className="mt-4 text-center text-xs text-muted-foreground">
-            {tilt
-              ? "Tilted 3D view · arrow keys move between zones"
-              : "Flat view (data-saver / reduced motion) · arrow keys move between zones"}
+            Arrow keys move between zones
+            {mounted ? (tilt ? " · tilted 3D view" : " · flat view") : null}
           </p>
         </div>
 

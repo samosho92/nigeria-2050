@@ -3,6 +3,7 @@ import { GLOSSARY } from "@/content/glossary";
 import { ICONS } from "@/content/icons";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
+import { CONTENT_STATS } from "@/lib/content-stats";
 
 export type SearchResultType = "sector" | "timeline" | "glossary" | "icon";
 
@@ -54,7 +55,7 @@ const searchItems: SearchResult[] = [
     id: "icons-index",
     type: "icon" as const,
     title: "Icons of Nigeria",
-    description: "150 sourced historical and contemporary Nigerian figures",
+    description: `${CONTENT_STATS.iconCount} sourced historical and contemporary Nigerian figures`,
     href: "/icons",
   },
   {

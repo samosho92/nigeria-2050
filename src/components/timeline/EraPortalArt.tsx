@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import type { TimelineEntry } from "@/types/content";
 import { useDataSaver } from "@/components/providers/DataSaverProvider";
 import { cn } from "@/lib/utils";
 
-const ERA_ART: Record<string, { src: string; alt: string }> = {
+const ERA_ART: Record<TimelineEntry["artDirection"], { src: string; alt: string }> = {
   "pre-colonial": {
     src: "/art/eras/pre-colonial.svg",
     alt: "Abstract pre-colonial scene with earth tones and geometric patterns",
@@ -37,13 +38,13 @@ const ERA_ART: Record<string, { src: string; alt: string }> = {
 
 interface EraPortalArtProps {
   eraId: string;
-  artDirection: string;
+  artDirection: TimelineEntry["artDirection"];
   className?: string;
 }
 
 export function EraPortalArt({ eraId, artDirection, className }: EraPortalArtProps) {
   const { enabled: dataSaver } = useDataSaver();
-  const art = ERA_ART[artDirection] ?? ERA_ART[eraId];
+  const art = ERA_ART[artDirection];
 
   if (dataSaver || !art) {
     return (

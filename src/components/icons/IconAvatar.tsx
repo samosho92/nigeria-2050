@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { IconFigure } from "@/types/content";
-import { iconInitials } from "@/lib/icons";
+import { iconInitials } from "@/lib/icon-names";
 import { cn } from "@/lib/utils";
 
 const SIZE_CLASS = {

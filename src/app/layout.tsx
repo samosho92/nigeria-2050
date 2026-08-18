@@ -57,6 +57,12 @@ export default function RootLayout({
           "min-h-screen flex flex-col font-sans",
         )}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              '(function(){try{if(localStorage.getItem("naija2050-data-saver")==="true")document.documentElement.dataset.saver="true"}catch(e){}})();',
+          }}
+        />
         <ThemeProvider>
           <DataSaverProvider>
             <ProductionAnalytics />

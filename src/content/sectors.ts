@@ -793,6 +793,14 @@ export function getSectorBySlug(slug: string): Sector | undefined {
   return SECTORS.find((s) => s.slug === slug);
 }
 
+export function getSectorTitle(slug: string): string {
+  return getSectorBySlug(slug)?.title ?? slug;
+}
+
+export function getSectorTitles(): Record<string, string> {
+  return Object.fromEntries(SECTORS.map((sector) => [sector.slug, sector.title]));
+}
+
 export function getAllSectorSlugs(): string[] {
   return SECTORS.map((s) => s.slug);
 }

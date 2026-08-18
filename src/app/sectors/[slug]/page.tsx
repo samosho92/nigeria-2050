@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import dynamic from "next/dynamic";
 import { AssumptionsPanel } from "@/components/ui/AssumptionsPanel";
 import { MotifDivider } from "@/components/ui/MotifDivider";
 import { Section } from "@/components/ui/Section";
 import { SourcePanel } from "@/components/ui/SourceCitation";
-import { DataChart } from "@/components/sectors/DataChart";
 import { HowWeGotHere } from "@/components/sectors/HowWeGotHere";
 import { MilestoneTimeline } from "@/components/sectors/MilestoneTimeline";
 import { ScenarioRangePanel } from "@/components/sectors/ScenarioRangePanel";
@@ -14,6 +14,15 @@ import { getSectorQuiz } from "@/content/quizzes";
 import { QuizPanel } from "@/components/quizzes/QuizPanel";
 import { SCENARIO_UI_NOTE } from "@/content/methodology";
 import { getSectorBySlug, getSourcesByIds, SECTORS } from "@/lib/content";
+
+const DataChart = dynamic(
+  () => import("@/components/sectors/DataChart").then((mod) => mod.DataChart),
+  {
+    loading: () => (
+      <div className="h-64 rounded-lg border border-border bg-muted/40" aria-hidden />
+    ),
+  },
+);
 
 interface SectorPageProps {
   params: Promise<{ slug: string }>;

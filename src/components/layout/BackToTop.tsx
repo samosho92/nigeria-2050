@@ -20,7 +20,9 @@ export function BackToTop() {
   }, []);
 
   const scrollUp = () => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      document.documentElement.dataset.saver === "true";
     window.scrollTo({
       top: 0,
       behavior: reduceMotion ? "auto" : "smooth",

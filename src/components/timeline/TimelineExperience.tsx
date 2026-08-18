@@ -17,9 +17,10 @@ import { TimelineEraPeople } from "@/components/timeline/TimelineEraPeople";
 interface TimelineExperienceProps {
   entries: TimelineEntry[];
   eraIcons?: Partial<Record<EraId, IconFigure[]>>;
+  sectorTitles?: Record<string, string>;
 }
 
-export function TimelineExperience({ entries, eraIcons }: TimelineExperienceProps) {
+export function TimelineExperience({ entries, eraIcons, sectorTitles }: TimelineExperienceProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeEra, setActiveEra] = useState<string>(TIMELINE_ERAS[0].id);
   const mounted = useMounted();
@@ -72,7 +73,7 @@ export function TimelineExperience({ entries, eraIcons }: TimelineExperienceProp
       <div className="relative flex gap-8">
         <div className="relative hidden w-8 shrink-0 md:block" aria-hidden>
           <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 rounded-full bg-border" />
-          {mounted && !prefersReducedMotion && (
+          {mounted && !prefersReducedMotion && !dataSaver && (
             <motion.div
               className="absolute inset-x-0 top-0 mx-auto w-1 origin-top rounded-full bg-accent"
               style={{ scaleY: spineScale, height: "100%" }}
@@ -88,8 +89,13 @@ export function TimelineExperience({ entries, eraIcons }: TimelineExperienceProp
             return (
               <div key={era.id} id={`era-${era.id}`} data-era-portal data-era={era.id}>
                 <FadeIn>
-                  <header className="era-independence relative mb-10 min-h-[12rem] overflow-hidden rounded-2xl border border-border p-8 lg:p-12">
-                    <EraPortalArt eraId={era.id} artDirection="independence" />
+                  <header
+                    className={cn(
+                      "relative mb-10 min-h-[12rem] overflow-hidden rounded-2xl border border-border p-8 lg:p-12",
+                      `era-${era.artDirection}`,
+                    )}
+                  >
+                    <EraPortalArt eraId={era.id} artDirection={era.artDirection} />
                     <div className="relative">
                       <p className="text-sm font-medium uppercase tracking-widest text-accent">
                         {era.period}
@@ -107,7 +113,11 @@ export function TimelineExperience({ entries, eraIcons }: TimelineExperienceProp
 
                 <div className="space-y-8">
                   {eraEntries.map((entry) => (
-                    <TimelineEntryCard key={entry.id} entry={entry} />
+                    <TimelineEntryCard
+                      key={entry.id}
+                      entry={entry}
+                      sectorTitles={sectorTitles}
+                    />
                   ))}
                 </div>
               </div>
@@ -119,7 +129,13 @@ export function TimelineExperience({ entries, eraIcons }: TimelineExperienceProp
   );
 }
 
-function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
+function TimelineEntryCard({
+  entry,
+  sectorTitles,
+}: {
+  entry: TimelineEntry;
+  sectorTitles?: Record<string, string>;
+}) {
   return (
     <FadeIn>
       <article
@@ -151,9 +167,9 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
                   key={slug}
                   href={`/sectors/${slug}`}
                   trackFrom="timeline"
-                  className="inline-flex items-center gap-1 rounded-md bg-muted px-3 py-1.5 text-xs font-medium capitalize transition hover:bg-accent hover:text-accent-foreground"
+                  className="inline-flex items-center gap-1 rounded-md bg-muted px-3 py-1.5 text-xs font-medium transition hover:bg-accent hover:text-accent-foreground"
                 >
-                  {slug}
+                  {sectorTitles?.[slug] ?? slug}
                   <IconChevronRight className="size-3" stroke={1.5} aria-hidden />
                 </TrackedLink>
               ))}

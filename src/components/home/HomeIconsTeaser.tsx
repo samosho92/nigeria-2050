@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { IconArrowRight, IconUsers } from "@tabler/icons-react";
 import { FadeIn } from "@/components/motion";
-import { IconAvatar } from "@/components/icons/IconAvatar";
+import { HomeIconsFaces } from "@/components/home/HomeIconsFaces";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { CONTENT_STATS } from "@/lib/content-stats";
-import { getFeaturedHomeIcons, iconShortName } from "@/lib/icons";
+import { getFeaturedHomeIcons } from "@/lib/icons";
 
 export function HomeIconsTeaser() {
   const faces = getFeaturedHomeIcons();
@@ -31,25 +30,7 @@ export function HomeIconsTeaser() {
       </FadeIn>
 
       <FadeIn delay={0.12} className="lg:col-span-7">
-        <ul className="grid grid-cols-4 gap-4 sm:gap-5">
-          {faces.map((figure) => (
-            <li key={figure.id}>
-              <Link
-                href={`/icons#${figure.id}`}
-                className="group flex flex-col items-center gap-2 text-center"
-              >
-                <IconAvatar
-                  figure={figure}
-                  size="md"
-                  className="ring-2 ring-border transition group-hover:ring-accent"
-                />
-                <span className="line-clamp-2 max-w-[11ch] text-[0.6875rem] font-medium leading-tight text-muted-foreground transition group-hover:text-foreground">
-                  {iconShortName(figure.name)}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <HomeIconsFaces figures={faces} />
       </FadeIn>
     </div>
   );

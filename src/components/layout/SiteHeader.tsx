@@ -11,6 +11,7 @@ import type { TablerIcon } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { DataSaverToggle } from "@/components/ui/DataSaverToggle";
 import { SearchDialog } from "@/components/search/SearchDialog";
+import { MobileNav } from "@/components/layout/MobileNav";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 
@@ -56,7 +57,7 @@ function NavDivider() {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-header-background backdrop-blur-md">
+    <header className="relative sticky top-0 z-50 border-b border-border bg-header-background backdrop-blur-md">
       <Container className="flex items-center justify-between py-4">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-lg font-bold tracking-tight">
@@ -100,6 +101,7 @@ export function SiteHeader() {
           <SearchDialog />
           <DataSaverToggle />
           <ThemeToggle />
+          <MobileNav />
         </div>
       </Container>
     </header>

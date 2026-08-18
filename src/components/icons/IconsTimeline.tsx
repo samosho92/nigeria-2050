@@ -6,6 +6,7 @@ import { IconExternalLink, IconSearch } from "@tabler/icons-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import type { IconCategoryId, IconFigure } from "@/types/content";
 import { ICON_CATEGORIES, groupIconsByDecade } from "@/content/icons";
+import { resolveTimelineRef } from "@/lib/timeline-links";
 import { FadeIn } from "@/components/motion";
 import { IconAvatar } from "@/components/icons/IconAvatar";
 import { Badge } from "@/components/ui/Badge";
@@ -15,6 +16,7 @@ import { cn } from "@/lib/utils";
 
 interface IconsTimelineProps {
   figures: IconFigure[];
+  sectorTitles?: Record<string, string>;
 }
 
 function matchesQuery(figure: IconFigure, query: string): boolean {
@@ -35,7 +37,7 @@ function matchesQuery(figure: IconFigure, query: string): boolean {
     .every((token) => haystack.includes(token));
 }
 
-export function IconsTimeline({ figures }: IconsTimelineProps) {
+export function IconsTimeline({ figures, sectorTitles }: IconsTimelineProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<IconCategoryId | "all">("all");
   const mounted = useMounted();
@@ -122,6 +124,7 @@ export function IconsTimeline({ figures }: IconsTimelineProps) {
                       key={figure.id}
                       figure={figure}
                       showPortrait={!dataSaver}
+                      sectorTitles={sectorTitles}
                     />
                   ))}
                 </div>
@@ -159,7 +162,15 @@ function FilterChip({
   );
 }
 
-function IconCard({ figure, showPortrait }: { figure: IconFigure; showPortrait: boolean }) {
+function IconCard({
+  figure,
+  showPortrait,
+  sectorTitles,
+}: {
+  figure: IconFigure;
+  showPortrait: boolean;
+  sectorTitles?: Record<string, string>;
+}) {
   const life = figure.died
     ? `${figure.circa ? "c. " : ""}${figure.born}–${figure.died}`
     : `${figure.circa ? "b. c. " : "b. "}${figure.born}`;
@@ -215,18 +226,21 @@ function IconCard({ figure, showPortrait }: { figure: IconFigure; showPortrait: 
                     href={`/sectors/${slug}`}
                     className="rounded-md bg-muted px-2 py-1 text-xs text-muted-foreground transition hover:text-foreground"
                   >
-                    {slug.replaceAll("-", " ")}
+                    {sectorTitles?.[slug] ?? slug}
                   </Link>
                 ))}
-                {figure.relatedTimelineIds?.map((id) => (
-                  <Link
-                    key={id}
-                    href={`/timeline#${id}`}
-                    className="rounded-md bg-muted px-2 py-1 text-xs text-muted-foreground transition hover:text-foreground"
-                  >
-                    timeline
-                  </Link>
-                ))}
+                {figure.relatedTimelineIds?.map((id) => {
+                  const ref = resolveTimelineRef(id);
+                  return (
+                    <Link
+                      key={id}
+                      href={ref.href}
+                      className="rounded-md bg-muted px-2 py-1 text-xs text-muted-foreground transition hover:text-foreground"
+                    >
+                      {ref.label}
+                    </Link>
+                  );
+                })}
               </div>
             )}
             {figure.image && showPortrait ? (

@@ -14,22 +14,26 @@ const DataSaverContext = createContext<DataSaverContextValue>({
 
 export function DataSaverProvider({ children }: { children: ReactNode }) {
   const [enabled, setEnabled] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("naija2050-data-saver");
-    if (stored === "true") setEnabled(true);
+    const stored = localStorage.getItem("naija2050-data-saver") === "true";
+    setEnabled(stored);
+    document.documentElement.dataset.saver = stored ? "true" : "false";
+    setHydrated(true);
   }, []);
 
   useEffect(() => {
+    if (!hydrated) return;
     document.documentElement.dataset.saver = enabled ? "true" : "false";
     localStorage.setItem("naija2050-data-saver", String(enabled));
-  }, [enabled]);
+  }, [enabled, hydrated]);
 
   return (
     <DataSaverContext.Provider
       value={{
         enabled,
-        toggle: () => setEnabled((v) => !v),
+        toggle: () => setEnabled((value) => !value),
       }}
     >
       {children}

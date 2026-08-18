@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { getGlossaryTerm } from "@/content/glossary";
+import { GLOSSARY, getGlossaryTerm } from "@/content/glossary";
 import { cn } from "@/lib/utils";
 
 interface GlossaryTermProps {
@@ -56,15 +56,18 @@ interface AutoGlossaryProps {
 }
 
 export function AutoGlossary({ text, className }: AutoGlossaryProps) {
-  const terms = ["GDP", "Amalgamation", "Biafra", "brain drain", "fintech", "NBS", "informal economy"];
-  const pattern = new RegExp(`\\b(${terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`, "gi");
+  const terms = [...GLOSSARY.map((entry) => entry.term)].sort((a, b) => b.length - a.length);
+  const pattern = new RegExp(
+    `\\b(${terms.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`,
+    "gi",
+  );
   const parts = text.split(pattern);
 
   return (
     <span className={className}>
       {parts.map((part, i) => {
-        const match = terms.find((t) => t.toLowerCase() === part.toLowerCase());
-        if (match) return <GlossaryTerm key={`${match}-${i}`} term={match} />;
+        const entry = getGlossaryTerm(part);
+        if (entry) return <GlossaryTerm key={`${entry.term}-${i}`} term={entry.term} />;
         return <span key={i}>{part}</span>;
       })}
     </span>

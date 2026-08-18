@@ -1,5 +1,5 @@
 export { SOURCES, getSourceById, getSourcesByIds } from "@/content/sources";
-export { SECTORS, getSectorBySlug, getAllSectorSlugs } from "@/content/sectors";
+export { SECTORS, getSectorBySlug, getSectorTitle, getSectorTitles, getAllSectorSlugs } from "@/content/sectors";
 export {
   TIMELINE_ENTRIES,
   TIMELINE_ERAS,

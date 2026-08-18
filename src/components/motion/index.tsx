@@ -27,6 +27,7 @@ export function AnimatedCounter({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const prefersReducedMotion = useReducedMotion();
+  const { enabled: dataSaver } = useDataSaver();
   const [mounted, setMounted] = useState(false);
   // Match SSR + first client paint to avoid hydration mismatch
   const [display, setDisplay] = useState(value);
@@ -38,7 +39,7 @@ export function AnimatedCounter({
   useEffect(() => {
     if (!mounted) return;
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || dataSaver) {
       setDisplay(value);
       return;
     }
@@ -57,7 +58,7 @@ export function AnimatedCounter({
     };
 
     requestAnimationFrame(animate);
-  }, [mounted, isInView, value, duration, prefersReducedMotion]);
+  }, [mounted, isInView, value, duration, prefersReducedMotion, dataSaver]);
 
   return (
     <span ref={ref}>
