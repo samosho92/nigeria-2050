@@ -9,6 +9,7 @@ import {
   YAxis,
 } from "recharts";
 import { FadeIn } from "@/components/motion";
+import { formatMetricKey } from "@/lib/format";
 
 interface DataChartProps {
   data: Record<string, number | string>;
@@ -17,7 +18,7 @@ interface DataChartProps {
 
 export function DataChart({ data, title }: DataChartProps) {
   const chartData = Object.entries(data).map(([key, value]) => ({
-    name: key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase()),
+    name: formatMetricKey(key),
     value: typeof value === "string" ? parseFloat(value.replace(/[^0-9.]/g, "")) || 0 : value,
     display: String(value),
   }));
@@ -34,7 +35,7 @@ export function DataChart({ data, title }: DataChartProps) {
               className="rounded-lg border border-border bg-surface-elevated p-4"
             >
               <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                {key.replace(/([A-Z])/g, " $1")}
+                {formatMetricKey(key)}
               </p>
               <p className="mt-1 text-xl font-bold text-accent">{value}</p>
             </div>

@@ -6,7 +6,6 @@ import { AssumptionsPanel } from "@/components/ui/AssumptionsPanel";
 import { MotifDivider } from "@/components/ui/MotifDivider";
 import { Section } from "@/components/ui/Section";
 import { SourcePanel } from "@/components/ui/SourceCitation";
-import { AutoGlossary } from "@/components/ui/GlossaryTerm";
 import { DataChart } from "@/components/sectors/DataChart";
 import { HowWeGotHere } from "@/components/sectors/HowWeGotHere";
 import { MilestoneTimeline } from "@/components/sectors/MilestoneTimeline";
@@ -48,9 +47,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
           All sectors
         </Link>
         <SectorHero sector={sector} />
-        <p className="mt-6 text-muted-foreground">
-          <AutoGlossary text={sector.headline2050} />
-        </p>
       </Section>
 
       <Section variant="surface">
@@ -82,7 +78,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
         <AssumptionsPanel assumptions={sector.assumptions} risks={sector.risks} />
       </Section>
 
-      <Section variant="surface">
+      <Section variant="surface" id="sources">
         <SourcePanel sources={sources} />
       </Section>
     </div>

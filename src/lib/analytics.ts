@@ -3,6 +3,7 @@
 type AnalyticsEvent =
   | { name: "cross_pillar_nav"; from: string; to: string; targetType: "sector" | "timeline" }
   | { name: "morph_slider_use"; metric: string }
+  | { name: "milestone_select"; year: number }
   | { name: "ask_archive_query"; grounded: boolean }
   | { name: "page_view"; path: string };
 
