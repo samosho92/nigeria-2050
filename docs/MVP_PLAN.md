@@ -1,7 +1,8 @@
 # Naija2050 — MVP Plan
 
 **Derived from:** [Nigeria2050_PRD.md](./Nigeria2050_PRD.md) (Draft v2, Aug 17 2026)  
-**Status:** MVP engineering complete on `dev` — ready for deploy + external editorial sign-off  
+**Build plan:** [BUILD_PLAN.md](./BUILD_PLAN.md) — Phase 1 launch checklist + Phase 2 roadmap  
+**Status:** ✅ **MVP engineering complete** — launch blocked on external editorial review + production deploy  
 **Last updated:** August 17, 2026
 
 ---
@@ -22,9 +23,10 @@
 
 - [x] Source library + methodology page live
 - [x] Morph slider and Ask the Archive shipped
-- [x] Cross-pillar link tracking (client analytics in `src/lib/analytics.ts`)
-- [ ] Live analytics dashboard *(events stored locally until production analytics wired)*
-- [ ] Performance audit on 4G throttled *(manual Lighthouse run recommended pre-launch)*
+- [x] Cross-pillar link tracking (`src/lib/analytics.ts`)
+- [x] Production analytics hook (optional Plausible via `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`)
+- [ ] Performance audit on 4G throttled *(manual Lighthouse — see BUILD_PLAN Phase 1 checklist)*
+- [ ] Production deploy to Vercel
 
 ---
 
@@ -67,7 +69,7 @@
 
 - [x] All 7 template sections per sector
 - [x] All 6 sectors live with sourced content
-- [x] `SectorHero`, `MilestoneTimeline`, `HowWeGotHere`, `DataChart`, `SourcePanel`
+- [x] `SectorHero` (editorial layout + `StatSnapshot`), interactive `MilestoneTimeline`, `HowWeGotHere`, `DataChart`, `SourcePanel`
 - [x] `AnimatedCounter` (hydration-safe)
 - [x] `ScenarioRangePanel` — low/base/high ranges on all sectors
 
@@ -87,7 +89,7 @@
 
 - [x] Now → 2050 morph slider (8 metrics)
 - [x] Animated data reveals on sector pages
-- [x] Scroll fade-ins + card hover micro-interactions
+- [x] Scroll fade-ins + interactive milestone timeline (clickable rail)
 - [x] Data-saver mode toggle (header bolt icon)
 - [ ] Formal Lighthouse ≥ 80 audit *(run manually before launch)*
 
@@ -125,7 +127,9 @@
 - [x] Sitemap + robots.txt
 - [x] Skip-to-content link (accessibility)
 - [x] `vercel.json` deploy config
-- [x] Hydration mismatch fix (`AnimatedCounter`)
+- [x] Hydration mismatch fixes (`AnimatedCounter`, `FadeIn`, `useMounted`)
+- [x] Dev cache corruption guards (`prebuild`, `preclean`, `turbopack.root`)
+- [x] Optional Plausible analytics integration
 - [ ] External historian review (Civil War entry)
 - [ ] External economist review (sector projections)
 - [ ] Cross-browser QA pass
@@ -147,15 +151,26 @@
 | 6 — AI features | ✅ |
 | 7 — Polish & launch | ⚠️ Deploy + external review pending |
 
-**Engineering MVP: 100% complete.** Launch blocked only on external editorial review and production deploy.
+**Engineering MVP: 100% complete.**
 
 ---
 
-## Immediate Next Actions
+## Phase roadmap (see BUILD_PLAN.md for detail)
+
+| Phase | Scope | Status |
+|---|---|---|
+| **Phase 1** | MVP launch — 6 sectors, full timeline, fusion, Ask the Archive, comparator | ✅ Built · launch checklist open |
+| **Phase 2** | +5 sectors, i18n (Hausa/Yoruba/Igbo), Your Nigeria 2050, audio, quizzes, 3D map | 📋 Planned |
+| **Phase 3** | Commercialization, licensing, partnerships | 🔮 Future |
+
+---
+
+## Immediate next actions
 
 1. [x] ~~Complete MVP engineering~~
 2. [ ] Historian sign-off on Civil War entry
 3. [ ] Economist sign-off on Economy/Security projections
-4. [ ] `git push origin dev` → merge to `main` → deploy on Vercel
-5. [ ] Run Lighthouse audit on 4G throttled
-6. [ ] Wire production analytics (Plausible, Vercel Analytics, or similar)
+4. [ ] `npm run stop:dev && npm run build` → merge `dev` → `main` → deploy on Vercel
+5. [ ] Set `NEXT_PUBLIC_SITE_URL` + optional `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` in Vercel
+6. [ ] Run Lighthouse audit on 4G throttled
+7. [ ] Begin Phase 2 Sprint A scoping (healthcare + agriculture sectors first)

@@ -23,6 +23,16 @@ export interface HistoricalWaypoint {
   summary: string;
 }
 
+export interface ScenarioAssumption {
+  title: string;
+  detail: string;
+}
+
+export interface ScenarioRisk {
+  title: string;
+  detail: string;
+}
+
 export interface SectorProjection {
   year: 2030 | 2040 | 2050;
   headline: string;
@@ -39,8 +49,8 @@ export interface Sector {
   scenarioRanges?: ScenarioRange[];
   projections: SectorProjection[];
   historicalWaypoints: HistoricalWaypoint[];
-  assumptions: string[];
-  risks: string[];
+  assumptions: ScenarioAssumption[];
+  risks: ScenarioRisk[];
   sourceIds: string[];
   reviewStatus?: "draft" | "pending-review" | "reviewed";
 }
@@ -73,6 +83,28 @@ export interface ComparatorMetric {
   projected2050Low?: number;
   projected2050High?: number;
   sourceId: string;
+}
+
+export type G7CountryCode = "CA" | "FR" | "DE" | "IT" | "JP" | "GB" | "US";
+
+export interface G7BenchmarkMetric {
+  id: string;
+  sectorSlug: string;
+  label: string;
+  /** Exact indicator definition — same methodology for Nigeria and all G7 members. */
+  definition: string;
+  unit: string;
+  /** Reference year for Nigeria + all G7 values (apples-to-apples). */
+  referenceYear: number;
+  nigeria: number;
+  g7Countries: Record<G7CountryCode, number>;
+  nigeria2050?: number;
+  /** When false, lower values are better (e.g. corruption rank). */
+  higherIsBetter: boolean;
+  sourceId: string;
+  /** Dataset series name / table ID for traceability. */
+  sourceSeries: string;
+  context?: string;
 }
 
 export type ReviewItem = {

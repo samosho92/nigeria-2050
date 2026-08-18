@@ -1,12 +1,11 @@
 import Link from "next/link";
 import {
   IconArrowRight,
-  IconArrowsLeftRight,
   IconBuildingSkyscraper,
   IconMessageChatbot,
   IconTimeline,
 } from "@tabler/icons-react";
-import { Badge } from "@/components/ui/Badge";
+import { HomeHero } from "@/components/home/HomeHero";
 import {
   Card,
   CardDescription,
@@ -14,57 +13,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { MotifDivider } from "@/components/ui/MotifDivider";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/motion";
-import { COMPARATOR_METRICS } from "@/content/comparator";
 import { SECTORS } from "@/lib/constants/sectors";
-import { AnimatedCounter } from "@/components/motion";
 
 export default function HomePage() {
-  const heroMetric = COMPARATOR_METRICS[0];
-
   return (
     <div className="relative overflow-hidden">
-      <section className="relative px-6 py-24 md:py-32 lg:px-8">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-hero-gradient-from via-transparent to-transparent" />
-        <Container size="narrow" className="relative text-center">
-          <Badge>MVP Live</Badge>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-balance md:text-6xl lg:text-7xl">
-            Where Nigeria&apos;s History Meets Its Future
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground text-balance">
-            Six sector visions. Seventeen historical waypoints. One fused journey from
-            pre-colonial kingdoms to a sourced, optimistic 2050.
-          </p>
-
-          <div className="mx-auto mt-10 grid max-w-md grid-cols-2 gap-4 rounded-xl border border-border bg-card p-6">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">GDP/capita now</p>
-              <p className="text-2xl font-bold">${heroMetric.current.toLocaleString()}</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-accent">Projected 2050</p>
-              <p className="text-2xl font-bold text-accent">
-                $<AnimatedCounter value={heroMetric.projected2050} />
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <LinkButton href="/timeline" variant="primary">
-              <IconTimeline className="size-4" stroke={1.5} aria-hidden />
-              Explore the Timeline
-            </LinkButton>
-            <LinkButton href="/compare" variant="secondary">
-              <IconArrowsLeftRight className="size-4" stroke={1.5} aria-hidden />
-              Now vs. 2050
-            </LinkButton>
-          </div>
-        </Container>
-      </section>
+      <HomeHero />
 
       <Section variant="surface">
         <FadeIn>

@@ -240,8 +240,53 @@
     animation: milestone-panel-enter 0.25s ease-out;
   }
 
+  .home-hero-grid {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--border) 85%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--border) 85%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 3.25rem 3.25rem;
+    mask-image: radial-gradient(ellipse 80% 70% at 18% 42%, #000 25%, transparent 78%);
+  }
+
+  .home-hero-weave {
+    background-image: repeating-linear-gradient(
+      -22deg,
+      transparent 0,
+      transparent 11px,
+      color-mix(in srgb, var(--primary-foreground) 8%, transparent) 11px,
+      color-mix(in srgb, var(--primary-foreground) 8%, transparent) 12px
+    );
+  }
+
+  .home-hero-year {
+    animation: home-hero-year 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes home-hero-year {
+    from {
+      opacity: 0;
+      transform: translate3d(1.5rem, 0.75rem, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .milestone-panel-enter {
+      animation: none;
+    }
+
+    .home-hero-year {
       animation: none;
     }
   }

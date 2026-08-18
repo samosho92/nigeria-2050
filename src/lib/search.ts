@@ -35,6 +35,20 @@ const searchItems: SearchResult[] = [
     description: g.definition.slice(0, 120) + "…",
     href: `/glossary#${encodeURIComponent(g.term)}`,
   })),
+  {
+    id: "g7-compare",
+    type: "sector" as const,
+    title: "Nigeria vs. G7",
+    description: "Compare Nigeria sector baselines against G7 country averages",
+    href: "/compare/g7",
+  },
+  {
+    id: "methodology",
+    type: "sector" as const,
+    title: "Editorial Methodology",
+    description: "Sourcing standards, projection methodology, G7 benchmarks, AI guardrails",
+    href: "/methodology",
+  },
 ];
 
 let index: Index | null = null;

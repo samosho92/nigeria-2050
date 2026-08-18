@@ -60,17 +60,78 @@ export const SECTORS: Sector[] = [
       },
     ],
     assumptions: [
-      "Sustained GDP growth of 6–8% annually for two decades",
-      "Successful power sector reform enabling industrial growth",
-      "Continued FDI in manufacturing and technology",
-      "Exchange rate policy that rewards exporters",
-      "Formalization of 50%+ of the informal economy via digital rails",
+      {
+        title: "GDP growth path",
+        detail:
+          "Real GDP grows 6–8% annually from 2025–2035, then moderates to 5–6% through 2050 as the economy matures — consistent with McKinsey/PwC upper-middle scenarios and requiring no sustained boom beyond peer-country experience.",
+      },
+      {
+        title: "Population & labor force",
+        detail:
+          "NPC medium-variant population projection: ~230M (2024) → ~280M (2030) → ~340M (2040) → ~400M (2050). The working-age share stays above 60%; at least 3M net new formal jobs created annually from 2030 onward.",
+      },
+      {
+        title: "Oil dependency unwind",
+        detail:
+          "Oil falls from ~85% of exports (2024) to under 40% by 2030 and under 15% by 2050. Base-case Brent crude averages $70–90/bbl — not a price collapse, but reduced fiscal reliance through non-oil revenue growth.",
+      },
+      {
+        title: "Power for industrialization",
+        detail:
+          "Grid-delivered power rises from ~4 GW today to 12 GW (2030), 45 GW (2040), and 85 GW (2050) per energy-sector assumptions. Industrial zones receive 20+ hours/day of reliable supply by 2040, enabling manufacturing share to reach 22%.",
+      },
+      {
+        title: "Exchange rate & trade policy",
+        detail:
+          "A transparent, unified FX window rewards exporters. AfCFTA rules of origin are implemented; non-oil export volume grows 8%+ annually in the 2030s. Import substitution is targeted (fertilizer, steel, processed foods), not blanket protectionism.",
+      },
+      {
+        title: "Informal economy formalization",
+        detail:
+          "Over 50% of informal activity is registered by 2045 through NIN-linked accounts, digital payments (CBN instant payment rails), and simplified SME tax thresholds — raising the taxable base without mass enforcement shocks.",
+      },
+      {
+        title: "Capital inflows",
+        detail:
+          "FDI averages $12–18B annually from 2030 (manufacturing, agro-processing, data centers). Domestic pension and insurance assets allocate 15%+ to infrastructure and corporate bonds; diaspora remittances ($20B+) increasingly channel into productive investment, not consumption alone.",
+      },
+      {
+        title: "Fiscal discipline",
+        detail:
+          "Fuel subsidy remains eliminated; targeted social transfers replace blanket subsidies. Federal debt-to-GDP stays below 50%; capital spending prioritizes power, transport, and education over recurrent leakage.",
+      },
     ],
     risks: [
-      "Oil price collapse before diversification completes",
-      "Security crises disrupting agricultural and industrial zones",
-      "Policy reversals on subsidy reform and trade openness",
-      "Population growth outpacing job creation",
+      {
+        title: "Oil price shock before diversification",
+        detail:
+          "A sustained sub-$50/bbl period in the 2020s–2030s before non-oil exports scale would compress fiscal space and delay infrastructure spend — the primary driver of the low-case GDP per capita ($8,000) scenario.",
+      },
+      {
+        title: "Security disrupting production belts",
+        detail:
+          "Escalating conflict in the northwest, north-central, or Niger Delta could disrupt farming, logistics, and oil infrastructure — historically shaving 1–2 percentage points off annual growth during acute phases.",
+      },
+      {
+        title: "Policy reversal on reforms",
+        detail:
+          "Reintroduction of FX controls, import bans, or fuel subsidies would undermine investor confidence and formalization — patterns seen after prior reform cycles in the 1980s and 2010s.",
+      },
+      {
+        title: "Demographic pressure without jobs",
+        detail:
+          "If formal job creation falls below 2M/year net, youth unemployment and emigration accelerate, reducing domestic consumption growth and tax revenue — independent of macro GDP numbers.",
+      },
+      {
+        title: "Power underdelivery",
+        detail:
+          "If grid delivery remains below 25 GW by 2040, manufacturing and agro-processing targets are unreachable; the base-case industrialization narrative collapses toward the low scenario.",
+      },
+      {
+        title: "Debt distress",
+        detail:
+          "External debt service above 25% of revenue would crowd out education and infrastructure — repeating the SAP-era constraint on human capital and capital formation.",
+      },
     ],
     sourceIds: [
       "world-bank-nigeria-overview",
@@ -139,15 +200,73 @@ export const SECTORS: Sector[] = [
       },
     ],
     assumptions: [
-      "Stable regulatory framework for fintech and data",
-      "Reliable power for data centers and remote work",
-      "Continued diaspora investment and mentorship networks",
-      "STEM education expansion at secondary and tertiary levels",
+      {
+        title: "Connectivity expansion",
+        detail:
+          "Internet penetration rises from ~55% (2024) to 78% (2030), 92% (2040), and 98% (2050) via 4G/5G rollout, fiber backhaul in state capitals, and satellite coverage for rural gaps — aligned with GSMA Africa connectivity forecasts.",
+      },
+      {
+        title: "Affordable data",
+        detail:
+          "Average mobile data cost falls 60% by 2030 (from ~$2/GB toward sub-$0.50/GB in real terms) through spectrum allocation, infrastructure sharing, and competition among at least four national carriers.",
+      },
+      {
+        title: "Regulatory stability",
+        detail:
+          "CBN, NCC, and NDPC maintain predictable rules for fintech licensing, open banking, and cross-border data flows. No repeat of abrupt FX or crypto restrictions that freeze startup treasury operations without transition periods.",
+      },
+      {
+        title: "Power for digital infrastructure",
+        detail:
+          "Data centers and fiber nodes receive prioritized grid or captive solar/gas power — minimum 18 hours/day uptime in Lagos, Abuja, and Port Harcourt clusters by 2030, scaling nationally by 2040.",
+      },
+      {
+        title: "Talent pipeline",
+        detail:
+          "50,000+ new software engineers annually by 2030 through university CS programs, Andela-style bootcamps, and NPower-Tech scale-up; total developer pool exceeds 2M by 2050 with 30%+ women in technical roles.",
+      },
+      {
+        title: "Diaspora capital & networks",
+        detail:
+          "Diaspora engineers and investors maintain dual presence (Lagos + London/Toronto/Atlanta). Startup funding grows from ~$1.2B (2024) to $3.5B (2030) and $8B+ (2040), with 40%+ from African and diaspora LPs.",
+      },
+      {
+        title: "Digital public infrastructure",
+        detail:
+          "NIN, BVN, NIBSS instant payments, and eNaira (or successor rails) interoperate as national DPI — enabling identity-verified services across health, education, and government without duplicate silos.",
+      },
+      {
+        title: "Export-oriented product economy",
+        detail:
+          "By 2040, Nigerian B2B SaaS, fintech APIs, and creative-tech IP generate $45B+ in export revenue — requiring IP protection, double-taxation treaties, and remote-work visa clarity.",
+      },
     ],
     risks: [
-      "Regulatory overreach stifling innovation",
-      "FX controls limiting startup access to global markets",
-      "Continued brain drain without reversal mechanisms",
+      {
+        title: "Regulatory overreach",
+        detail:
+          "Sudden licensing freezes, social-media levies, or data-localization mandates without grandfather clauses could stall the startup ecosystem — as seen in peer markets during election cycles.",
+      },
+      {
+        title: "FX & capital controls",
+        detail:
+          "Restrictions on repatriating startup revenue or accessing foreign VC would cap growth at domestic market size — historically pushing founders to incorporate abroad.",
+      },
+      {
+        title: "Persistent brain drain",
+        detail:
+          "If net emigration of senior engineers exceeds 15,000/year without return pathways, the 2050 '2M developers' target requires impossible training throughput alone.",
+      },
+      {
+        title: "Power & connectivity gaps",
+        detail:
+          "Rural and peri-urban areas left at sub-40% broadband penetration would exclude 100M+ from the digital economy, dragging down GDP contribution metrics.",
+      },
+      {
+        title: "Cybersecurity & trust failures",
+        detail:
+          "Large-scale breaches of BVN/NIN or payment rails would erode adoption of digital public infrastructure — a single major incident could set adoption back 3–5 years.",
+      },
     ],
     sourceIds: ["gsma-nigeria-digital", "mckinsey-nigeria-2050", "world-bank-nigeria-overview"],
   },
@@ -209,15 +328,68 @@ export const SECTORS: Sector[] = [
       },
     ],
     assumptions: [
-      "No military interruption of civilian rule",
-      "Independent electoral commission with teeth",
-      "Judicial independence strengthened over time",
-      "Civic-tech adoption by watchdog organizations",
+      {
+        title: "Uninterrupted civilian rule",
+        detail:
+          "No military coup or extra-constitutional transition through 2050 — 26+ consecutive years of civilian rule (from 1999) extend to 50+, building the institutional memory that peer democracies required.",
+      },
+      {
+        title: "Electoral integrity",
+        detail:
+          "INEC operates with independent funding (≥0.5% of federal budget), biometric voter register maintained, and results transmitted electronically from 80%+ of polling units by 2030. Voter turnout recovers from 27% (2023) to 55% (2040) and 65% (2050) as credibility returns.",
+      },
+      {
+        title: "Judicial independence & speed",
+        detail:
+          "Case backlog reduced 70% by 2040 through ADR, digital filing, and increased judge appointments. Supreme Court and appellate decisions on electoral and corruption cases delivered within 12 months on average.",
+      },
+      {
+        title: "Anti-corruption with due process",
+        detail:
+          "EFCC/ICPC secure convictions of senior officials across regions without ethnic skew. Corruption Perceptions Index rank improves from 145/180 to top 80 (2040) and top 50 (2050) — matching upper-middle-income peers, not Scandinavian outliers.",
+      },
+      {
+        title: "Digital government & open data",
+        detail:
+          "100% of federal services online by 2030; state-level parity by 2040. Open budget portal publishes obligation, cash release, and project status at LG, state, and federal levels — civil service digitalization reaches 90%+.",
+      },
+      {
+        title: "Fiscal federalism clarity",
+        detail:
+          "Revenue-sharing formula revised by 2035 to reflect derivation, population, and development indices without zero-sum ethnic bargaining. LG autonomy strengthened with direct allocation and audited accounts.",
+      },
+      {
+        title: "Civic-tech ecosystem",
+        detail:
+          "Watchdog NGOs (BudgIT, Dataphyte, etc.) and parliamentary oversight committees routinely use open data — creating feedback loops that punish non-compliance in procurement and payroll.",
+      },
     ],
     risks: [
-      "Electoral violence delegitimizing results",
-      "Elite capture of reform institutions",
-      "Ethno-regional polarization blocking consensus",
+      {
+        title: "Electoral violence & disputed results",
+        detail:
+          "A contested presidential election with widespread violence could reset turnout and trust metrics — as in 2011 and 2023 tensions — delaying reform timelines by a full electoral cycle (4–8 years).",
+      },
+      {
+        title: "Elite capture of institutions",
+        detail:
+          "If anti-corruption agencies become instruments of factional warfare rather than neutral enforcement, CPI improvements stall regardless of digital transparency tools.",
+      },
+      {
+        title: "Ethno-regional polarization",
+        detail:
+          "Federal character debates that block merit-based appointments in judiciary, military, and civil service would undermine the 'trusted republic' 2050 narrative.",
+      },
+      {
+        title: "State fragility at LG level",
+        detail:
+          "If local governments remain non-functional capture points, citizens won't experience governance improvements despite federal digital reforms — eroding turnout recovery.",
+      },
+      {
+        title: "Information disorder",
+        detail:
+          "Unregulated misinformation during elections could suppress participation and delegitimize results even when INEC processes are sound — requiring media literacy, not censorship, as mitigation.",
+      },
     ],
     sourceIds: [
       "transparency-corruption-index",
@@ -285,15 +457,73 @@ export const SECTORS: Sector[] = [
       },
     ],
     assumptions: [
-      "Education spending reaches 6%+ of GDP sustained",
-      "Teacher training and pay reforms retain talent",
-      "Diaspora mentorship and scholarship programs scale",
-      "Curriculum modernization including digital literacy from primary level",
+      {
+        title: "Education funding scale-up",
+        detail:
+          "Combined federal + state education spending reaches 6–7% of GDP by 2030 and is sustained — UNESCO benchmark for rapid literacy gains. UBEC matching-grant reforms ensure states co-fund primary education.",
+      },
+      {
+        title: "Universal basic education",
+        detail:
+          "Out-of-school children fall from ~20M (2024) to under 8M (2030) and under 2M (2040) via conditional cash transfers (like existing social programs scaled), community schools in insecure areas, and girl-child enrollment campaigns.",
+      },
+      {
+        title: "Literacy trajectory",
+        detail:
+          "Adult literacy rises from 62% → 82% (2030) → 90% (2040) → 94% (2050) through primary completion rates above 85% and adult literacy programs in local languages.",
+      },
+      {
+        title: "Tertiary expansion with quality",
+        detail:
+          "Gross tertiary enrollment rises from 12% to 22% (2030), 35% (2040), and 45% (2050) — adding ~500 accredited programs with accreditation audits every 5 years to prevent credential inflation.",
+      },
+      {
+        title: "Teacher workforce",
+        detail:
+          "Teacher pay reaches 150% of minimum wage by 2030; 100,000 teachers retrained annually in pedagogy and digital literacy; pupil-teacher ratio below 35:1 in primary nationwide.",
+      },
+      {
+        title: "STEM & vocational parity",
+        detail:
+          "40% of secondary students in STEM or technical tracks by 2035; technical colleges revived in all six geopolitical zones with industry apprenticeship mandates.",
+      },
+      {
+        title: "Brain-drain reversal",
+        detail:
+          "Net skilled migration turns positive by 2040 through remote-work visas, research grants (TETFund scale-up), and diaspora fellowship programs — requiring governance and security assumptions to hold.",
+      },
+      {
+        title: "Health-education linkage",
+        detail:
+          "Doctors per 1,000 rise from 0.4 toward 1.2 by 2050 as medical school output triples and retention improves — cross-dependent with security and economic opportunity assumptions.",
+      },
     ],
     risks: [
-      "Insecurity closing schools in northern regions",
-      "Funding volatility with oil revenue swings",
-      "Credential inflation without quality improvement",
+      {
+        title: "Insecurity closing schools",
+        detail:
+          "Banditry and kidnapping in northwest/north-central could keep 5M+ children out of school regardless of funding — the single largest threat to literacy targets.",
+      },
+      {
+        title: "Funding volatility",
+        detail:
+          "Oil revenue swings or debt pressure could cut UBEC and TETFund allocations mid-decade, repeating the 1980s–90s university collapse pattern.",
+      },
+      {
+        title: "Quality vs. quantity",
+        detail:
+          "Expanding enrollment without accreditation enforcement produces graduates without skills — visible in today's unemployment among degree-holders.",
+      },
+      {
+        title: "Regional inequality",
+        detail:
+          "If southern states invest 3× northern per-pupil spending indefinitely, national averages mask persistent gaps that fuel migration and conflict.",
+      },
+      {
+        title: "Emigration of educators",
+        detail:
+          "Continued departure of trained teachers and professors to UK/Canada/Gulf would require 2× training pipeline throughput to hit workforce targets.",
+      },
     ],
     sourceIds: ["unesco-literacy-nigeria", "undp-hdi-nigeria", "npc-population-projection"],
   },
@@ -356,15 +586,68 @@ export const SECTORS: Sector[] = [
       },
     ],
     assumptions: [
-      "Gas supply agreements secured for baseload generation",
-      "Renewable investment of $3B+ annually from 2028",
-      "Distribution company reforms completed",
-      "Urban planning keeps pace with population growth",
+      {
+        title: "Generation capacity build-out",
+        detail:
+          "Installed capacity rises from 13 GW to 25 GW (2030), 60 GW (2040), and 110 GW (2050); grid-delivered power reaches 12 GW → 45 GW → 85 GW as transmission bottlenecks are cleared — the gap between installed and delivered closes from ~70% loss to under 25%.",
+      },
+      {
+        title: "Gas baseload supply",
+        detail:
+          "Domestic gas supply agreements deliver 3.5+ BCF/day to power plants by 2030 via AKK pipeline completion and Niger Delta processing — gas remains 35–45% of generation mix through 2040 before renewables dominate.",
+      },
+      {
+        title: "Renewable acceleration",
+        detail:
+          "Solar and hydro grow from 18% to 30% (2030), 52% (2040), and 65% (2050) of generation — requiring $3B+ annual renewable investment from 2028 and clear PPA frameworks for private developers.",
+      },
+      {
+        title: "Distribution reform",
+        detail:
+          "DisCo financial restructuring completed by 2030 with loss reduction from 40%+ to under 20%; prepaid metering in 90% of urban connections; rural mini-grids serve 5,000+ communities by 2030 and 20,000+ by 2040.",
+      },
+      {
+        title: "Per-capita consumption",
+        detail:
+          "Per-capita electricity consumption rises from ~150 kWh/year toward 800 kWh (2040) and 2,400 kWh (2050) — still below South Africa today but sufficient for middle-income household and SME use.",
+      },
+      {
+        title: "Transport infrastructure",
+        detail:
+          "Lagos metro Line 1 operational by 2030; Lagos–Abuja high-speed rail by 2040; port automation at Apapa/Tin Can reduces cargo dwell time from weeks to days — unlocking industrial input costs assumed in economic projections.",
+      },
+      {
+        title: "Regional power trade",
+        detail:
+          "West African Power Pool integration allows Nigeria to export 2–5 GW surplus by 2050 after domestic demand is met — requiring harmonized grid codes with Ghana, Benin, and Niger.",
+      },
     ],
     risks: [
-      "Pipeline vandalism in Niger Delta",
-      "Climate change affecting hydro capacity",
-      "Underinvestment in transmission infrastructure",
+      {
+        title: "Pipeline vandalism & Delta instability",
+        detail:
+          "Gas supply interruptions could keep delivered power below 8 GW through the 2030s — the historical pattern that has blocked every prior recovery plan.",
+      },
+      {
+        title: "Transmission underinvestment",
+        detail:
+          "Generation without TCN expansion repeats today's constraint: plants idle while cities brown out. Transmission needs $2B+ annually through 2040.",
+      },
+      {
+        title: "DisCo insolvency loop",
+        detail:
+          "If tariff cost-reflectivity stalls for political reasons, private generation investment stops — freezing the sector at current ~4 GW delivered.",
+      },
+      {
+        title: "Climate impacts on hydro",
+        detail:
+          "Reduced rainfall in the Niger basin could cut Kainji/Jebba output 15–25% in drought years — requiring overbuilding solar to compensate.",
+      },
+      {
+        title: "Urban sprawl without planning",
+        detail:
+          "Lagos and Kano expanding without transit and grid planning would leave 80M+ in underserved informal settlements regardless of national GW totals.",
+      },
     ],
     sourceIds: ["iea-nigeria-energy", "agenda-2050-npc", "world-bank-nigeria-overview"],
   },
@@ -427,15 +710,78 @@ export const SECTORS: Sector[] = [
       },
     ],
     assumptions: [
-      "Community policing replaces pure militarization in civilian areas",
-      "Judicial reforms reduce impunity for all ethnic groups",
-      "Economic opportunity reduces recruitment into armed groups",
-      "Regional cooperation on cross-border terrorism",
+      {
+        title: "Community policing transition",
+        detail:
+          "By 2035, state-level community policing models (not pure military deployment) cover 25+ states. Police-to-population ratio rises from 187/100k toward 350 (2040) and 450 (2050) — still below UN recommended 500 but with better training and accountability.",
+      },
+      {
+        title: "Farmer–herder conflict reduction",
+        detail:
+          "Grazing reserves, ranching pilots, and early-warning systems reduce north-central fatalities 60%+ by 2030. Land-use planning separates agricultural and pastoral zones in six pilot states scaling nationally by 2040.",
+      },
+      {
+        title: "Kidnapping & banditry decline",
+        detail:
+          "Northwest kidnapping incidents fall 40% by 2030 and 75% by 2040 through combined kinetic operations, amnesty-with-disarmament programs, and economic alternatives in former bandit corridors.",
+      },
+      {
+        title: "Justice system throughput",
+        detail:
+          "Case backlog cut 50% by 2040 via ADR, virtual courts, and 5,000+ additional judges and magistrates. Pre-trial detention falls from 70%+ of prison population to under 40%.",
+      },
+      {
+        title: "Police accountability",
+        detail:
+          "Independent police complaint boards in all 36 states by 2035; body-worn cameras in urban units; dismissal rates for documented abuse rise 10× from 2024 baseline.",
+      },
+      {
+        title: "Economic opportunity reduces recruitment",
+        detail:
+          "Youth unemployment in conflict-affected states falls from 40%+ toward 20% as education and agro-industrial jobs scale — security improvements depend on economy and governance assumptions holding.",
+      },
+      {
+        title: "Regional counter-terrorism",
+        detail:
+          "Lake Chad and Sahel coordination with Niger, Chad, and Cameroon contains Boko Haram/ISWAP to non-population-center areas. Cross-border weapons flows reduced 50% by 2040.",
+      },
+      {
+        title: "Global Peace Index trajectory",
+        detail:
+          "GPI rank improves from bottom quartile to top 100 (2050) — 'credible baseline' means peer-comparable for lower-middle-income countries, not OECD-level peace.",
+      },
     ],
     risks: [
-      "Climate-driven resource conflicts intensifying",
-      "Weapons proliferation from regional conflicts",
-      "Justice system reforms stalling under political pressure",
+      {
+        title: "Climate-driven resource conflict",
+        detail:
+          "Desertification and Lake Chad shrinkage could expand farmer–herder competition beyond current zones — affecting 15M+ people in the Sahel belt.",
+      },
+      {
+        title: "Weapons proliferation",
+        detail:
+          "Libya/Sahel arms pipelines and local craft manufacturing could outpace disarmament — keeping bandit groups armed regardless of economic programs.",
+      },
+      {
+        title: "Justice reform stall",
+        detail:
+          "Political protection of vested interests in police and judiciary could block accountability reforms — preserving impunity and recruitment into non-state groups.",
+      },
+      {
+        title: "Militarization relapse",
+        detail:
+          "Repeated deployment of military in civilian policing without oversight reverses trust gains and increases human-rights violations documented by civil society.",
+      },
+      {
+        title: "Urban crime & cult violence",
+        detail:
+          "South-south and southeast cult and oil-theft violence could persist independently of north-focused banditry — requiring region-specific strategies not captured in national averages.",
+      },
+      {
+        title: "Election-cycle violence",
+        detail:
+          "2027, 2031, and subsequent election cycles pose spike risks; failure to professionalize security forces during transitions could reset decade-long trend lines in a single year.",
+      },
     ],
     sourceIds: ["sipri-security-africa", "undp-hdi-nigeria", "world-bank-nigeria-overview"],
   },

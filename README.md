@@ -8,6 +8,7 @@ An independent, design-forward public web app exploring Nigeria's history and cr
 
 - [Product Requirements Document](./docs/Nigeria2050_PRD.md)
 - [MVP Plan](./docs/MVP_PLAN.md)
+- [Build Plan — Phase 1 & Phase 2](./docs/BUILD_PLAN.md)
 
 ## Tech stack
 
@@ -43,9 +44,13 @@ Open [http://localhost:3500](http://localhost:3500).
 
 | Command | Description |
 |---|---|
-| `npm run dev` | Start development server |
-| `npm run build` | Production build |
+| `npm run dev` | Start dev server (Turbopack, port 3500) |
+| `npm run dev:clean` | Stop dev, wipe `.next`, restart — safe reset |
+| `npm run dev:webpack` | Dev server without Turbopack |
+| `npm run stop:dev` | Stop any process on port 3500 |
+| `npm run build` | Production build (fails if dev server is running) |
 | `npm run start` | Start production server |
+| `npm run clean` | Stop dev and delete `.next` |
 | `npm run lint` | Run ESLint |
 | `npm run typecheck` | Run TypeScript checks |
 

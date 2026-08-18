@@ -4,6 +4,7 @@ import {
   IconBook2,
   IconBooks,
   IconChartBar,
+  IconScale,
   IconTimeline,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
@@ -17,6 +18,7 @@ const NAV_LINKS: { href: string; label: string; icon: TablerIcon }[] = [
   { href: "/timeline", label: "Timeline", icon: IconTimeline },
   { href: "/sectors", label: "Sectors", icon: IconChartBar },
   { href: "/compare", label: "Now vs. 2050", icon: IconArrowsLeftRight },
+  { href: "/compare/g7", label: "Nigeria vs. G7", icon: IconScale },
   { href: "/sources", label: "Sources", icon: IconBooks },
   { href: "/glossary", label: "Glossary", icon: IconBook2 },
 ];
