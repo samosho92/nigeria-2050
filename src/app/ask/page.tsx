@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { PlaceholderPanel } from "@/components/ui/PlaceholderPanel";
+import { AskArchiveChat } from "@/components/ask/AskArchiveChat";
 
 export const metadata: Metadata = {
   title: "Ask the Archive",
@@ -13,12 +13,11 @@ export default function AskPage() {
     <Container size="narrow" className="py-16">
       <PageHeader
         title="Ask the Archive"
-        description="RAG-scoped AI chat grounded in the site's own sourced content — not open-ended speculation."
+        description="A conversational guide into our curated content — not a general-purpose chatbot. Every answer links back to sourced material."
       />
-      <PlaceholderPanel>
-        AI chat API and UI ship in MVP Sprint 6. Requires content library to be
-        populated first.
-      </PlaceholderPanel>
+      <div className="mt-10">
+        <AskArchiveChat />
+      </div>
     </Container>
   );
 }

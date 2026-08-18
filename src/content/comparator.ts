@@ -1,0 +1,68 @@
+import type { ComparatorMetric } from "@/types/content";
+
+export const COMPARATOR_METRICS: ComparatorMetric[] = [
+  {
+    id: "gdp-per-capita",
+    label: "GDP per Capita",
+    unit: "USD",
+    current: 2200,
+    projected2050: 12500,
+    sourceId: "world-bank-nigeria-overview",
+  },
+  {
+    id: "literacy-rate",
+    label: "Adult Literacy Rate",
+    unit: "%",
+    current: 62,
+    projected2050: 94,
+    sourceId: "unesco-literacy-nigeria",
+  },
+  {
+    id: "power-capacity",
+    label: "Installed Power Capacity",
+    unit: "GW",
+    current: 13,
+    projected2050: 85,
+    sourceId: "iea-nigeria-energy",
+  },
+  {
+    id: "internet-penetration",
+    label: "Internet Penetration",
+    unit: "%",
+    current: 55,
+    projected2050: 98,
+    sourceId: "gsma-nigeria-digital",
+  },
+  {
+    id: "manufacturing-gdp",
+    label: "Manufacturing Share of GDP",
+    unit: "%",
+    current: 9,
+    projected2050: 22,
+    sourceId: "afdb-industrialization",
+  },
+  {
+    id: "tertiary-enrollment",
+    label: "Tertiary Enrollment Rate",
+    unit: "%",
+    current: 12,
+    projected2050: 45,
+    sourceId: "undp-hdi-nigeria",
+  },
+  {
+    id: "renewable-energy",
+    label: "Renewable Energy Share",
+    unit: "%",
+    current: 18,
+    projected2050: 65,
+    sourceId: "iea-nigeria-energy",
+  },
+  {
+    id: "population",
+    label: "Population",
+    unit: "M",
+    current: 230,
+    projected2050: 400,
+    sourceId: "npc-population-projection",
+  },
+];

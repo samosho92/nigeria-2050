@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { PlaceholderPanel } from "@/components/ui/PlaceholderPanel";
+import { GLOSSARY } from "@/content/glossary";
 
 export const metadata: Metadata = {
   title: "Glossary",
@@ -13,11 +13,20 @@ export default function GlossaryPage() {
     <Container size="narrow" className="py-16">
       <PageHeader
         title="Glossary"
-        description="Terms surfaced inline across the site with plain-language definitions."
+        description="Plain-language definitions for terms used across sector pages and the timeline. Built for the curious newcomer."
       />
-      <PlaceholderPanel>
-        Glossary content and inline surfacing ship in MVP Sprint 5.
-      </PlaceholderPanel>
+      <dl className="mt-12 space-y-6">
+        {GLOSSARY.map((term) => (
+          <div
+            key={term.term}
+            id={term.term}
+            className="scroll-mt-24 rounded-xl border border-border bg-card p-6"
+          >
+            <dt className="text-lg font-bold text-accent">{term.term}</dt>
+            <dd className="mt-2 text-muted-foreground">{term.definition}</dd>
+          </div>
+        ))}
+      </dl>
     </Container>
   );
 }

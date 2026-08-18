@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IconArrowLeft } from "@tabler/icons-react";
-import { Badge } from "@/components/ui/Badge";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Container } from "@/components/ui/Container";
-import { SECTORS } from "@/lib/constants/sectors";
+import { AssumptionsPanel } from "@/components/ui/AssumptionsPanel";
+import { MotifDivider } from "@/components/ui/MotifDivider";
+import { Section } from "@/components/ui/Section";
+import { SourcePanel } from "@/components/ui/SourceCitation";
+import { DataChart } from "@/components/sectors/DataChart";
+import { HowWeGotHere } from "@/components/sectors/HowWeGotHere";
+import { MilestoneTimeline } from "@/components/sectors/MilestoneTimeline";
+import { SectorHero } from "@/components/sectors/SectorHero";
+import { FadeIn } from "@/components/motion";
+import { getSectorBySlug, getSourcesByIds, SECTORS } from "@/lib/content";
 
 interface SectorPageProps {
   params: Promise<{ slug: string }>;
@@ -17,54 +23,57 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: SectorPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const sector = SECTORS.find((s) => s.slug === slug);
+  const sector = getSectorBySlug(slug);
   if (!sector) return { title: "Sector Not Found" };
-  return {
-    title: sector.title,
-    description: sector.tagline,
-  };
+  return { title: sector.title, description: sector.tagline };
 }
 
 export default async function SectorPage({ params }: SectorPageProps) {
   const { slug } = await params;
-  const sector = SECTORS.find((s) => s.slug === slug);
-
+  const sector = getSectorBySlug(slug);
   if (!sector) notFound();
 
+  const sources = getSourcesByIds(sector.sourceIds);
+
   return (
-    <Container size="narrow" className="py-16">
-      <Link
-        href="/sectors"
-        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition hover:text-foreground"
-      >
-        <IconArrowLeft className="size-4" stroke={1.5} aria-hidden />
-        All sectors
-      </Link>
-      <h1 className="mt-6 text-3xl font-bold md:text-4xl">{sector.title}</h1>
-      <p className="mt-4 text-lg text-muted-foreground">{sector.tagline}</p>
+    <div>
+      <Section>
+        <Link
+          href="/sectors"
+          className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition hover:text-foreground"
+        >
+          <IconArrowLeft className="size-4" stroke={1.5} aria-hidden />
+          All sectors
+        </Link>
+        <SectorHero sector={sector} />
+      </Section>
 
-      <div className="mt-12 space-y-8">
-        <Card className="border-dashed">
-          <CardContent className="pt-6">
-            <Badge variant="muted" className="mb-3">
-              MVP Placeholder
-            </Badge>
-            <p className="text-muted-foreground">
-              Full sector page template (2050 vision, baseline data, 2030/2040/2050
-              milestones, &ldquo;How we got here&rdquo; module, data viz, sourcing panel,
-              assumptions/risks) will be built in MVP Sprint 2–3 per the plan in{" "}
-              <code>docs/MVP_PLAN.md</code>.
-            </p>
-          </CardContent>
-        </Card>
+      <Section variant="surface">
+        <FadeIn>
+          <h2 className="mb-6 text-2xl font-bold">Current Baseline</h2>
+          <DataChart data={sector.baseline} title="Where Nigeria stands today" />
+        </FadeIn>
+      </Section>
 
-        <section>
-          <h2 className="text-xl font-bold">How We Got Here</h2>
-          <p className="mt-2 text-muted-foreground">
-            Historical waypoints cross-linked from the timeline — ships at MVP.
-          </p>
-        </section>
-      </div>
-    </Container>
+      <Section>
+        <h2 className="mb-10 text-2xl font-bold">The Road to 2050</h2>
+        <MilestoneTimeline projections={sector.projections} />
+      </Section>
+
+      <MotifDivider />
+
+      <Section variant="muted">
+        <HowWeGotHere waypoints={sector.historicalWaypoints} />
+      </Section>
+
+      <Section>
+        <h2 className="mb-6 text-2xl font-bold">Scenario Assumptions & Risks</h2>
+        <AssumptionsPanel assumptions={sector.assumptions} risks={sector.risks} />
+      </Section>
+
+      <Section variant="surface">
+        <SourcePanel sources={sources} />
+      </Section>
+    </div>
   );
 }

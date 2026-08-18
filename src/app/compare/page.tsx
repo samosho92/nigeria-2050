@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { PlaceholderPanel } from "@/components/ui/PlaceholderPanel";
+import { MorphSlider } from "@/components/compare/MorphSlider";
+import { SourcePanel } from "@/components/ui/SourceCitation";
+import { COMPARATOR_METRICS } from "@/content/comparator";
+import { getSourcesByIds } from "@/content/sources";
 
 export const metadata: Metadata = {
   title: "Now vs. 2050",
@@ -9,16 +12,21 @@ export const metadata: Metadata = {
 };
 
 export default function ComparePage() {
+  const sourceIds = [...new Set(COMPARATOR_METRICS.map((m) => m.sourceId))];
+  const sources = getSourcesByIds(sourceIds);
+
   return (
     <Container size="narrow" className="py-16">
       <PageHeader
         title="Nigeria Now vs. Nigeria 2050"
-        description="Side-by-side comparator across GDP per capita, literacy, power capacity, security indices, and more — with the signature morph slider."
+        description="Drag the morph slider to travel through time. Every metric is sourced — optimistic, not naive."
       />
-      <PlaceholderPanel>
-        Morph slider and animated stat reveals ship in MVP Sprint 4. See{" "}
-        <code>docs/MVP_PLAN.md</code>.
-      </PlaceholderPanel>
+      <div className="mt-12">
+        <MorphSlider metrics={COMPARATOR_METRICS} />
+      </div>
+      <div className="mt-12">
+        <SourcePanel sources={sources} title="Comparator Data Sources" />
+      </div>
     </Container>
   );
 }

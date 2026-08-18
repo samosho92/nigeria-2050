@@ -21,7 +21,7 @@ export default function SectorsPage() {
         {SECTORS.map((sector) => (
           <li key={sector.slug}>
             <Link href={`/sectors/${sector.slug}`}>
-              <Card className="transition hover:border-secondary">
+              <Card className="transition hover:border-accent">
                 <CardHeader>
                   <CardTitle className="text-lg">{sector.title}</CardTitle>
                   <p className="text-sm text-muted-foreground">{sector.tagline}</p>

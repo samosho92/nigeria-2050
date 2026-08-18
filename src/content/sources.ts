@@ -1,0 +1,123 @@
+import type { Source } from "@/types/content";
+
+export const SOURCES: Source[] = [
+  {
+    id: "world-bank-nigeria-overview",
+    title: "Nigeria Economic Overview",
+    publisher: "World Bank",
+    year: 2024,
+    url: "https://www.worldbank.org/en/country/nigeria/overview",
+  },
+  {
+    id: "nbs-gdp-report-2024",
+    title: "Nigerian Gross Domestic Product Report Q4 2024",
+    publisher: "National Bureau of Statistics (NBS)",
+    year: 2025,
+    url: "https://www.nigerianstat.gov.ng",
+  },
+  {
+    id: "mckinsey-nigeria-2050",
+    title: "Nigeria's Path to Prosperity: Agenda 2050 Scenarios",
+    publisher: "McKinsey Global Institute",
+    year: 2023,
+    url: "https://www.mckinsey.com",
+  },
+  {
+    id: "pwc-nigeria-2050",
+    title: "Nigeria in 2050: The Long View",
+    publisher: "PwC",
+    year: 2024,
+    url: "https://www.pwc.com/ng",
+  },
+  {
+    id: "undp-hdi-nigeria",
+    title: "Human Development Report — Nigeria",
+    publisher: "UNDP",
+    year: 2024,
+    url: "https://hdr.undp.org",
+  },
+  {
+    id: "unesco-literacy-nigeria",
+    title: "Literacy Rates — Sub-Saharan Africa",
+    publisher: "UNESCO Institute for Statistics",
+    year: 2023,
+    url: "https://uis.unesco.org",
+  },
+  {
+    id: "iea-nigeria-energy",
+    title: "Nigeria Energy Outlook",
+    publisher: "International Energy Agency",
+    year: 2024,
+    url: "https://www.iea.org",
+  },
+  {
+    id: "gsma-nigeria-digital",
+    title: "The Mobile Economy: Nigeria",
+    publisher: "GSMA",
+    year: 2024,
+    url: "https://www.gsma.com",
+  },
+  {
+    id: "transparency-corruption-index",
+    title: "Corruption Perceptions Index",
+    publisher: "Transparency International",
+    year: 2024,
+    url: "https://www.transparency.org",
+  },
+  {
+    id: "world-bank-doing-business",
+    title: "Ease of Doing Business — Historical Data",
+    publisher: "World Bank",
+    year: 2020,
+    url: "https://archive.doingbusiness.org",
+  },
+  {
+    id: "sipri-security-africa",
+    title: "Armed Conflict Survey — West Africa",
+    publisher: "SIPRI",
+    year: 2024,
+    url: "https://www.sipri.org",
+  },
+  {
+    id: "npc-population-projection",
+    title: "Population Projection for Nigeria 2023–2050",
+    publisher: "National Population Commission",
+    year: 2023,
+    url: "https://nationalpopulation.gov.ng",
+  },
+  {
+    id: "afdb-industrialization",
+    title: "Industrialization Strategy for Africa — Nigeria Case Study",
+    publisher: "African Development Bank",
+    year: 2023,
+    url: "https://www.afdb.org",
+  },
+  {
+    id: "heritage-economic-freedom",
+    title: "Index of Economic Freedom — Nigeria",
+    publisher: "Heritage Foundation",
+    year: 2024,
+    url: "https://www.heritage.org",
+  },
+  {
+    id: "cbo-nigeria-history",
+    title: "Colonial and Post-Colonial Nigeria: A Historical Overview",
+    publisher: "Cambridge University Press (academic reference)",
+    year: 2022,
+  },
+  {
+    id: "agenda-2050-npc",
+    title: "Nigeria Agenda 2050: Making Nigeria a Top-20 Economy",
+    publisher: "National Planning Commission",
+    year: 2022,
+    url: "https://nationalplanning.gov.ng",
+  },
+];
+
+export function getSourceById(id: string): Source | undefined {
+  return SOURCES.find((s) => s.id === id);
+}
+
+export function getSourcesByIds(ids: string[]): Source[] {
+  return ids.map((id) => getSourceById(id)).filter(Boolean) as Source[];
+}

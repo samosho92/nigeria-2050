@@ -25,10 +25,11 @@ An independent, design-forward public web app exploring Nigeria's history and cr
 
 ## Design system
 
-All colors, fonts, and radii live in `src/app/globals.css` as CSS custom properties — components use semantic tokens only (`bg-background`, `text-foreground`, `bg-primary`, etc.). Never hardcode hex values or font families in components.
+All colors, fonts, and radii live in `src/app/globals.css` as CSS custom properties — components use semantic tokens only (`bg-background`, `text-foreground`, `bg-primary`, `text-accent`, etc.). Never hardcode hex values or font families in components.
 
-- **Dark mode** (default): Lagos night palette per PRD
-- **Light mode**: Warm earth-tone alternative
+- **Accent:** Nigerian flag green (`#008751`) across both themes
+- **Light mode:** White and soft green-tinted backgrounds with deep green text
+- **Dark mode:** Deep green backgrounds with white and mint foreground tones
 - Toggle via the header theme control (respects system preference)
 
 ## Getting started

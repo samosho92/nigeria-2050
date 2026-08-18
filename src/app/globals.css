@@ -1,81 +1,98 @@
 @import "tailwindcss";
 
+/* ─── Brand palette (single source of truth) ──────────────────────────────── */
+:root {
+  --radius: 0.625rem;
+
+  /* Nigerian flag green + white, extended into a full scale */
+  --brand-green-950: #041a10;
+  --brand-green-900: #052e16;
+  --brand-green-800: #0a4d2e;
+  --brand-green-700: #008751;
+  --brand-green-600: #00a063;
+  --brand-green-500: #14b87a;
+  --brand-green-400: #4dd4a0;
+  --brand-green-300: #86e4be;
+  --brand-green-200: #c4f0dc;
+  --brand-green-100: #e6f9ef;
+  --brand-green-50: #f3fcf7;
+
+  --brand-white: #ffffff;
+  --brand-white-soft: #f8fbf9;
+  --brand-white-green: #f3f8f5;
+}
+
 /* ─── Design tokens: light theme ─────────────────────────────────────────── */
 :root,
 [data-theme="light"] {
-  --background: #faf8f5;
-  --foreground: #1a1a2e;
+  --background: var(--brand-white-green);
+  --foreground: var(--brand-green-950);
 
-  --card: #ffffff;
-  --card-foreground: #1a1a2e;
+  --card: var(--brand-white);
+  --card-foreground: var(--brand-green-950);
 
-  --surface: #f5f2ed;
-  --surface-elevated: #ffffff;
+  --surface: var(--brand-green-50);
+  --surface-elevated: var(--brand-white);
 
-  --muted: #ebe6de;
-  --muted-foreground: #5c5c6f;
+  --muted: var(--brand-green-100);
+  --muted-foreground: var(--brand-green-800);
 
-  --border: #e2dcd3;
-  --input: #e2dcd3;
-  --ring: #1e3a5f;
+  --border: var(--brand-green-200);
+  --input: var(--brand-green-200);
+  --ring: var(--brand-green-700);
 
-  --primary: #c45c3e;
-  --primary-foreground: #ffffff;
-  --primary-hover: #a04a32;
+  --primary: var(--brand-green-700);
+  --primary-foreground: var(--brand-white);
+  --primary-hover: var(--brand-green-800);
 
-  --secondary: #1e3a5f;
-  --secondary-foreground: #ffffff;
-  --secondary-hover: #2d5a8a;
+  --secondary: var(--brand-white);
+  --secondary-foreground: var(--brand-green-900);
+  --secondary-hover: var(--brand-green-100);
 
-  --accent: #b8860b;
-  --accent-foreground: #1a1a2e;
-  --accent-muted: #d4a017;
+  --accent: var(--brand-green-700);
+  --accent-foreground: var(--brand-white);
+  --accent-muted: var(--brand-green-400);
 
-  --code: #8b6914;
+  --code: var(--brand-green-800);
 
-  --header-background: rgb(250 248 245 / 0.9);
-  --hero-gradient-from: rgb(30 58 95 / 0.12);
+  --header-background: rgb(243 248 245 / 0.92);
+  --hero-gradient-from: rgb(0 135 81 / 0.14);
 }
 
-/* ─── Design tokens: dark theme (PRD default) ─────────────────────────────── */
+/* ─── Design tokens: dark theme ───────────────────────────────────────────── */
 [data-theme="dark"] {
-  --background: #0a0e17;
-  --foreground: #f0f2f5;
+  --background: var(--brand-green-950);
+  --foreground: var(--brand-white-soft);
 
-  --card: #121826;
-  --card-foreground: #f0f2f5;
+  --card: var(--brand-green-900);
+  --card-foreground: var(--brand-white-soft);
 
-  --surface: #121826;
-  --surface-elevated: #1a2234;
+  --surface: var(--brand-green-900);
+  --surface-elevated: var(--brand-green-800);
 
-  --muted: #1a2234;
-  --muted-foreground: #a8b2c1;
+  --muted: var(--brand-green-900);
+  --muted-foreground: var(--brand-green-300);
 
-  --border: #2a3548;
-  --input: #2a3548;
-  --ring: #2d5a8a;
+  --border: var(--brand-green-800);
+  --input: var(--brand-green-800);
+  --ring: var(--brand-green-500);
 
-  --primary: #c45c3e;
-  --primary-foreground: #ffffff;
-  --primary-hover: #a04a32;
+  --primary: var(--brand-green-700);
+  --primary-foreground: var(--brand-white);
+  --primary-hover: var(--brand-green-600);
 
-  --secondary: #2d5a8a;
-  --secondary-foreground: #f0f2f5;
-  --secondary-hover: #3d6ea8;
+  --secondary: var(--brand-green-800);
+  --secondary-foreground: var(--brand-white-soft);
+  --secondary-hover: var(--brand-green-700);
 
-  --accent: #e8b84a;
-  --accent-foreground: #0a0e17;
-  --accent-muted: #f5d78e;
+  --accent: var(--brand-green-700);
+  --accent-foreground: var(--brand-white);
+  --accent-muted: var(--brand-green-400);
 
-  --code: #f5d78e;
+  --code: var(--brand-green-300);
 
-  --header-background: rgb(10 14 23 / 0.9);
-  --hero-gradient-from: rgb(30 58 95 / 0.2);
-}
-
-/* ─── Shared primitives ───────────────────────────────────────────────────── */
-:root {
-  --radius: 0.625rem;
+  --header-background: rgb(4 26 16 / 0.92);
+  --hero-gradient-from: rgb(0 135 81 / 0.22);
 }
 
 /* ─── Tailwind theme bridge (semantic only — no hardcoded values in components) */
@@ -162,5 +179,41 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Era portal art-direction backgrounds */
+  .era-pre-colonial {
+    background: linear-gradient(135deg, var(--muted) 0%, var(--surface) 100%);
+  }
+  .era-colonial {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--muted) 100%);
+    filter: saturate(0.7);
+  }
+  .era-independence {
+    background: linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--accent) 15%, var(--surface)) 100%);
+  }
+  .era-conflict {
+    background: linear-gradient(135deg, var(--muted) 0%, var(--surface-elevated) 100%);
+    filter: saturate(0.6);
+  }
+  .era-military {
+    background: linear-gradient(180deg, var(--surface-elevated) 0%, var(--muted) 100%);
+    filter: saturate(0.5);
+  }
+  .era-democracy {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--surface)) 0%, var(--card) 100%);
+  }
+  .era-reform {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, var(--surface)) 0%, var(--surface-elevated) 100%);
+  }
+
+  .era-portal-pattern {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 12px,
+      color-mix(in srgb, var(--accent) 8%, transparent) 12px,
+      color-mix(in srgb, var(--accent) 8%, transparent) 24px
+    );
   }
 }
