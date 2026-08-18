@@ -270,6 +270,25 @@
     animation: page-hero-watermark 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
+  .nigeria-map-stage {
+    perspective: 1400px;
+    perspective-origin: 50% 110%;
+  }
+
+  .nigeria-map-scene {
+    transform: rotateX(48deg) rotateZ(-12deg) scale(1.04);
+    transform-origin: 50% 58%;
+    transform-style: preserve-3d;
+  }
+
+  .nigeria-map-scene-flat {
+    transform: none;
+  }
+
+  html[data-saver="true"] .nigeria-map-scene {
+    transform: none;
+  }
+
   @keyframes page-hero-watermark {
     from {
       opacity: 0;
@@ -288,6 +307,10 @@
 
     .page-hero-watermark {
       animation: none;
+    }
+
+    .nigeria-map-scene {
+      transform: none;
     }
   }
 }
