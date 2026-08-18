@@ -6,7 +6,7 @@ import { ProjectCard } from "@/components/projects/ProjectCard";
 import { ProjectSubmitForm } from "@/components/projects/ProjectSubmitForm";
 import { useMounted } from "@/hooks/useMounted";
 import { trackEvent } from "@/lib/analytics";
-import { isValidClientId, PROJECT_CLIENT_KEY, PROJECT_SUBMISSIONS_KEY, PROJECT_VOTES_KEY, type ProjectTally, type ProjectVote, type ProjectVoteMap } from "@/lib/projects";
+import { hasProjectMock, isValidClientId, PROJECT_CLIENT_KEY, PROJECT_SUBMISSIONS_KEY, PROJECT_VOTES_KEY, type ProjectTally, type ProjectVote, type ProjectVoteMap } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 import type { CoolProject } from "@/types/content";
 
@@ -128,6 +128,9 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
         : projects.filter((project) => project.sectorSlugs.includes(sectorFilter));
 
     return [...filtered].sort((a, b) => {
+      const mockPin = Number(hasProjectMock(b)) - Number(hasProjectMock(a));
+      if (mockPin !== 0) return mockPin;
+
       if (sort === "newest") {
         const aTime = a.submittedAt ?? "";
         const bTime = b.submittedAt ?? "";

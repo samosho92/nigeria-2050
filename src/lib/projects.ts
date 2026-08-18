@@ -19,6 +19,10 @@ export function projectScore(tally: ProjectTally | undefined): number {
   return tally.up - tally.down;
 }
 
+export function hasProjectMock(project: CoolProject): boolean {
+  return Boolean(project.mockHref);
+}
+
 export function getEditorialProjects(): CoolProject[] {
   return COOL_PROJECTS;
 }

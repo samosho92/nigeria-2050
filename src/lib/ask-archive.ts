@@ -2,6 +2,7 @@ import { GLOSSARY } from "@/content/glossary";
 import { ICONS } from "@/content/icons";
 import { COOL_PROJECTS } from "@/content/projects";
 import { POSTAL_CODE_SCHEME } from "@/content/postal-code-engine";
+import { LIBRARY_STANDARD } from "@/content/public-libraries";
 import { ROAD_SIGN_STANDARD } from "@/content/road-signs";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
@@ -63,6 +64,13 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
     text: `Road-sign campaign mock. National shape book ${ROAD_SIGN_STANDARD.name}: speed limits 50/80/100, stop, yield, school zone, kilometre markers. Seed corridors between capitals (Lagos–Ibadan, Abuja–Kaduna, Kaduna–Kano, Enugu–Port Harcourt, Kano–Maiduguri). Installed, missing, or damaged — not a speed-camera programme. Not FRSC inventory.`,
     title: "Road-sign campaign",
     href: "/projects/road-signs",
+    type: "project" as const,
+  },
+  {
+    id: "project-public-libraries-floor",
+    text: `Public library floor mock. National standard ${LIBRARY_STANDARD.name}: rural floor ${LIBRARY_STANDARD.ruralFloorKm} km, then urban densify within ${LIBRARY_STANDARD.urbanWalkKm} km or one branch per 50,000 people. Minimum kit: children’s section, study seats, working toilets, electricity, a librarian, wifi. Seed systems in Abuja, Ikeja, Kano, Enugu, Port Harcourt, Maiduguri, Makurdi, Yenagoa. A title in Makurdi can be requested in Maiduguri. Not a National Library inventory.`,
+    title: "Public library floor",
+    href: "/projects/public-libraries",
     type: "project" as const,
   },
   ...GLOSSARY.map((g) => ({

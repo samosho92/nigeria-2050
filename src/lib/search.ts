@@ -75,6 +75,13 @@ const searchItems: SearchResult[] = [
     href: "/projects/road-signs",
   },
   {
+    id: "public-library-floor",
+    type: "project" as const,
+    title: "Public library floor",
+    description: "Mock: 100 km rural floor, urban densify, minimum kit, national catalogue",
+    href: "/projects/public-libraries",
+  },
+  {
     id: "g7-compare",
     type: "sector" as const,
     title: "Nigeria vs. G7",

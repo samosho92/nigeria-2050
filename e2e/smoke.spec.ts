@@ -33,7 +33,7 @@ test.describe("critical paths", () => {
     await page.goto("/projects");
     await expect(page.getByRole("heading", { name: "Cool Projects" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /postal code/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /open the mock/i })).toHaveCount(2);
+    await expect(page.getByRole("link", { name: /open the mock/i })).toHaveCount(3);
   });
 
   test("postal code mock starts from capital cities", async ({ page }) => {
@@ -50,6 +50,14 @@ test.describe("critical paths", () => {
     await expect(page.getByRole("heading", { name: /road-sign campaign/i })).toBeVisible();
     await expect(page.getByRole("heading", { name: /Lagos–Ibadan Expressway/i })).toBeVisible();
     await expect(page.getByText("NG-R-STOP")).toBeVisible();
+  });
+
+  test("library mock shows a capital catchment", async ({ page }) => {
+    await page.goto("/projects/public-libraries");
+    await expect(page.getByRole("heading", { name: /public library within 100 km/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Abuja/i })).toBeVisible();
+    await expect(page.getByText("Children’s section").first()).toBeVisible();
+    await expect(page.getByText("Things Fall Apart")).toBeVisible();
   });
 
   test("correction API accepts valid payload", async ({ request }) => {

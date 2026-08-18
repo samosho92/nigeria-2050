@@ -13,7 +13,7 @@
 | **Phase 2** | Expand content, localization, AI depth, engagement | ⚠️ **Content + engagement mostly shipped** (Icons, Cool Projects, Ask API) · i18n, audio, commissioned art, WebGL, CMS **deferred** |
 | **Phase 3** | Commercialization (licensing, membership, white-label) | 🔮 Not started |
 
-**What is live in the repo today:** 13 sectors, 26 timeline entries, 38 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (26 editorial ideas + vote/submit, plus postal-code and road-sign mocks), correction form, home map, 5 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
+**What is live in the repo today:** 13 sectors, 26 timeline entries, 38 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (26 editorial ideas + vote/submit, plus postal-code, road-sign, and public-library mocks), correction form, home map, 5 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
 
 ---
 
@@ -43,7 +43,7 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 | Nigeria vs. G7 | `/compare/g7` | Same-indicator, same-year benchmarks (Phase 2 addition) |
 | Your Nigeria 2050 | `/your-2050` | Client-side grounded vignette; display names sanitized (Phase 2 addition) |
 | Icons of Nigeria | `/icons` | 150 sourced figures, Wikimedia portraits, no sitting officeholders, no AI likenesses |
-| Cool Projects | `/projects` | 26 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`) |
+| Cool Projects | `/projects` | 26 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`), public libraries (`/projects/public-libraries`) |
 | Ask the Archive | `/ask` | Server-side retrieval (`POST /api/ask`), sourced answers, expanded guardrails |
 | Source library | `/sources` | Sector + era filters (38 editorial sources; icon citations listed per figure) |
 | Glossary | `/glossary` | Terms + inline `AutoGlossary` |
@@ -104,7 +104,7 @@ Unchanged from Phase 1 — **none of this is done.** Content expansion does not 
   - `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` → optional analytics
   - `CORRECTIONS_WEBHOOK_URL` → optional (correction form logs in development without it)
   - `PROJECTS_WEBHOOK_URL` → optional (Cool Projects submissions)
-- [ ] Smoke-test all routes on production URL (include `/icons`, `/projects`, `/projects/postal-codes`, `/projects/road-signs`, `/privacy`, `/ask`)
+- [ ] Smoke-test all routes on production URL (include `/icons`, `/projects`, `/projects/postal-codes`, `/projects/road-signs`, `/projects/public-libraries`, `/privacy`, `/ask`)
 - [ ] Confirm OG image, sitemap, and `robots.txt` disallow of `/api/` + `/editorial/` on production domain
 
 ### QA (owner: product)

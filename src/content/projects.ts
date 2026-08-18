@@ -35,6 +35,7 @@ export const COOL_PROJECTS: CoolProject[] = [
     inspiredBy: "Finland’s library law, UK public library network, Carnegie libraries",
     sectorSlugs: ["education", "technology", "creative-economy", "governance"],
     source: "editorial",
+    mockHref: "/projects/public-libraries",
   },
   {
     id: "emergency-112",

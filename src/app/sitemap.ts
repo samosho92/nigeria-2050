@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/projects`, changeFrequency: "weekly", priority: 0.75 },
     { url: `${base}/projects/postal-codes`, changeFrequency: "monthly", priority: 0.55 },
     { url: `${base}/projects/road-signs`, changeFrequency: "monthly", priority: 0.55 },
+    { url: `${base}/projects/public-libraries`, changeFrequency: "monthly", priority: 0.55 },
     { url: `${base}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, changeFrequency: "yearly", priority: 0.3 },
     ...SECTORS.map((s) => ({
