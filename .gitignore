@@ -35,6 +35,5 @@ yarn-error.log*
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# face-crop model (downloaded by scripts/crop-icon-faces.py)
+/scripts/models/

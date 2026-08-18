@@ -19,7 +19,7 @@ import { Badge } from "@/components/ui/Badge";
 import { LinkButton } from "@/components/ui/LinkButton";
 
 const WELCOME_MESSAGE =
-  "I'm the Archive guide. Ask me about Nigerian history or our 2050 sector projections. I only answer from Naija2050's curated, sourced content.";
+  "I'm the Archive guide. Ask me about Nigerian history, the people on our Icons page, or our 2050 sector projections. I only answer from Naija2050's curated, sourced content.";
 
 interface Message {
   role: "user" | "assistant";

@@ -8,4 +8,5 @@ export {
   getEraById,
 } from "@/content/timeline";
 export { GLOSSARY, getGlossaryTerm } from "@/content/glossary";
+export { ICONS, getIconById } from "@/content/icons";
 export { COMPARATOR_METRICS } from "@/content/comparator";

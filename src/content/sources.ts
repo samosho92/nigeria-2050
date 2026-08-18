@@ -1,5 +1,6 @@
 import type { Source } from "@/types/content";
 import { PHASE2_RAW_SOURCES, PHASE2_SOURCE_META } from "./phase2/sources";
+import { ICON_SOURCES } from "./icons";
 
 const RAW_SOURCES: Source[] = [
   {
@@ -224,10 +225,13 @@ const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
   ...PHASE2_SOURCE_META,
 };
 
-export const SOURCES: Source[] = RAW_SOURCES.map((source) => ({
-  ...source,
-  ...SOURCE_META[source.id],
-}));
+export const SOURCES: Source[] = [
+  ...RAW_SOURCES.map((source) => ({
+    ...source,
+    ...SOURCE_META[source.id],
+  })),
+  ...ICON_SOURCES,
+];
 
 export function getSourceById(id: string): Source | undefined {
   return SOURCES.find((s) => s.id === id);

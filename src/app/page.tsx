@@ -7,6 +7,7 @@ import {
   IconTimeline,
 } from "@tabler/icons-react";
 import { HomeHero } from "@/components/home/HomeHero";
+import { HomeIconsTeaser } from "@/components/home/HomeIconsTeaser";
 import { NigeriaMapBeta } from "@/components/explore/NigeriaMapBeta";
 import {
   Card,
@@ -50,13 +51,17 @@ export default function HomePage() {
                   The Nigeria Story
                 </CardTitle>
                 <CardDescription>
-                  {CONTENT_STATS.eraCount} eras · {CONTENT_STATS.timelineEntryCount} entries ·
-                  scrollytelling spine with sector cross-links.
+                  {CONTENT_STATS.eraCount} eras · {CONTENT_STATS.timelineEntryCount} entries ·{" "}
+                  {CONTENT_STATS.iconCount} icons · scrollytelling spine with sector cross-links.
                 </CardDescription>
               </CardHeader>
-              <CardFooter>
+              <CardFooter className="flex flex-wrap gap-4">
                 <LinkButton href="/timeline" variant="link">
                   View timeline
+                  <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
+                </LinkButton>
+                <LinkButton href="/icons" variant="link">
+                  View icons
                   <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
                 </LinkButton>
               </CardFooter>
@@ -86,6 +91,10 @@ export default function HomePage() {
       </Section>
 
       <MotifDivider />
+
+      <Section>
+        <HomeIconsTeaser />
+      </Section>
 
       <Section>
         <h2 className="text-2xl font-bold md:text-3xl">All Sector Visions</h2>

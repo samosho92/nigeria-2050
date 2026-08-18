@@ -2,8 +2,10 @@
 ## Working Title: **Naija2050** — "Where Nigeria's History Meets Its Future"
 
 **Author:** Samuel Osho
-**Status:** Draft v2
-**Last updated:** August 17, 2026
+**Status:** Draft v2 (product spec) · implementation tracked in [BUILD_PLAN.md](./BUILD_PLAN.md)
+**Last updated:** August 18, 2026
+
+**Implementation (Aug 18, 2026):** Phase 1 engineering is complete. Phase 2 content and engagement largely shipped **before** production launch (13 sectors, G7 comparator, Your Nigeria 2050, correction form, home map, 5 quizzes). Launch is still blocked on historian/economist review and Vercel deploy. **Deferred:** Hausa/Yoruba/Igbo, TTS audio, commissioned era illustration, React Three Fiber map, headless CMS, public API. See [BUILD_PLAN.md](./BUILD_PLAN.md) and [MVP_PLAN.md](./MVP_PLAN.md).
 
 ---
 
@@ -65,7 +67,9 @@ Six flagship sectors at launch, each following the template in Section 8:
 5. **Technology & Innovation** — the Lagos/Abuja tech ecosystem, fintech, digital infrastructure
 6. **Energy & Infrastructure** — power grid reliability, renewable transition, transport and urban infrastructure
 
-**Phase 2 sectors:** Healthcare, Agriculture & Food Security, Creative Economy (Nollywood/Afrobeats/gaming), Manufacturing & Industrialization, Financial Inclusion.
+**Phase 2 sectors (original spec):** Healthcare, Agriculture & Food Security, Creative Economy (Nollywood/Afrobeats/gaming), Manufacturing & Industrialization, Financial Inclusion.
+
+**Implementation note:** those five plus **Transportation** and **Real Estate & Housing** are live in the repo (13 sectors total). Editorial `pending-review` remains on several, including the two additions.
 
 ---
 
@@ -284,7 +288,10 @@ Recommendation: a visible, dated **editorial methodology page** plus a feedback/
 
 ## 19. Suggested Roadmap
 
-- **Phase 0 (now):** Finalize sector list, source list per sector, full timeline era list, and the core component design system (Section 8).
-- **Phase 1 (MVP):** 6 sector pages + full interactive history timeline with bidirectional cross-linking + comparator widget + source library + core signature UI components (era portals, scrollytelling spine, animated data reveals, morph slider) + "Ask the Archive" and AI-generated era illustration, English only, no community features.
-- **Phase 2:** Multilingual (Hausa, Yoruba, Igbo), remaining 5 sectors, personalized "Your Nigeria 2050" generator, AI audio narration, quizzes/engagement features, lightweight community submission/correction flow, 3D/WebGL centerpiece if not shipped at MVP.
-- **Phase 3:** Commercialization expansion (licensing, sponsorships per Section 12's sequencing), partnerships (diaspora orgs, schools), potential native app, white-label platform exploration.
+Status as of August 18, 2026. Detail and deferred backlog: [BUILD_PLAN.md](./BUILD_PLAN.md).
+
+- **Phase 0:** ✅ Finalize sector list, source list per sector, full timeline era list, and the core component design system (Section 8).
+- **Phase 1 (MVP):** ✅ **Built** — 6 sector pages + full interactive history timeline with bidirectional cross-linking + comparator widget + source library + core signature UI components (era portals, scrollytelling spine, animated data reveals, morph slider) + "Ask the Archive" and abstract era illustration, English only. ⚠️ **Not launched** — production deploy and subject-matter review still open. No community accounts (correction form only).
+- **Phase 2 — done:** remaining original 5 sectors **plus** Transportation and Real Estate; personalized "Your Nigeria 2050" (client-side, sourced — not an LLM API); quizzes on 5 sectors; correction form; isometric home map; Nigeria vs. G7 comparator.
+- **Phase 2 — deferred:** multilingual (Hausa, Yoruba, Igbo); AI audio narration; commissioned era illustration; remaining quizzes; React Three Fiber 3D/WebGL centerpiece.
+- **Phase 3:** 🔮 Commercialization expansion (licensing, sponsorships per Section 12's sequencing), partnerships (diaspora orgs, schools), potential native app, white-label platform exploration.

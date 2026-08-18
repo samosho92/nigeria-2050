@@ -21,9 +21,10 @@ test.describe("critical paths", () => {
     await expect(page.getByRole("heading", { name: /Real Estate/i })).toBeVisible();
   });
 
-  test("your 2050 page loads", async ({ page }) => {
-    await page.goto("/your-2050");
-    await expect(page.getByRole("heading", { name: "Your Nigeria 2050" })).toBeVisible();
+  test("icons page lists sourced figures", async ({ page }) => {
+    await page.goto("/icons");
+    await expect(page.getByRole("heading", { name: "Icons of Nigeria" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Chinua Achebe/i })).toBeVisible();
   });
 
   test("correction API accepts valid payload", async ({ request }) => {

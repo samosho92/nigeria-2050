@@ -2,7 +2,9 @@
 
 **Where Nigeria's History Meets Its Future**
 
-An independent, design-forward public web app exploring Nigeria's history and credible long-range future across six key sectors.
+An independent, design-forward public web app exploring Nigeria's history and credible long-range future across **13 sectors** (6 MVP + 7 expansion).
+
+**Build status (Aug 18, 2026):** MVP and most Phase 2 content are in the repo. Production launch is still blocked on editorial review and Vercel deploy. Localization, TTS audio, commissioned art, and WebGL are deferred — see [Build Plan](./docs/BUILD_PLAN.md).
 
 ## Product docs
 

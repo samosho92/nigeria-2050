@@ -97,16 +97,20 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
       "The Civil War, coups, and military rule are covered factually without adopting a purely federal-government or purely secessionist framing.",
       "Pre-colonial eras present a plurality of kingdoms and polities — not a single unified nation before colonialism.",
       "Timeline entries are 150–300 words at a “smart newcomer” reading level, with links to deeper sources.",
+      "The Icons register lists 150 historical and contemporary figures with a named citation each. Sitting Nigerian public officeholders are omitted while in office (non-partisan policy). Portraits are Wikimedia Commons headshots with a free license only — never AI-generated likenesses, and never statues or body-only photographs standing in for a face.",
       "Sensitive entries carry editorial review status in the internal review queue until subject-matter sign-off.",
     ],
-    links: [{ href: "/timeline", label: "Interactive timeline" }],
+    links: [
+      { href: "/timeline", label: "Interactive timeline" },
+      { href: "/icons", label: "Icons of Nigeria" },
+    ],
   },
   {
     id: "ai",
     title: "AI & Interactive Tools",
     summary: "AI features are scoped, labeled, and grounded in our curated content store.",
     points: [
-      "Ask the Archive retrieves answers only from Naija2050’s own timeline, sector, glossary, and source content. Out-of-scope, abusive, and explicit messages are declined before retrieval.",
+      "Ask the Archive retrieves answers only from Naija2050’s own timeline, sector, glossary, icons, and source content. Out-of-scope, abusive, and explicit messages are declined before retrieval.",
       "Out-of-scope questions are declined rather than hallucinated; answers include links back to source pages.",
       "All AI-assisted UI is labeled. Era portal art uses abstract CSS placeholders for settings only, with no depictions of real historical figures.",
       "AI-generated media promoted into the permanent library requires human editorial review before publication.",

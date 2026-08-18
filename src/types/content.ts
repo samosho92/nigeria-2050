@@ -133,9 +133,56 @@ export interface G7BenchmarkMetric {
 
 export type ReviewItem = {
   id: string;
-  type: "sector" | "timeline" | "art" | "correction";
+  type: "sector" | "timeline" | "art" | "correction" | "icons";
   title: string;
   status: "pending-review" | "reviewed";
   reviewer?: string;
   notes?: string;
 };
+
+export const ICON_CATEGORY_IDS = [
+  "leadership",
+  "enterprise",
+  "literature",
+  "arts",
+  "activism",
+  "science",
+  "sport",
+] as const;
+
+export type IconCategoryId = (typeof ICON_CATEGORY_IDS)[number];
+
+export interface IconCitation {
+  title: string;
+  publisher: string;
+  year: number;
+  url: string;
+}
+
+export interface IconPortrait {
+  src: string;
+  alt: string;
+  credit: string;
+  license: string;
+  sourceUrl: string;
+}
+
+export interface IconFigure {
+  id: string;
+  name: string;
+  born: number;
+  died?: number;
+  circa?: boolean;
+  birthplace?: string;
+  categories: IconCategoryId[];
+  relatedSectorSlugs: string[];
+  relatedTimelineIds?: string[];
+  /** One-sentence achievement used on cards and in search. */
+  achievement: string;
+  summary: string;
+  citation: IconCitation;
+  /** Wikipedia page title used only to fetch a freely licensed portrait. */
+  wikipediaTitle: string;
+  image?: IconPortrait;
+  reviewStatus?: "draft" | "pending-review" | "reviewed";
+}

@@ -1,4 +1,5 @@
 import { GLOSSARY } from "@/content/glossary";
+import { ICONS } from "@/content/icons";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
 import { getSourceById } from "@/content/sources";
@@ -10,7 +11,7 @@ export interface ArchiveChunk {
   text: string;
   title: string;
   href: string;
-  type: "timeline" | "sector" | "glossary";
+  type: "timeline" | "sector" | "glossary" | "icon";
   sourceIds?: string[];
 }
 
@@ -33,6 +34,14 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
       sourceIds: s.sourceIds,
     },
   ]),
+  ...ICONS.map((figure) => ({
+    id: `icon-${figure.id}`,
+    text: `${figure.name}. ${figure.achievement} ${figure.summary}`,
+    title: figure.name,
+    href: `/icons#${figure.id}`,
+    type: "icon" as const,
+    sourceIds: [`icon-${figure.id}`],
+  })),
   ...GLOSSARY.map((g) => ({
     id: `glossary-${g.term}`,
     text: `${g.term}: ${g.definition}`,
@@ -43,7 +52,7 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
 ];
 
 const OUT_OF_SCOPE_RESPONSE =
-  "I can only answer questions grounded in Naija2050's curated content — timeline entries, sector projections, and glossary terms. Try asking about Nigeria's history, a specific sector's 2050 vision, or a term like 'Amalgamation' or 'brain drain'.";
+  "I can only answer questions grounded in Naija2050's curated content — timeline entries, sector projections, icons, and glossary terms. Try asking about Nigeria's history, a specific person on the Icons page, a sector's 2050 vision, or a term like 'Amalgamation' or 'brain drain'.";
 
 function tokenize(text: string): string[] {
   return text
@@ -141,5 +150,5 @@ export const SUGGESTED_QUESTIONS = [
   "How is Nigeria diversifying beyond oil?",
   "What is brain drain and can it reverse?",
   "What does Nigeria's 2050 transportation vision look like?",
-  "How do population density and housing costs shape Nigeria's 2050 real estate scenario?",
+  "Who was Funmilayo Ransome-Kuti?",
 ];

@@ -1,9 +1,9 @@
 # Naija2050 — MVP Plan
 
 **Derived from:** [Nigeria2050_PRD.md](./Nigeria2050_PRD.md) (Draft v2, Aug 17 2026)  
-**Build plan:** [BUILD_PLAN.md](./BUILD_PLAN.md) — Phase 1 launch checklist + Phase 2 roadmap  
-**Status:** ✅ **MVP engineering complete** — launch blocked on external editorial review + production deploy  
-**Last updated:** August 17, 2026
+**Build plan:** [BUILD_PLAN.md](./BUILD_PLAN.md) — Phase 1 launch checklist + Phase 2 done / deferred  
+**Status:** ✅ **MVP engineering complete** · ⚠️ **Phase 2 content shipped ahead of launch** · launch blocked on external editorial review + production deploy  
+**Last updated:** August 18, 2026
 
 ---
 
@@ -12,10 +12,10 @@
 | Pillar | MVP deliverable | Status |
 |---|---|---|
 | **History** | Full interactive "Nigeria Story" timeline with era portals, scrollytelling spine, and bidirectional sector links | ✅ |
-| **Future vision** | 6 sector pages with sourced 2030/2040/2050 scenarios, data viz, assumptions/risks | ✅ |
+| **Future vision** | 6 sector pages with sourced 2030/2040/2050 scenarios, data viz, assumptions/risks | ✅ *(library later expanded to 13 — see Phase 2)* |
 | **Fusion mechanism** | Every sector page has "How we got here"; every timeline entry links to relevant sectors | ✅ |
 | **Supporting features** | Now vs. 2050 comparator, search/glossary, source library, editorial methodology | ✅ |
-| **AI (MVP scope)** | Ask the Archive (RAG chat) + era illustration with guardrails | ✅ *(abstract CSS era art; commissioned AI art is Phase 2)* |
+| **AI (MVP scope)** | Ask the Archive (RAG chat) + era illustration with guardrails | ✅ *(abstract CSS/SVG era art; commissioned AI art is **deferred**)* |
 
 ---
 
@@ -27,6 +27,7 @@
 - [x] Production analytics hook (optional Plausible via `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`)
 - [ ] Performance audit on 4G throttled *(manual Lighthouse — see BUILD_PLAN Phase 1 checklist)*
 - [ ] Production deploy to Vercel
+- [ ] Historian + economist sign-off on `pending-review` queue items
 
 ---
 
@@ -58,20 +59,21 @@
 
 #### Content / editorial
 
-- [x] Source list (16 sources with sector/era tags)
+- [x] Source list (now 38 sources with sector/era tags; 16 at original MVP freeze)
 - [x] Editorial methodology page
-- [x] Timeline: 8 eras, 17 entries
-- [x] Editorial review queue (`/editorial/review`) — external reviewer sign-off still needed
+- [x] Timeline: 8 eras, 26 entries (17 at MVP freeze + 9 Phase 2)
+- [x] Editorial review queue (`/editorial/review`) — **8 items still `pending-review`**; external reviewer sign-off still needed
 
 ---
 
 ### Sprint 2 — Sector Vision Pages ✅
 
 - [x] All 7 template sections per sector
-- [x] All 6 sectors live with sourced content
+- [x] Flagship 6 sectors live with sourced content
 - [x] `SectorHero` (editorial layout + `StatSnapshot`), interactive `MilestoneTimeline`, `HowWeGotHere`, `DataChart`, `SourcePanel`
 - [x] `AnimatedCounter` (hydration-safe)
 - [x] `ScenarioRangePanel` — low/base/high ranges on all sectors
+- [x] 2030–2050 UI labeled as scenarios (`SCENARIO_UI_NOTE`) — not mixed with sourced baselines
 
 ---
 
@@ -79,7 +81,7 @@
 
 - [x] All 8 eras with content
 - [x] Scrollytelling spine + era scrubber
-- [x] Era portals (CSS art direction per era)
+- [x] Era portals (CSS/SVG art direction per era)
 - [x] Bidirectional sector ↔ timeline links with analytics tracking
 - [x] `prefers-reduced-motion` + data-saver fallbacks
 
@@ -87,7 +89,7 @@
 
 ### Sprint 4 — Signature Interactive Components ✅
 
-- [x] Now → 2050 morph slider (8 metrics)
+- [x] Now → 2050 morph slider (10 metrics; 2050 values labeled scenario)
 - [x] Animated data reveals on sector pages
 - [x] Scroll fade-ins + interactive milestone timeline (clickable rail)
 - [x] Data-saver mode toggle (header bolt icon)
@@ -98,9 +100,9 @@
 ### Sprint 5 — Source Library, Glossary, Search & Methodology ✅
 
 - [x] Source library with sector + era filters
-- [x] Glossary page (12 terms) + inline `AutoGlossary` on timeline/sector copy
+- [x] Glossary page (18 terms) + inline `AutoGlossary` on timeline/sector copy
 - [x] Site-wide search
-- [x] Methodology page with correction email + review queue link
+- [x] Methodology page with correction form + review queue link
 
 ---
 
@@ -115,9 +117,10 @@
 
 #### Era illustration
 
-- [x] Abstract CSS era portals (settings only — no historical figures)
+- [x] Abstract CSS/SVG era portals (settings only — no historical figures)
 - [x] Editorial review queue entry for final art approval
 - [x] Lazy-loaded, non-blocking
+- [ ] Commissioned illustrated art — **deferred** (BUILD_PLAN §2.8)
 
 ---
 
@@ -130,6 +133,7 @@
 - [x] Hydration mismatch fixes (`AnimatedCounter`, `FadeIn`, `useMounted`)
 - [x] Dev cache corruption guards (`prebuild`, `preclean`, `turbopack.root`)
 - [x] Optional Plausible analytics integration
+- [x] Playwright smoke tests (`e2e/smoke.spec.ts`) — **not yet in CI**
 - [ ] External historian review (Civil War entry)
 - [ ] External economist review (sector projections)
 - [ ] Cross-browser QA pass
@@ -151,7 +155,7 @@
 | 6 — AI features | ✅ |
 | 7 — Polish & launch | ⚠️ Deploy + external review pending |
 
-**Engineering MVP: 100% complete.**
+**Engineering MVP: 100% complete.** Launch is editorial + ops, not remaining product code.
 
 ---
 
@@ -160,17 +164,40 @@
 | Phase | Scope | Status |
 |---|---|---|
 | **Phase 1** | MVP launch — 6 sectors, full timeline, fusion, Ask the Archive, comparator | ✅ Built · launch checklist open |
-| **Phase 2** | +5 sectors, i18n (Hausa/Yoruba/Igbo), Your Nigeria 2050, audio, quizzes, 3D map | 📋 Planned |
+| **Phase 2** | Extra sectors, G7, Your 2050, quizzes, corrections, home map | ⚠️ **Mostly shipped** · i18n, TTS, commissioned art, R3F, CMS **deferred** |
 | **Phase 3** | Commercialization, licensing, partnerships | 🔮 Future |
+
+### Phase 2 — done vs deferred (summary)
+
+**Done**
+
+- 7 expansion sectors (original 5 plus transportation + real estate) → **13 total**
+- 9 extra timeline entries → **26 total**
+- Nigeria vs. G7 (`/compare/g7`)
+- Your Nigeria 2050 (`/your-2050`, client-side grounded vignettes — no LLM API)
+- Correction form + `/api/corrections`
+- Home isometric zone map (not WebGL)
+- 5 sector quizzes
+
+**Deferred** — full list in [BUILD_PLAN.md §2.8](./BUILD_PLAN.md)
+
+- Hausa / Yoruba / Igbo
+- TTS audio walkthroughs
+- Commissioned era illustration
+- LLM-backed Your 2050 + per-vignette OG cards
+- Era quizzes and remaining sector quizzes
+- React Three Fiber 3D map
+- Headless CMS, public content API, Playwright-in-CI
 
 ---
 
 ## Immediate next actions
 
 1. [x] ~~Complete MVP engineering~~
-2. [ ] Historian sign-off on Civil War entry
-3. [ ] Economist sign-off on Economy/Security projections
-4. [ ] `npm run stop:dev && npm run build` → merge `dev` → `main` → deploy on Vercel
-5. [ ] Set `NEXT_PUBLIC_SITE_URL` + optional `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` in Vercel
-6. [ ] Run Lighthouse audit on 4G throttled
-7. [ ] Begin Phase 2 Sprint A scoping (healthcare + agriculture sectors first)
+2. [x] ~~Phase 2 Sprint A content (healthcare → real estate)~~
+3. [ ] Historian sign-off on Civil War entry
+4. [ ] Economist sign-off on Economy/Security (and remaining `pending-review` sectors)
+5. [ ] `npm run stop:dev && npm run build` → merge `dev` → `main` → deploy on Vercel
+6. [ ] Set `NEXT_PUBLIC_SITE_URL` + optional `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` in Vercel
+7. [ ] Run Lighthouse audit on 4G throttled
+8. [ ] After launch: pick from deferred backlog (i18n first if distribution needs it)

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
+import { ICONS } from "@/content/icons";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
 
@@ -17,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/glossary`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/methodology`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${base}/your-2050`, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${base}/icons`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, changeFrequency: "yearly", priority: 0.3 },
     ...SECTORS.map((s) => ({
@@ -28,6 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}/timeline#${e.id}`,
       changeFrequency: "yearly" as const,
       priority: 0.5,
+    })),
+    ...ICONS.map((figure) => ({
+      url: `${base}/icons#${figure.id}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.4,
     })),
   ];
 }

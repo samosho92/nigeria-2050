@@ -85,6 +85,15 @@ export const REVIEW_QUEUE: ReviewItem[] = [
     notes:
       "WDI 2022 slum share, 2023 density and urban % transcribed from API. Housing deficit kept as CAHF/FMBN 22–28 million range. No G7 house-price row (no common series).",
   },
+  {
+    id: "icons-register",
+    type: "icons",
+    title: "Icons of Nigeria register — historian review",
+    status: "pending-review",
+    reviewer: "Historian (TBD)",
+    notes:
+      "150-person chronological register. Sitting Nigerian officeholders omitted. Portraits are Wikimedia Commons face crops with a free license only; statues and full-body shots without a visible face are rejected. No AI-generated likenesses.",
+  },
 ];
 
 export function getPendingReviews() {

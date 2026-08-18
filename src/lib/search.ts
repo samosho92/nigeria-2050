@@ -1,9 +1,10 @@
 import { Index } from "flexsearch";
 import { GLOSSARY } from "@/content/glossary";
+import { ICONS } from "@/content/icons";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
 
-export type SearchResultType = "sector" | "timeline" | "glossary";
+export type SearchResultType = "sector" | "timeline" | "glossary" | "icon";
 
 export interface SearchResult {
   id: string;
@@ -28,6 +29,13 @@ const searchItems: SearchResult[] = [
     description: e.summary,
     href: `/timeline#${e.id}`,
   })),
+  ...ICONS.map((figure) => ({
+    id: figure.id,
+    type: "icon" as const,
+    title: figure.name,
+    description: figure.achievement,
+    href: `/icons#${figure.id}`,
+  })),
   ...GLOSSARY.map((g) => ({
     id: g.term,
     type: "glossary" as const,
@@ -41,6 +49,13 @@ const searchItems: SearchResult[] = [
     title: "Nigeria vs. G7",
     description: "Compare Nigeria sector baselines against G7 country averages",
     href: "/compare/g7",
+  },
+  {
+    id: "icons-index",
+    type: "icon" as const,
+    title: "Icons of Nigeria",
+    description: "150 sourced historical and contemporary Nigerian figures",
+    href: "/icons",
   },
   {
     id: "methodology",

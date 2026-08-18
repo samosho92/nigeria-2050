@@ -5,22 +5,26 @@ import { IconChevronRight } from "@tabler/icons-react";
 import { TrackedLink } from "@/components/ui/TrackedLink";
 import { AutoGlossary } from "@/components/ui/GlossaryTerm";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import type { TimelineEntry } from "@/types/content";
-import { TIMELINE_ERAS } from "@/content/timeline";
+import type { IconFigure, TimelineEntry } from "@/types/content";
+import { TIMELINE_ERAS, type EraId } from "@/content/timeline";
 import { FadeIn } from "@/components/motion";
+import { useDataSaver } from "@/components/providers/DataSaverProvider";
 import { useMounted } from "@/hooks/useMounted";
 import { cn } from "@/lib/utils";
 import { EraPortalArt } from "@/components/timeline/EraPortalArt";
+import { TimelineEraPeople } from "@/components/timeline/TimelineEraPeople";
 
 interface TimelineExperienceProps {
   entries: TimelineEntry[];
+  eraIcons?: Partial<Record<EraId, IconFigure[]>>;
 }
 
-export function TimelineExperience({ entries }: TimelineExperienceProps) {
+export function TimelineExperience({ entries, eraIcons }: TimelineExperienceProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeEra, setActiveEra] = useState<string>(TIMELINE_ERAS[0].id);
   const mounted = useMounted();
   const prefersReducedMotion = useReducedMotion();
+  const { enabled: dataSaver } = useDataSaver();
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
   const spineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
@@ -95,6 +99,11 @@ export function TimelineExperience({ entries }: TimelineExperienceProps) {
                     </div>
                   </header>
                 </FadeIn>
+
+                <TimelineEraPeople
+                  figures={eraIcons?.[era.id] ?? []}
+                  showPhotos={!dataSaver}
+                />
 
                 <div className="space-y-8">
                   {eraEntries.map((entry) => (

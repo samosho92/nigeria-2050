@@ -11,6 +11,7 @@ const TYPE_LABELS = {
   sector: "Sector",
   timeline: "Timeline",
   glossary: "Glossary",
+  icon: "Icon",
 };
 
 export function SearchDialog() {
@@ -56,7 +57,7 @@ export function SearchDialog() {
           <input
             autoFocus
             type="search"
-            placeholder="Search sectors, timeline, glossary…"
+            placeholder="Search sectors, timeline, icons, glossary…"
             value={query}
             onChange={(e) => handleSearch(e.target.value)}
             className="flex-1 bg-transparent text-foreground outline-none placeholder:text-muted-foreground"
@@ -93,7 +94,7 @@ export function SearchDialog() {
           ))}
           {!query && (
             <li className="p-4 text-center text-sm text-muted-foreground">
-              Try &ldquo;Civil War&rdquo;, &ldquo;GDP&rdquo;, or &ldquo;fintech&rdquo;
+              Try &ldquo;Achebe&rdquo;, &ldquo;Civil War&rdquo;, or &ldquo;fintech&rdquo;
             </li>
           )}
         </ul>
