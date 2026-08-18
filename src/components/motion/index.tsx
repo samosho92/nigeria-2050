@@ -3,6 +3,7 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useDataSaver } from "@/components/providers/DataSaverProvider";
+import { useMounted } from "@/hooks/useMounted";
 
 interface AnimatedCounterProps {
   value: number;
@@ -75,10 +76,11 @@ interface FadeInProps {
 }
 
 export function FadeIn({ children, className, delay = 0, disabled }: FadeInProps) {
+  const mounted = useMounted();
   const prefersReducedMotion = useReducedMotion();
   const { enabled: dataSaver } = useDataSaver();
 
-  if (prefersReducedMotion || disabled || dataSaver) {
+  if (!mounted || prefersReducedMotion || disabled || dataSaver) {
     return <div className={className}>{children}</div>;
   }
 

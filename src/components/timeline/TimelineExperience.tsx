@@ -8,6 +8,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import type { TimelineEntry } from "@/types/content";
 import { TIMELINE_ERAS } from "@/content/timeline";
 import { FadeIn } from "@/components/motion";
+import { useMounted } from "@/hooks/useMounted";
 import { cn } from "@/lib/utils";
 
 const ERA_STYLES: Record<string, string> = {
@@ -27,6 +28,7 @@ interface TimelineExperienceProps {
 export function TimelineExperience({ entries }: TimelineExperienceProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeEra, setActiveEra] = useState<string>(TIMELINE_ERAS[0].id);
+  const mounted = useMounted();
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
   const spineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
@@ -77,7 +79,7 @@ export function TimelineExperience({ entries }: TimelineExperienceProps) {
         {/* Animated spine */}
         <div className="relative hidden w-8 shrink-0 md:block" aria-hidden>
           <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 rounded-full bg-border" />
-          {!prefersReducedMotion && (
+          {mounted && !prefersReducedMotion && (
             <motion.div
               className="absolute inset-x-0 top-0 mx-auto w-1 origin-top rounded-full bg-accent"
               style={{ scaleY: spineScale, height: "100%" }}

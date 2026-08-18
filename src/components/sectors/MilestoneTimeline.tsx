@@ -4,12 +4,14 @@ import { motion, useReducedMotion } from "framer-motion";
 import { IconTarget } from "@tabler/icons-react";
 import type { SectorProjection } from "@/types/content";
 import { FadeIn } from "@/components/motion";
+import { useMounted } from "@/hooks/useMounted";
 
 interface MilestoneTimelineProps {
   projections: SectorProjection[];
 }
 
 export function MilestoneTimeline({ projections }: MilestoneTimelineProps) {
+  const mounted = useMounted();
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -27,15 +29,21 @@ export function MilestoneTimeline({ projections }: MilestoneTimelineProps) {
               }`}
             >
               <div className="hidden md:block md:w-1/2" />
-              <motion.div
-                className="absolute left-4 flex size-8 -translate-x-1/2 items-center justify-center rounded-full border-2 border-accent bg-background md:left-1/2"
-                initial={prefersReducedMotion ? {} : { scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 300, delay: i * 0.1 }}
-              >
-                <span className="text-xs font-bold text-accent">{projection.year}</span>
-              </motion.div>
+              {mounted && !prefersReducedMotion ? (
+                <motion.div
+                  className="absolute left-4 flex size-8 -translate-x-1/2 items-center justify-center rounded-full border-2 border-accent bg-background md:left-1/2"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 300, delay: i * 0.1 }}
+                >
+                  <span className="text-xs font-bold text-accent">{projection.year}</span>
+                </motion.div>
+              ) : (
+                <div className="absolute left-4 flex size-8 -translate-x-1/2 items-center justify-center rounded-full border-2 border-accent bg-background md:left-1/2">
+                  <span className="text-xs font-bold text-accent">{projection.year}</span>
+                </div>
+              )}
               <div className="ml-12 md:ml-0 md:w-1/2">
                 <div className="rounded-xl border border-border bg-card p-6">
                   <div className="mb-2 flex items-center gap-2">

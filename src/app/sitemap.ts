@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/site";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://naija2050.org";
+  const base = siteUrl;
 
   return [
     { url: base, changeFrequency: "weekly", priority: 1 },

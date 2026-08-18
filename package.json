@@ -5,9 +5,15 @@
   "description": "Naija2050 - Where Nigeria's History Meets Its Future",
   "scripts": {
     "dev": "next dev --turbopack -p 3500",
+    "dev:webpack": "next dev -p 3500",
+    "dev:clean": "npm run clean && npm run dev",
+    "stop:dev": "node scripts/stop-dev.mjs",
+    "prebuild": "node scripts/ensure-dev-stopped.mjs",
     "build": "next build",
     "start": "next start -p 3500",
-    "lint": "next lint",
+    "preclean": "node scripts/stop-dev.mjs",
+    "clean": "rm -rf .next",
+    "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

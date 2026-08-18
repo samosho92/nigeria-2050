@@ -7,9 +7,11 @@ import { DataSaverProvider } from "@/components/providers/DataSaverProvider";
 import { AnalyticsPageView } from "@/components/providers/AnalyticsPageView";
 import { fontSans, fontSerif } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { siteUrl, siteName } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Naija2050 - Where Nigeria's History Meets Its Future",
     template: "%s | Naija2050",
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
       "Six sector visions, interactive timeline, and sourced projections to 2050.",
     type: "website",
     locale: "en_US",
-    siteName: "Naija2050",
+    siteName: siteName,
   },
   twitter: {
     card: "summary_large_image",
