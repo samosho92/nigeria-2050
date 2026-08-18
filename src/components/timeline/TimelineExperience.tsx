@@ -10,16 +10,7 @@ import { TIMELINE_ERAS } from "@/content/timeline";
 import { FadeIn } from "@/components/motion";
 import { useMounted } from "@/hooks/useMounted";
 import { cn } from "@/lib/utils";
-
-const ERA_STYLES: Record<string, string> = {
-  "pre-colonial": "era-pre-colonial",
-  colonial: "era-colonial",
-  independence: "era-independence",
-  conflict: "era-conflict",
-  military: "era-military",
-  democracy: "era-democracy",
-  reform: "era-reform",
-};
+import { EraPortalArt } from "@/components/timeline/EraPortalArt";
 
 interface TimelineExperienceProps {
   entries: TimelineEntry[];
@@ -52,7 +43,6 @@ export function TimelineExperience({ entries }: TimelineExperienceProps) {
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Era scrubber */}
       <nav
         className="sticky top-20 z-40 mb-8 overflow-x-auto rounded-xl border border-border bg-header-background p-2 backdrop-blur-md"
         aria-label="Timeline eras"
@@ -76,7 +66,6 @@ export function TimelineExperience({ entries }: TimelineExperienceProps) {
       </nav>
 
       <div className="relative flex gap-8">
-        {/* Animated spine */}
         <div className="relative hidden w-8 shrink-0 md:block" aria-hidden>
           <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 rounded-full bg-border" />
           {mounted && !prefersReducedMotion && (
@@ -94,30 +83,19 @@ export function TimelineExperience({ entries }: TimelineExperienceProps) {
 
             return (
               <div key={era.id} id={`era-${era.id}`} data-era-portal data-era={era.id}>
-                {/* Era portal hero */}
                 <FadeIn>
-                  <div
-                    className={cn(
-                      "relative mb-10 overflow-hidden rounded-2xl border border-border p-8 lg:p-12",
-                      ERA_STYLES[era.artDirection],
-                    )}
-                  >
-                    <div className="era-portal-pattern absolute inset-0 opacity-30" aria-hidden />
+                  <header className="era-independence relative mb-10 min-h-[12rem] overflow-hidden rounded-2xl border border-border p-8 lg:p-12">
+                    <EraPortalArt eraId={era.id} artDirection="independence" />
                     <div className="relative">
                       <p className="text-sm font-medium uppercase tracking-widest text-accent">
                         {era.period}
                       </p>
                       <h2 className="mt-2 text-3xl font-bold md:text-4xl">{era.label}</h2>
                       <p className="mt-3 max-w-2xl text-muted-foreground">{era.description}</p>
-                      <p className="mt-4 text-xs text-muted-foreground italic">
-                        Abstract illustrated scene — AI-assisted art, settings only (no historical
-                        figures depicted)
-                      </p>
                     </div>
-                  </div>
+                  </header>
                 </FadeIn>
 
-                {/* Entries */}
                 <div className="space-y-8">
                   {eraEntries.map((entry) => (
                     <TimelineEntryCard key={entry.id} entry={entry} />
@@ -144,6 +122,9 @@ function TimelineEntryCard({ entry }: { entry: TimelineEntry }) {
             <time className="text-sm font-medium text-accent">{entry.dateRange}</time>
             <h3 className="mt-1 text-xl font-bold">{entry.title}</h3>
           </div>
+          {entry.lastReviewed && (
+            <p className="text-xs text-muted-foreground">Reviewed {entry.lastReviewed}</p>
+          )}
         </div>
         <p className="mt-2 font-medium text-muted-foreground">{entry.summary}</p>
         <p className="mt-4 text-sm leading-relaxed text-foreground/90">

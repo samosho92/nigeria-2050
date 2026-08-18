@@ -1,4 +1,5 @@
 import type { Source } from "@/types/content";
+import { PHASE2_RAW_SOURCES, PHASE2_SOURCE_META } from "./phase2/sources";
 
 const RAW_SOURCES: Source[] = [
   {
@@ -189,6 +190,7 @@ const RAW_SOURCES: Source[] = [
     year: 2024,
     url: "https://ucdp.uu.se",
   },
+  ...PHASE2_RAW_SOURCES,
 ];
 
 const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
@@ -219,6 +221,7 @@ const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
   "global-peace-index": { sectors: ["security"] },
   "unodc-crime-stats": { sectors: ["security"] },
   "ucdp-conflict-data": { sectors: ["security"] },
+  ...PHASE2_SOURCE_META,
 };
 
 export const SOURCES: Source[] = RAW_SOURCES.map((source) => ({

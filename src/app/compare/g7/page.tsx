@@ -9,7 +9,7 @@ import { getSourcesByIds } from "@/content/sources";
 export const metadata: Metadata = {
   title: "Nigeria vs. G7",
   description:
-    "Same-indicator, same-year benchmarks: Nigeria against each G7 country across six sectors.",
+    "Same-indicator, same-year benchmarks: Nigeria against each G7 country across all sector tabs.",
 };
 
 export default function G7ComparePage() {

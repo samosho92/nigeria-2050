@@ -1,4 +1,5 @@
 import type { TimelineEntry } from "@/types/content";
+import { PHASE2_TIMELINE_ENTRIES } from "./phase2/timeline-entries";
 
 export const TIMELINE_ERAS = [
   {
@@ -267,6 +268,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     sourceIds: ["agenda-2050-npc", "mckinsey-nigeria-2050", "pwc-nigeria-2050"],
     artDirection: "reform",
   },
+  ...PHASE2_TIMELINE_ENTRIES,
 ];
 
 export function getTimelineEntryById(id: string): TimelineEntry | undefined {

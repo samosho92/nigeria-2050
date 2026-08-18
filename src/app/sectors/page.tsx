@@ -4,10 +4,11 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { SECTORS } from "@/lib/constants/sectors";
+import { CONTENT_STATS } from "@/lib/content-stats";
 
 export const metadata: Metadata = {
   title: "Sectors",
-  description: "Six flagship sector visions for Nigeria by 2050.",
+  description: `${CONTENT_STATS.sectorCount} sector visions for Nigeria by 2050.`,
 };
 
 export default function SectorsPage() {
@@ -16,7 +17,7 @@ export default function SectorsPage() {
       <PageHero
         eyebrow="2050 visions"
         title="Sector Visions"
-        description="Sourced, scenario-based projections across six flagship sectors. Each page links back to the historical throughline that makes the future case plausible."
+        description={`Sourced, scenario-based projections across ${CONTENT_STATS.sectorCount} sectors. Each page links back to the historical throughline that makes the future case plausible.`}
       />
       <Container className="py-12 md:py-16">
         <ul className="grid gap-6 sm:grid-cols-2">

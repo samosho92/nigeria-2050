@@ -9,6 +9,7 @@ import { ProductionAnalytics } from "@/components/providers/ProductionAnalytics"
 import { fontSans, fontSerif } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { siteUrl, siteName } from "@/lib/site";
+import { CONTENT_STATS } from "@/lib/content-stats";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Naija2050",
   },
   description:
-    "An independent, design-forward exploration of Nigeria's history and credible long-range future across six key sectors.",
+    `An independent, design-forward exploration of Nigeria's history and credible long-range future across ${CONTENT_STATS.sectorCount} key sectors.`,
   keywords: [
     "Nigeria",
     "Naija2050",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Naija2050 - Where Nigeria's History Meets Its Future",
     description:
-      "Six sector visions, interactive timeline, and sourced projections to 2050.",
+      `${CONTENT_STATS.sectorCount} sector visions, interactive timeline, and sourced projections to 2050.`,
     type: "website",
     locale: "en_US",
     siteName: siteName,

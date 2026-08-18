@@ -26,6 +26,7 @@ import {
   METHODOLOGY_SECTIONS,
   type MethodologySection,
 } from "@/content/methodology";
+import { CorrectionForm } from "@/components/corrections/CorrectionForm";
 import { cn } from "@/lib/utils";
 
 const SECTION_ICONS: Record<string, TablerIcon> = {
@@ -160,12 +161,14 @@ export function MethodologyPageContent() {
           )}
         >
           <h2 className="text-lg font-bold text-foreground">Report an error</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Found a factual error, broken source link, or misleading projection? Email us with
-            the page URL, the specific claim, and your counter-source. We review every message
-            and publish dated corrections when warranted.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4">
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          Found a factual error, broken source link, or misleading projection? Submit the form
+          below or email us with the page URL, the specific claim, and your counter-source.
+        </p>
+        <div className="mt-6">
+          <CorrectionForm />
+        </div>
+        <div className="mt-6 flex flex-wrap gap-4">
             <LinkButton href={`mailto:${CORRECTIONS_EMAIL}`} variant="primary">
               {CORRECTIONS_EMAIL}
             </LinkButton>

@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/sources`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/glossary`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/methodology`, changeFrequency: "yearly", priority: 0.6 },
+    { url: `${base}/your-2050`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${base}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, changeFrequency: "yearly", priority: 0.3 },
     ...SECTORS.map((s) => ({

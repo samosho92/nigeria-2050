@@ -3,9 +3,11 @@ import {
   IconArrowRight,
   IconBuildingSkyscraper,
   IconMessageChatbot,
+  IconSparkles,
   IconTimeline,
 } from "@tabler/icons-react";
 import { HomeHero } from "@/components/home/HomeHero";
+import { NigeriaMapBeta } from "@/components/explore/NigeriaMapBeta";
 import {
   Card,
   CardDescription,
@@ -18,17 +20,24 @@ import { MotifDivider } from "@/components/ui/MotifDivider";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/motion";
 import { SECTORS } from "@/lib/constants/sectors";
+import { CONTENT_STATS } from "@/lib/content-stats";
 
 export default function HomePage() {
   return (
     <div className="relative overflow-hidden">
       <HomeHero />
 
+      <Section>
+        <FadeIn>
+          <NigeriaMapBeta />
+        </FadeIn>
+      </Section>
+
       <Section variant="surface">
         <FadeIn>
           <h2 className="text-center text-2xl font-bold md:text-3xl">Two Co-Equal Pillars</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            History and future vision, fused by bidirectional links — the product mechanism
+            History and future vision, fused by bidirectional links. The product mechanism
             that makes Naija2050 different from Wikipedia or government PDFs.
           </p>
         </FadeIn>
@@ -41,8 +50,8 @@ export default function HomePage() {
                   The Nigeria Story
                 </CardTitle>
                 <CardDescription>
-                  8 eras · 17 entries · scrollytelling spine with era portals and sector
-                  cross-links.
+                  {CONTENT_STATS.eraCount} eras · {CONTENT_STATS.timelineEntryCount} entries ·
+                  scrollytelling spine with sector cross-links.
                 </CardDescription>
               </CardHeader>
               <CardFooter>
@@ -61,8 +70,8 @@ export default function HomePage() {
                   Sector Visions to 2050
                 </CardTitle>
                 <CardDescription>
-                  6 flagship sectors with sourced projections, milestone narratives, and
-                  &ldquo;How we got here&rdquo; modules.
+                  {CONTENT_STATS.sectorCount} sectors with sourced projections, milestone
+                  narratives, and &ldquo;How we got here&rdquo; modules.
                 </CardDescription>
               </CardHeader>
               <CardFooter>
@@ -79,7 +88,7 @@ export default function HomePage() {
       <MotifDivider />
 
       <Section>
-        <h2 className="text-2xl font-bold md:text-3xl">Six Flagship Sectors</h2>
+        <h2 className="text-2xl font-bold md:text-3xl">All Sector Visions</h2>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SECTORS.map((sector, i) => (
             <FadeIn key={sector.slug} delay={i * 0.05}>
@@ -100,20 +109,33 @@ export default function HomePage() {
 
       <Section variant="muted">
         <FadeIn>
-          <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
-            <div className="flex size-16 items-center justify-center rounded-2xl bg-accent/15">
-              <IconMessageChatbot className="size-8 text-accent" stroke={1.5} aria-hidden />
-            </div>
-            <div className="flex-1">
-              <h2 className="text-2xl font-bold">Ask the Archive</h2>
-              <p className="mt-2 text-muted-foreground">
-                Curious about the Civil War, oil dependency, or the 2050 economic case? Ask
-                our AI guide — grounded in sourced content, not the open web.
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">
+              <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/15">
+                <IconSparkles className="size-7 text-accent" stroke={1.5} aria-hidden />
+              </div>
+              <h2 className="text-xl font-bold">Your Nigeria 2050</h2>
+              <p className="text-muted-foreground">
+                Pick sectors and generate a grounded day-in-2050 vignette from our sourced
+                projections. Shareable and clearly AI-labeled.
               </p>
+              <LinkButton href="/your-2050" variant="primary" className="mt-auto w-fit">
+                Build your vignette
+              </LinkButton>
             </div>
-            <LinkButton href="/ask" variant="primary">
-              Try it now
-            </LinkButton>
+            <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">
+              <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/15">
+                <IconMessageChatbot className="size-7 text-accent" stroke={1.5} aria-hidden />
+              </div>
+              <h2 className="text-xl font-bold">Ask the Archive</h2>
+              <p className="text-muted-foreground">
+                Ask about Nigerian history or 2050 projections. Grounded in curated content,
+                with guardrails for respectful use.
+              </p>
+              <LinkButton href="/ask" variant="secondary" className="mt-auto w-fit">
+                Try it now
+              </LinkButton>
+            </div>
           </div>
         </FadeIn>
       </Section>

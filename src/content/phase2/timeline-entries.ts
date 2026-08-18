@@ -1,0 +1,82 @@
+import type { TimelineEntry } from "@/types/content";
+
+export const PHASE2_TIMELINE_ENTRIES: TimelineEntry[] = [
+  {
+    id: "kanem-bornu-trade",
+    era: "pre-colonial",
+    title: "Kanem-Bornu Trade Networks",
+    dateRange: "c. 900–1900",
+    summary:
+      "Trans-Saharan routes linked Lake Chad to North Africa, moving salt, kola, livestock, and craft goods across a vast commercial empire.",
+    content:
+      "Long before colonial borders, the Kanem-Bornu state anchored trade across the central Sahel. Caravans carried salt from desert mines southward and returned north with kola nuts, ivory, leather, and enslaved people. Bornu merchants maintained credit relationships and market courts that regulated weights, prices, and disputes. Agriculture supported the empire's towns: millet, sorghum, and cowpea farming along the Komadugu Yobe and Lake Chad floodplains fed urban populations and supplied caravan provisions. Horses imported from North Africa strengthened cavalry power and became a store of wealth. This was not a subsistence backwater but an integrated regional economy where farming, pastoralism, and long-distance exchange reinforced each other. British and French partition in the early twentieth century disrupted routes that had functioned for centuries, redirecting commerce toward coastal ports under European control. The legacy persists in northern Nigeria's market towns, cross-border livestock trade, and enduring commercial networks that predate the modern nation-state and still shape regional food and livestock flows today.",
+    relatedSectorSlugs: ["economy", "agriculture"],
+    sourceIds: ["cbo-nigeria-history", "fao-nigeria-agriculture"],
+    artDirection: "pre-colonial",
+  },
+  {
+    id: "colonial-cash-crops",
+    era: "colonial",
+    title: "Colonial Cash Crops & Food Dependency",
+    dateRange: "1900–1960",
+    summary:
+      "Colonial policy prioritized export crops for European markets, reshaping land use and leaving Nigeria dependent on imported staples by independence.",
+    content:
+      "British administrators reorganized Nigerian agriculture around commodities Britain needed: cocoa in the west, groundnuts and cotton in the north, palm kernels and rubber in the east. Extension services, grading standards, and rail lines served export zones first. Farmers who adopted cash crops earned cash income but often reduced food plots to meet quota pressure. Local processing of palm oil and groundnuts was discouraged where it competed with British industry. During the Second World War, Nigeria supplied Allied forces with palm products and tin, deepening the export orientation. By the 1950s, the colony imported significant quantities of rice and wheat even as it exported food calories on paper. Nutrition surveys in the final colonial decade documented stunting and seasonal hunger in export-rich regions. Independence in 1960 inherited this structural imbalance: valuable foreign exchange from cash crops, but a food system vulnerable to global price swings and unable to feed a fast-growing urban population without imports. Reversing that dependency remains central to every 2050 agriculture scenario on this site.",
+    relatedSectorSlugs: ["agriculture", "economy"],
+    sourceIds: ["cbo-nigeria-history", "fao-nigeria-agriculture"],
+    artDirection: "colonial",
+  },
+  {
+    id: "nollywood-birth",
+    era: "democracy",
+    title: "Nollywood Emerges",
+    dateRange: "1992–2005",
+    summary:
+      "Direct-to-video filmmaking in Lagos creates the world's second-largest film industry by output, turning storytelling into a national export.",
+    content:
+      "Nigeria's film industry did not begin in a studio lot. It began in markets. The 1992 release of Living in Bondage, shot on video for home viewing, proved that Igbo-language stories about ambition, ritual, and urban life could sell hundreds of thousands of VCD copies without cinema distribution. Producers copied the model: low budgets, fast turnaround, sales through Idumota and Alaba electronics hubs. By the early 2000s, Nigeria was releasing over a thousand titles a year, surpassing Hollywood in volume and employing actors, marketers, musicians, and technicians across Lagos, Enugu, and Asaba. Nollywood gave Nigeria a soft-power asset no oil field could match: recognizable narratives consumed across Africa and its diaspora. Distribution moved from VCD to DSTV channels, then to YouTube and streaming apps. Piracy cut margins, but the industry professionalized through guilds, film festivals, and co-production deals. For the creative economy, Nollywood demonstrated that cultural production at scale could generate jobs, foreign earnings, and global brand recognition from domestic talent and domestic audiences first.",
+    relatedSectorSlugs: ["creative-economy", "technology"],
+    sourceIds: ["nollywood-industry-report", "cbo-nigeria-history"],
+    artDirection: "democracy",
+  },
+  {
+    id: "ajaokuta-steel",
+    era: "military-rule",
+    title: "Ajaokuta Steel Mill",
+    dateRange: "1979–1990s",
+    summary:
+      "A Soviet-built integrated steel complex meant to industrialize Nigeria remains unfinished, symbolizing ambitious manufacturing plans that never fully delivered.",
+    content:
+      "In 1979, Nigeria signed a contract with Tyazhpromexport of the Soviet Union to build an integrated steel plant at Ajaokuta, on the Niger River in Kogi State. The vision was explicit: reduce dependence on imported steel, create upstream jobs in mining and downstream fabrication, and anchor a heavy-industry corridor in the middle belt. Construction progressed through the 1980s oil boom and continued after prices collapsed. By the early 1990s, much of the plant's physical infrastructure stood complete, but commissioning stalled over financing disputes, contract renegotiations, and governance turnover. Successive military and civilian administrations pledged completion; privatization attempts foundered. Decades later, Ajaokuta remains the country's most cited example of white-elephant industrial policy: billions spent, minimal output. Yet the ambition itself mattered. Nigeria's 2050 manufacturing scenarios assume learning from this failure: phased special economic zones, private operators with enforceable contracts, reliable power, and export markets rather than single mega-projects directed from Abuja without operational discipline.",
+    relatedSectorSlugs: ["manufacturing", "economy"],
+    sourceIds: ["unido-manufacturing", "cbo-nigeria-history"],
+    artDirection: "military",
+  },
+  {
+    id: "nhis-launch",
+    era: "democracy",
+    title: "National Health Insurance Scheme",
+    dateRange: "1999–2005",
+    summary:
+      "Nigeria establishes a formal health insurance framework, but low enrollment keeps most citizens paying out of pocket for care.",
+    content:
+      "The National Health Insurance Scheme Act of 1999 created Nigeria's first statutory pathway toward pooled health financing. Implementation began in 2005 under the NHIS, starting with federal civil servants and gradually expanding toward formal-sector employees through employer-based programs. The design mirrored social health insurance models used elsewhere: contributions fund a benefit package covering primary care, maternity services, and selected hospital procedures. In practice, coverage grew slowly. By the mid-2010s, only a small fraction of Nigerians were enrolled, overwhelmingly in the formal public and private workforce. Informal workers, rural residents, and the unemployed, the majority of the population, remained outside the system, paying cash at point of care. State-level schemes emerged with uneven quality. NHIS nonetheless changed the policy conversation: health financing moved from pure budget allocation toward insurance principles, accreditation of providers, and standardized tariffs. Every 2050 healthcare projection on Naija2050 assumes scaling pooled coverage, whether through NHIS expansion, state insurance hybrids, or digital enrollment linked to national identity systems.",
+    relatedSectorSlugs: ["healthcare", "governance"],
+    sourceIds: ["who-nigeria-health", "cbo-nigeria-history"],
+    artDirection: "democracy",
+  },
+  {
+    id: "agent-banking-boom",
+    era: "reform",
+    title: "Agent Banking & Mobile Money Scale",
+    dateRange: "2013–present",
+    summary:
+      "CBN agent banking rules and smartphone adoption bring financial services to neighborhoods without bank branches.",
+    content:
+      "Traditional banks could not profitably serve Nigeria's vast informal and rural economy through branches alone. In 2013, the Central Bank of Nigeria published agent banking guidelines, allowing licensed banks and mobile money operators to recruit retail shops, pharmacists, and market traders as cash-in/cash-out points. Smartphone penetration and USSD codes lowered the technology barrier. Fintechs built agent networks at speed: OPay, Moniepoint, Palmpay, and others competed to sign up millions of agents who processed transfers, bill payments, and small-business collections for commissions. By the early 2020s, agent locations outnumbered bank branches by orders of magnitude, extending formal rails into peri-urban and rural corridors previously served only by cash and informal savings clubs. Regulatory updates tightened know-your-customer rules and capital requirements, but the model proved durable through FX volatility and policy shifts. Agent banking is the operational layer behind Nigeria's financial-inclusion gains: it connects market women, farmers, and gig workers to instant payment infrastructure that 2050 scenarios treat as foundational for tax formalization, social transfers, and digital commerce.",
+    relatedSectorSlugs: ["financial-inclusion", "technology"],
+    sourceIds: ["world-bank-financial-inclusion", "cbo-nigeria-history"],
+    artDirection: "reform",
+  },
+];

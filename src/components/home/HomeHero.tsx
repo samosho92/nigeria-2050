@@ -8,6 +8,7 @@ import {
 } from "@/components/layout/PageHero";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { COMPARATOR_METRICS } from "@/content/comparator";
+import { CONTENT_STATS } from "@/lib/content-stats";
 import {
   comparatorCounterProps,
   formatComparatorBaseline,
@@ -41,7 +42,7 @@ export function HomeHero() {
           </span>
         </>
       }
-      description="Eight eras of Nigerian history. Six sector visions to 2050. Every number cited, every scenario ranged. Built for the skeptic."
+      description={`${CONTENT_STATS.eraCount} eras of Nigerian history. ${CONTENT_STATS.sectorCount} sector visions to 2050. Every number cited, every scenario ranged. Built for the skeptic.`}
       titleSize="display"
       contentClassName="max-w-none lg:col-span-7"
       actions={

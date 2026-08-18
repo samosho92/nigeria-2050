@@ -59,7 +59,7 @@ export function SectorHero({ sector }: SectorHeroProps) {
         title={sector.title}
         description={sector.tagline}
         aside={
-          <div className="px-6 pb-10 lg:px-0 lg:pb-0">
+          <div className="px-6 pb-10 lg:px-8 lg:py-16">
             <StatSnapshot sections={buildSnapshotSections(sector)} />
           </div>
         }

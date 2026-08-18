@@ -1,4 +1,5 @@
 import type { G7BenchmarkMetric, G7CountryCode } from "@/types/content";
+import { PHASE2_G7_METRICS } from "./phase2/g7-metrics";
 
 export const G7_COUNTRY_CODES: G7CountryCode[] = ["CA", "FR", "DE", "IT", "JP", "GB", "US"];
 
@@ -314,6 +315,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     sourceId: "unodc-crime-stats",
     sourceSeries: "UNODC · Intentional homicide rate",
   },
+  ...PHASE2_G7_METRICS,
 ];
 
 export function getG7MetricsBySector(sectorSlug: string): G7BenchmarkMetric[] {

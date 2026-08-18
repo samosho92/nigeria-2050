@@ -1,4 +1,5 @@
 import type { Sector } from "@/types/content";
+import { PHASE2_SECTORS } from "./phase2/sectors";
 
 export const SECTORS: Sector[] = [
   {
@@ -785,6 +786,7 @@ export const SECTORS: Sector[] = [
     ],
     sourceIds: ["sipri-security-africa", "undp-hdi-nigeria", "world-bank-nigeria-overview"],
   },
+  ...PHASE2_SECTORS,
 ];
 
 export function getSectorBySlug(slug: string): Sector | undefined {

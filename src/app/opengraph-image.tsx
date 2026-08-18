@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { CONTENT_STATS } from "@/lib/content-stats";
 
 export const runtime = "edge";
 export const alt = "Naija2050 - Where Nigeria's History Meets Its Future";
@@ -55,7 +56,7 @@ export default function OpenGraphImage() {
             maxWidth: 800,
           }}
         >
-          Six sector visions · Interactive timeline · Sourced projections to 2050
+          {`${CONTENT_STATS.sectorCount} sector visions · Interactive timeline · Sourced projections to 2050`}
         </div>
       </div>
     ),

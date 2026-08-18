@@ -66,6 +66,30 @@ export interface TimelineEntry {
   sourceIds: string[];
   artDirection: "pre-colonial" | "colonial" | "independence" | "conflict" | "military" | "democracy" | "reform";
   reviewStatus?: "draft" | "pending-review" | "reviewed";
+  lastReviewed?: string;
+}
+
+export interface QuizQuestion {
+  id: string;
+  prompt: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+}
+
+export interface SectorQuiz {
+  sectorSlug: string;
+  title: string;
+  questions: QuizQuestion[];
+}
+
+export interface CorrectionSubmission {
+  id: string;
+  pageUrl: string;
+  claim: string;
+  counterSource: string;
+  email?: string;
+  submittedAt: string;
 }
 
 export interface GlossaryTerm {
@@ -109,7 +133,7 @@ export interface G7BenchmarkMetric {
 
 export type ReviewItem = {
   id: string;
-  type: "sector" | "timeline" | "art";
+  type: "sector" | "timeline" | "art" | "correction";
   title: string;
   status: "pending-review" | "reviewed";
   reviewer?: string;

@@ -10,6 +10,8 @@ import { MilestoneTimeline } from "@/components/sectors/MilestoneTimeline";
 import { ScenarioRangePanel } from "@/components/sectors/ScenarioRangePanel";
 import { SectorHero } from "@/components/sectors/SectorHero";
 import { FadeIn } from "@/components/motion";
+import { getSectorQuiz } from "@/content/quizzes";
+import { QuizPanel } from "@/components/quizzes/QuizPanel";
 import { getSectorBySlug, getSourcesByIds, SECTORS } from "@/lib/content";
 
 interface SectorPageProps {
@@ -33,6 +35,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
   if (!sector) notFound();
 
   const sources = getSourcesByIds(sector.sourceIds);
+  const sectorQuiz = getSectorQuiz(sector.slug);
 
   return (
     <div>
@@ -70,6 +73,16 @@ export default async function SectorPage({ params }: SectorPageProps) {
       <Section variant="surface" id="sources">
         <SourcePanel sources={sources} />
       </Section>
+
+      {sectorQuiz && (
+        <Section>
+          <QuizPanel
+            quizId={sector.slug}
+            title={sectorQuiz.title}
+            questions={sectorQuiz.questions}
+          />
+        </Section>
+      )}
     </div>
   );
 }

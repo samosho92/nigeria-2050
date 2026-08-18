@@ -46,6 +46,28 @@ export const REVIEW_QUEUE: ReviewItem[] = [
     status: "reviewed",
     reviewer: "Editorial (internal)",
   },
+  {
+    id: "sector-healthcare-projections",
+    type: "sector",
+    title: "Healthcare sector 2050 projections — clinician review",
+    status: "pending-review",
+    reviewer: "Public health specialist (TBD)",
+  },
+  {
+    id: "sector-agriculture-projections",
+    type: "sector",
+    title: "Agriculture sector projections — economist review",
+    status: "pending-review",
+    reviewer: "Agricultural economist (TBD)",
+  },
+  {
+    id: "phase2-era-art",
+    type: "art",
+    title: "Phase 2 era SVG art — editorial approval",
+    status: "reviewed",
+    reviewer: "Editorial (internal)",
+    notes: "Abstract SVG era scenes approved; settings only, no figures.",
+  },
 ];
 
 export function getPendingReviews() {
