@@ -46,7 +46,7 @@ export const UNIT_STATUS_LABEL: Record<UnitStatus, string> = {
   offline: "Offline",
 };
 
-/** The desk is a pipeline. Skip a step and you have a hotline, not dispatch. */
+/** The desk is a nine-step pipeline. */
 export const DISPATCH_PIPELINE: {
   id: PipelineId;
   step: string;
@@ -62,7 +62,7 @@ export const DISPATCH_PIPELINE: {
     clock: "0–10 s",
     owner: "Call-taker",
     detail:
-      "A trained person picks up. Not an IVR, not a personal mobile, not voicemail. Language is offered in the first sentence: English, Pidgin, Hausa, Yoruba, Igbo.",
+      "A trained person picks up. Language is offered in the first sentence: English, Pidgin, Hausa, Yoruba, Igbo.",
   },
   {
     id: "locate",
@@ -71,7 +71,7 @@ export const DISPATCH_PIPELINE: {
     clock: "10–40 s",
     owner: "Call-taker",
     detail:
-      "Postal code first, landmark second. Urban: street zone and odd/even side (FC-U01-001 is not the even side). Rural: cluster code plus a named place — the hinterland has no invented street.",
+      "Postal code first, landmark second. Urban: street zone and odd/even side (FC-U01-001 is the odd side). Rural: cluster code plus a named place, the hinterland has no invented street.",
   },
   {
     id: "classify",
@@ -89,7 +89,7 @@ export const DISPATCH_PIPELINE: {
     clock: "while assigning",
     owner: "Call-taker",
     detail:
-      "A short card, not a chat. Breathing / conscious; what is burning and whether people are inside; whether anyone is in immediate danger. Stay on the line. Do not turn the caller into the unit.",
+      "A short card. Breathing / conscious; what is burning and whether people are inside; whether anyone is in immediate danger. Stay on the line. Do not turn the caller into the unit.",
   },
   {
     id: "assign",
@@ -98,7 +98,7 @@ export const DISPATCH_PIPELINE: {
     clock: "under 60 s",
     owner: "Dispatcher",
     detail:
-      "Nearest capable unit of the right type, on a radio the desk can hear. A phone in someone’s pocket is not a roster.",
+      "Nearest capable unit of the right type, on a radio the desk can hear. A phone in someone’s pocket does not count as a roster.",
   },
   {
     id: "ack",
@@ -125,7 +125,7 @@ export const DISPATCH_PIPELINE: {
     clock: "logged",
     owner: "Unit",
     detail:
-      "Arrival is a timestamp, not a WhatsApp status. If the unit cannot find the code, that is a postal-layer bug — it goes back to the index, not a lecture for the caller.",
+      "Arrival is a timestamp. If the unit cannot find the code, that is a postal-layer bug: it goes back to the index.",
   },
   {
     id: "close",
@@ -134,7 +134,7 @@ export const DISPATCH_PIPELINE: {
     clock: "end of job",
     owner: "Dispatcher",
     detail:
-      "Outcome code, time stamps, agencies on scene. The public report is weekly medians — not a live map of someone’s emergency.",
+      "Outcome code, time stamps, agencies on scene. The public report is weekly medians.",
   },
 ];
 
@@ -155,7 +155,7 @@ export const AGENCY_PROTOCOL: Record<
   fire: {
     title: "Fire card",
     ask: [
-      "What is burning — building, vehicle, bush?",
+      "What is burning, building, vehicle, bush?",
       "Is anyone inside, and can they get out?",
       "Confirm the code. Note a water point only if the caller already knows one.",
     ],
@@ -166,7 +166,7 @@ export const AGENCY_PROTOCOL: Record<
     ask: [
       "Is anyone in immediate danger right now?",
       "Can the caller stay in a safer place?",
-      "Confirm the code. Weapons: yes or no — no further detail on the open line unless the unit asks.",
+      "Confirm the code. Weapons: yes or no, no further detail on the open line unless the unit asks.",
     ],
     never: "The call-taker is not an investigator. Get the unit moving; take a statement later.",
   },
@@ -238,7 +238,7 @@ export const DISPATCH_CLUSTERS: DispatchCluster[] = [
   {
     id: "abuja",
     capitalId: "abuja",
-    psap: "FCT PSAP — Central Area",
+    psap: "FCT PSAP. Central Area",
     languages: ["en", "pcm", "ha"],
     summary:
       "Seed cluster. Urban codes are loaded. Night desk has two call-takers and a dispatcher. This is what ‘launched’ means.",
@@ -292,7 +292,7 @@ export const DISPATCH_CLUSTERS: DispatchCluster[] = [
   {
     id: "ikeja",
     capitalId: "ikeja",
-    psap: "Lagos PSAP — Alausa",
+    psap: "Lagos PSAP. Alausa",
     languages: ["en", "pcm", "yo"],
     summary:
       "Busy cluster. Overflow from FCT can land here. Multi-agency tickets are normal; ACK timeouts are not.",
@@ -346,7 +346,7 @@ export const DISPATCH_CLUSTERS: DispatchCluster[] = [
   {
     id: "kano",
     capitalId: "kano",
-    psap: "Kano PSAP — Municipal",
+    psap: "Kano PSAP. Municipal",
     languages: ["ha", "en", "pcm"],
     summary:
       "Hausa first on the night desk. A unit without radio ACK is offline, even if a phone rings in the yard.",
@@ -391,9 +391,9 @@ export const DISPATCH_CLUSTERS: DispatchCluster[] = [
   {
     id: "enugu",
     capitalId: "enugu",
-    psap: "Enugu PSAP — Independence Layout",
+    psap: "Enugu PSAP. Independence Layout",
     languages: ["ig", "en", "pcm"],
-    summary: "Igbo first. Urban walk is short; the desk still needs the code, not ‘by Shoprite’.",
+    summary: "Igbo first. Urban walk is short; the desk still needs the code.",
     gate: {
       nightCallTakers: 2,
       dispatchers: 1,
@@ -435,7 +435,7 @@ export const DISPATCH_CLUSTERS: DispatchCluster[] = [
   {
     id: "port-harcourt",
     capitalId: "port-harcourt",
-    psap: "Rivers PSAP — GRA",
+    psap: "Rivers PSAP. GRA",
     languages: ["en", "pcm", "ig"],
     summary: "Industrial and GRA tickets share one desk. Fire and ambulance often ride together.",
     gate: {
@@ -479,10 +479,10 @@ export const DISPATCH_CLUSTERS: DispatchCluster[] = [
   {
     id: "maiduguri",
     capitalId: "maiduguri",
-    psap: "Borno PSAP — not published",
+    psap: "Borno PSAP unpublished",
     languages: ["ha", "en"],
     summary:
-      "The number is not on air. Night staffing is a phone that goes to voicemail. 112 stays dark until the gate passes — a silent line is worse than no campaign.",
+      "The number is not on air. Night staffing is a phone that goes to voicemail. 112 stays dark until the gate passes, a silent line is worse than no campaign.",
     gate: {
       nightCallTakers: 0,
       dispatchers: 0,
@@ -496,7 +496,7 @@ export const DISPATCH_CLUSTERS: DispatchCluster[] = [
         id: "bo-amb-1",
         callSign: "BO-AMB-01",
         agency: "ambulance",
-        base: "Metropolitan clinic — phone only",
+        base: "Metropolitan clinic, phone only",
         covers: "BO-U01",
         status: "offline",
         etaMin: 25,
@@ -505,7 +505,7 @@ export const DISPATCH_CLUSTERS: DispatchCluster[] = [
         id: "bo-pol-1",
         callSign: "BO-POL-01",
         agency: "police",
-        base: "Metropolitan division — no radio desk",
+        base: "Metropolitan division, no radio desk",
         covers: "BO-U01",
         status: "offline",
         etaMin: 20,
@@ -536,7 +536,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
         t: 4,
         stage: "answer",
         speaker: "taker",
-        line: "112, English, Pidgin, or Hausa — I can take any. What is the emergency?",
+        line: "112, English, Pidgin, or Hausa. I can take any. What is the emergency?",
       },
       {
         t: 9,
@@ -548,7 +548,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
         t: 18,
         stage: "locate",
         speaker: "taker",
-        line: "That is FC-U01-001 — Independence Avenue, odd plots. I am not using the mosque as the address.",
+        line: "That is FC-U01-001. Independence Avenue, odd plots. I am not using the mosque as the address.",
       },
       {
         t: 24,
@@ -608,7 +608,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
     code: "LA-U01-003",
     place: "Allen Avenue",
     band: "urban",
-    summary: "Multi-agency. First fire ACK is late — the desk assigns the next appliance, then the ambulance. The caller stays on the line.",
+    summary: "Multi-agency. First fire ACK is late, the desk assigns the next appliance, then the ambulance. The caller stays on the line.",
     beats: [
       {
         t: 0,
@@ -632,7 +632,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
         t: 22,
         stage: "locate",
         speaker: "taker",
-        line: "LA-U01-003 — Allen Avenue, both sides. I have the street zone. Are people still inside?",
+        line: "LA-U01-003. Allen Avenue, both sides. I have the street zone. Are people still inside?",
       },
       {
         t: 30,
@@ -651,7 +651,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
         t: 72,
         stage: "ack",
         speaker: "system",
-        line: "No ACK from LA-FIR-01 at 30 s. Not voicemail — next unit. LA-FIR-02 assigned.",
+        line: "No ACK from LA-FIR-01 at 30 s. Assign the next unit. LA-FIR-02 assigned.",
         unitIds: ["la-fir-2"],
       },
       {
@@ -686,7 +686,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
         t: 780,
         stage: "close",
         speaker: "dispatcher",
-        line: "Close: fire + ambulance. First appliance missed ACK; second took the job. That miss is a roster problem, not a reason to keep 112 silent.",
+        line: "Close: fire + ambulance. First appliance missed ACK; second took the job. That miss is a roster problem. Keep the number on the air.",
         unitIds: ["la-fir-2", "la-amb-1"],
       },
     ],
@@ -700,7 +700,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
     code: "KN-U01-005",
     place: "France Road",
     band: "urban",
-    summary: "Hausa desk. Fire radio is down in this cluster — police still launch because the gate needs a radio on the agency you are sending, not every appliance in the yard.",
+    summary: "Hausa desk. Fire radio is down in this cluster, police still launch because the gate needs a radio on the agency you are sending.",
     beats: [
       {
         t: 0,
@@ -724,7 +724,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
         t: 20,
         stage: "locate",
         speaker: "taker",
-        line: "KN-U01-005 — France Road, both sides, market streets. You do not need to name a stall.",
+        line: "KN-U01-005. France Road, both sides, market streets. You do not need to name a stall.",
       },
       {
         t: 28,
@@ -770,7 +770,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
         t: 500,
         stage: "close",
         speaker: "dispatcher",
-        line: "Close: police only. Fire stayed offline and was not assigned. A dark fire radio is a launch-gate problem for fire jobs, not for this ticket.",
+        line: "Close: police only. Fire stayed offline and was not assigned. A dark fire radio is a launch-gate problem for fire jobs. This ticket still closed.",
         unitIds: ["kn-pol-1"],
       },
     ],
@@ -778,13 +778,13 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
   {
     id: "abj-rural",
     clusterId: "abuja",
-    title: "Kwali hinterland — no street zone",
+    title: "Kwali hinterland, no street zone",
     agencies: ["ambulance"],
     language: "pcm",
     code: "FC-R04-027",
     place: "Kwali hinterland",
     band: "rural",
-    summary: "Rural cluster code. There is no odd/even street until roads are gazetted. The desk locates a settlement, not a plot, and the ETA is honest.",
+    summary: "Rural cluster code. There is no odd/even street until roads are gazetted. The desk locates a settlement and the ETA is honest.",
     beats: [
       {
         t: 0,
@@ -808,7 +808,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
         t: 28,
         stage: "locate",
         speaker: "taker",
-        line: "FC-R04-027 — Kwali hinterland cluster. No street zone on the index. I will pin the settlement, not invent a road.",
+        line: "FC-R04-027. Kwali hinterland cluster. No street zone on the index. I will pin the settlement.",
       },
       {
         t: 40,
@@ -854,7 +854,7 @@ export const DISPATCH_INCIDENTS: DispatchIncident[] = [
         t: 1620,
         stage: "close",
         speaker: "dispatcher",
-        line: "Close: ambulance, rural. Locate used a cluster code, not a landmark story. Long ETA is logged, not hidden. This is why the postal rural band exists.",
+        line: "Close: ambulance, rural. Locate used a cluster code. Long ETA is logged. This is why the postal rural band exists.",
         unitIds: ["fc-amb-1"],
       },
     ],

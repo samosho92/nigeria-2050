@@ -19,7 +19,7 @@ export function HomeIconsTeaser() {
           {CONTENT_STATS.iconCount} icons. One register.
         </h2>
         <p className="mt-4 max-w-md text-muted-foreground">
-          Writers, organisers, builders, and athletes — sourced, chronological, and searchable.
+          Writers, organisers, builders, and athletes, sourced, chronological, and searchable.
           The timeline tells what happened. The icons page tells who carried it.
         </p>
         <LinkButton href="/icons" variant="primary" className="mt-8 w-fit">

@@ -93,7 +93,7 @@ export function IconsTimeline({ figures, sectorTitles }: IconsTimelineProps) {
 
       {filtered.length === 0 ? (
         <p className="mt-10 text-center text-muted-foreground">
-          No figures match that search. Try a name, city, or field — “Kano”, “Nobel”, “fintech”.
+          No figures match that search. Try a name, city, or field, “Kano”, “Nobel”, “fintech”.
         </p>
       ) : (
         <div ref={containerRef} className="relative mt-10 flex gap-8">

@@ -126,19 +126,19 @@ function scenesForSector(
       ];
     },
     security: () => [
-      `You take the longer walk through ${cityName} because you want to, not because the shorter one is a calculation. Dusk is still dusk. It is not an alarm. A football match runs five minutes into dark and the parents do not start doing maths.`,
-      `Safety here is not a parade. It is a baseline: shops open later, a bus stop that does not feel like a dare, investment that no longer arrives wearing a helmet. You notice it most when you forget to notice it.`,
+      `You take the longer walk through ${cityName} because you want to. Dusk is still dusk. A football match runs five minutes into dark and the parents do not start doing maths.`,
+      `Safety here is a baseline: shops open later, a bus stop that does not feel like a dare, investment that no longer arrives wearing a helmet. You notice it most when you forget to notice it.`,
     ],
     healthcare: () => {
       const life = metric(sector, "lifeExpectancy") ?? "68 years";
       return [
         `The clinic in ${cityName} smells of antiseptic and ${rainy ? "wet concrete" : harmattan ? "dust that the nurses keep sweeping" : "hot linoleum"}. A number is called. A nurse who trained here, and stayed, checks a blood pressure as if this were the most ordinary mercy. Life expectancy is a statistic until you watch an older woman walk in on her own. They say ${life}. She is busy living it.`,
-        `You wait, and the wait ends. That used to be the plot of a whole afternoon. Universal coverage, on a form, is a phrase. In this corridor it is a card that works, a vaccine in a fridge that stays cold, a country that decided 400 million bodies were not a rumour.`,
+        `You wait, and the wait ends. That used to be the plot of a whole afternoon. Universal coverage, on a form, is a phrase. In this corridor it is a card that works, a vaccine in a fridge that stays cold, a country that decided 400 million bodies were real enough to insure.`,
       ];
     },
     agriculture: () => [
-      `Fruit that tastes like the country, not like a port. In ${cityName} a grain lorry passes, high and slow. The climate has not become gentle (it never promised to) but the farms have learned new habits: seed that can stand a shorter rain, soil that is not treated like a mine. A bag of rice does not come with a rumour.`,
-      `Someone is frying something that grew near here. That should not feel like news. In 2050 it still does, a little, because you remember when staples were a foreign policy. Nigeria feeding itself is not a slogan on this street. It is lunch.`,
+      `Fruit that tastes like the country. In ${cityName} a grain lorry passes, high and slow. The climate has not become gentle (it never promised to) but the farms have learned new habits: seed that can stand a shorter rain, soil that is not treated like a mine. A bag of rice does not come with a rumour.`,
+      `Someone is frying something that grew near here. That should not feel like news. In 2050 it still does, a little, because you remember when staples were a foreign policy. Nigeria feeding itself is lunch on this street.`,
     ],
     "creative-economy": () => [
       `From a studio in ${cityName}, a beat leaks into the street and does not need a visa. A fashion rail. A camera. A producer arguing about light as if light were a national resource, which it is. Culture pays rent now. That is the quiet revolution, quieter than oil, and harder to steal.`,
@@ -147,8 +147,8 @@ function scenesForSector(
     manufacturing: () => {
       const share = metric(sector, "manufacturingGdpShare") ?? "22%";
       return [
-        `A Made-in-Nigeria stamp that is not an apology. From a flyover in ${cityName} you can hear an industrial hum, steel and blister packs and a dashboard assembled within reach of this weather. Manufacturing at ${share} of output is a chart. On the ground it is shift change, and a canteen, and pride that does not need a speech.`,
-        `The afternoon smells faintly of hot metal and soap. Factories, not just depots. West Africa's workshop has an address, and today the address is near enough that a mechanic's cousin has a proper wage.`,
+        `A Made-in-Nigeria stamp with no apology attached. From a flyover in ${cityName} you can hear an industrial hum, steel and blister packs and a dashboard assembled within reach of this weather. Manufacturing at ${share} of output is a chart. On the ground it is shift change, and a canteen, and pride that does not need a speech.`,
+        `The afternoon smells faintly of hot metal and soap. Factories as well as depots. West Africa's workshop has an address, and today the address is near enough that a mechanic's cousin has a proper wage.`,
       ];
     },
     "financial-inclusion": () => [
@@ -157,7 +157,7 @@ function scenesForSector(
     ],
     transportation: () => [
       `You board something in ${cityName} that leaves when it says it will. A rail, or a lane that is actually a lane. The old joke about sitting in traffic until you forget your own name has become a story grandparents tell, the way they tell stories about generators.`,
-      `Cargo moves like a country that has decided the map should connect people to each other, not only to the sea. You watch a bus pull away on time and feel, briefly, the luxury of expecting the next one.`,
+      `Cargo moves like a country that has decided the map should connect people to each other as well as to the sea. You watch a bus pull away on time and feel, briefly, the luxury of expecting the next one.`,
     ],
   };
 
@@ -178,7 +178,7 @@ function closingParagraph(
   return pick(
     [
       `${weather.evening} You walk home. You do not call it a miracle. You call it a Tuesday. Somewhere a planner would say this is only the base case, if the assumptions hold. You fold the thought away. Tonight it is a city, a season, and a country that did not waste the next twenty-five years.`,
-      `${weather.evening} ${city.name} keeps its weather, because climate is not a rumour you can vote out. What changed is smaller and harder: the lights, the clinic, the train, the courage to treat 2050 as a place you might arrive. This scene is a scenario. It is also, if you squint, a dare.`,
+      `${weather.evening} ${city.name} keeps its weather, because climate stays, whether you vote or not. What changed is smaller and harder: the lights, the clinic, the train, the courage to treat 2050 as a place you might arrive. This scene is a scenario. It is also, if you squint, a dare.`,
       `Night. ${weather.evening} You eat with a window open. The future, when it works, is not fireworks. It is the ordinary privilege of not bracing. Remember that none of this is promised. Remember, too, how a promised thing begins: as a day someone decided to inhabit.`,
     ],
     seed + 7,
@@ -194,7 +194,7 @@ export function generateYour2050Vignette(input: Your2050Input): Your2050Vignette
   if (sectors.length === 0) {
     return {
       title: "Pick a sector to begin",
-      body: "Choose one or two sectors, a city, and a season. We will write you a day in 2050 from the sourced projections, not from thin air.",
+      body: "Choose one or two sectors, a city, and a season. We will write you a day in 2050 from the sourced projections.",
       sectors: [],
       shareText: "",
     };
@@ -247,7 +247,7 @@ export function buildVignetteShareText(
     "",
     body,
     "",
-    `A fiction grounded in sourced Naija2050 projections. Not a guarantee.`,
+    `A fiction grounded in sourced Naija2050 projections.`,
     url,
   ].join("\n");
 }

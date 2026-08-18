@@ -33,7 +33,7 @@ function buildSnapshotSections(sector: Sector): StatSnapshotSection[] {
   if (primaryScenario) {
     sections.push({
       heading: "2050 scenario",
-      caption: `${primaryScenario.label} — not a sourced forecast`,
+      caption: `${primaryScenario.label} (scenario)`,
       accent: true,
       rows: [
         {

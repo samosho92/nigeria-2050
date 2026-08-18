@@ -14,7 +14,7 @@ export function DataSaverToggle() {
       aria-label={enabled ? "Disable data saver mode" : "Enable data saver mode"}
       aria-pressed={enabled}
       onClick={toggle}
-      title="Data saver — reduces animations and heavy visuals"
+      title="Data saver, reduces animations and heavy visuals"
     >
       <IconBoltOff
         className={enabled ? "size-5 text-accent" : "size-5"}

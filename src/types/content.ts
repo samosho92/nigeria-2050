@@ -115,7 +115,7 @@ export interface G7BenchmarkMetric {
   id: string;
   sectorSlug: string;
   label: string;
-  /** Exact indicator definition — same methodology for Nigeria and all G7 members. */
+  /** Exact indicator definition, same methodology for Nigeria and all G7 members. */
   definition: string;
   unit: string;
   /** Reference year for Nigeria + all G7 values (apples-to-apples). */

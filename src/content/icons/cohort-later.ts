@@ -75,7 +75,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Psychiatrist who pioneered village-based treatment at Aro, Abeokuta, and later became deputy director-general of the World Health Organization.",
     summary:
-      "Lambo’s Aro Village scheme (1954) treated patients in the community rather than locking them in asylums — a model WHO later cited. He was the first African to hold WHO’s number-two post. Nigerian psychiatry as a public-health field starts with his clinic, not with imported Victorian wards.",
+      "Lambo’s Aro Village scheme (1954) treated patients in the community rather than locking them in asylums, a model WHO later cited. He was the first African to hold WHO’s number-two post. Nigerian psychiatry as a public-health field starts with his clinic.",
     citation: {
       title: "Thomas Adeoye Lambo",
       publisher: "The Lancet (obituary)",
@@ -95,7 +95,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Paediatrician and health minister (1985–92) who made primary health care and childhood immunisation a federal programme; later a UNICEF envoy.",
     summary:
-      "Brother of Fela and Beko, Olikoye used the Bamako Initiative logic — essential drugs, clinics, vaccines — rather than hospital palaces. Nigeria’s immunisation coverage rose on his watch, then fell after he left. He was among the first senior officials to speak plainly about HIV. The family produced music, protest, and this quieter public-health record.",
+      "Brother of Fela and Beko, Olikoye used the Bamako Initiative logic, essential drugs, clinics, vaccines, rather than hospital palaces. Nigeria’s immunisation coverage rose on his watch, then fell after he left. He was among the first senior officials to speak plainly about HIV. The family produced music, protest, and this quieter public-health record.",
     citation: {
       title: "Olikoye Ransome-Kuti",
       publisher: "The Lancet (obituary)",
@@ -116,7 +116,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Geographer whose work on urbanisation and development made him the first African elected to the U.S. National Academy of Sciences (1999) in that field.",
     summary:
-      "Mabogunje’s Urbanization in Nigeria (1968) is still the starting monograph for how Nigerian cities actually grew. He advised on the new federal capital and on poverty-mapping. If the Icons page has a scholar of space — markets, migration, slums — it is him.",
+      "Mabogunje’s Urbanization in Nigeria (1968) is still the starting monograph for how Nigerian cities actually grew. He advised on the new federal capital and on poverty-mapping. If the Icons page has a scholar of space, markets, migration, slums, it is him.",
     citation: {
       title: "Akin Mabogunje",
       publisher: "National Academy of Sciences",
@@ -134,7 +134,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     relatedSectorSlugs: ["creative-economy"],
     wikipediaTitle: "Hogan Bassey",
     achievement:
-      "First Nigerian world boxing champion — featherweight title, 1957 — and later a national coach.",
+      "First Nigerian world boxing champion, featherweight title, 1957, and later a national coach.",
     summary:
       "Bassey won the world featherweight belt in Paris against Cherif Hamia, defended it, and lost it to Davey Moore. He boxed out of Liverpool while remaining a Calabar name. Dick Tiger followed; Bassey was the proof that a Nigerian could be world champion in the first place.",
     citation: {
@@ -196,7 +196,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Author and children’s-literature advocate; a pioneer of Nigerian writing for young readers and a founding figure of the Children’s Literature Association of Nigeria.",
     summary:
-      "Segun wrote My Father’s Daughter and spent decades arguing that Nigerian children deserved books about their own streets, not only imported Enid Blyton. She also broadcast and played table tennis for Nigeria. The children’s shelf in Nigerian English letters is hers more than anyone’s.",
+      "Segun wrote My Father’s Daughter and spent decades arguing that Nigerian children deserved books about their own streets. She also broadcast and played table tennis for Nigeria. The children’s shelf in Nigerian English letters is hers more than anyone’s.",
     citation: {
       title: "Mabel Segun",
       publisher: "Encyclopaedia Britannica",
@@ -296,7 +296,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Drummer who, with Fela, invented the Afrobeat rhythm section; later a solo artist whose beat is sampled across global pop.",
     summary:
-      "Allen’s kit — the broken, dancing independence of the hi-hat and snare — is what makes Afrobeat feel like Afrobeat rather than highlife with politics. He left Egypt 80 and recorded in Paris for decades. Obituaries called him the greatest drummer on earth; the records are the evidence.",
+      "Allen’s kit, the broken, dancing independence of the hi-hat and snare, is what makes Afrobeat feel like Afrobeat rather than highlife with politics. He left Egypt 80 and recorded in Paris for decades. Obituaries called him the greatest drummer on earth; the records are the evidence.",
     citation: {
       title: "Tony Allen",
       publisher: "The Guardian",
@@ -314,7 +314,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     relatedSectorSlugs: ["creative-economy", "education"],
     wikipediaTitle: "Victor Uwaifo",
     achievement:
-      "Guitarist of Joromi (1969) — a pan-African hit — sculptor, and later professor of art at the University of Benin.",
+      "Guitarist of Joromi (1969), a pan-African hit, sculptor, and later professor of art at the University of Benin.",
     summary:
       "Uwaifo mixed highlife, akwete, and a virtuoso guitar style that still sounds like nobody else. Joromi crossed the continent. He also built a museum-studio in Benin City and taught. Few Nigerian pop stars collected academic ranks without leaving the guitar.",
     citation: {
@@ -333,7 +333,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     relatedSectorSlugs: ["creative-economy"],
     wikipediaTitle: "Ebenezer Obey",
     achievement:
-      "Jùjú bandleader (Inter-Reformers) whose 1970s–80s records were the soundtrack of Yoruba social life — weddings, politics, and proverb.",
+      "Jùjú bandleader (Inter-Reformers) whose 1970s–80s records were the soundtrack of Yoruba social life, weddings, politics, and proverb.",
     summary:
       "Chief Commander Obey’s guitar jùjú was less electric-showman than King Sunny Adé’s and more sermon-and-proverb. The two names still divide Lagos stereo arguments. He later became a gospel artist without erasing the secular catalogue that made him.",
     citation: {
@@ -355,7 +355,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Stage and screen actor whose Nollywood patriarch roles, after a British television career, helped give the industry a trained, recognisable elder face.",
     summary:
-      "Jacobs worked with the Royal National Theatre and on BBC television before returning into the video boom. With Joke Silva he ran a training school. Africa Movie Academy Awards later named a lifetime prize after him. He is listed as craft, not as gossip-column illness coverage.",
+      "Jacobs worked with the Royal National Theatre and on BBC television before returning into the video boom. With Joke Silva he ran a training school. Africa Movie Academy Awards later named a lifetime prize after him. He is listed for the craft record.",
     citation: {
       title: "Olu Jacobs",
       publisher: "British Film Institute",
@@ -374,7 +374,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Diplomat who served as Nigeria’s UN ambassador, UN under-secretary-general, and later chief of staff to the president (2020–23).",
     summary:
-      "Gambari’s career is the professional foreign-service path: UN Africa department, Myanmar envoy, then a late return to Aso Villa. This page records the multilateral record, not a sitting office — he left the villa in 2023. He is a reminder that Nigerian diplomacy has a bench beyond politicians.",
+      "Gambari’s career is the professional foreign-service path: UN Africa department, Myanmar envoy, then a late return to Aso Villa. This page records the multilateral record. He left the villa in 2023. He is a reminder that Nigerian diplomacy has a bench beyond politicians.",
     citation: {
       title: "Ibrahim Gambari",
       publisher: "United Nations",
@@ -393,7 +393,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Poet of The Eye of the Earth and Village Voices; winner of the Noma Award and the Nigerian National Order of Merit.",
     summary:
-      "Osundare writes public, readable verse about land, debt, and power — the opposite of closed-circuit modernism. He taught at Ibadan and later in New Orleans, surviving Hurricane Katrina. For a generation of students he is the poet who still sounds like someone speaking.",
+      "Osundare writes public, readable verse about land, debt, and power, the opposite of closed-circuit modernism. He taught at Ibadan and later in New Orleans, surviving Hurricane Katrina. For a generation of students he is the poet who still sounds like someone speaking.",
     citation: {
       title: "Niyi Osundare",
       publisher: "Poetry Foundation",
@@ -413,7 +413,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Actor whose Okonkwo in the 1980s television adaptation of Things Fall Apart made him the face of Igbo patriarchal tragedy for a mass audience.",
     summary:
-      "Edochie came from broadcasting into Nollywood as the default village elder and king. The Achebe serial is still how many Nigerians first ‘see’ Okonkwo. Africa Movie Academy recognised the body of work. He is craft memory, not a trending topic.",
+      "Edochie came from broadcasting into Nollywood as the default village elder and king. The Achebe serial is still how many Nigerians first ‘see’ Okonkwo. Africa Movie Academy recognised the body of work. He is craft memory.",
     citation: {
       title: "Pete Edochie",
       publisher: "Africa Movie Academy Awards / BFI notes",
@@ -432,7 +432,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Artist-architect of the Zaria Rebels generation; designer of the Dominican Chapel at Ibadan and a theorist of climate-sensible Nigerian building.",
     summary:
-      "Nwoko helped found the Natural Synthesis idea in Zaria painting, then built. The Ibadan chapel and his New Culture Studios in Ibadan argue that modern Nigerian space need not be glass boxes. He received a lifetime award from the Nigerian Institute of Architects. Form and climate, not just canvas.",
+      "Nwoko helped found the Natural Synthesis idea in Zaria painting, then built. The Ibadan chapel and his New Culture Studios in Ibadan argue that modern Nigerian space need not be glass boxes. He received a lifetime award from the Nigerian Institute of Architects. Form and climate as well as canvas.",
     citation: {
       title: "Demas Nwoko",
       publisher: "Aga Khan Award for Architecture / ArchNet",
@@ -490,7 +490,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Actor and director who, with Olu Jacobs, founded the Lufodo acting academy and became one of Nollywood’s most trained screen presences.",
     summary:
-      "Silva’s career runs from stage to film to television with a diction that still sounds like repertory theatre. The school is the institutional fact: Nigerian screen acting as something you can teach, not only something you fall into.",
+      "Silva’s career runs from stage to film to television with a diction that still sounds like repertory theatre. The school is the institutional fact: Nigerian screen acting as something you can teach.",
     citation: {
       title: "Joke Silva",
       publisher: "British Film Institute",
@@ -528,7 +528,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     relatedSectorSlugs: ["education"],
     wikipediaTitle: "Stephen Keshi",
     achievement:
-      "Super Eagles captain at USA ’94 and later the coach who won the 2013 Africa Cup of Nations — the first African to win the cup as both player and coach.",
+      "Super Eagles captain at USA ’94 and later the coach who won the 2013 Africa Cup of Nations, the first African to win the cup as both player and coach.",
     summary:
       "Keshi played in France and the United States, lifted the 1994 AFCON as captain, then rebuilt the national team on a diet of home-based and less-fashionable names in 2013. He died in 2016. The Big Boss nickname was earned twice.",
     citation: {
@@ -549,7 +549,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Saxophonist who took over the Afrobeat brief after Fela, ran the New Afrika Shrine, and earned multiple Grammy nominations without becoming a nostalgia act.",
     summary:
-      "Femi left Egypt 80, built Positive Force, and kept Kalakuta’s politics in a shorter, radio-length form. The Shrine in Ikeja is a working club, not a museum. Listed as a musician who maintained an institution, not as a son in parentheses.",
+      "Femi left Egypt 80, built Positive Force, and kept Kalakuta’s politics in a shorter, radio-length form. The Shrine in Ikeja is a working club. Listed as a musician who maintained an institution.",
     citation: {
       title: "Femi Kuti",
       publisher: "Recording Academy / Grammy Awards",
@@ -570,7 +570,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Director-producer of Checkmate and Fuji House of Commotion; a founder of modern Nigerian television drama and of the BOBTV workshop.",
     summary:
-      "Igwe treated serial television as structure — writers’ rooms, production design, audience — when most video films were one-week wonders. Checkmate remains the reference 1990s soap. She died in 2014; every later Netflix Nigerian series inherits a grammar she rehearsed on NTA.",
+      "Igwe treated serial television as structure, writers’ rooms, production design, audience, when most video films were one-week wonders. Checkmate remains the reference 1990s soap. She died in 2014; every later Netflix Nigerian series inherits a grammar she rehearsed on NTA.",
     citation: {
       title: "Amaka Igwe",
       publisher: "The Guardian",
@@ -608,7 +608,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Director-general of Nigeria’s Securities and Exchange Commission (2010–15) during post-crisis market cleanup; later treasurer of the World Bank.",
     summary:
-      "Oteh’s SEC tenure included the prosecution push after the 2008–09 capital-market crash and a noisy fight with the National Assembly. She then ran the World Bank’s treasury. Listed as a markets regulator and multilateral treasurer, not as a campaign surname.",
+      "Oteh’s SEC tenure included the prosecution push after the 2008–09 capital-market crash and a noisy fight with the National Assembly. She then ran the World Bank’s treasury. Listed as a markets regulator and multilateral treasurer.",
     citation: {
       title: "Arunma Oteh",
       publisher: "World Bank",
@@ -627,7 +627,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Paediatric surgeon who led teams performing open fetal surgery, including a widely reported 2016 operation that removed a sacrococcygeal tumour and returned the fetus to the womb.",
     summary:
-      "Olutoye trained in Nigeria and the United States and became a reference name in fetal surgery at Texas Children’s Hospital, later taking a leadership post at Nationwide Children’s. The 2016 case made the technique vivid to a lay public. He is listed as medicine, not as miracle copy.",
+      "Olutoye trained in Nigeria and the United States and became a reference name in fetal surgery at Texas Children’s Hospital, later taking a leadership post at Nationwide Children’s. The 2016 case made the technique vivid to a lay public. He is listed for the surgical record.",
     citation: {
       title: "Oluyinka Olutoye",
       publisher: "Texas Children’s Hospital / academic profiles",
@@ -704,7 +704,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Sprinter who competed at five Olympic Games and won Nigeria’s first Olympic track medal (4×100 m bronze, 1992) plus individual 200 m bronze in 1996.",
     summary:
-      "Onyali was the face of Nigerian women’s sprinting before Ajunwa’s long-jump gold. Five Olympics is a longevity record few Nigerian athletes match. She later went into sports administration. The medals are in the IOC database, not in folklore.",
+      "Onyali was the face of Nigerian women’s sprinting before Ajunwa’s long-jump gold. Five Olympics is a longevity record few Nigerian athletes match. She later went into sports administration. The medals are in the IOC database.",
     citation: {
       title: "Mary Onyali-Omagbemi",
       publisher: "Olympics.com",
@@ -723,7 +723,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Novelist of Who Fears Death, Binti, and Akata Witch; a Hugo and Nebula winner who made Nigerian and West African futures a centre of world science fiction.",
     summary:
-      "Okorafor’s parents are Nigerian; her settings run from Nigeria to Sudan to outer space without treating Africa as scenery. Binti changed what a space opera protagonist could look like. She is listed as a Nigerian writer in the diaspora, not as an American footnote.",
+      "Okorafor’s parents are Nigerian; her settings run from Nigeria to Sudan to outer space without treating Africa as scenery. Binti changed what a space opera protagonist could look like. She is listed as a Nigerian writer in the diaspora.",
     citation: {
       title: "Nnedi Okorafor",
       publisher: "Encyclopaedia Britannica",
@@ -781,7 +781,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Rapper and singer whose socially comic records (Jagbajantis, Backbone) made Nigerian hip-hop a moral commentary form; died of lymphoma in 2021.",
     summary:
-      "Sound Sultan’s humour was never only jokes — Jagbajantis is a pidgin sermon about inverted values. He mentored younger artists and kept a low-ego public presence. His death produced a rare, uncynical industry mourning.",
+      "Sound Sultan’s humour was never only jokes. Jagbajantis is a pidgin sermon about inverted values. He mentored younger artists and kept a low-ego public presence. His death produced a rare, uncynical industry mourning.",
     citation: {
       title: "Sound Sultan",
       publisher: "BBC News",
@@ -820,7 +820,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Creator-star of Jenifa and the A Tribe Called Judah box-office phenomenon; a producer who proved Yoruba-language comedy could dominate Nigerian cinemas.",
     summary:
-      "Akindele’s Jenifa persona moved from television to film to a production company that treats opening-weekend numbers as the point. A Tribe Called Judah (2023) set a local box-office mark. She briefly held a Lagos political appointment and left it — listed here as an entertainment industrialist.",
+      "Akindele’s Jenifa persona moved from television to film to a production company that treats opening-weekend numbers as the point. A Tribe Called Judah (2023) set a local box-office mark. She briefly held a Lagos political appointment and left it, listed here as an entertainment industrialist.",
     citation: {
       title: "Funke Akindele",
       publisher: "Africa Movie Academy Awards / box-office reporting",
@@ -877,7 +877,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Singer of Fire on the Mountain and Jailer, whose bilingual soul-folk made a Nigerian woman’s voice ordinary on European radio without Afrobeats branding.",
     summary:
-      "Aṣa grew up between Paris and Lagos and writes in English and Yoruba. The 2007 debut was a different export path from the later Afrobeats boom — smaller rooms, heavier lyrics. She is proof that Nigerian pop is not one genre.",
+      "Aṣa grew up between Paris and Lagos and writes in English and Yoruba. The 2007 debut was a different export path from the later Afrobeats boom, smaller rooms, heavier lyrics. She is proof that Nigerian pop is not one genre.",
     citation: {
       title: "Aṣa",
       publisher: "Radio France Internationale",
@@ -915,7 +915,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Afrobeats artist whose feature on Drake’s One Dance (2016) and the album Made in Lagos took Lagos pop to global chart infrastructure.",
     summary:
-      "Wizkid’s Superstar (2011) was a local coronation; One Dance was the statistical break — a Nigerian voice on a Billboard Hot 100 number one. Essence with Tems later did similar work in the U.S. Listed as an export industrialist of sound, not as a tabloid.",
+      "Wizkid’s Superstar (2011) was a local coronation; One Dance was the statistical break, a Nigerian voice on a Billboard Hot 100 number one. Essence with Tems later did similar work in the U.S. Listed as an export industrialist of sound.",
     citation: {
       title: "Wizkid",
       publisher: "Recording Academy / Grammy Awards",
@@ -934,7 +934,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Singer-entrepreneur whose DMW label and singles (Fall, If) made Afrobeats a stadium touring business; a Grammy-nominated headliner.",
     summary:
-      "Davido’s public life is noisy; the industrial fact is catalogue plus a label that broke other acts, plus tours that sell arenas. Born in the U.S., raised in Lagos, he is a Nigerian pop businessman whose numbers are on Billboard and in box reports, not in press releases alone.",
+      "Davido’s public life is noisy; the industrial fact is catalogue plus a label that broke other acts, plus tours that sell arenas. Born in the U.S., raised in Lagos, he is a Nigerian pop businessman whose numbers are on Billboard and in box reports.",
     citation: {
       title: "Davido",
       publisher: "Recording Academy / Grammy Awards",
@@ -953,7 +953,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Singer-songwriter whose features on Wizkid’s Essence and Future/Drake’s Wait for U, plus a James Bond song, made a Lagos alto a global pop instrument; Grammy winner.",
     summary:
-      "Tems writes and produces with a slower, darker tone than party Afrobeats. Essence was a U.S. radio event; Wait for U went to number one on the Hot 100. She is listed for the records, not for the fashion copy.",
+      "Tems writes and produces with a slower, darker tone than party Afrobeats. Essence was a U.S. radio event; Wait for U went to number one on the Hot 100. She is listed for the records.",
     citation: {
       title: "Tems",
       publisher: "Recording Academy / Grammy Awards",

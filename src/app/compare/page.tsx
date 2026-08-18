@@ -22,7 +22,7 @@ export default function ComparePage() {
       <PageHero
         eyebrow="Baseline vs. scenario"
         title="Nigeria Now vs. Nigeria 2050"
-        description="Drag the morph slider. Left side is a sourced baseline; right side is a labeled 2050 scenario. Optimistic, not naive."
+        description="Drag the morph slider. Left side is a sourced baseline; right side is a labeled 2050 scenario. Optimistic, with stated assumptions."
       />
       <Container size="narrow" className="py-12 md:py-16">
         <Link

@@ -218,8 +218,7 @@ function GapBar({ metric }: { metric: G7BenchmarkMetric }) {
               <span className="tabular-nums text-muted-foreground">
                 {formatBenchmarkValue(metric.nigeria2050, metric.unit)}
                 {metric.higherIsBetter && metric.nigeria2050 < g7Average && (
-                  <span className="ml-1 text-accent">
-                    — still {formatGapLabel(g7Average / metric.nigeria2050)} behind G7{" "}
+                  <span className="ml-1 text-accent">, still {formatGapLabel(g7Average / metric.nigeria2050)} behind G7{" "}
                     {metric.referenceYear} avg
                   </span>
                 )}
@@ -277,7 +276,7 @@ export function G7GapExplorer() {
               </span>
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-              {G7_BENCHMARK_METRICS.length} indicators — each uses the{" "}
+              {G7_BENCHMARK_METRICS.length} indicators, each uses the{" "}
               <strong className="text-foreground">same definition and reference year</strong> for
               Nigeria and all seven G7 members ({yearRange.earliest}–{yearRange.latest} depending
               on dataset). Hover the{" "}
@@ -291,7 +290,7 @@ export function G7GapExplorer() {
       <section>
         <h2 className="text-lg font-bold md:text-xl">Widest gaps today</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Same-indicator, same-year comparisons only — sorted by distance from G7 average.
+          Same-indicator, same-year comparisons only, sorted by distance from G7 average.
         </p>
         <div className="mt-6 grid gap-4 lg:grid-cols-3">
           {topGaps.map((metric, i) => {

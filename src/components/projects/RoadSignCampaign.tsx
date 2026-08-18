@@ -56,8 +56,8 @@ export function RoadSignCampaign() {
           One shape book
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          {ROAD_SIGN_STANDARD.name} — {ROAD_SIGN_STANDARD.inspiredBy}. States do not invent their own
-          triangles. This mock is a campaign plan, not FRSC inventory.
+          {ROAD_SIGN_STANDARD.name}, {ROAD_SIGN_STANDARD.inspiredBy}. States do not invent their own
+          triangles. This mock is a campaign plan.
         </p>
         <ol className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {ROAD_SIGN_STANDARD.rollout.map((item) => (
@@ -252,7 +252,7 @@ export function RoadSignCampaign() {
             <p className="mt-4 flex items-start gap-2 text-xs text-muted-foreground">
               <IconMapPin className="mt-0.5 size-3.5 shrink-0" stroke={1.5} aria-hidden />
               Installed means a readable plate on this schematic. Missing is the campaign. Damaged
-              still counts as a gap — a blank disc is not a speed limit.
+              still counts as a gap.
             </p>
           </Card>
         </div>

@@ -7,7 +7,7 @@ export const SECTORS: Sector[] = [
     title: "Economy & GDP",
     tagline: "Growth, diversification, and the shift beyond oil",
     headline2050:
-      "Africa's largest economy by output — diversified, industrialized, and no longer hostage to oil prices.",
+      "Africa's largest economy by output, diversified, industrialized, and no longer hostage to oil prices.",
     baseline: {
       gdp: "$450B",
       gdpPerCapita: "$2,200",
@@ -47,7 +47,7 @@ export const SECTORS: Sector[] = [
       {
         timelineEntryId: "oil-discovery",
         title: "Oil Discovery & Dependency",
-        summary: "How a 1956 find in Oloibiri shaped — and constrained — every economic decision since.",
+        summary: "How a 1956 find in Oloibiri shaped, and constrained, every economic decision since.",
       },
       {
         timelineEntryId: "structural-adjustment",
@@ -64,7 +64,7 @@ export const SECTORS: Sector[] = [
       {
         title: "GDP growth path",
         detail:
-          "Real GDP grows 6–8% annually from 2025–2035, then moderates to 5–6% through 2050 as the economy matures — consistent with McKinsey/PwC upper-middle scenarios and requiring no sustained boom beyond peer-country experience.",
+          "Real GDP grows 6–8% annually from 2025–2035, then moderates to 5–6% through 2050 as the economy matures, consistent with McKinsey/PwC upper-middle scenarios and requiring no sustained boom beyond peer-country experience.",
       },
       {
         title: "Population & labor force",
@@ -74,7 +74,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Oil dependency unwind",
         detail:
-          "Oil falls from ~85% of exports (2024) to under 40% by 2030 and under 15% by 2050. Base-case Brent crude averages $70–90/bbl — not a price collapse, but reduced fiscal reliance through non-oil revenue growth.",
+          "Oil falls from ~85% of exports (2024) to under 40% by 2030 and under 15% by 2050. Base-case Brent crude averages $70–90/bbl, with reduced fiscal reliance through non-oil revenue growth.",
       },
       {
         title: "Power for industrialization",
@@ -84,17 +84,17 @@ export const SECTORS: Sector[] = [
       {
         title: "Exchange rate & trade policy",
         detail:
-          "A transparent, unified FX window rewards exporters. AfCFTA rules of origin are implemented; non-oil export volume grows 8%+ annually in the 2030s. Import substitution is targeted (fertilizer, steel, processed foods), not blanket protectionism.",
+          "A transparent, unified FX window rewards exporters. AfCFTA rules of origin are implemented; non-oil export volume grows 8%+ annually in the 2030s. Import substitution is targeted (fertilizer, steel, processed foods).",
       },
       {
         title: "Informal economy formalization",
         detail:
-          "Over 50% of informal activity is registered by 2045 through NIN-linked accounts, digital payments (CBN instant payment rails), and simplified SME tax thresholds — raising the taxable base without mass enforcement shocks.",
+          "Over 50% of informal activity is registered by 2045 through NIN-linked accounts, digital payments (CBN instant payment rails), and simplified SME tax thresholds, raising the taxable base without mass enforcement shocks.",
       },
       {
         title: "Capital inflows",
         detail:
-          "FDI averages $12–18B annually from 2030 (manufacturing, agro-processing, data centers). Domestic pension and insurance assets allocate 15%+ to infrastructure and corporate bonds; diaspora remittances ($20B+) increasingly channel into productive investment, not consumption alone.",
+          "FDI averages $12–18B annually from 2030 (manufacturing, agro-processing, data centers). Domestic pension and insurance assets allocate 15%+ to infrastructure and corporate bonds; diaspora remittances ($20B+) increasingly channel into productive investment as well as consumption.",
       },
       {
         title: "Fiscal discipline",
@@ -106,22 +106,22 @@ export const SECTORS: Sector[] = [
       {
         title: "Oil price shock before diversification",
         detail:
-          "A sustained sub-$50/bbl period in the 2020s–2030s before non-oil exports scale would compress fiscal space and delay infrastructure spend — the primary driver of the low-case GDP per capita ($8,000) scenario.",
+          "A sustained sub-$50/bbl period in the 2020s–2030s before non-oil exports scale would compress fiscal space and delay infrastructure spend, the primary driver of the low-case GDP per capita ($8,000) scenario.",
       },
       {
         title: "Security disrupting production belts",
         detail:
-          "Escalating conflict in the northwest, north-central, or Niger Delta could disrupt farming, logistics, and oil infrastructure — historically shaving 1–2 percentage points off annual growth during acute phases.",
+          "Escalating conflict in the northwest, north-central, or Niger Delta could disrupt farming, logistics, and oil infrastructure, historically shaving 1–2 percentage points off annual growth during acute phases.",
       },
       {
         title: "Policy reversal on reforms",
         detail:
-          "Reintroduction of FX controls, import bans, or fuel subsidies would undermine investor confidence and formalization — patterns seen after prior reform cycles in the 1980s and 2010s.",
+          "Reintroduction of FX controls, import bans, or fuel subsidies would undermine investor confidence and formalization, patterns seen after prior reform cycles in the 1980s and 2010s.",
       },
       {
         title: "Demographic pressure without jobs",
         detail:
-          "If formal job creation falls below 2M/year net, youth unemployment and emigration accelerate, reducing domestic consumption growth and tax revenue — independent of macro GDP numbers.",
+          "If formal job creation falls below 2M/year net, youth unemployment and emigration accelerate, reducing domestic consumption growth and tax revenue, independent of macro GDP numbers.",
       },
       {
         title: "Power underdelivery",
@@ -131,7 +131,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Debt distress",
         detail:
-          "External debt service above 25% of revenue would crowd out education and infrastructure — repeating the SAP-era constraint on human capital and capital formation.",
+          "External debt service above 25% of revenue would crowd out education and infrastructure, repeating the SAP-era constraint on human capital and capital formation.",
       },
     ],
     sourceIds: [
@@ -147,7 +147,7 @@ export const SECTORS: Sector[] = [
     title: "Technology & Innovation",
     tagline: "Lagos/Abuja tech ecosystem, fintech, and digital infrastructure",
     headline2050:
-      "Africa's Silicon Valley — exporting software, fintech, and AI talent to the world while serving 400M at home.",
+      "Africa's Silicon Valley, exporting software, fintech, and AI talent to the world while serving 400M at home.",
     baseline: {
       techHubRank: "#1 in Africa",
       startupFunding2024: "$1.2B",
@@ -172,14 +172,14 @@ export const SECTORS: Sector[] = [
         year: 2040,
         headline: "Export Engine",
         narrative:
-          "Nigerian SaaS companies serve global markets. Remote work reverses brain drain — diaspora engineers build from Lagos, London, and Toronto simultaneously. AI training data and compute hubs established.",
+          "Nigerian SaaS companies serve global markets. Remote work reverses brain drain, diaspora engineers build from Lagos, London, and Toronto simultaneously. AI training data and compute hubs established.",
         metrics: { internetPenetration: "92%", developers: "800,000", techExportRevenue: "$45B" },
       },
       {
         year: 2050,
         headline: "Global Tech Powerhouse",
         narrative:
-          "Nigeria ranks in the global top 10 for developer talent. Digital public infrastructure (identity, payments, health records) is world-class. Technology contributes 18% of GDP — more than oil.",
+          "Nigeria ranks in the global top 10 for developer talent. Digital public infrastructure (identity, payments, health records) is world-class. Technology contributes 18% of GDP, more than oil.",
         metrics: { internetPenetration: "98%", developers: "2M+", techContributionToGdp: "18%" },
       },
     ],
@@ -204,7 +204,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Connectivity expansion",
         detail:
-          "Internet penetration rises from ~55% (2024) to 78% (2030), 92% (2040), and 98% (2050) via 4G/5G rollout, fiber backhaul in state capitals, and satellite coverage for rural gaps — aligned with GSMA Africa connectivity forecasts.",
+          "Internet penetration rises from ~55% (2024) to 78% (2030), 92% (2040), and 98% (2050) via 4G/5G rollout, fiber backhaul in state capitals, and satellite coverage for rural gaps, aligned with GSMA Africa connectivity forecasts.",
       },
       {
         title: "Affordable data",
@@ -219,7 +219,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Power for digital infrastructure",
         detail:
-          "Data centers and fiber nodes receive prioritized grid or captive solar/gas power — minimum 18 hours/day uptime in Lagos, Abuja, and Port Harcourt clusters by 2030, scaling nationally by 2040.",
+          "Data centers and fiber nodes receive prioritized grid or captive solar/gas power, minimum 18 hours/day uptime in Lagos, Abuja, and Port Harcourt clusters by 2030, scaling nationally by 2040.",
       },
       {
         title: "Talent pipeline",
@@ -234,24 +234,24 @@ export const SECTORS: Sector[] = [
       {
         title: "Digital public infrastructure",
         detail:
-          "NIN, BVN, NIBSS instant payments, and eNaira (or successor rails) interoperate as national DPI — enabling identity-verified services across health, education, and government without duplicate silos.",
+          "NIN, BVN, NIBSS instant payments, and eNaira (or successor rails) interoperate as national DPI, enabling identity-verified services across health, education, and government without duplicate silos.",
       },
       {
         title: "Export-oriented product economy",
         detail:
-          "By 2040, Nigerian B2B SaaS, fintech APIs, and creative-tech IP generate $45B+ in export revenue — requiring IP protection, double-taxation treaties, and remote-work visa clarity.",
+          "By 2040, Nigerian B2B SaaS, fintech APIs, and creative-tech IP generate $45B+ in export revenue, requiring IP protection, double-taxation treaties, and remote-work visa clarity.",
       },
     ],
     risks: [
       {
         title: "Regulatory overreach",
         detail:
-          "Sudden licensing freezes, social-media levies, or data-localization mandates without grandfather clauses could stall the startup ecosystem — as seen in peer markets during election cycles.",
+          "Sudden licensing freezes, social-media levies, or data-localization mandates without grandfather clauses could stall the startup ecosystem, as seen in peer markets during election cycles.",
       },
       {
         title: "FX & capital controls",
         detail:
-          "Restrictions on repatriating startup revenue or accessing foreign VC would cap growth at domestic market size — historically pushing founders to incorporate abroad.",
+          "Restrictions on repatriating startup revenue or accessing foreign VC would cap growth at domestic market size, historically pushing founders to incorporate abroad.",
       },
       {
         title: "Persistent brain drain",
@@ -266,7 +266,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Cybersecurity & trust failures",
         detail:
-          "Large-scale breaches of BVN/NIN or payment rails would erode adoption of digital public infrastructure — a single major incident could set adoption back 3–5 years.",
+          "Large-scale breaches of BVN/NIN or payment rails would erode adoption of digital public infrastructure, a single major incident could set adoption back 3–5 years.",
       },
     ],
     sourceIds: ["gsma-nigeria-digital", "mckinsey-nigeria-2050", "world-bank-nigeria-overview"],
@@ -276,7 +276,7 @@ export const SECTORS: Sector[] = [
     title: "Governance & Institutions",
     tagline: "Electoral integrity, anti-corruption, and civic-tech",
     headline2050:
-      "Institutions that work — transparent budgets, credible elections, and citizens who trust the system enough to invest in the future.",
+      "Institutions that work, transparent budgets, credible elections, and citizens who trust the system enough to invest in the future.",
     baseline: {
       corruptionIndexRank: "145/180",
       voterTurnout2023: "27%",
@@ -332,7 +332,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Uninterrupted civilian rule",
         detail:
-          "No military coup or extra-constitutional transition through 2050 — 26+ consecutive years of civilian rule (from 1999) extend to 50+, building the institutional memory that peer democracies required.",
+          "No military coup or extra-constitutional transition through 2050, 26+ consecutive years of civilian rule (from 1999) extend to 50+, building the institutional memory that peer democracies required.",
       },
       {
         title: "Electoral integrity",
@@ -347,12 +347,12 @@ export const SECTORS: Sector[] = [
       {
         title: "Anti-corruption with due process",
         detail:
-          "EFCC/ICPC secure convictions of senior officials across regions without ethnic skew. Corruption Perceptions Index rank improves from 145/180 to top 80 (2040) and top 50 (2050) — matching upper-middle-income peers, not Scandinavian outliers.",
+          "EFCC/ICPC secure convictions of senior officials across regions without ethnic skew. Corruption Perceptions Index rank improves from 145/180 to top 80 (2040) and top 50 (2050), matching upper-middle-income peers.",
       },
       {
         title: "Digital government & open data",
         detail:
-          "100% of federal services online by 2030; state-level parity by 2040. Open budget portal publishes obligation, cash release, and project status at LG, state, and federal levels — civil service digitalization reaches 90%+.",
+          "100% of federal services online by 2030; state-level parity by 2040. Open budget portal publishes obligation, cash release, and project status at LG, state, and federal levels, civil service digitalization reaches 90%+.",
       },
       {
         title: "Fiscal federalism clarity",
@@ -362,14 +362,14 @@ export const SECTORS: Sector[] = [
       {
         title: "Civic-tech ecosystem",
         detail:
-          "Watchdog NGOs (BudgIT, Dataphyte, etc.) and parliamentary oversight committees routinely use open data — creating feedback loops that punish non-compliance in procurement and payroll.",
+          "Watchdog NGOs (BudgIT, Dataphyte, etc.) and parliamentary oversight committees routinely use open data, creating feedback loops that punish non-compliance in procurement and payroll.",
       },
     ],
     risks: [
       {
         title: "Electoral violence & disputed results",
         detail:
-          "A contested presidential election with widespread violence could reset turnout and trust metrics — as in 2011 and 2023 tensions — delaying reform timelines by a full electoral cycle (4–8 years).",
+          "A contested presidential election with widespread violence could reset turnout and trust metrics, as in 2011 and 2023 tensions, delaying reform timelines by a full electoral cycle (4–8 years).",
       },
       {
         title: "Elite capture of institutions",
@@ -384,12 +384,12 @@ export const SECTORS: Sector[] = [
       {
         title: "State fragility at LG level",
         detail:
-          "If local governments remain non-functional capture points, citizens won't experience governance improvements despite federal digital reforms — eroding turnout recovery.",
+          "If local governments remain non-functional capture points, citizens won't experience governance improvements despite federal digital reforms, eroding turnout recovery.",
       },
       {
         title: "Information disorder",
         detail:
-          "Unregulated misinformation during elections could suppress participation and delegitimize results even when INEC processes are sound — requiring media literacy, not censorship, as mitigation.",
+          "Unregulated misinformation during elections could suppress participation and delegitimize results even when INEC processes are sound, requiring media literacy as mitigation.",
       },
     ],
     sourceIds: [
@@ -404,7 +404,7 @@ export const SECTORS: Sector[] = [
     title: "Talent, Education & Human Capital",
     tagline: "Literacy, tertiary education, and brain-drain reversal",
     headline2050:
-      "400 million minds — the world's largest young workforce, educated at home and building at home.",
+      "400 million minds, the world's largest young workforce, educated at home and building at home.",
     baseline: {
       literacyRate: "62%",
       outOfSchoolChildren: "20M",
@@ -449,7 +449,7 @@ export const SECTORS: Sector[] = [
       {
         timelineEntryId: "telecom-revolution",
         title: "Mobile Learning",
-        summary: "Phones as classrooms — ed-tech filling gaps the state couldn't.",
+        summary: "Phones as classrooms, ed-tech filling gaps the state couldn't.",
       },
       {
         timelineEntryId: "fintech-boom",
@@ -461,7 +461,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Education funding scale-up",
         detail:
-          "Combined federal + state education spending reaches 6–7% of GDP by 2030 and is sustained — UNESCO benchmark for rapid literacy gains. UBEC matching-grant reforms ensure states co-fund primary education.",
+          "Combined federal + state education spending reaches 6–7% of GDP by 2030 and is sustained. UNESCO benchmark for rapid literacy gains. UBEC matching-grant reforms ensure states co-fund primary education.",
       },
       {
         title: "Universal basic education",
@@ -476,7 +476,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Tertiary expansion with quality",
         detail:
-          "Gross tertiary enrollment rises from 12% to 22% (2030), 35% (2040), and 45% (2050) — adding ~500 accredited programs with accreditation audits every 5 years to prevent credential inflation.",
+          "Gross tertiary enrollment rises from 12% to 22% (2030), 35% (2040), and 45% (2050), adding ~500 accredited programs with accreditation audits every 5 years to prevent credential inflation.",
       },
       {
         title: "Teacher workforce",
@@ -491,19 +491,19 @@ export const SECTORS: Sector[] = [
       {
         title: "Brain-drain reversal",
         detail:
-          "Net skilled migration turns positive by 2040 through remote-work visas, research grants (TETFund scale-up), and diaspora fellowship programs — requiring governance and security assumptions to hold.",
+          "Net skilled migration turns positive by 2040 through remote-work visas, research grants (TETFund scale-up), and diaspora fellowship programs, requiring governance and security assumptions to hold.",
       },
       {
         title: "Health-education linkage",
         detail:
-          "Doctors per 1,000 rise from 0.4 toward 1.2 by 2050 as medical school output triples and retention improves — cross-dependent with security and economic opportunity assumptions.",
+          "Doctors per 1,000 rise from 0.4 toward 1.2 by 2050 as medical school output triples and retention improves, cross-dependent with security and economic opportunity assumptions.",
       },
     ],
     risks: [
       {
         title: "Insecurity closing schools",
         detail:
-          "Banditry and kidnapping in northwest/north-central could keep 5M+ children out of school regardless of funding — the single largest threat to literacy targets.",
+          "Banditry and kidnapping in northwest/north-central could keep 5M+ children out of school regardless of funding, the single largest threat to literacy targets.",
       },
       {
         title: "Funding volatility",
@@ -513,7 +513,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Quality vs. quantity",
         detail:
-          "Expanding enrollment without accreditation enforcement produces graduates without skills — visible in today's unemployment among degree-holders.",
+          "Expanding enrollment without accreditation enforcement produces graduates without skills, visible in today's unemployment among degree-holders.",
       },
       {
         title: "Regional inequality",
@@ -533,7 +533,7 @@ export const SECTORS: Sector[] = [
     title: "Energy & Infrastructure",
     tagline: "Power grid, renewables, transport, and urban infrastructure",
     headline2050:
-      "24/7 power for 400 million — a grid rebuilt on gas, solar, and the political will that finally arrived.",
+      "24/7 power for 400 million, a grid rebuilt on gas, solar, and the political will that finally arrived.",
     baseline: {
       installedCapacity: "13 GW",
       actualDelivery: "~4 GW",
@@ -565,7 +565,7 @@ export const SECTORS: Sector[] = [
         year: 2050,
         headline: "Energy Abundance",
         narrative:
-          "85 GW installed — enough for industrialization. Per-capita consumption approaches middle-income norms. Nigeria exports power to neighbors. Cities run on smart grids.",
+          "85 GW installed, enough for industrialization. Per-capita consumption approaches middle-income norms. Nigeria exports power to neighbors. Cities run on smart grids.",
         metrics: { gridDelivery: "85 GW", renewableShare: "65%", perCapitaConsumption: "2,400 kWh" },
       },
     ],
@@ -573,7 +573,7 @@ export const SECTORS: Sector[] = [
       {
         timelineEntryId: "colonial-economy",
         title: "Colonial Infrastructure",
-        summary: "Railways built for export, not connection — a pattern power policy repeated.",
+        summary: "Railways built for export, a pattern power policy repeated.",
       },
       {
         timelineEntryId: "oil-discovery",
@@ -590,17 +590,17 @@ export const SECTORS: Sector[] = [
       {
         title: "Generation capacity build-out",
         detail:
-          "Installed capacity rises from 13 GW to 25 GW (2030), 60 GW (2040), and 110 GW (2050); grid-delivered power reaches 12 GW → 45 GW → 85 GW as transmission bottlenecks are cleared — the gap between installed and delivered closes from ~70% loss to under 25%.",
+          "Installed capacity rises from 13 GW to 25 GW (2030), 60 GW (2040), and 110 GW (2050); grid-delivered power reaches 12 GW → 45 GW → 85 GW as transmission bottlenecks are cleared, the gap between installed and delivered closes from ~70% loss to under 25%.",
       },
       {
         title: "Gas baseload supply",
         detail:
-          "Domestic gas supply agreements deliver 3.5+ BCF/day to power plants by 2030 via AKK pipeline completion and Niger Delta processing — gas remains 35–45% of generation mix through 2040 before renewables dominate.",
+          "Domestic gas supply agreements deliver 3.5+ BCF/day to power plants by 2030 via AKK pipeline completion and Niger Delta processing, gas remains 35–45% of generation mix through 2040 before renewables dominate.",
       },
       {
         title: "Renewable acceleration",
         detail:
-          "Solar and hydro grow from 18% to 30% (2030), 52% (2040), and 65% (2050) of generation — requiring $3B+ annual renewable investment from 2028 and clear PPA frameworks for private developers.",
+          "Solar and hydro grow from 18% to 30% (2030), 52% (2040), and 65% (2050) of generation, requiring $3B+ annual renewable investment from 2028 and clear PPA frameworks for private developers.",
       },
       {
         title: "Distribution reform",
@@ -610,24 +610,24 @@ export const SECTORS: Sector[] = [
       {
         title: "Per-capita consumption",
         detail:
-          "Per-capita electricity consumption rises from ~150 kWh/year toward 800 kWh (2040) and 2,400 kWh (2050) — still below South Africa today but sufficient for middle-income household and SME use.",
+          "Per-capita electricity consumption rises from ~150 kWh/year toward 800 kWh (2040) and 2,400 kWh (2050), still below South Africa today but sufficient for middle-income household and SME use.",
       },
       {
         title: "Transport infrastructure",
         detail:
-          "Lagos metro Line 1 operational by 2030 and Lagos–Abuja–Kano standard-gauge rail by 2040 are transportation-sector scenarios, not energy forecasts. Energy delivery is the constraint that makes night running, scanners, and electrified corridors possible.",
+          "Lagos metro Line 1 operational by 2030 and Lagos–Abuja–Kano standard-gauge rail by 2040 are transportation-sector scenarios. Energy delivery is the constraint that makes night running, scanners, and electrified corridors possible.",
       },
       {
         title: "Regional power trade",
         detail:
-          "West African Power Pool integration allows Nigeria to export 2–5 GW surplus by 2050 after domestic demand is met — requiring harmonized grid codes with Ghana, Benin, and Niger.",
+          "West African Power Pool integration allows Nigeria to export 2–5 GW surplus by 2050 after domestic demand is met, requiring harmonized grid codes with Ghana, Benin, and Niger.",
       },
     ],
     risks: [
       {
         title: "Pipeline vandalism & Delta instability",
         detail:
-          "Gas supply interruptions could keep delivered power below 8 GW through the 2030s — the historical pattern that has blocked every prior recovery plan.",
+          "Gas supply interruptions could keep delivered power below 8 GW through the 2030s, the historical pattern that has blocked every prior recovery plan.",
       },
       {
         title: "Transmission underinvestment",
@@ -637,12 +637,12 @@ export const SECTORS: Sector[] = [
       {
         title: "DisCo insolvency loop",
         detail:
-          "If tariff cost-reflectivity stalls for political reasons, private generation investment stops — freezing the sector at current ~4 GW delivered.",
+          "If tariff cost-reflectivity stalls for political reasons, private generation investment stops, freezing the sector at current ~4 GW delivered.",
       },
       {
         title: "Climate impacts on hydro",
         detail:
-          "Reduced rainfall in the Niger basin could cut Kainji/Jebba output 15–25% in drought years — requiring overbuilding solar to compensate.",
+          "Reduced rainfall in the Niger basin could cut Kainji/Jebba output 15–25% in drought years, requiring overbuilding solar to compensate.",
       },
       {
         title: "Urban sprawl without planning",
@@ -657,7 +657,7 @@ export const SECTORS: Sector[] = [
     title: "Security & Law and Order",
     tagline: "Crime trends, justice reform, and the path to a 2050 baseline",
     headline2050:
-      "Safe enough to invest, walk, and raise children — not perfect peace, but a credible baseline of order.",
+      "Safe enough to invest, walk, and raise children: a credible baseline of order.",
     baseline: {
       conflictFatalities2024: "High",
       policePer100k: "187",
@@ -702,19 +702,19 @@ export const SECTORS: Sector[] = [
       {
         timelineEntryId: "1966-coups",
         title: "The 1966 Coups",
-        summary: "When political violence became normalized — and how long it took to unlearn.",
+        summary: "When political violence became normalized, and how long it took to unlearn.",
       },
       {
         timelineEntryId: "military-decades",
         title: "Military Rule & Militarization",
-        summary: "Decades that shaped a security culture built on force, not trust.",
+        summary: "Decades that shaped a security culture built on force.",
       },
     ],
     assumptions: [
       {
         title: "Community policing transition",
         detail:
-          "By 2035, state-level community policing models (not pure military deployment) cover 25+ states. Police-to-population ratio rises from 187/100k toward 350 (2040) and 450 (2050) — still below UN recommended 500 but with better training and accountability.",
+          "By 2035, state-level community policing models (not pure military deployment) cover 25+ states. Police-to-population ratio rises from 187/100k toward 350 (2040) and 450 (2050), still below UN recommended 500 but with better training and accountability.",
       },
       {
         title: "Farmer–herder conflict reduction",
@@ -739,7 +739,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Economic opportunity reduces recruitment",
         detail:
-          "Youth unemployment in conflict-affected states falls from 40%+ toward 20% as education and agro-industrial jobs scale — security improvements depend on economy and governance assumptions holding.",
+          "Youth unemployment in conflict-affected states falls from 40%+ toward 20% as education and agro-industrial jobs scale, security improvements depend on economy and governance assumptions holding.",
       },
       {
         title: "Regional counter-terrorism",
@@ -749,24 +749,24 @@ export const SECTORS: Sector[] = [
       {
         title: "Global Peace Index trajectory",
         detail:
-          "GPI rank improves from bottom quartile to top 100 (2050) — 'credible baseline' means peer-comparable for lower-middle-income countries, not OECD-level peace.",
+          "GPI rank improves from bottom quartile to top 100 (2050), 'credible baseline' means peer-comparable for lower-middle-income countries.",
       },
     ],
     risks: [
       {
         title: "Climate-driven resource conflict",
         detail:
-          "Desertification and Lake Chad shrinkage could expand farmer–herder competition beyond current zones — affecting 15M+ people in the Sahel belt.",
+          "Desertification and Lake Chad shrinkage could expand farmer–herder competition beyond current zones, affecting 15M+ people in the Sahel belt.",
       },
       {
         title: "Weapons proliferation",
         detail:
-          "Libya/Sahel arms pipelines and local craft manufacturing could outpace disarmament — keeping bandit groups armed regardless of economic programs.",
+          "Libya/Sahel arms pipelines and local craft manufacturing could outpace disarmament, keeping bandit groups armed regardless of economic programs.",
       },
       {
         title: "Justice reform stall",
         detail:
-          "Political protection of vested interests in police and judiciary could block accountability reforms — preserving impunity and recruitment into non-state groups.",
+          "Political protection of vested interests in police and judiciary could block accountability reforms, preserving impunity and recruitment into non-state groups.",
       },
       {
         title: "Militarization relapse",
@@ -776,7 +776,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Urban crime & cult violence",
         detail:
-          "South-south and southeast cult and oil-theft violence could persist independently of north-focused banditry — requiring region-specific strategies not captured in national averages.",
+          "South-south and southeast cult and oil-theft violence could persist independently of north-focused banditry, requiring region-specific strategies not captured in national averages.",
       },
       {
         title: "Election-cycle violence",

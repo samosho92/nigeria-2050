@@ -50,7 +50,7 @@ export function PostalCodeEngine() {
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
           One string, four layers. District <span className="font-medium text-foreground">01</span> is
-          always the state capital — that is the seed. Hinterland numbers come later, on the same
+          always the state capital, that is the seed. Hinterland numbers come later, on the same
           prefix.
         </p>
         <p className="mt-4 font-mono text-2xl font-semibold tracking-wide text-accent md:text-3xl">
@@ -136,7 +136,7 @@ export function PostalCodeEngine() {
             {POSTAL_CAPITALS.length} capitals, district 01
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Dots are schematic — enough to pick a capital, not a cadastral map. Select a city to
+            Dots are schematic, enough to pick a capital. Select a city to
             walk the hinterland → fringe → core transect.
           </p>
           <div className="mt-4 overflow-hidden rounded-xl border border-border bg-muted/40 p-2">
@@ -191,7 +191,7 @@ export function PostalCodeEngine() {
             <p className="mt-4 flex items-start gap-2 text-xs text-muted-foreground">
               <IconMapPin className="mt-0.5 size-3.5 shrink-0" stroke={1.5} aria-hidden />
               Same plate ({city.plate}). Rural has no street zones yet. The capital core splits into
-              named streets — odd side, even side, then the next street.
+              named streets, odd side, even side, then the next street.
             </p>
           </Card>
 

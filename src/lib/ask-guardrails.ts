@@ -277,7 +277,7 @@ export function checkModeration(input: string, options: GuardrailOptions = {}): 
   return { allowed: true };
 }
 
-/** Ask the Archive — tight length, no URLs, injection and crisis checks. */
+/** Ask the Archive, tight length, no URLs, injection and crisis checks. */
 export function checkAskGuardrails(input: string): GuardrailResult {
   return checkModeration(input, {
     maxLength: 500,

@@ -4,7 +4,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "GDP",
     definition:
-      "Gross Domestic Product — the total value of goods and services produced in a country in a year. Often divided by population to get GDP per capita, a rough measure of average economic output per person.",
+      "Gross Domestic Product, the total value of goods and services produced in a country in a year. Often divided by population to get GDP per capita, a rough measure of average economic output per person.",
   },
   {
     term: "Amalgamation",
@@ -24,17 +24,17 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "NBS",
     definition:
-      "National Bureau of Statistics — Nigeria's official statistical agency, responsible for GDP, inflation, employment, and demographic data.",
+      "National Bureau of Statistics. Nigeria's official statistical agency, responsible for GDP, inflation, employment, and demographic data.",
   },
   {
     term: "Informal economy",
     definition:
-      "Economic activity not regulated or taxed by the state — street vendors, unregistered businesses, cash-only trade. Estimates suggest 50–65% of Nigeria's workforce operates informally.",
+      "Economic activity not regulated or taxed by the state, street vendors, unregistered businesses, cash-only trade. Estimates suggest 50–65% of Nigeria's workforce operates informally.",
   },
   {
     term: "Fintech",
     definition:
-      "Financial technology — digital payment, lending, and banking services. Nigeria's fintech sector (Paystack, Flutterwave, OPay) is among Africa's largest.",
+      "Financial technology, digital payment, lending, and banking services. Nigeria's fintech sector (Paystack, Flutterwave, OPay) is among Africa's largest.",
   },
   {
     term: "Grid capacity",
@@ -44,12 +44,12 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "Scenario projection",
     definition:
-      "A modeled future outcome based on stated assumptions — not a prediction. Naija2050 projections show what could happen if specific reforms and trends continue.",
+      "A modeled future outcome based on stated assumptions. Naija2050 projections show what could happen if specific reforms and trends continue.",
   },
   {
     term: "Structural reform",
     definition:
-      "Deep changes to institutions, regulations, or economic architecture — not one-off policies. Examples include exchange-rate unification, subsidy removal, and civil service digitization.",
+      "Deep changes to institutions, regulations, or economic architecture. Examples include exchange-rate unification, subsidy removal, and civil service digitization.",
   },
   {
     term: "Diversification",
@@ -59,18 +59,18 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "Civic-tech",
     definition:
-      "Technology tools that improve citizen engagement with government — election monitoring apps, budget transparency portals, and digital public service delivery.",
+      "Technology tools that improve citizen engagement with government, election monitoring apps, budget transparency portals, and digital public service delivery.",
   },
   {
     term: "LPI",
     definition:
-      "Logistics Performance Index — a World Bank score (1–5) combining customs, infrastructure, international shipments, logistics quality, tracking, and timeliness. Nigeria scored 2.6 in the 2023 LPI (rank 88). The transportation 2050 figure of 3.5 is a Naija2050 scenario, not a World Bank forecast.",
+      "Logistics Performance Index, a World Bank score (1–5) combining customs, infrastructure, international shipments, logistics quality, tracking, and timeliness. Nigeria scored 2.6 in the 2023 LPI (rank 88). The transportation 2050 figure of 3.5 is a Naija2050 scenario.",
     relatedSlugs: ["transportation", "economy"],
   },
   {
     term: "BRT",
     definition:
-      "Bus Rapid Transit — high-capacity buses on dedicated lanes with prepaid fares. Lagos launched Africa's first full BRT in 2008; 2050 urban-transit scenarios assume similar protected corridors in Abuja and Kano.",
+      "Bus Rapid Transit, high-capacity buses on dedicated lanes with prepaid fares. Lagos launched Africa's first full BRT in 2008; 2050 urban-transit scenarios assume similar protected corridors in Abuja and Kano.",
     relatedSlugs: ["transportation"],
   },
   {
@@ -82,13 +82,13 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "Land Use Act",
     definition:
-      "A 1978 law (now constitutional) that vests urban land in state governors. Transferring rights requires governor's consent and a Certificate of Occupancy — the bottleneck behind slow titles, thin mortgages, and high urban prices.",
+      "A 1978 law (now constitutional) that vests urban land in state governors. Transferring rights requires governor's consent and a Certificate of Occupancy, the bottleneck behind slow titles, thin mortgages, and high urban prices.",
     relatedSlugs: ["real-estate", "governance"],
   },
   {
     term: "Housing deficit",
     definition:
-      "The gap between households and adequate dwellings. CAHF cites about 28 million units for Nigeria in 2023; FMBN has used about 22 million. Naija2050 treats 22–28 million as a sourced range, not a single census count.",
+      "The gap between households and adequate dwellings. CAHF cites about 28 million units for Nigeria in 2023; FMBN has used about 22 million. Naija2050 treats 22–28 million as a sourced range.",
     relatedSlugs: ["real-estate"],
   },
   {

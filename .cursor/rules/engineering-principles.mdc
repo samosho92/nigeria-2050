@@ -47,3 +47,7 @@ All major public pages use `PageHero` with:
 4. Optional `backLink`, `actions`, `aside`, or `rail` slots
 
 Homepage uses `HomeHero`; sector detail uses `SectorHero` (wraps `PageHero`). Do not reintroduce `PageHeader` or ad-hoc hero markup.
+
+## Copy
+
+User-facing strings follow `.cursor/rules/editorial-voice.mdc`: write the fact, skip "It's X, not Y", and do not use em dashes.

@@ -80,10 +80,10 @@ export function LibraryNetwork() {
           A floor, then denser
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          {LIBRARY_STANDARD.name} — {LIBRARY_STANDARD.inspiredBy}. {LIBRARY_STANDARD.ruralFloorKm} km
+          {LIBRARY_STANDARD.name}, {LIBRARY_STANDARD.inspiredBy}. {LIBRARY_STANDARD.ruralFloorKm} km
           is the rural floor. Cities walk {LIBRARY_STANDARD.urbanWalkKm} km, or one branch per{" "}
           {LIBRARY_STANDARD.urbanPerPeople.toLocaleString("en-NG")} people. This mock is a coverage
-          plan, not a National Library inventory.
+          plan.
         </p>
         <ol className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {LIBRARY_STANDARD.rollout.map((item) => (
@@ -103,8 +103,7 @@ export function LibraryNetwork() {
           Minimum kit
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Six things every branch owes the room. Present, missing, or broken on this schematic —
-          illustrative, not a surveyed audit.
+          Six things every branch owes the room. Present, missing, or broken on this schematic.
         </p>
         <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {LIBRARY_KIT.map((item) => {
@@ -211,8 +210,7 @@ export function LibraryNetwork() {
           A title in Makurdi, requested in Maiduguri
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Legal-deposit copies on a national catalogue. Holdings are editorial for the mock — not a
-          live union catalogue.
+          Legal-deposit copies on a national catalogue. Holdings are editorial for the mock.
         </p>
         <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {LIBRARY_CATALOGUE.map((item) => {
@@ -244,8 +242,7 @@ export function LibraryNetwork() {
               <>
                 {" "}
                 Request to {requestTo?.capital}: the van leaves High Level. The receiving desk exists;
-                toilets and wifi there are down — a blank room is not a reading room, but the request
-                still parks.
+                toilets and wifi there are down. The request still parks.
               </>
             ) : title.heldAt.includes(REQUEST_TO) ? (
               <> A copy is already in {requestTo?.capital} on this schematic.</>

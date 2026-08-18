@@ -38,7 +38,7 @@ export interface PostalCapital {
 }
 
 export const POSTAL_BANDS: Record<PostalBand, { label: string; density: string }> = {
-  R: { label: "Rural", density: "No street zones yet — one code for a settlement cluster until roads are gazetted." },
+  R: { label: "Rural", density: "No street zones yet, one code for a settlement cluster until roads are gazetted." },
   P: { label: "Peri-urban", density: "Corridor frontage begins to split into odd/even street zones." },
   U: { label: "Urban", density: "Named street zones: one code per segment and side, about 50–200 addresses." },
 };
@@ -70,7 +70,7 @@ export const POSTAL_CODE_SCHEME = {
       token: "###",
       label: "Street zone",
       detail:
-        "Urban: a named street segment, odd or even side. Peri-urban: highway frontage, then a service lane. Rural: still a cluster — streets are not invented until they exist.",
+        "Urban: a named street segment, odd or even side. Peri-urban: highway frontage, then a service lane. Rural: still a cluster, streets are not invented until they exist.",
     },
   ],
   rollout: [
@@ -84,13 +84,13 @@ export const POSTAL_CODE_SCHEME = {
       step: "2",
       title: "Give the hinterland a stable cluster",
       detail:
-        "Every rural ward around that capital gets an R-band code — one number for a group of compounds, not a landmark story. Same state prefix as the capital.",
+        "Every rural ward around that capital gets an R-band code, one number for a group of compounds. Same state prefix as the capital.",
     },
     {
       step: "3",
       title: "Gazette street zones",
       detail:
-        "Inside district 01, split the urban unit into named streets — odd side, even side, then the next street. A plot on Independence Avenue does not share a code with Ahmadu Bello Way.",
+        "Inside district 01, split the urban unit into named streets, odd side, even side, then the next street. A plot on Independence Avenue does not share a code with Ahmadu Bello Way.",
     },
     {
       step: "4",
@@ -113,7 +113,7 @@ function r(name: string, unit: string, landmark: string): PostalPlace {
   return { name, band: "R", district: "04", unit, landmark };
 }
 
-/** Schematic positions on the home-map viewBox (400 × 330). Not a survey. */
+/** Schematic positions on the home-map viewBox (400 × 330). */
 export const POSTAL_CAPITALS: PostalCapital[] = [
   {
     id: "sokoto",
@@ -684,9 +684,9 @@ function defaultUrbanStreets(city: PostalCapital): PostalStreetZone[] {
   const base = Number(city.urban.unit);
   const [first, second] = city.urban.landmark.split(" / ").map((part) => part.trim());
   return [
-    street(`${first} (odd)`, base, "odd", `${first} — city-bound plots`, "Plots 1–49"),
-    street(`${first} (even)`, base + 1, "even", `${first} — outbound plots`, "Plots 2–50"),
-    street(second ?? `${city.capital} GRA inner`, base + 2, "both", `${second ?? "GRA loop"} — both sides`, "Compounds A–H"),
+    street(`${first} (odd)`, base, "odd", `${first}, city-bound plots`, "Plots 1–49"),
+    street(`${first} (even)`, base + 1, "even", `${first}, outbound plots`, "Plots 2–50"),
+    street(second ?? `${city.capital} GRA inner`, base + 2, "both", `${second ?? "GRA loop"}, both sides`, "Compounds A–H"),
     street(`${city.urban.name} market street`, base + 3, "both", "Market / motor-park frontage", "Stalls 1–80"),
   ];
 }
@@ -695,8 +695,8 @@ function defaultPeriStreets(city: PostalCapital): PostalStreetZone[] {
   const base = Number(city.periurban.unit);
   const label = city.periurban.landmark.split(" / ")[0]?.trim() ?? city.periurban.name;
   return [
-    street(`${label} (odd)`, base, "odd", `${city.periurban.name} — outbound frontage`, "Plots 1–31"),
-    street(`${label} (even)`, base + 1, "even", `${city.periurban.name} — inbound frontage`, "Plots 2–32"),
+    street(`${label} (odd)`, base, "odd", `${city.periurban.name}, outbound frontage`, "Plots 1–31"),
+    street(`${label} (even)`, base + 1, "even", `${city.periurban.name}, inbound frontage`, "Plots 2–32"),
   ];
 }
 

@@ -1,12 +1,12 @@
 import type { G7BenchmarkMetric } from "@/types/content";
 
-/** G7 benchmark rows for Phase 2 sectors — appended to G7_BENCHMARK_METRICS. */
+/** G7 benchmark rows for Phase 2 sectors, appended to G7_BENCHMARK_METRICS. */
 export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
   {
     id: "health-spending-gdp",
     sectorSlug: "healthcare",
     label: "Health Expenditure",
-    definition: "Current health expenditure (% of GDP) — WHO Global Health Expenditure Database.",
+    definition: "Current health expenditure (% of GDP), WHO Global Health Expenditure Database.",
     unit: "% of GDP",
     referenceYear: 2021,
     nigeria: 3.2,
@@ -20,7 +20,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     id: "physicians-density",
     sectorSlug: "healthcare",
     label: "Physicians per 1,000",
-    definition: "Medical doctors per 1,000 population — WHO health workforce statistics.",
+    definition: "Medical doctors per 1,000 population, WHO health workforce statistics.",
     unit: "physicians",
     referenceYear: 2021,
     nigeria: 0.38,
@@ -34,7 +34,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     id: "agriculture-gdp-share",
     sectorSlug: "agriculture",
     label: "Agriculture Value Added",
-    definition: "Agriculture, forestry, and fishing (% of GDP) — WDI national accounts.",
+    definition: "Agriculture, forestry, and fishing (% of GDP). WDI national accounts.",
     unit: "% of GDP",
     referenceYear: 2022,
     nigeria: 24.1,
@@ -42,13 +42,13 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     higherIsBetter: false,
     sourceId: "fao-nigeria-agriculture",
     sourceSeries: "WDI · NV.AGR.TOTL.ZS",
-    context: "Higher share reflects lower industrialization, not stronger food security.",
+    context: "A higher share often tracks lower industrialization rather than stronger food security.",
   },
   {
     id: "undernourishment",
     sectorSlug: "agriculture",
     label: "Prevalence of Undernourishment",
-    definition: "Percentage of population undernourished — FAO SOFI harmonized series.",
+    definition: "Percentage of population undernourished. FAO SOFI harmonized series.",
     unit: "%",
     referenceYear: 2022,
     nigeria: 8.9,
@@ -62,7 +62,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     id: "creative-exports",
     sectorSlug: "creative-economy",
     label: "Charges for IP & Services Exports",
-    definition: "Charges for the use of intellectual property, receipts (% of total exports) — proxy for creative/services exports.",
+    definition: "Charges for the use of intellectual property, receipts (% of total exports), proxy for creative/services exports.",
     unit: "% of exports",
     referenceYear: 2022,
     nigeria: 0.4,
@@ -76,7 +76,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     id: "manufacturing-employment",
     sectorSlug: "manufacturing",
     label: "Industry Employment Share",
-    definition: "Employment in industry (% of total employment) — ILO modelled estimates.",
+    definition: "Employment in industry (% of total employment). ILO modelled estimates.",
     unit: "%",
     referenceYear: 2022,
     nigeria: 12.4,
@@ -90,7 +90,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     id: "bank-account-ownership",
     sectorSlug: "financial-inclusion",
     label: "Account Ownership",
-    definition: "Adults with an account at a financial institution or mobile-money provider — Global Findex.",
+    definition: "Adults with an account at a financial institution or mobile-money provider. Global Findex.",
     unit: "%",
     referenceYear: 2021,
     nigeria: 45,
@@ -104,7 +104,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     id: "digital-payments",
     sectorSlug: "financial-inclusion",
     label: "Made or Received Digital Payment",
-    definition: "Adults who made or received a digital payment in the past year — Global Findex.",
+    definition: "Adults who made or received a digital payment in the past year. Global Findex.",
     unit: "%",
     referenceYear: 2021,
     nigeria: 38,
@@ -119,7 +119,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     sectorSlug: "transportation",
     label: "Logistics Performance Index",
     definition:
-      "World Bank LPI overall score (1 = low, 5 = high) — 2023 international survey wave, same release for Nigeria and all G7 members.",
+      "World Bank LPI overall score (1 = low, 5 = high), 2023 international survey wave, same release for Nigeria and all G7 members.",
     unit: "score 1–5",
     referenceYear: 2023,
     nigeria: 2.6,
@@ -129,14 +129,14 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     sourceId: "world-bank-lpi",
     sourceSeries: "World Bank · LPI 2023 overall score",
     context:
-      "Transcribed from the 2023 LPI global table (Nigeria rank 88). The 2050 figure is a Naija2050 scenario, not a World Bank forecast.",
+      "Transcribed from the 2023 LPI global table (Nigeria rank 88). The 2050 figure is a Naija2050 scenario.",
   },
   {
     id: "air-passengers-per-1000",
     sectorSlug: "transportation",
     label: "Air Passengers per 1,000 People",
     definition:
-      "Air transport passengers carried (WDI IS.AIR.PSGR) divided by population (SP.POP.TOTL), × 1,000 — 2019, latest pre-pandemic common year. Counts passengers on carriers registered in that country.",
+      "Air transport passengers carried (WDI IS.AIR.PSGR) divided by population (SP.POP.TOTL), × 1,000, 2019, latest pre-pandemic common year. Counts passengers on carriers registered in that country.",
     unit: "per 1,000 people",
     referenceYear: 2019,
     nigeria: 31,
@@ -153,7 +153,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     sectorSlug: "transportation",
     label: "Road Traffic Death Rate",
     definition:
-      "WHO-estimated road traffic deaths per 100,000 population — Global Status Report on Road Safety 2023, 2021 modelled year for Nigeria and all G7 members.",
+      "WHO-estimated road traffic deaths per 100,000 population. Global Status Report on Road Safety 2023, 2021 modelled year for Nigeria and all G7 members.",
     unit: "per 100k",
     referenceYear: 2021,
     nigeria: 17.2,
@@ -163,14 +163,14 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     sourceId: "who-road-safety",
     sourceSeries: "WHO · GSRRS 2023 · estimated rate per 100,000 (2021)",
     context:
-      "Lower is better. Nigeria country profile: 17.2 (2021). United States profile: 14.2 (2021). The 2050 figure is a scenario, not a WHO projection.",
+      "Lower is better. Nigeria country profile: 17.2 (2021). United States profile: 14.2 (2021). The 2050 figure is a scenario.",
   },
   {
     id: "urban-slum-share",
     sectorSlug: "real-estate",
     label: "Urban Population in Slums",
     definition:
-      "Population living in slums (% of urban population) — UN-Habitat / World Bank WDI EN.POP.SLUM.UR.ZS, 2022 latest common year for Nigeria and all G7 members.",
+      "Population living in slums (% of urban population). UN-Habitat / World Bank WDI EN.POP.SLUM.UR.ZS, 2022 latest common year for Nigeria and all G7 members.",
     unit: "%",
     referenceYear: 2022,
     nigeria: 48.5,
@@ -187,7 +187,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     sectorSlug: "real-estate",
     label: "Urban Population Share",
     definition:
-      "Urban population (% of total population) — WDI SP.URB.TOTL.IN.ZS, 2023 for Nigeria and all G7 members.",
+      "Urban population (% of total population). WDI SP.URB.TOTL.IN.ZS, 2023 for Nigeria and all G7 members.",
     unit: "%",
     referenceYear: 2023,
     nigeria: 62.2,
@@ -197,6 +197,6 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     sourceId: "world-bank-g7-indicators",
     sourceSeries: "WDI · SP.URB.TOTL.IN.ZS · 2023 (API retrieved 18 Aug 2026)",
     context:
-      "Nigeria is less urban than the G7 — so housing demand will keep rising as people move to cities. Higher urban share is not automatically better housing; without supply it raises rents.",
+      "Nigeria is less urban than the G7, so housing demand will keep rising as people move to cities. Higher urban share is not automatically better housing; without supply it raises rents.",
   },
 ];

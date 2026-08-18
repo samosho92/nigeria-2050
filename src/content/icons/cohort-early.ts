@@ -17,7 +17,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "16th-century warrior-queen of Zazzau whose campaigns expanded Hausa trade routes across the north.",
     summary:
-      "Oral and later written Hausa chronicles describe Amina as a ruler who fortified towns with earthworks and secured caravan roads that tied Zazzau to Kano, Katsina, and Nupe. Her story is one of the few widely taught pre-colonial Nigerian women in power — a reminder that political authority in the Hausa city-states was not only male.",
+      "Oral and later written Hausa chronicles describe Amina as a ruler who fortified towns with earthworks and secured caravan roads that tied Zazzau to Kano, Katsina, and Nupe. Her story is one of the few widely taught pre-colonial Nigerian women in power, a reminder that political authority in the Hausa city-states was not only male.",
     citation: {
       title: "Amina, queen of Zaria",
       publisher: "Encyclopaedia Britannica",
@@ -59,7 +59,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Scholar-reformer who founded the Sokoto Caliphate, the largest 19th-century state in West Africa.",
     summary:
-      "Dan Fodio’s 1804 jihad against Gobir produced a literate Islamic administration stretching across much of present-day northern Nigeria. Sokoto’s emirates, courts, and scholarly networks shaped law, taxation, and education long after British conquest — including the indirect-rule bargain the colonial state later struck with Fulani emirs.",
+      "Dan Fodio’s 1804 jihad against Gobir produced a literate Islamic administration stretching across much of present-day northern Nigeria. Sokoto’s emirates, courts, and scholarly networks shaped law, taxation, and education long after British conquest, including the indirect-rule bargain the colonial state later struck with Fulani emirs.",
     citation: {
       title: "Usman dan Fodio",
       publisher: "Encyclopaedia Britannica",
@@ -80,7 +80,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Abeokuta-born merchant who became a power broker in Lagos politics and trade in the mid-19th century.",
     summary:
-      "Madam Tinubu built a commercial network in slaves, palm oil, and firearms before and during the British presence in Lagos. Exiled after clashing with colonial officials, she remained an Iyalode-scale figure in Egba politics. Lagos Island’s Tinubu Square commemorates her — and the contested economy that made 19th-century Lagos rich.",
+      "Madam Tinubu built a commercial network in slaves, palm oil, and firearms before and during the British presence in Lagos. Exiled after clashing with colonial officials, she remained an Iyalode-scale figure in Egba politics. Lagos Island’s Tinubu Square commemorates her, and the contested economy that made 19th-century Lagos rich.",
     citation: {
       title: "Madam Efunroye Tinubu",
       publisher: "Encyclopaedia Britannica",
@@ -101,7 +101,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "First African bishop of the Anglican Church; translated the Bible into Yoruba and produced a pioneering Yoruba grammar and dictionary.",
     summary:
-      "Enslaved as a youth, freed by a British patrol, and educated in Sierra Leone, Crowther returned as a missionary-linguist. His Yoruba orthography underpins literacy and liturgy across southwestern Nigeria. He also led the Niger Mission until European colleagues undermined his authority — a case study in colonial racial hierarchy inside the church.",
+      "Enslaved as a youth, freed by a British patrol, and educated in Sierra Leone, Crowther returned as a missionary-linguist. His Yoruba orthography underpins literacy and liturgy across southwestern Nigeria. He also led the Niger Mission until European colleagues undermined his authority, a case study in colonial racial hierarchy inside the church.",
     citation: {
       title: "Samuel Ajayi Crowther",
       publisher: "Encyclopaedia Britannica",
@@ -122,7 +122,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Merchant-king who broke Bonny’s palm-oil middleman system and built Opobo into a sovereign trading state.",
     summary:
-      "Born an Igbo slave in Bonny, Jaja rose through the canoe-house system, then founded Opobo in 1870 to deal directly with European firms. Britain abducted and exiled him in 1887 when he blocked agents from bypassing his duties — an episode that shows how “free trade” was enforced at gunpoint on the Oil Rivers.",
+      "Born an Igbo slave in Bonny, Jaja rose through the canoe-house system, then founded Opobo in 1870 to deal directly with European firms. Britain abducted and exiled him in 1887 when he blocked agents from bypassing his duties, an episode that shows how “free trade” was enforced at gunpoint on the Oil Rivers.",
     citation: {
       title: "Jaja",
       publisher: "Encyclopaedia Britannica",
@@ -162,7 +162,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "First Nigerian called to the English bar (1879) and an early unofficial member of the colonial Legislative Council.",
     summary:
-      "Sapara Williams practised in Lagos and Accra and used the Legislative Council to argue for African representation under Crown Colony rule. He is a starting point for Nigeria’s independent legal profession — the same bar that later produced nationalist lawyers and, after 1960, the country’s first benches.",
+      "Sapara Williams practised in Lagos and Accra and used the Legislative Council to argue for African representation under Crown Colony rule. He is a starting point for Nigeria’s independent legal profession, the same bar that later produced nationalist lawyers and, after 1960, the country’s first benches.",
     citation: {
       title: "Christopher Alexander Sapara Williams",
       publisher: "Encyclopedia.com / Oxford Companion to Black British History",
@@ -184,7 +184,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Oba of Benin during the 1897 British punitive expedition that looted the palace bronzes and sent him into exile.",
     summary:
-      "Ovonramwen’s reign ended when a British invading force burned the palace and shipped thousands of brass and ivory works to Europe. Those objects — now in museums from London to Berlin — are the centre of restitution debates. His exile in Calabar closed an independent Benin monarchy that had lasted centuries.",
+      "Ovonramwen’s reign ended when a British invading force burned the palace and shipped thousands of brass and ivory works to Europe. Those objects, now in museums from London to Berlin, are the centre of restitution debates. His exile in Calabar closed an independent Benin monarchy that had lasted centuries.",
     citation: {
       title: "The British Museum and the Benin Bronzes",
       publisher: "The British Museum",
@@ -286,7 +286,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Journalist-nationalist who became Nigeria’s first governor-general and first ceremonial president (1963–66).",
     summary:
-      "“Zik” built a West African newspaper chain, popularised pan-African nationalism in English, and fronted the NCNC into independence. His presidency was constitutional, not executive — power sat with Tafawa Balewa — but the symbolism of an African head of state in 1963 mattered. The 1966 coup ended the First Republic he had personified.",
+      "“Zik” built a West African newspaper chain, popularised pan-African nationalism in English, and fronted the NCNC into independence. His presidency was constitutional; power sat with Tafawa Balewa, but the symbolism of an African head of state in 1963 mattered. The 1966 coup ended the First Republic he had personified.",
     citation: {
       title: "Nnamdi Azikiwe",
       publisher: "Encyclopaedia Britannica",
@@ -305,7 +305,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     relatedTimelineIds: ["independence-1960"],
     wikipediaTitle: "Obafemi Awolowo",
     achievement:
-      "Premier of the Western Region who introduced free primary education in 1955 — the most ambitious mass-schooling programme in colonial Africa.",
+      "Premier of the Western Region who introduced free primary education in 1955, the most ambitious mass-schooling programme in colonial Africa.",
     summary:
       "Awo’s Action Group government used cocoa revenue to fund schools, a regional TV service, and industrial estates. Critics called it Yoruba particularism; supporters called it proof that a Nigerian government could deliver social policy. He never became federal prime minister, but every later debate about free education still starts with 1955.",
     citation: {
@@ -328,7 +328,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Sardauna of Sokoto and premier of the Northern Region; founded the Northern People’s Congress that dominated the First Republic.",
     summary:
-      "Bello chose regional power over the federal premiership, modernising northern administration while defending Islamic and emirate authority. Ahmadu Bello University (1962) is his most durable institution. He was killed in the January 1966 coup — a shock that helped trigger the counter-coup and civil war.",
+      "Bello chose regional power over the federal premiership, modernising northern administration while defending Islamic and emirate authority. Ahmadu Bello University (1962) is his most durable institution. He was killed in the January 1966 coup, a shock that helped trigger the counter-coup and civil war.",
     citation: {
       title: "Sir Ahmadu Bello",
       publisher: "Encyclopaedia Britannica",
@@ -551,7 +551,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Premier of the Eastern Region (1959–66) whose “pragmatic socialism” pushed farm settlements, palm and rubber, and regional industry.",
     summary:
-      "A physician in politics, Okpara tried to industrialise the East on agricultural surplus — farm settlements, the Niger Steel idea, and marketing-board finance. The 1966 coup and civil war cut the experiment short. Eastern Nigerian development debates still return to his premiership.",
+      "A physician in politics, Okpara tried to industrialise the East on agricultural surplus, farm settlements, the Niger Steel idea, and marketing-board finance. The 1966 coup and civil war cut the experiment short. Eastern Nigerian development debates still return to his premiership.",
     citation: {
       title: "Michael Okpara",
       publisher: "Encyclopaedia Britannica",
@@ -611,7 +611,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Pharmacist-novelist whose People of the City (1954) and Jagua Nana made urban Lagos a subject of African fiction.",
     summary:
-      "Ekwensi wrote popular novels about migrants, nightlife, and the new city when most African literature still looked at the village. He also ran the Federal Ministry of Information’s literary output. His books sold because they were readable — a different, mass-market path from the Ibadan/Nsukka canon.",
+      "Ekwensi wrote popular novels about migrants, nightlife, and the new city when most African literature still looked at the village. He also ran the Federal Ministry of Information’s literary output. His books sold because they were readable, a different, mass-market path from the Ibadan/Nsukka canon.",
     citation: {
       title: "Cyprian Ekwensi",
       publisher: "Encyclopaedia Britannica",
@@ -652,7 +652,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Moved the first motion for Nigeria’s independence in the colonial House of Representatives in 1953.",
     summary:
-      "Then a 30-year-old Action Group backbencher, Enahoro forced a timetable debate that Britain and northern leaders were not ready for. The motion failed that year; independence came in 1960 anyway. He later spent years in exile and detention as a pro-democracy campaigner — the rare nationalist who stayed oppositional after the flag went up.",
+      "Then a 30-year-old Action Group backbencher, Enahoro forced a timetable debate that Britain and northern leaders were not ready for. The motion failed that year; independence came in 1960 anyway. He later spent years in exile and detention as a pro-democracy campaigner, the rare nationalist who stayed oppositional after the flag went up.",
     citation: {
       title: "Anthony Enahoro",
       publisher: "Encyclopaedia Britannica",
@@ -693,7 +693,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Gwari potter who joined the Abuja Pottery Training Centre and became the first Nigerian woman to win international museum recognition for studio ceramics.",
     summary:
-      "Kwali already made large utilitarian pots in the Gwari tradition when Michael Cardew’s colonial pottery recruited her. She learned the wheel without abandoning hand-coiling and touring exhibitions took her work to Europe. Her portrait is on the ₦20 note — the only artist so honoured.",
+      "Kwali already made large utilitarian pots in the Gwari tradition when Michael Cardew’s colonial pottery recruited her. She learned the wheel without abandoning hand-coiling and touring exhibitions took her work to Europe. Her portrait is on the ₦20 note, the only artist so honoured.",
     citation: {
       title: "Ladi Kwali",
       publisher: "Smithsonian National Museum of African Art",
@@ -753,7 +753,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Lawyer, Second Republic governor of Oyo State, and attorney-general of the federation; assassinated in 2001.",
     summary:
-      "Cicero of Esa Oke was a brilliant courtroom advocate and Awoist politician who returned as justice minister under Obasanjo. His murder in Ibadan — still officially unresolved — became a symbol of the new democracy’s vulnerability to political violence.",
+      "Cicero of Esa Oke was a brilliant courtroom advocate and Awoist politician who returned as justice minister under Obasanjo. His murder in Ibadan, still officially unresolved, became a symbol of the new democracy’s vulnerability to political violence.",
     citation: {
       title: "Bola Ige",
       publisher: "BBC News",
@@ -773,7 +773,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Author of Efuru (1966), widely cited as the first internationally published novel in English by an African woman, and founder of Tana Press.",
     summary:
-      "Nwapa wrote Igbo women as traders and moral agents, not as background. After the war she published children’s books and adult fiction from Enugu when London houses were not enough. Every later Nigerian woman novelist inherits a path she cut.",
+      "Nwapa wrote Igbo women as traders and moral agents. After the war she published children’s books and adult fiction from Enugu when London houses were not enough. Every later Nigerian woman novelist inherits a path she cut.",
     citation: {
       title: "Flora Nwapa",
       publisher: "Encyclopaedia Britannica",
@@ -853,7 +853,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Northern women’s rights campaigner and NEPU organiser, repeatedly jailed for opposing child marriage and emirate politics.",
     summary:
-      "Sawaba campaigned for women’s suffrage in the North when it was still denied, and for education against forced marriage. Colonial and post-colonial authorities imprisoned her many times. She stands with Ekpo and Ransome-Kuti as the third pillar of women’s nationalist memory — and the one most often left out of southern textbooks.",
+      "Sawaba campaigned for women’s suffrage in the North when it was still denied, and for education against forced marriage. Colonial and post-colonial authorities imprisoned her many times. She stands with Ekpo and Ransome-Kuti as the third pillar of women’s nationalist memory, and the one most often left out of southern textbooks.",
     citation: {
       title: "Gambo Sawaba",
       publisher: "Encyclopaedia Britannica",
@@ -872,7 +872,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Third secretary-general of the Commonwealth (1990–2000); the highest post a Nigerian civil servant has held in that organisation.",
     summary:
-      "Anyaoku spent his career in Commonwealth diplomacy, including the push to isolate apartheid South Africa and then to reintegrate it. His SG decade covered Nigeria’s own 1990s isolation after the hanging of Saro-Wiwa — a Nigerian running the club that suspended Nigeria.",
+      "Anyaoku spent his career in Commonwealth diplomacy, including the push to isolate apartheid South Africa and then to reintegrate it. His SG decade covered Nigeria’s own 1990s isolation after the hanging of Saro-Wiwa, a Nigerian running the club that suspended Nigeria.",
     citation: {
       title: "Chief Emeka Anyaoku",
       publisher: "The Commonwealth",
@@ -890,11 +890,11 @@ export const ICON_COHORT_EARLY: Draft[] = [
     relatedTimelineIds: ["civil-war-1967"],
     wikipediaTitle: "Wole Soyinka",
     achievement:
-      "Playwright, poet, and 1986 Nobel laureate in literature — the first African to win the prize.",
+      "Playwright, poet, and 1986 Nobel laureate in literature, the first African to win the prize.",
     summary:
-      "Soyinka’s plays (Death and the King’s Horseman, A Dance of the Forests) and prison memoir made Nigerian theatre a world form. He has spent as much energy on civic resistance — Civil War mediation, exile under Abacha — as on manuscripts. The Nobel citation named a writer who ‘in a wide cultural perspective and with poetic overtones fashions the drama of existence’.",
+      "Soyinka’s plays (Death and the King’s Horseman, A Dance of the Forests) and prison memoir made Nigerian theatre a world form. He has spent as much energy on civic resistance. Civil War mediation, exile under Abacha, as on manuscripts. The Nobel citation named a writer who ‘in a wide cultural perspective and with poetic overtones fashions the drama of existence’.",
     citation: {
-      title: "Wole Soyinka — Biographical",
+      title: "Wole Soyinka. Biographical",
       publisher: "The Nobel Prize",
       year: 1986,
       url: "https://www.nobelprize.org/prizes/literature/1986/soyinka/biographical/",
@@ -912,7 +912,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Head of state (1966–75) during the Civil War; afterwards announced a policy of Reconciliation, Rehabilitation, and Reconstruction.",
     summary:
-      "Gowon took power after the July 1966 counter-coup and prosecuted the war that kept Nigeria one country. The 3Rs slogan, the creation of 12 states, and the oil-boom public service are his record — alongside the war’s death toll, which remains disputed. Overthrown in 1975, he later became a public advocate of unity rather than a returning candidate.",
+      "Gowon took power after the July 1966 counter-coup and prosecuted the war that kept Nigeria one country. The 3Rs slogan, the creation of 12 states, and the oil-boom public service are his record, alongside the war’s death toll, which remains disputed. Overthrown in 1975, he later became a public advocate of unity rather than a returning candidate.",
     citation: {
       title: "Yakubu Gowon",
       publisher: "Encyclopaedia Britannica",
@@ -932,7 +932,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Author of The Concubine (1966), a landmark novel of Ikwerre village life, and a surveyor-soldier who served on the federal side in the Civil War.",
     summary:
-      "Amadi wrote tragedy without the nationalist allegory some of his contemporaries preferred. He also administered Rivers State after the war. The Concubine remains a WAEC staple — which means millions of Nigerian students have read Ikwerre cosmology through his sentences.",
+      "Amadi wrote tragedy without the nationalist allegory some of his contemporaries preferred. He also administered Rivers State after the war. The Concubine remains a WAEC staple, which means millions of Nigerian students have read Ikwerre cosmology through his sentences.",
     citation: {
       title: "Elechi Amadi",
       publisher: "Encyclopaedia Britannica",
@@ -1014,7 +1014,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Businessman widely held to have won the 12 June 1993 presidential election, which the military annulled; died in detention in 1998.",
     summary:
-      "Abiola built a conglomerate (shipping, oil services, Concord newspapers) and a philanthropic footprint across the continent. The June 12 vote — and its cancellation — became the rallying date of Nigeria’s 1990s democracy movement. Democracy Day was later moved to 12 June in official recognition of that mandate.",
+      "Abiola built a conglomerate (shipping, oil services, Concord newspapers) and a philanthropic footprint across the continent. The June 12 vote, and its cancellation, became the rallying date of Nigeria’s 1990s democracy movement. Democracy Day was later moved to 12 June in official recognition of that mandate.",
     citation: {
       title: "Moshood Kashimawo Olawale Abiola",
       publisher: "Encyclopaedia Britannica",

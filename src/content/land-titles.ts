@@ -14,13 +14,13 @@ export const TITLE_STANDARD = {
       step: "1",
       title: "One folio, one parcel",
       detail:
-        "A plot has a single authoritative record. Photocopies in three ministries are not a title. The folio is the title.",
+        "A plot has a single authoritative record. Photocopies in three ministries do not make a title. The folio is the title.",
     },
     {
       step: "2",
       title: "Map it",
       detail:
-        "Georeference the parcel against the same street zone as the postal index. A C of O with no shape is a letter, not collateral.",
+        "Georeference the parcel against the same street zone as the postal index. A C of O with no shape is a letter.",
     },
     {
       step: "3",
@@ -74,7 +74,7 @@ export const BANKABLE_RULES = [
   {
     id: "queryable",
     title: "Queryable folio",
-    detail: "A lender, a planner, and an heir look at the same record in a browser — not a file that left with a clerk.",
+    detail: "A lender, a planner, and an heir look at the same record in a browser.",
   },
   {
     id: "mapped",
@@ -89,7 +89,7 @@ export const BANKABLE_RULES = [
   {
     id: "consent",
     title: "Consent on the folio",
-    detail: "Granted, pending, missing, or not required — written here. A receipt from another office does not count.",
+    detail: "Granted, pending, missing, or not required, written here. A receipt from another office does not count.",
   },
   {
     id: "quiet",
@@ -143,7 +143,7 @@ export const LAND_PARCELS: LandParcel[] = [
     register: "scanned",
     survey: "mapped",
     encumbrance: "clear",
-    note: "The even side is a different street zone. Scanned, not queryable. Consent for the last assignment is still a separate window.",
+    note: "The even side is a different street zone. Scanned only. Consent for the last assignment is still a separate window.",
   },
   {
     id: "fc-ssw-a",
@@ -173,7 +173,7 @@ export const LAND_PARCELS: LandParcel[] = [
     register: "scanned",
     survey: "sketch",
     encumbrance: "mortgage",
-    note: "A bank already wrote a charge. The shape is a sketch, not a georeferenced polygon. Scan is not a cadastre.",
+    note: "A bank already wrote a charge. The shape is a sketch. The scan is still a PDF.",
   },
   {
     id: "fc-kwali-1",
@@ -181,14 +181,14 @@ export const LAND_PARCELS: LandParcel[] = [
     postalCode: "FC-R04-027",
     street: "Kwali hinterland",
     plot: "Cluster",
-    folio: "—",
+    folio: "n/a",
     holder: "Family holding (undivided)",
     titleKind: "customary",
     consent: "missing",
     register: "paper",
     survey: "unmapped",
     encumbrance: "clear",
-    note: "No street zone until roads are gazetted. Occupation can be real; the folio is not. This is not bankable, and inventing plots would be a lie.",
+    note: "No street zone until roads are gazetted. Occupation can be real while the folio stays empty. Inventing plots would be a lie.",
   },
   {
     id: "la-awa-11",
@@ -218,7 +218,7 @@ export const LAND_PARCELS: LandParcel[] = [
     register: "queryable",
     survey: "mapped",
     encumbrance: "dispute",
-    note: "The folio is online and the shape is mapped — and still not bankable. Two claimants. The register should say so, loudly.",
+    note: "The folio is online and the shape is mapped, and still not bankable. Two claimants. The register should say so, loudly.",
   },
   {
     id: "la-isaac-8",
@@ -241,7 +241,7 @@ export const LAND_PARCELS: LandParcel[] = [
     postalCode: "LA-R04-064",
     street: "Epe creekside",
     plot: "Landing",
-    folio: "—",
+    folio: "n/a",
     holder: "Family holding (undivided)",
     titleKind: "customary",
     consent: "missing",
@@ -278,7 +278,7 @@ export const LAND_PARCELS: LandParcel[] = [
     register: "queryable",
     survey: "mapped",
     encumbrance: "mortgage",
-    note: "Queryable, mapped, mortgage noted. Still bankable — the charge is the point of a register a lender can see.",
+    note: "Queryable, mapped, mortgage noted. Still bankable, the charge is the point of a register a lender can see.",
   },
   {
     id: "kn-gez-1",
@@ -286,8 +286,8 @@ export const LAND_PARCELS: LandParcel[] = [
     postalCode: "KN-R04-056",
     street: "Gezawa cluster",
     plot: "Cluster",
-    folio: "—",
-    holder: "Unknown — instrument missing",
+    folio: "n/a",
+    holder: "Unknown, instrument missing",
     titleKind: "none",
     consent: "missing",
     register: "paper",
@@ -338,7 +338,7 @@ export const LAND_PARCELS: LandParcel[] = [
     register: "queryable",
     survey: "mapped",
     encumbrance: "mortgage",
-    note: "Aba Road odd. Charge is on the folio. A second lender can see the first — that is the product.",
+    note: "Aba Road odd. Charge is on the folio. A second lender can see the first, that is the product.",
   },
   {
     id: "ri-forces-4",
@@ -383,7 +383,7 @@ export const LAND_PARCELS: LandParcel[] = [
     register: "paper",
     survey: "unmapped",
     encumbrance: "dispute",
-    note: "Rail corridor. Paper C of O, no polygon, two stories about the fence. Not a title a bank should touch.",
+    note: "Rail corridor. Paper C of O, no polygon, two stories about the fence. A bank should not treat this as a title.",
   },
 ];
 

@@ -14,19 +14,19 @@ export const LIBRARY_STANDARD = {
       step: "1",
       title: "A rural floor",
       detail:
-        "Every community is within 100 km of a staffed public library. That is a floor, not a boast — the distance a motorbike can do and still get home.",
+        "Every community is within 100 km of a staffed public library. That is a floor: the distance a motorbike can do and still get home.",
     },
     {
       step: "2",
       title: "Then denser in cities",
       detail:
-        "In built-up capitals the standard tightens to a branch within about 2–3 km, or one per 50,000 people — whichever is denser. A teaching-hospital reading room is not a neighbourhood library.",
+        "In built-up capitals the standard tightens to a branch within about 2–3 km, or one per 50,000 people, whichever is denser. A teaching-hospital reading room does not count as a neighbourhood library.",
     },
     {
       step: "3",
       title: "A minimum kit",
       detail:
-        "Children’s section, study seats, working toilets, electricity, a librarian, wifi. A locked room of donated books is not a branch.",
+        "Children’s section, study seats, working toilets, electricity, a librarian, wifi. A locked room of donated books does not count as a branch.",
     },
     {
       step: "4",
@@ -56,12 +56,12 @@ export const LIBRARY_KIT = [
   {
     id: "power",
     title: "Electricity",
-    detail: "Light after 4 p.m. A generator that dies at closing time is not a service.",
+    detail: "Light after 4 p.m. A generator that dies at closing time does not count as a service.",
   },
   {
     id: "librarian",
     title: "A librarian",
-    detail: "Someone on a salary who can find a title and keep the room open. Volunteers are a bonus, not the staff plan.",
+    detail: "Someone on a salary who can find a title and keep the room open. Volunteers are a bonus on top of a staff plan.",
   },
   {
     id: "wifi",
@@ -114,7 +114,7 @@ export const LIBRARY_SYSTEMS: LibrarySystem[] = [
   {
     capitalId: "abuja",
     summary:
-      "The capital has a central and two walkable branches. Kubwa is still a commute, not a walk. Kwali is inside the 100 km floor by a mobile stop.",
+      "The capital has a central and two walkable branches. Kubwa is still a commute. Kwali is inside the 100 km floor by a mobile stop.",
     hinterlandKm: 55,
     hinterlandPlace: "Kwali hinterland",
     branches: [
@@ -142,7 +142,7 @@ export const LIBRARY_SYSTEMS: LibrarySystem[] = [
         kind: "urban",
         place: "Aminu Kano Crescent",
         kmFromCentre: 3,
-        note: "Meets the urban walk. Children’s corner is a rug and a box — still a corner.",
+        note: "Meets the urban walk. Children’s corner is a rug and a box, still a corner.",
         kit: kit(),
       },
       {
@@ -196,7 +196,7 @@ export const LIBRARY_SYSTEMS: LibrarySystem[] = [
         kind: "urban",
         place: "Berger / Lagos–Ibadan fringe",
         kmFromCentre: 8,
-        note: "A corridor branch, not a walk from Alausa. Children’s section is a promise.",
+        note: "A corridor branch; still a ride from Alausa. Children’s section is a promise.",
         kit: kit({ children: "missing", wifi: "broken" }),
       },
       {
@@ -214,7 +214,7 @@ export const LIBRARY_SYSTEMS: LibrarySystem[] = [
         kind: "mobile",
         place: "Epe creekside",
         kmFromCentre: 64,
-        note: "Riverine route. The floor is a landing, not a building.",
+        note: "Riverine route. The floor is a landing until a building exists.",
         kit: kit({ toilets: "missing", power: "missing", wifi: "missing" }),
       },
     ],
@@ -267,7 +267,7 @@ export const LIBRARY_SYSTEMS: LibrarySystem[] = [
   {
     capitalId: "enugu",
     summary:
-      "Independence Layout plus a walkable Ogui room. Trans-Ekulu is a bus, not a walk. Agbani is the hinterland test.",
+      "Independence Layout plus a walkable Ogui room. Trans-Ekulu is a bus ride. Agbani is the hinterland test.",
     hinterlandKm: 25,
     hinterlandPlace: "Agbani road join",
     branches: [
@@ -357,7 +357,7 @@ export const LIBRARY_SYSTEMS: LibrarySystem[] = [
   {
     capitalId: "maiduguri",
     summary:
-      "One metropolitan room. No second urban branch. The Bama axis sits beyond 100 km — the floor fails. A title can still be requested here if a desk is staffed.",
+      "One metropolitan room. No second urban branch. The Bama axis sits beyond 100 km, the floor fails. A title can still be requested here if a desk is staffed.",
     hinterlandKm: 145,
     hinterlandPlace: "Bama axis",
     branches: [
@@ -385,7 +385,7 @@ export const LIBRARY_SYSTEMS: LibrarySystem[] = [
         kind: "hinterland",
         place: "Konduga cluster",
         kmFromCentre: 35,
-        note: "Closer than Bama, still not a second city library.",
+        note: "Closer than Bama. Still one city library.",
         kit: kit({ librarian: "missing", toilets: "missing", power: "broken", wifi: "missing" }),
       },
       {
@@ -437,7 +437,7 @@ export const LIBRARY_SYSTEMS: LibrarySystem[] = [
         kind: "urban",
         place: "Across the Benue bridge",
         kmFromCentre: 5,
-        note: "A bridge is not a walk for a child. Densify this bank.",
+        note: "A bridge is a long way for a child. Densify this bank.",
         kit: kit({ children: "missing" }),
       },
       {

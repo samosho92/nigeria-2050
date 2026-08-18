@@ -188,8 +188,8 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
       ) : null}
 
       <p className="text-xs text-muted-foreground">
-        Votes are stored against a random id in this browser and counted on this site’s tally. They are not a poll of
-        Nigeria. Ideas are civic proposals, not sourced 2050 forecasts.
+        Votes are stored against a random id in this browser and counted on this site’s tally.
+        Ideas are civic proposals.
       </p>
 
       <ProjectSubmitForm sectorTitles={sectorTitles} onCreated={handleCreated} />

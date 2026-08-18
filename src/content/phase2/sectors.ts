@@ -194,7 +194,7 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         timelineEntryId: "colonial-economy",
         title: "Cash Crops & Extraction",
-        summary: "Colonial agriculture built for export, not food security, leaving a legacy of underinvestment in domestic processing.",
+        summary: "Colonial agriculture built for export, leaving a legacy of underinvestment in domestic processing.",
       },
       {
         timelineEntryId: "structural-adjustment",
@@ -454,7 +454,7 @@ export const PHASE2_SECTORS: Sector[] = [
         year: 2050,
         headline: "Industrial Powerhouse",
         narrative:
-          "Manufacturing contributes 22% of GDP with 20M jobs. Nigeria produces autos, pharmaceuticals, and machinery for domestic and regional markets. Import substitution is strategic, not protectionist, with quality standards enforced.",
+          "Manufacturing contributes 22% of GDP with 20M jobs. Nigeria produces autos, pharmaceuticals, and machinery for domestic and regional markets. Import substitution is strategic, with quality standards enforced.",
         metrics: {
           manufacturingGdpShare: "22%",
           manufacturingExportValue: "$80B",
@@ -466,7 +466,7 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         timelineEntryId: "colonial-economy",
         title: "Extractive Legacy",
-        summary: "Colonial infrastructure built to move raw materials to ports, not to connect factories to markets or power.",
+        summary: "Colonial infrastructure built to move raw materials to ports.",
       },
       {
         timelineEntryId: "oil-discovery",
@@ -686,7 +686,7 @@ export const PHASE2_SECTORS: Sector[] = [
     title: "Transportation & Logistics",
     tagline: "Roads, rail, ports, and the cost of moving people and goods",
     headline2050:
-      "A connected federation — standard-gauge rail from Lagos to Kano, 24-hour ports, and urban transit that makes 400 million people mobile without wasting a generation in traffic.",
+      "A connected federation, standard-gauge rail from Lagos to Kano, 24-hour ports, and urban transit that makes 400 million people mobile without wasting a generation in traffic.",
     baseline: {
       logisticsPerformanceIndex: "2.6 / 5",
       airPassengersPer1000: "31",
@@ -702,7 +702,7 @@ export const PHASE2_SECTORS: Sector[] = [
         year: 2030,
         headline: "Corridors That Actually Connect",
         narrative:
-          "Lagos–Ibadan and Abuja–Kaduna standard-gauge passenger services run daily. Lagos Metro Blue Line carries peak commuters. Cargo clearing at the Lagos ports is treated as a days-not-weeks problem — scanners, barge feeders, and a working truck call-up. BRT or equivalent busways operate in Lagos, Abuja, and Kano.",
+          "Lagos–Ibadan and Abuja–Kaduna standard-gauge passenger services run daily. Lagos Metro Blue Line carries peak commuters. Cargo clearing at the Lagos ports is treated as a days-not-weeks problem, scanners, barge feeders, and a working truck call-up. BRT or equivalent busways operate in Lagos, Abuja, and Kano.",
         metrics: {
           logisticsPerformanceIndex: "2.8 / 5",
           airPassengersPer1000: "80",
@@ -724,7 +724,7 @@ export const PHASE2_SECTORS: Sector[] = [
         year: 2050,
         headline: "A Logistics Country, Not a Queue",
         narrative:
-          "Nigeria's logistics score approaches today's Italy (LPI 3.7 in 2023). Coastal shipping and rail move bulk cargo; trucks handle last mile. Lagos, Abuja, and Kano have functioning urban rail. The colonial extractive map — rails to the sea, not to each other — is finally reversed.",
+          "Nigeria's logistics score approaches today's Italy (LPI 3.7 in 2023). Coastal shipping and rail move bulk cargo; trucks handle last mile. Lagos, Abuja, and Kano have functioning urban rail. The colonial extractive map (rails to the sea) is finally reversed.",
         metrics: {
           logisticsPerformanceIndex: "3.5 / 5",
           airPassengersPer1000: "400",
@@ -736,7 +736,7 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         timelineEntryId: "colonial-economy",
         title: "Rails Built to Extract",
-        summary: "Colonial railways ran interior to port, not region to region — a map the 2050 network is designed to invert.",
+        summary: "Colonial railways ran interior to port, a map the 2050 network is designed to invert.",
       },
       {
         timelineEntryId: "lagos-brt",
@@ -746,19 +746,19 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         timelineEntryId: "standard-gauge-rail",
         title: "Standard-Gauge Revival",
-        summary: "Lagos–Ibadan and Abuja–Kaduna lines proved modern rail is possible — and how slowly one corridor still becomes a network.",
+        summary: "Lagos–Ibadan and Abuja–Kaduna lines proved modern rail is possible, and how slowly one corridor still becomes a network.",
       },
     ],
     assumptions: [
       {
-        title: "Standard-gauge completion, not just announcements",
+        title: "Standard-gauge completion that carries freight",
         detail:
           "Lagos–Kano passenger and freight standard-gauge is fully operational by 2038, with Warri and Port Harcourt spurs by 2045. Contracts include maintenance set-asides so new lines do not decay within a decade of opening.",
       },
       {
-        title: "Port clearing in days, not weeks",
+        title: "Port clearing in days",
         detail:
-          "The scenario assumes Lagos port cargo leaves the terminals in days rather than remaining stacked for weeks — through 24-hour gates, scanners, barge feeders, and a functioning truck call-up. We do not publish a current dwell-day baseline: World Bank LPI and CPPI do not report Apapa cargo dwell, and unpublished operator figures should not be presented as a sourced series.",
+          "The scenario assumes Lagos port cargo leaves the terminals in days rather than remaining stacked for weeks, through 24-hour gates, scanners, barge feeders, and a functioning truck call-up. We do not publish a current dwell-day baseline: World Bank LPI and CPPI do not report Apapa cargo dwell, and unpublished operator figures should not be presented as a sourced series.",
       },
       {
         title: "Urban transit in the three largest metros",
@@ -766,9 +766,9 @@ export const PHASE2_SECTORS: Sector[] = [
           "Lagos Metro (Blue and Red lines) plus BRT carry 1M+ daily trips by 2040. Abuja and Kano run dedicated busways or light rail on at least one high-demand corridor each by 2035.",
       },
       {
-        title: "Road asset management, not only new tarmac",
+        title: "Road asset management alongside new tarmac",
         detail:
-          "WHO GSRRS 2023 records 84,000 paved kilometres in Nigeria (2019). The scenario is condition and safety of that network — FERMA and state PPPs keeping most federal paved roads in good or fair condition by 2035, with axle-load enforcement so the same stretches are not rebuilt every few years.",
+          "WHO GSRRS 2023 records 84,000 paved kilometres in Nigeria (2019). The scenario is condition and safety of that network. FERMA and state PPPs keeping most federal paved roads in good or fair condition by 2035, with axle-load enforcement so the same stretches are not rebuilt every few years.",
       },
       {
         title: "Inland dry ports and multimodal freight",
@@ -778,7 +778,7 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         title: "Power and security on the corridors",
         detail:
-          "Signalling, scanners, and night running require the energy-sector delivery path (12 GW by 2030). Highway and rail security in the northwest and north-central is good enough for overnight freight — otherwise the spine exists on paper only.",
+          "Signalling, scanners, and night running require the energy-sector delivery path (12 GW by 2030). Highway and rail security in the northwest and north-central is good enough for overnight freight, otherwise the spine exists on paper only.",
       },
       {
         title: "Coastal and inland waterways",
@@ -790,12 +790,12 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         title: "White-elephant rail without freight",
         detail:
-          "Passenger-only prestige lines that never carry containers would repeat Ajaokuta: capital spent, logistics unchanged. 2050 LPI gains require freight paths and last-mile trucking reform, not stations alone.",
+          "Passenger-only prestige lines that never carry containers would repeat Ajaokuta: capital spent, logistics unchanged. 2050 LPI gains require freight paths and last-mile trucking reform.",
       },
       {
         title: "Port capture and trucking cartels",
         detail:
-          "If call-up, scanning, and barge rules are captured by incumbents, cargo still sits in the terminals for weeks regardless of new cranes — the pattern that has survived every 'ease of doing business' announcement.",
+          "If call-up, scanning, and barge rules are captured by incumbents, cargo still sits in the terminals for weeks regardless of new cranes, the pattern that has survived every 'ease of doing business' announcement.",
       },
       {
         title: "Insecurity on highways and rail",
@@ -810,7 +810,7 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         title: "FX and contractor arrears",
         detail:
-          "Imported rolling stock, signalling, and cranes stall when naira convertibility fails or government arrears pile up — the stop-start cycle that stretched Lagos–Ibadan over a decade.",
+          "Imported rolling stock, signalling, and cranes stall when naira convertibility fails or government arrears pile up, the stop-start cycle that stretched Lagos–Ibadan over a decade.",
       },
       {
         title: "Climate and flooding",
@@ -831,7 +831,7 @@ export const PHASE2_SECTORS: Sector[] = [
     title: "Real Estate & Housing",
     tagline: "Density, land tenure, and the cost of a roof as the population heads toward 400 million",
     headline2050:
-      "A country that can house 400 million people — denser cities with titled plots, mortgages that work, and rents that no longer swallow half a paycheck.",
+      "A country that can house 400 million people, denser cities with titled plots, mortgages that work, and rents that no longer swallow half a paycheck.",
     baseline: {
       populationDensity: "250 per km²",
       urbanShare: "62%",
@@ -849,7 +849,7 @@ export const PHASE2_SECTORS: Sector[] = [
         year: 2030,
         headline: "Titles Before Towers",
         narrative:
-          "Population is still climbing fast. The binding constraint is not empty land — national density already matches Germany — but who holds a Certificate of Occupancy in Lagos, Kano, Abuja, and Onitsha. States digitize consent and cut the cost of registering property. Incremental upgrading reaches a first wave of informal settlements instead of demolition-only. Mortgage refinance starts to move off the National Housing Fund's tiny book.",
+          "Population is still climbing fast. The binding constraint is not empty land, national density already matches Germany, but who holds a Certificate of Occupancy in Lagos, Kano, Abuja, and Onitsha. States digitize consent and cut the cost of registering property. Incremental upgrading reaches a first wave of informal settlements instead of demolition-only. Mortgage refinance starts to move off the National Housing Fund's tiny book.",
         metrics: {
           urbanInSlums: "42%",
           urbanShare: "65%",
@@ -860,7 +860,7 @@ export const PHASE2_SECTORS: Sector[] = [
         year: 2040,
         headline: "Supply Catches a Fraction of Demand",
         narrative:
-          "Annual formal completions are no longer a rounding error against household formation. New towns along the Lagos–Ibadan and Abuja–Kaduna corridors — tied to the transportation spine — take pressure off the densest cores. Rent as a share of urban wages stops rising. Construction still imports too much cement chemistry, but local materials hubs cut the 2019–2024 cost spike from becoming a permanent tax on every wall.",
+          "Annual formal completions are no longer a rounding error against household formation. New towns along the Lagos–Ibadan and Abuja–Kaduna corridors, tied to the transportation spine, take pressure off the densest cores. Rent as a share of urban wages stops rising. Construction still imports too much cement chemistry, but local materials hubs cut the 2019–2024 cost spike from becoming a permanent tax on every wall.",
         metrics: {
           urbanInSlums: "33%",
           urbanShare: "68%",
@@ -871,7 +871,7 @@ export const PHASE2_SECTORS: Sector[] = [
         year: 2050,
         headline: "Dense, Titled, and Livable",
         narrative:
-          "Four hundred million people on the same land mass means roughly 430 people per square kilometre — denser than today's United Kingdom. That only works if housing supply, transit, and power move together. The base case is not a G7 mortgage market. It is slum share down to about a quarter of urban residents, most urban land transactable, and rents that leave room for food. Speculative Lekki pricing still exists; it no longer defines how a nurse or teacher lives.",
+          "Four hundred million people on the same land mass means roughly 430 people per square kilometre, denser than today's United Kingdom. That only works if housing supply, transit, and power move together. The base case is slum share down to about a quarter of urban residents, most urban land transactable, and rents that leave room for food. Speculative Lekki pricing still exists; it no longer defines how a nurse or teacher lives.",
         metrics: {
           urbanInSlums: "25%",
           urbanShare: "70%",
@@ -883,7 +883,7 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         timelineEntryId: "colonial-economy",
         title: "Colonial Towns, Extractive Land",
-        summary: "Lagos and the rail-head towns were built to move crops to ports — density without a housing system.",
+        summary: "Lagos and the rail-head towns were built to move crops to ports, density without a housing system.",
       },
       {
         timelineEntryId: "land-use-act-1978",
@@ -893,39 +893,39 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         timelineEntryId: "structural-adjustment",
         title: "Naira Shock and Housing Costs",
-        summary: "Devaluation made imported building materials and urban rent a larger share of shrinking real wages — a pattern that returned in 2023–24.",
+        summary: "Devaluation made imported building materials and urban rent a larger share of shrinking real wages, a pattern that returned in 2023–24.",
       },
     ],
     assumptions: [
       {
         title: "Population and density are the demand engine",
         detail:
-          "NPC's published path toward ~400 million people by 2050, on ~924,000 km² of land, implies national density rising from 250 per km² (WDI 2023) to about 430. That is not a G7-style empty-continent problem: Nigeria is already as dense as Germany. Housing stress concentrates where people actually move — Lagos, Kano, Ibadan, Abuja, Onitsha, Port Harcourt — so prices and rents rise fastest in those agglomerations.",
+          "NPC's published path toward ~400 million people by 2050, on ~924,000 km² of land, implies national density rising from 250 per km² (WDI 2023) to about 430. Nigeria is already as dense as Germany. Housing stress concentrates where people actually move. Lagos, Kano, Ibadan, Abuja, Onitsha, Port Harcourt, so prices and rents rise fastest in those agglomerations.",
       },
       {
         title: "Urbanization still has a long way to run",
         detail:
-          "WDI 2023: 62% urban versus ~80% in most G7 members. As the urban share rises toward a 70% 2050 scenario, more households compete for titled plots in the same cities. Without supply, density becomes overcrowding and slum growth, not productive agglomeration.",
+          "WDI 2023: 62% urban versus ~80% in most G7 members. As the urban share rises toward a 70% 2050 scenario, more households compete for titled plots in the same cities. Without supply, density becomes overcrowding and slum growth.",
       },
       {
         title: "Informal urban housing is the measured gap",
         detail:
-          "WDI / UN-Habitat: 48.5% of Nigeria's urban population lived in slums in 2022, against ~0–2% in G7 members. The 2050 base case (25%) still leaves tens of millions in inadequate housing — optimistic relative to today, not a claim that Lagos will look like Tokyo.",
+          "WDI / UN-Habitat: 48.5% of Nigeria's urban population lived in slums in 2022, against ~0–2% in G7 members. The 2050 base case (25%) still leaves tens of millions in inadequate housing, optimistic relative to today.",
       },
       {
-        title: "Deficit figures are a range, not a census",
+        title: "Deficit figures are a range",
         detail:
           "CAHF (2024 Yearbook) cites ~28 million missing units in 2023 (up from ~14 million in 2010). AFP fact-check reporting notes FMBN has used ~22 million. We treat 22–28 million as the sourced range and do not use larger political figures. Closing it requires on the order of hundreds of thousands of formal units a year; CAHF reports combined government-plus-private delivery around 50,000 versus ~700,000 needed.",
       },
       {
         title: "House prices and rents are an inflation-plus-scarcity story",
         detail:
-          "CAHF 2024 reports Lekki and Ikeja rents up more than 200% since 2019, and that many urban households spend over 50% of salary on rent — well above the 30% affordability rule of thumb. Cement prices in the same profile rose several-fold over 2019–2024. The scenario assumes naira stabilization plus titled supply so that rent-to-income stops climbing even as density rises. There is no WDI house-price index that includes Nigeria and the G7, so we do not invent a cross-country price-to-income row.",
+          "CAHF 2024 reports Lekki and Ikeja rents up more than 200% since 2019, and that many urban households spend over 50% of salary on rent, well above the 30% affordability rule of thumb. Cement prices in the same profile rose several-fold over 2019–2024. The scenario assumes naira stabilization plus titled supply so that rent-to-income stops climbing even as density rises. There is no WDI house-price index that includes Nigeria and the G7, so we do not invent a cross-country price-to-income row.",
       },
       {
         title: "Land Use Act reform and cheaper registration",
         detail:
-          "World Bank Doing Business 2020: registering property in Nigeria took 12 procedures, ~92 days, and over 11% of property value. CAHF notes NBS 2018: most landlords lack titles; C-of-O coverage is in the single digits. The 2030 path assumes states cut consent time and cost so land can be collateral — otherwise mortgages cannot scale past CAHF's 0.6% of GDP (2021).",
+          "World Bank Doing Business 2020: registering property in Nigeria took 12 procedures, ~92 days, and over 11% of property value. CAHF notes NBS 2018: most landlords lack titles; C-of-O coverage is in the single digits. The 2030 path assumes states cut consent time and cost so land can be collateral, otherwise mortgages cannot scale past CAHF's 0.6% of GDP (2021).",
       },
       {
         title: "Transit and power are housing policy",
@@ -937,17 +937,17 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         title: "Inflation reprices every wall",
         detail:
-          "Another naira slide repeats 2023–24: cement, granite, and dollar-linked finishes jump, developers freeze, and landlords pass costs into rent. Density then shows up as more people per room, not more buildings.",
+          "Another naira slide repeats 2023–24: cement, granite, and dollar-linked finishes jump, developers freeze, and landlords pass costs into rent. Density then shows up as more people per room.",
       },
       {
         title: "Title reform captured by insiders",
         detail:
-          "Digitized C-of-O that only serves connected applicants would formalize speculation, not affordability — raising listed prices without shrinking slums.",
+          "Digitized C-of-O that only serves connected applicants would formalize speculation, raising listed prices without shrinking slums.",
       },
       {
         title: "Demolition without replacement",
         detail:
-          "Clearing waterfront or highway-setback settlements without equivalent units elsewhere displaces households into farther slums and can raise, not lower, the urban slum share.",
+          "Clearing waterfront or highway-setback settlements without equivalent units elsewhere displaces households into farther slums and can raise the urban slum share.",
       },
       {
         title: "Prestige supply, missing middle",

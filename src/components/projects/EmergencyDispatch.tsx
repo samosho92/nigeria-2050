@@ -102,9 +102,9 @@ export function EmergencyDispatch() {
   return (
     <div className="space-y-12">
       <p className="rounded-xl border border-border bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
-        This is not a live emergency number. 112 is not on air here. In a real emergency, use the
-        numbers that currently work where you are. The desk below is a schematic of how dispatch
-        should work once a cluster passes the launch gate — not NPF, FRSC, or hospital inventory.
+        112 is unpublished here. In a real emergency, use the numbers that currently work where you
+        are. The desk below is a schematic of how dispatch should work once a cluster passes the
+        launch gate.
       </p>
 
       <section aria-labelledby="pipeline-heading">
@@ -112,7 +112,7 @@ export function EmergencyDispatch() {
           How the desk works
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          {EMERGENCY_STANDARD.name} is a pipeline, not a poster. Answer in {EMERGENCY_STANDARD.answerSeconds}{" "}
+          {EMERGENCY_STANDARD.name} is a nine-step desk. Answer in {EMERGENCY_STANDARD.answerSeconds}{" "}
           seconds. Locate on the postal code. Assign a unit the radio can hear. ACK in{" "}
           {EMERGENCY_STANDARD.ackSeconds} seconds or send the next unit. Skip a step and you have a
           hotline that dumps to voicemail.
@@ -155,11 +155,11 @@ export function EmergencyDispatch() {
 
       <section aria-labelledby="protocol-heading">
         <h2 id="protocol-heading" className="font-serif text-2xl font-bold tracking-tight">
-          Three cards, not a chat
+          Three protocol cards
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
           The caller does not pick the agency. The call-taker classifies, then reads a short card
-          while the dispatcher assigns. Protocol runs in parallel with assign — it does not delay the
+          while the dispatcher assigns. Protocol runs in parallel with assign, it does not delay the
           radio.
         </p>
         <ul className="mt-6 grid gap-3 md:grid-cols-3">
@@ -255,7 +255,7 @@ export function EmergencyDispatch() {
               <h3 className="mt-1 font-serif text-2xl font-bold tracking-tight">{capital.capital}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Not a seed cluster. The same gate still applies: night call-takers, a dispatcher, radio
-                ACK, urban postal codes loaded. Until then 112 stays unpublished here — a voicemail
+                ACK, urban postal codes loaded. Until then 112 stays unpublished here, a voicemail
                 number is worse than none.
               </p>
             </Card>
@@ -349,7 +349,7 @@ function ClusterDesk({
       <Card className="p-5 md:p-6">
         <h4 className="font-semibold">Roster</h4>
         <p className="mt-1 text-xs text-muted-foreground">
-          Available means the radio is on the desk. Offline is a phone in a yard — not a unit.
+          Available means the radio is on the desk. Offline is a phone in a yard.
         </p>
         <ul className="mt-3 space-y-2">
           {cluster.units.map((unit) => {
@@ -400,8 +400,7 @@ function ClusterDesk({
         <Card className="p-5 md:p-6">
           <h4 className="font-semibold">Public report</h4>
           <p className="mt-1 text-xs text-muted-foreground">
-            {report.weekLabel}. Medians, not a live map of anyone’s emergency. Illustrative — not a
-            published DisCo-style feed from a real PSAP.
+            {report.weekLabel}. Weekly medians from this schematic. Editorial numbers.
           </p>
           <dl className="mt-4 grid grid-cols-2 gap-2 text-xs md:grid-cols-4">
             <ReportStat label="Calls" value={String(report.calls)} />

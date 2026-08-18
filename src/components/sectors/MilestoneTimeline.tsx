@@ -206,8 +206,7 @@ export function MilestoneTimeline({ projections }: MilestoneTimelineProps) {
         onNext={() => selectMilestone(activeIndex + 1)}
       />
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        Use arrow keys to move between milestones. Metric chips are scenario values, not sourced
-        2030/2040/2050 datasets.
+        Use arrow keys to move between milestones. Metric chips are scenario values.
       </p>
     </div>
   );

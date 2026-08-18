@@ -13,7 +13,7 @@ interface IconAvatarProps {
   figure: IconFigure;
   size?: keyof typeof SIZE_CLASS;
   showPhoto?: boolean;
-  /** Decorative by default — pass a string when the image is the sole name cue. */
+  /** Decorative by default, pass a string when the image is the sole name cue. */
   alt?: string;
   className?: string;
 }

@@ -58,7 +58,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
       "Dozie moved from consulting into banking (Diamond Bank, 1990) and then into telecoms as MTN Nigeria’s pioneer chairman after the 2001 digital-mobile licences. GSM did more to shrink distance in Nigeria than any road programme of that decade. Diamond was later acquired; the phone in your pocket is the more lasting monument.",
     citation: {
       title: "Pascal Dozie",
-      publisher: "MTN Nigeria — leadership history",
+      publisher: "MTN Nigeria, leadership history",
       year: 2024,
       url: "https://www.mtn.ng",
     },
@@ -116,7 +116,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Head of the 1983–85 military government and elected president (2015–23); 2015 was the first time a sitting Nigerian president lost and conceded.",
     summary:
-      "Buhari’s first period in power is remembered for War Against Indiscipline and decrees. His 2015 election, after three failed civilian runs, was a democratic first: an incumbent (Jonathan) accepted defeat. The 2015–23 record — security, recession, currency, and anti-corruption — is contested and belongs in sourced histories, not on a campaign poster. He died in 2025.",
+      "Buhari’s first period in power is remembered for War Against Indiscipline and decrees. His 2015 election, after three failed civilian runs, was a democratic first: an incumbent (Jonathan) accepted defeat. The 2015–23 record, security, recession, currency, and anti-corruption, is contested and belongs in sourced histories. He died in 2025.",
     citation: {
       title: "Muhammadu Buhari",
       publisher: "Encyclopaedia Britannica",
@@ -136,7 +136,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Novelist of In the Ditch, Second Class Citizen, and The Joys of Motherhood, who wrote Nigerian women’s migration and motherhood into the London canon.",
     summary:
-      "Emecheta left a violent marriage in Britain, raised children, earned a degree, and published novels that treated Igbo patriarchy and British racism as the same story told twice. She is taught worldwide as a Black British and African writer at once — a reminder that Nigerian literature has always been a diaspora literature too.",
+      "Emecheta left a violent marriage in Britain, raised children, earned a degree, and published novels that treated Igbo patriarchy and British racism as the same story told twice. She is taught worldwide as a Black British and African writer at once, a reminder that Nigerian literature has always been a diaspora literature too.",
     citation: {
       title: "Buchi Emecheta",
       publisher: "Encyclopaedia Britannica",
@@ -155,7 +155,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Jùjú bandleader who took talking drums and pedal steel to world stages; Grammy-nominated and a UNESCO artist for peace.",
     summary:
-      "Sunny Adé modernised jùjú with huge guitar bands and, in the 1980s, Island Records releases that put Yoruba popular music on the same shelves as reggae. He never became a London pop star; he did prove that a Nigerian genre could tour as itself, not as ‘world music’ costume.",
+      "Sunny Adé modernised jùjú with huge guitar bands and, in the 1980s, Island Records releases that put Yoruba popular music on the same shelves as reggae. He never became a London pop star; he did prove that a Nigerian genre could tour as itself.",
     citation: {
       title: "King Sunny Ade",
       publisher: "Encyclopaedia Britannica",
@@ -193,7 +193,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     relatedTimelineIds: ["nollywood-birth"],
     wikipediaTitle: "Tunde Kelani",
     achievement:
-      "Cinematographer-director (Saworoide, Thunderbolt, Dazzling Mirage) who treated Yoruba literature and politics as cinema, not straight-to-video filler.",
+      "Cinematographer-director (Saworoide, Thunderbolt, Dazzling Mirage) who treated Yoruba literature and politics as cinema.",
     summary:
       "Kelani trained as a cameraman, then made films that adapted Fagunwa, Adebayo Faleti, and contemporary novels with a craftsman’s eye. Saworoide remains the sharpest popular allegory of military-era corruption in Nigerian film. Nollywood’s volume is someone else’s story; Kelani is its conscience about language and light.",
     citation: {
@@ -215,7 +215,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "President (2007–10) who publicly admitted that the election which brought him in was flawed, and launched an amnesty for Niger Delta militants.",
     summary:
-      "Yar’Adua’s short term included a seven-point agenda, the 2009 Delta amnesty, and an unusually frank comment on his own election. Illness and a constitutional crisis over acting powers overshadowed policy. He died in office — the first elected Nigerian president to do so.",
+      "Yar’Adua’s short term included a seven-point agenda, the 2009 Delta amnesty, and an unusually frank comment on his own election. Illness and a constitutional crisis over acting powers overshadowed policy. He died in office, the first elected Nigerian president to do so.",
     citation: {
       title: "Umaru Musa Yar'Adua",
       publisher: "Encyclopaedia Britannica",
@@ -257,7 +257,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
       "Ovia built Zenith on technology and retail expansion after the 1980s bank failures. The bank listed in Lagos and London and seeded a generation of operators who later started payment firms. His visafone/M-Tech interests also sat at the edge of the GSM boom.",
     citation: {
       title: "Jim Ovia",
-      publisher: "Zenith Bank Plc — founder biography",
+      publisher: "Zenith Bank Plc, founder biography",
       year: 2024,
       url: "https://www.zenithbank.com",
     },
@@ -314,7 +314,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Singer, actress, and journalist whose 1984 BBC film Nigeria: A Squandering of Riches remains a landmark civic documentary; later headed the National Centre for Women Development.",
     summary:
-      "Onwenu’s songs (Iyogogo, Ekwe) and Nollywood roles made her a cross-generational face. The BBC documentary she presented on oil and waste is still shown in classrooms. She died in 2024 shortly after performing at a concert — a public exit equal to the public life.",
+      "Onwenu’s songs (Iyogogo, Ekwe) and Nollywood roles made her a cross-generational face. The BBC documentary she presented on oil and waste is still shown in classrooms. She died in 2024 shortly after performing at a concert, a public exit equal to the public life.",
     citation: {
       title: "Onyeka Onwenu",
       publisher: "BBC News",
@@ -334,7 +334,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Founder of Globacom and Conoil; the second GSM operator to take on the early MTN/Econet duopoly with per-second billing.",
     summary:
-      "Adenuga’s Glo (2003) cut call tariffs and built a West African submarine-cable footprint. Conoil gave him an upstream energy base. Together they made him one of Africa’s longest-running billionaire operators — a reminder that Nigerian private capital, not only foreign telcos, built the mobile era.",
+      "Adenuga’s Glo (2003) cut call tariffs and built a West African submarine-cable footprint. Conoil gave him an upstream energy base. Together they made him one of Africa’s longest-running billionaire operators, a reminder that Nigerian private capital built the mobile era alongside foreign telcos.",
     citation: {
       title: "Mike Adenuga",
       publisher: "Forbes",
@@ -373,7 +373,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Two-time Nigerian finance minister who helped negotiate Paris Club debt relief; first woman and first African director-general of the World Trade Organization (2021–).",
     summary:
-      "A World Bank lifer, Okonjo-Iweala brought budget transparency tools (including a published monthly federation account) into Abuja and was a principal in the 2005 Paris Club deal. At the WTO she is the most senior Nigerian in the multilateral system. This page lists her as a public-finance technocrat, not as a party figure.",
+      "A World Bank lifer, Okonjo-Iweala brought budget transparency tools (including a published monthly federation account) into Abuja and was a principal in the 2005 Paris Club deal. At the WTO she is the most senior Nigerian in the multilateral system. This page lists her as a public-finance technocrat.",
     citation: {
       title: "Ngozi Okonjo-Iweala, Director-General",
       publisher: "World Trade Organization",
@@ -410,12 +410,12 @@ export const ICON_COHORT_MODERN: Draft[] = [
     relatedSectorSlugs: ["energy", "technology"],
     wikipediaTitle: "Bart Nnaji",
     achievement:
-      "Robotics professor and founder of Geometric Power, developer of the Aba Independent Power Project — a rare Nigerian embedded-power plant built around a city grid.",
+      "Robotics professor and founder of Geometric Power, developer of the Aba Independent Power Project, a rare Nigerian embedded-power plant built around a city grid.",
     summary:
       "Nnaji taught automation in the United States, served briefly as power minister, and then spent years assembling gas-to-power infrastructure in Aba. Geometric’s plant is a test of whether private generation can bypass a failing national grid for a defined set of customers.",
     citation: {
       title: "Bart Nnaji / Geometric Power",
-      publisher: "African Development Bank — power-sector briefings",
+      publisher: "African Development Bank, power-sector briefings",
       year: 2023,
       url: "https://www.afdb.org",
     },
@@ -431,7 +431,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Founder of Dangote Cement, Africa’s largest cement producer, and of a refining complex at Lekki aimed at cutting petrol imports.",
     summary:
-      "Dangote started in commodities trading, then built factories — cement, sugar, flour — on a continental scale. The Lekki refinery is the largest single industrial bet in Nigeria’s post-civil-war history. Whether it ends the import-dependent fuel system is an empirical question this site will keep sourcing, not a slogan.",
+      "Dangote started in commodities trading, then built factories, cement, sugar, flour, on a continental scale. The Lekki refinery is the largest single industrial bet in Nigeria’s post-civil-war history. Whether it ends the import-dependent fuel system is an empirical question this site will keep sourcing.",
     citation: {
       title: "Aliko Dangote",
       publisher: "Forbes",
@@ -449,7 +449,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     relatedTimelineIds: ["reform-era"],
     wikipediaTitle: "Goodluck Jonathan",
     achievement:
-      "President (2010–15) who conceded the 2015 election — the first time a sitting Nigerian president lost at the ballot box and handed over.",
+      "President (2010–15) who conceded the 2015 election, the first time a sitting Nigerian president lost at the ballot box and handed over.",
     summary:
       "Jonathan, a zoologist from Bayelsa, became president after Yar’Adua’s death. His term included the 2012 fuel-subsidy protests, the Chibok kidnapping, and an oil-price crash. The concession speech in March 2015 is the civic fact that belongs on a history site: a defeated incumbent chose the constitution over the barracks.",
     citation: {
@@ -468,7 +468,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     relatedSectorSlugs: ["education", "creative-economy"],
     wikipediaTitle: "Ben Okri",
     achievement:
-      "Author of The Famished Road (1991), which won the Booker Prize — the first by a Black African novelist.",
+      "Author of The Famished Road (1991), which won the Booker Prize, the first by a Black African novelist.",
     summary:
       "Okri’s spirit-child novel made Nigerian mythic realism a Booker-era event. He has lived mainly in Britain while remaining a Nigerian writer in subject and self-description. The prize put a Nigerian title into every late-20th-century Commonwealth literature syllabus.",
     citation: {
@@ -546,10 +546,10 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Furniture entrepreneur who became the first woman to chair First Bank of Nigeria (2016–21).",
     summary:
-      "Awosika built The Chair Centre after a banking job, then spent years on SME advocacy (FATE Foundation) before the First Bank board. A woman chairing Nigeria’s oldest bank was a first; the later boardroom crisis at the bank is also part of the public record. Entrepreneurship plus stewardship, not a fairy tale.",
+      "Awosika built The Chair Centre after a banking job, then spent years on SME advocacy (FATE Foundation) before the First Bank board. A woman chairing Nigeria’s oldest bank was a first; the later boardroom crisis at the bank is also part of the public record. Entrepreneurship plus stewardship.",
     citation: {
       title: "Ibukun Awosika",
-      publisher: "First Bank of Nigeria — historical board notices",
+      publisher: "First Bank of Nigeria, historical board notices",
       year: 2021,
       url: "https://www.firstbanknigeria.com",
     },
@@ -565,7 +565,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Co-founder of Transparency International, former education and solid-minerals minister, World Bank VP for Africa, and a founder of the Bring Back Our Girls campaign.",
     summary:
-      "Ezekwesili’s ‘Due Process’ office in the early Obasanjo years was an attempt to put procurement rules where discretion had been. After government she helped lead the 2014 campaign to find the Chibok schoolgirls. She later ran for president and lost — listed here for the public-integrity and education record, not for party politics.",
+      "Ezekwesili’s ‘Due Process’ office in the early Obasanjo years was an attempt to put procurement rules where discretion had been. After government she helped lead the 2014 campaign to find the Chibok schoolgirls. She later ran for president and lost, listed here for the public-integrity and education record.",
     citation: {
       title: "Oby Ezekwesili",
       publisher: "World Bank (alumni / leadership biographies)",
@@ -584,7 +584,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Banker who led the creation of United Bank for Africa as a pan-African group and founded the Tony Elumelu Foundation entrepreneurship programme.",
     summary:
-      "Elumelu’s Standard Trust Bank merger into UBA (2005) is a case study in Nigerian bank consolidation. He later framed ‘Africapitalism’ — private investment as development strategy — and used TEF to fund thousands of early-stage founders across the continent. Heals and hype both apply; the foundation’s published alumni numbers are the checkable part.",
+      "Elumelu’s Standard Trust Bank merger into UBA (2005) is a case study in Nigerian bank consolidation. He later framed ‘Africapitalism’, private investment as development strategy, and used TEF to fund thousands of early-stage founders across the continent. Heals and hype both apply; the foundation’s published alumni numbers are the checkable part.",
     citation: {
       title: "Tony Elumelu Foundation",
       publisher: "Tony Elumelu Foundation",
@@ -603,7 +603,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Lagos-born NBA Hall of Famer; two-time champion with the Houston Rockets and the first Nigerian-born global superstar of American basketball.",
     summary:
-      "Olajuwon learned the game in Lagos, played at the University of Houston, and anchored the Rockets’ 1994–95 titles. He remains the most successful African-born player in NBA history by championships and defensive awards. For a generation of Nigerian athletes he proved the pipeline could end in a world league, not only in European football.",
+      "Olajuwon learned the game in Lagos, played at the University of Houston, and anchored the Rockets’ 1994–95 titles. He remains the most successful African-born player in NBA history by championships and defensive awards. For a generation of Nigerian athletes he proved the pipeline could end in a world league.",
     citation: {
       title: "Hakeem Olajuwon",
       publisher: "Naismith Memorial Basketball Hall of Fame",
@@ -623,7 +623,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Nigeria’s all-time leading men’s international goalscorer and scorer of the country’s first FIFA World Cup goal (1994).",
     summary:
-      "Yekini played in Africa, Portugal, and Greece, won the 1993 African Footballer of the Year award, and then scored against Bulgaria in the USA ’94 World Cup — the net-climbing celebration is still the image. His later illness and death in 2012 were a public grief. The record of 37 Super Eagles goals stood for decades.",
+      "Yekini played in Africa, Portugal, and Greece, won the 1993 African Footballer of the Year award, and then scored against Bulgaria in the USA ’94 World Cup, the net-climbing celebration is still the image. His later illness and death in 2012 were a public grief. The record of 37 Super Eagles goals stood for decades.",
     citation: {
       title: "Rashidi Yekini",
       publisher: "FIFA",
@@ -679,7 +679,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     relatedSectorSlugs: ["education"],
     wikipediaTitle: "Chioma Ajunwa",
     achievement:
-      "First Nigerian Olympic gold medallist — long jump, Atlanta 1996 — and the first Black African woman to win Olympic gold in a field event.",
+      "First Nigerian Olympic gold medallist, long jump, Atlanta 1996, and the first Black African woman to win Olympic gold in a field event.",
     summary:
       "Ajunwa had been a footballer before concentrating on athletics. The 7.12 m jump in Atlanta is still the national record. She later became a police officer and athletics official. For girls’ sport in Nigeria, 1996 is year zero of an Olympic title.",
     citation: {
@@ -700,7 +700,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Playmaker for Nigeria’s 1994 and 1996 golden generation and a Premier League cult figure at Bolton Wanderers.",
     summary:
-      "Okocha’s career ran through Eintracht Frankfurt, Fenerbahçe, Paris Saint-Germain, and Bolton. The 1996 Olympic football gold and the 1994 World Cup run are national memory; the stepovers are the global brand. He later entered club administration and punditry — listed here as an athlete, not as a politician.",
+      "Okocha’s career ran through Eintracht Frankfurt, Fenerbahçe, Paris Saint-Germain, and Bolton. The 1996 Olympic football gold and the 1994 World Cup run are national memory; the stepovers are the global brand. He later entered club administration and punditry, listed here as an athlete.",
     citation: {
       title: "Jay-Jay Okocha",
       publisher: "Premier League",
@@ -720,7 +720,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Founder of Interswitch (2002), the payments switch that made domestic card and later mobile transactions possible at Nigerian scale.",
     summary:
-      "Before Paystack and Flutterwave, Interswitch built the rails: Verve cards, Quickteller, and a switch connecting banks. Elegbe’s company is infrastructure, not an app. Visa’s later investment confirmed that Nigerian payments had become an asset class.",
+      "Before Paystack and Flutterwave, Interswitch built the rails: Verve cards, Quickteller, and a switch connecting banks. Elegbe’s company is payments infrastructure. Visa’s later investment confirmed that Nigerian payments had become an asset class.",
     citation: {
       title: "Interswitch",
       publisher: "Interswitch Group",
@@ -740,7 +740,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Director-producer (The Figurine, October 1, Citation) who pushed Nollywood toward cinema-scale production and streaming deals.",
     summary:
-      "Son of theatre-film patriarch Adeyemi Afolayan (Ade Love), Kunle treated genre — thriller, historical crime, campus drama — as something that could look expensive. Golden Effects and later Netflix titles made him a bridge between Yoruba travelling-theatre bloodlines and the global platform era.",
+      "Son of theatre-film patriarch Adeyemi Afolayan (Ade Love), Kunle treated genre, thriller, historical crime, campus drama, as something that could look expensive. Golden Effects and later Netflix titles made him a bridge between Yoruba travelling-theatre bloodlines and the global platform era.",
     citation: {
       title: "Kunle Afolayan",
       publisher: "British Film Institute",
@@ -799,7 +799,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Physician who, in 2014, insisted on isolating Nigeria’s first known Ebola patient against political pressure; she died of the virus.",
     summary:
-      "Adadevoh treated Patrick Sawyer at First Consultants Medical Centre in Lagos and refused to discharge him when officials wanted him released. Contact tracing that followed kept Nigeria’s outbreak to 20 cases. WHO later called the response a template. She is listed among the dead, not among the speeches.",
+      "Adadevoh treated Patrick Sawyer at First Consultants Medical Centre in Lagos and refused to discharge him when officials wanted him released. Contact tracing that followed kept Nigeria’s outbreak to 20 cases. WHO later called the response a template. She is listed among the dead.",
     citation: {
       title: "Dr Stella Ameyo Adadevoh",
       publisher: "World Health Organization",
@@ -818,7 +818,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Author of Half of a Yellow Sun, Americanah, and the essay We Should All Be Feminists; the most widely read Nigerian novelist of her generation.",
     summary:
-      "Adichie made the Civil War and the Nigerian-American immigrant novel into global bestsellers and TED-era public argument. Purple Hibiscus announced her; Half of a Yellow Sun remains the war book most non-Nigerians actually finish. She is a literary figure and a contested public voice — this page cites the books.",
+      "Adichie made the Civil War and the Nigerian-American immigrant novel into global bestsellers and TED-era public argument. Purple Hibiscus announced her; Half of a Yellow Sun remains the war book most non-Nigerians actually finish. She is a literary figure and a contested public voice, this page cites the books.",
     citation: {
       title: "Chimamanda Ngozi Adichie",
       publisher: "Encyclopaedia Britannica",
@@ -838,7 +838,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Actor and director whose Lionheart (2018) became Netflix’s first Original feature from Nigeria.",
     summary:
-      "Nnaji spent the 2000s as Nollywood’s most bankable lead, then directed Lionheart — a company-succession drama shot with a restraint that streaming buyers could understand. Oscar disqualification over language rules became its own news cycle. The industrial fact is the Netflix deal.",
+      "Nnaji spent the 2000s as Nollywood’s most bankable lead, then directed Lionheart, a company-succession drama shot with a restraint that streaming buyers could understand. Oscar disqualification over language rules became its own news cycle. The industrial fact is the Netflix deal.",
     citation: {
       title: "Lionheart",
       publisher: "Netflix / Academy language-eligibility reporting (BBC)",
@@ -857,7 +857,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Co-founder of iROKOtv (2010), which licensed Nollywood catalogues for streaming years before global platforms arrived.",
     summary:
-      "Njoku and Bikiya Graham-Douglas (later with others) treated Nigerian film as a rights business: pay producers, stream legally, chase bandwidth. iROKO’s path was messy — piracy, funding, pivots — but it proved a worldwide Igbo- and English-language audience existed. Netflix did not invent that demand.",
+      "Njoku and Bikiya Graham-Douglas (later with others) treated Nigerian film as a rights business: pay producers, stream legally, chase bandwidth. iROKO’s path was messy, piracy, funding, pivots, but it proved a worldwide Igbo- and English-language audience existed. Netflix did not invent that demand.",
     citation: {
       title: "iROKOtv",
       publisher: "iROKO Partners",
@@ -896,7 +896,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Afrobeats artist whose album Twice as Tall won the Grammy Award for Best Global Music Album (2021).",
     summary:
-      "Burna Boy made Port Harcourt, Fela’s political inheritance, and dance-floor maximalism into a touring stadium act. The Grammy was a category win, not Album of the Year — still the clearest institutional marker that Afrobeats had a name the American academy would print. Listed as culture industry, not as a government programme.",
+      "Burna Boy made Port Harcourt, Fela’s political inheritance, and dance-floor maximalism into a touring stadium act. The Grammy was a category win, still the clearest institutional marker that Afrobeats had a name the American academy would print. Listed as culture industry.",
     citation: {
       title: "Burna Boy",
       publisher: "Recording Academy / Grammy Awards",
@@ -936,7 +936,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Co-founder and COO of PiggyVest, a consumer savings product that made retail investment and dollar saving ordinary for young Nigerians.",
     summary:
-      "Eweniyi (with Joshua Chibueze and Somto Ifezue) productised thrift — locking money away from impulsive spending — at smartphone scale. PiggyVest’s growth is a data point in the CBN-era savings-and-fintech story. She is also a visible advocate for women in Nigerian tech without being reduced to that brief.",
+      "Eweniyi (with Joshua Chibueze and Somto Ifezue) productised thrift, locking money away from impulsive spending, at smartphone scale. PiggyVest’s growth is a data point in the CBN-era savings-and-fintech story. She is also a visible advocate for women in Nigerian tech without being reduced to that brief.",
     citation: {
       title: "PiggyVest",
       publisher: "PiggyVest",
@@ -974,7 +974,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Producer who co-founded Mo’ Hits and later Mavin Records, a label system that industrialised Nigerian pop star-making in the 2010s.",
     summary:
-      "Don Jazzy’s Mo’ Hits era (D’banj, Wande Coal) and Mavin roster (Tiwa Savage, Reekado Banks, later Ayra Starr) treated Afrobeats as a studio-and-label business, not a one-hit hustle. The 2012–14 radio saturation of Mavin singles is a documented industry peak. He is listed as a founder-producer, not merely a celebrity.",
+      "Don Jazzy’s Mo’ Hits era (D’banj, Wande Coal) and Mavin roster (Tiwa Savage, Reekado Banks, later Ayra Starr) treated Afrobeats as a studio-and-label business. The 2012–14 radio saturation of Mavin singles is a documented industry peak. He is listed as a founder-producer.",
     citation: {
       title: "Don Jazzy",
       publisher: "Encyclopaedia Britannica",

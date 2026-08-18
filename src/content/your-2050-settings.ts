@@ -134,7 +134,7 @@ export const VIGNETTE_CITIES: VignetteCity[] = [
       },
       dry: {
         title: "A clearer Delta morning",
-        dawn: "The rain has stepped back, not gone. Humidity remains, a loyal relative. The river smells of mud and distant salt.",
+        dawn: "The rain has stepped back. Humidity remains, a loyal relative. The river smells of mud and distant salt.",
         air: "Light finally reaches the water hyacinth. Canoes move. The city feels briefly unburdened.",
         evening: "Clouds return as a rumour. The heat stays. You eat outside because you can, and because the air asks you to.",
       },
@@ -180,7 +180,7 @@ export const VIGNETTE_CITIES: VignetteCity[] = [
     weather: {
       rainy: {
         title: "Cold rain on the plateau",
-        dawn: "Rain on Jos is not a joke. It is cold in a country that rarely is. Mist sits in the rocks as if it paid rent.",
+        dawn: "Rain on Jos is cold in a country that rarely is. Mist sits in the rocks as if it paid rent.",
         air: "You want a sweater and you are not performing. Eucalyptus drip. The plateau smells of wet stone and woodsmoke.",
         evening: "The rain turns to a fine, stubborn mist. Windows close. The city feels closer to itself.",
       },
@@ -192,7 +192,7 @@ export const VIGNETTE_CITIES: VignetteCity[] = [
       },
       harmattan: {
         title: "Plateau harmattan",
-        dawn: "Breath shows. This is not a metaphor. The harmattan on Jos is a country visiting another country.",
+        dawn: "Breath shows. The harmattan on Jos is a country visiting another country.",
         air: "Dust and cold in the same lungful. The sun is bright and unhelpful. Fingers ache around a cup.",
         evening: "People linger near kitchens. The haze makes the rocks look lunar. You sleep under a blanket and believe it.",
       },
@@ -245,7 +245,7 @@ export const VIGNETTE_CITIES: VignetteCity[] = [
       harmattan: {
         title: "Dust over Maiduguri",
         dawn: "The wind arrives with the desert still in its mouth. A cold that startles. The sun is a coin lost in milk.",
-        air: "Cloth over faces, not from fear. From weather. The city moves inside the dust the way fish move inside a river.",
+        air: "Cloth over faces, from weather. The city moves inside the dust the way fish move inside a river.",
         evening: "Fires, tea, a redness at the edge of the world. Harmattan nights here are older than the country.",
       },
     },

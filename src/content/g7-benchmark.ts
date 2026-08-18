@@ -13,7 +13,7 @@ export const G7_COUNTRY_LABELS: Record<G7CountryCode, string> = {
   US: "United States",
 };
 
-/** @deprecated Use G7_COUNTRY_LABELS — kept for prose copy. */
+/** @deprecated Use G7_COUNTRY_LABELS, kept for prose copy. */
 export const G7_COUNTRIES = G7_COUNTRY_CODES.map((code) => G7_COUNTRY_LABELS[code]);
 
 export function computeG7Average(g7Countries: Record<G7CountryCode, number>): number {
@@ -47,7 +47,7 @@ export function getG7Leader(metric: G7BenchmarkMetric): {
 }
 
 /**
- * Nigeria vs G7 — one indicator definition, one reference year per row.
+ * Nigeria vs G7, one indicator definition, one reference year per row.
  * Values are rounded from public datasets (World Bank WDI, UNESCO, IEA, etc.).
  */
 export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
@@ -56,7 +56,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "gdp-per-capita",
     sectorSlug: "economy",
     label: "GDP per Capita",
-    definition: "GDP per capita, current US dollars — same WDI series for all countries.",
+    definition: "GDP per capita, current US dollars, same WDI series for all countries.",
     unit: "USD",
     referenceYear: 2022,
     nigeria: 2162,
@@ -71,7 +71,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "manufacturing-share",
     sectorSlug: "economy",
     label: "Manufacturing Value Added",
-    definition: "Manufacturing, value added (% of GDP) — identical national-accounts definition.",
+    definition: "Manufacturing, value added (% of GDP), identical national-accounts definition.",
     unit: "% of GDP",
     referenceYear: 2022,
     nigeria: 8.9,
@@ -85,7 +85,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "exports-gdp",
     sectorSlug: "economy",
     label: "Exports of Goods & Services",
-    definition: "Exports of goods and services (% of GDP) — total trade openness, comparable across oil and non-oil economies.",
+    definition: "Exports of goods and services (% of GDP), total trade openness, comparable across oil and non-oil economies.",
     unit: "% of GDP",
     referenceYear: 2022,
     nigeria: 14.2,
@@ -93,7 +93,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     higherIsBetter: true,
     sourceId: "world-bank-g7-indicators",
     sourceSeries: "WDI · NE.EXP.GNFS.ZS",
-    context: "Same indicator for all — not oil-specific; captures overall trade integration.",
+    context: "Same indicator for all countries; captures overall trade integration.",
   },
 
   // ── Technology ─────────────────────────────────────────────────────────────
@@ -101,7 +101,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "internet-penetration",
     sectorSlug: "technology",
     label: "Individuals Using the Internet",
-    definition: "Individuals using the Internet (% of population) — ITU/World Bank harmonized series.",
+    definition: "Individuals using the Internet (% of population). ITU/World Bank harmonized series.",
     unit: "%",
     referenceYear: 2022,
     nigeria: 55.4,
@@ -115,7 +115,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "fixed-broadband",
     sectorSlug: "technology",
     label: "Fixed Broadband Subscriptions",
-    definition: "Fixed broadband subscriptions per 100 inhabitants — ITU standard definition.",
+    definition: "Fixed broadband subscriptions per 100 inhabitants. ITU standard definition.",
     unit: "per 100 people",
     referenceYear: 2022,
     nigeria: 1.9,
@@ -129,7 +129,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "rd-spending",
     sectorSlug: "technology",
     label: "R&D Expenditure",
-    definition: "Research and development expenditure (% of GDP) — UNESCO/OECD harmonized; 2021 is the latest common reporting year for all eight countries.",
+    definition: "Research and development expenditure (% of GDP). UNESCO/OECD harmonized; 2021 is the latest common reporting year for all eight countries.",
     unit: "% of GDP",
     referenceYear: 2021,
     nigeria: 0.13,
@@ -145,7 +145,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "corruption-index",
     sectorSlug: "governance",
     label: "Corruption Perceptions Index Rank",
-    definition: "Transparency International CPI rank (1 = least corrupt) — 2023 edition, all countries measured in the same survey wave.",
+    definition: "Transparency International CPI rank (1 = least corrupt), 2023 edition, all countries measured in the same survey wave.",
     unit: "global rank",
     referenceYear: 2023,
     nigeria: 145,
@@ -160,7 +160,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "govt-effectiveness",
     sectorSlug: "governance",
     label: "Government Effectiveness",
-    definition: "World Bank Worldwide Governance Indicators — government effectiveness estimate (range −2.5 to +2.5), 2022 percentile data.",
+    definition: "World Bank Worldwide Governance Indicators, government effectiveness estimate (range −2.5 to +2.5), 2022 percentile data.",
     unit: "WGI score",
     referenceYear: 2022,
     nigeria: -0.85,
@@ -173,7 +173,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "open-budget-index",
     sectorSlug: "governance",
     label: "Open Budget Index Score",
-    definition: "International Budget Partnership Open Budget Survey score (/100) — 2021 survey round, identical questionnaire for all countries.",
+    definition: "International Budget Partnership Open Budget Survey score (/100), 2021 survey round, identical questionnaire for all countries.",
     unit: "/100",
     referenceYear: 2021,
     nigeria: 45,
@@ -188,7 +188,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "literacy",
     sectorSlug: "education",
     label: "Adult Literacy Rate",
-    definition: "Literacy rate, adult total (% of people ages 15 and above) — UNESCO UIS harmonized series.",
+    definition: "Literacy rate, adult total (% of people ages 15 and above). UNESCO UIS harmonized series.",
     unit: "%",
     referenceYear: 2022,
     nigeria: 62,
@@ -203,7 +203,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "tertiary-enrollment",
     sectorSlug: "education",
     label: "Gross Tertiary Enrollment",
-    definition: "School enrollment, tertiary (% gross) — same UNESCO definition including all tertiary institutions.",
+    definition: "School enrollment, tertiary (% gross), same UNESCO definition including all tertiary institutions.",
     unit: "% gross",
     referenceYear: 2022,
     nigeria: 12.3,
@@ -217,7 +217,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "doctors-per-capita",
     sectorSlug: "education",
     label: "Physicians per 1,000 People",
-    definition: "Physicians per 1,000 people — WHO Global Health Workforce Statistics, same clinical definition.",
+    definition: "Physicians per 1,000 people, WHO Global Health Workforce Statistics, same clinical definition.",
     unit: "physicians",
     referenceYear: 2022,
     nigeria: 0.38,
@@ -231,7 +231,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "education-spending",
     sectorSlug: "education",
     label: "Public Education Spending",
-    definition: "Government expenditure on education, total (% of GDP) — UNESCO Institute for Statistics, 2021 latest common year.",
+    definition: "Government expenditure on education, total (% of GDP). UNESCO Institute for Statistics, 2021 latest common year.",
     unit: "% of GDP",
     referenceYear: 2021,
     nigeria: 1.68,
@@ -246,7 +246,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "electricity-per-capita",
     sectorSlug: "energy",
     label: "Electric Power Consumption per Capita",
-    definition: "Electric power consumption (kWh per capita) — IEA/World Bank harmonized; 2021 latest common year.",
+    definition: "Electric power consumption (kWh per capita). IEA/World Bank harmonized; 2021 latest common year.",
     unit: "kWh/year",
     referenceYear: 2021,
     nigeria: 150,
@@ -261,7 +261,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "grid-access",
     sectorSlug: "energy",
     label: "Access to Electricity",
-    definition: "Access to electricity (% of population) — World Bank ESMAP harmonized definition.",
+    definition: "Access to electricity (% of population). World Bank ESMAP harmonized definition.",
     unit: "%",
     referenceYear: 2022,
     nigeria: 62,
@@ -275,7 +275,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "renewable-share",
     sectorSlug: "energy",
     label: "Renewable Electricity Output",
-    definition: "Renewable electricity output (% of total electricity output) — same IEA/WDI series.",
+    definition: "Renewable electricity output (% of total electricity output), same IEA/WDI series.",
     unit: "%",
     referenceYear: 2022,
     nigeria: 18,
@@ -291,7 +291,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "peace-index",
     sectorSlug: "security",
     label: "Global Peace Index Rank",
-    definition: "Institute for Economics & Peace GPI rank (1 = most peaceful) — 2024 edition, all countries in the same release.",
+    definition: "Institute for Economics & Peace GPI rank (1 = most peaceful), 2024 edition, all countries in the same release.",
     unit: "global rank",
     referenceYear: 2024,
     nigeria: 144,
@@ -306,7 +306,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     id: "homicide-rate",
     sectorSlug: "security",
     label: "Homicide Rate",
-    definition: "Intentional homicides per 100,000 population — UNODC harmonized crime statistics, 2021 reporting year for all countries.",
+    definition: "Intentional homicides per 100,000 population. UNODC harmonized crime statistics, 2021 reporting year for all countries.",
     unit: "per 100k",
     referenceYear: 2021,
     nigeria: 9.4,
@@ -360,7 +360,7 @@ export function formatGapLabel(multiplier: number): string {
   return `${multiplier.toFixed(2)}×`;
 }
 
-/** All rows in a dataset share this reference year — shown in page header. */
+/** All rows in a dataset share this reference year, shown in page header. */
 export function getBenchmarkYearRange(): { earliest: number; latest: number } {
   const years = G7_BENCHMARK_METRICS.map((m) => m.referenceYear);
   return { earliest: Math.min(...years), latest: Math.max(...years) };

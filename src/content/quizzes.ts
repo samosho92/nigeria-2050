@@ -69,7 +69,7 @@ export const SECTOR_QUIZZES: SectorQuiz[] = [
         options: ["About 10%", "About 25%", "About 49%", "About 80%"],
         correctIndex: 2,
         explanation:
-          "WDI EN.POP.SLUM.UR.ZS is 48.5% for 2022. That is the housing-quality gap — national density already matches Germany.",
+          "WDI EN.POP.SLUM.UR.ZS is 48.5% for 2022. That is the housing-quality gap, national density already matches Germany.",
       },
     ],
   },

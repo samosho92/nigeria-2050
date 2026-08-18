@@ -13,7 +13,7 @@ export function SourceCitation({ source, compact }: SourceCitationProps) {
       <span className="text-muted-foreground">
         {source.publisher}, {source.year}
         {source.accessedAt && ` (accessed ${source.accessedAt})`}
-        {!compact && ` — ${source.title}`}
+        {!compact && `, ${source.title}`}
       </span>
       {source.url && (
         <Link

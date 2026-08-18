@@ -43,12 +43,12 @@ export const ROAD_SIGN_STANDARD = {
     {
       step: "2",
       title: "Stop and yield at junctions",
-      detail: "Uncontrolled crossings get a stop or a yield — one shape book, not a different triangle in every state.",
+      detail: "Uncontrolled crossings get a stop or a yield from one national shape book.",
     },
     {
       step: "3",
       title: "School and pedestrian",
-      detail: "School-zone and crossing signs on the routes children actually walk, not only on the ceremonial avenue.",
+      detail: "School-zone and crossing signs on the routes children actually walk.",
     },
     {
       step: "4",
@@ -66,7 +66,7 @@ export const ROAD_SIGN_CATALOG: RoadSignSpec[] = [
     title: "Speed limit 100",
     legend: "km/h",
     value: "100",
-    detail: "Default on dual carriageways once the surface can hold it. Circular red ring — Vienna shape, so a driver from Kano or Cotonou reads the same sign.",
+    detail: "Default on dual carriageways once the surface can hold it. Circular red ring. Vienna shape, so a driver from Kano or Cotonou reads the same sign.",
   },
   {
     id: "speed-80",
@@ -75,7 +75,7 @@ export const ROAD_SIGN_CATALOG: RoadSignSpec[] = [
     title: "Speed limit 80",
     legend: "km/h",
     value: "80",
-    detail: "Single carriageway and city approach. Posted before the limit changes, not after the first wreck.",
+    detail: "Single carriageway and city approach. Posted before the limit changes.",
   },
   {
     id: "speed-50",
@@ -84,7 +84,7 @@ export const ROAD_SIGN_CATALOG: RoadSignSpec[] = [
     title: "Speed limit 50",
     legend: "km/h",
     value: "50",
-    detail: "Built-up capital streets. The number is on a plate, not in a by-law nobody has in the car.",
+    detail: "Built-up capital streets. The number is on a plate a driver can see.",
   },
   {
     id: "stop",
@@ -92,7 +92,7 @@ export const ROAD_SIGN_CATALOG: RoadSignSpec[] = [
     code: "NG-R-STOP",
     title: "Stop",
     legend: "STOP",
-    detail: "Octagon at uncontrolled junctions. Same red, same word, every state — this is not a speed-camera programme; it is the layer that makes one possible.",
+    detail: "Octagon at uncontrolled junctions. Same red, same word, every state. Speed cameras come later; this layer makes them possible.",
   },
   {
     id: "yield",
@@ -116,7 +116,7 @@ export const ROAD_SIGN_CATALOG: RoadSignSpec[] = [
     code: "NG-M-KM",
     title: "Kilometre marker",
     legend: "KM",
-    detail: "Numbered post every 2 km on federal corridors. A place you can radio, not “after the burnt trailer.”",
+    detail: "Numbered post every 2 km on federal corridors. A place you can radio instead of “after the burnt trailer.”",
   },
 ];
 
@@ -147,7 +147,7 @@ export const ROAD_SIGN_CORRIDORS: SignCorridor[] = [
     fromId: "abuja",
     toId: "kaduna",
     km: 163,
-    summary: "Newer dual, better plates than most — the gaps are junctions and village crossings, not the main line.",
+    summary: "Newer dual, better plates than most, the gaps are junctions and village crossings.",
     posts: [
       { id: "ak-1", km: 4, place: "Airport Road merge", signId: "speed-80", status: "installed", note: "Posted on the Kubwa-side merge." },
       { id: "ak-2", km: 22, place: "Zuba", signId: "yield", status: "missing", note: "Ramp give-way is a painted rumour." },
@@ -165,7 +165,7 @@ export const ROAD_SIGN_CORRIDORS: SignCorridor[] = [
     fromId: "kaduna",
     toId: "kano",
     km: 220,
-    summary: "Long A2 north. Km posts are the exception; speed and stop signs are still a campaign, not a grid.",
+    summary: "Long A2 north. Km posts are the exception; speed and stop signs are still a campaign.",
     posts: [
       { id: "kk-1", km: 8, place: "Kaduna North exit", signId: "speed-80", status: "missing", note: "Leaves town without a posted limit." },
       { id: "kk-2", km: 40, place: "Jaji", signId: "km", status: "missing", note: "No marker for a 40 km radio call." },
@@ -201,7 +201,7 @@ export const ROAD_SIGN_CORRIDORS: SignCorridor[] = [
     fromId: "kano",
     toId: "maiduguri",
     km: 580,
-    summary: "Long north-east haul. The campaign starts with km posts and a handful of limits — not a full MUTCD overnight.",
+    summary: "Long north-east haul. The campaign starts with km posts and a handful of limits.",
     posts: [
       { id: "km-1", km: 12, place: "Gezawa road", signId: "speed-80", status: "missing", note: "Leaves Kano on landmarks." },
       { id: "km-2", km: 90, place: "Wudil", signId: "km", status: "installed", note: "Rare standing km post." },

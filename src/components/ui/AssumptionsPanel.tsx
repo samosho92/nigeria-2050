@@ -14,8 +14,7 @@ export function AssumptionsPanel({ assumptions, risks }: AssumptionsPanelProps) 
           What Would Have to Be True
         </h3>
         <p className="mb-6 text-sm text-muted-foreground">
-          Specific conditions the base-case 2050 projection depends on — not predictions,
-          but prerequisites.
+          Specific conditions the base-case 2050 projection depends on.
         </p>
         <ul className="space-y-5">
           {assumptions.map((item) => (
@@ -32,7 +31,7 @@ export function AssumptionsPanel({ assumptions, risks }: AssumptionsPanelProps) 
           Risks to This Scenario
         </h3>
         <p className="mb-6 text-sm text-muted-foreground">
-          Known ways the base case could fail — reflected in the low end of scenario ranges
+          Known ways the base case could fail, reflected in the low end of scenario ranges
           where applicable.
         </p>
         <ul className="space-y-5">

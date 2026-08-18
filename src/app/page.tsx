@@ -39,8 +39,7 @@ export default function HomePage() {
         <FadeIn>
           <h2 className="text-center text-2xl font-bold md:text-3xl">Two Co-Equal Pillars</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            History and future vision, fused by bidirectional links. The product mechanism
-            that makes Naija2050 different from Wikipedia or government PDFs.
+            History and future vision, fused by bidirectional links.
           </p>
         </FadeIn>
         <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -139,7 +138,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-xl font-bold">Cool Projects</h2>
               <p className="text-muted-foreground">
-                Vote on civic ideas — postal codes, road signs, libraries — and submit the
+                Vote on civic ideas, postal codes, road signs, libraries, and submit the
                 initiative you think Nigeria should build by 2050.
               </p>
               <LinkButton href="/projects" variant="secondary" className="mt-auto w-fit">

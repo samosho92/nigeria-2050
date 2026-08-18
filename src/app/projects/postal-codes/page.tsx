@@ -17,7 +17,7 @@ export default function PostalCodeMockPage() {
       <PageHero
         eyebrow="Cool Projects mock"
         title="A national postal code engine"
-        description={`Start where government already sits: ${POSTAL_CAPITALS.length} capitals, district 01. Give the hinterland a stable cluster code, then split units as streets appear. This is a schematic index — not NIPOST, not a live address file.`}
+        description={`Start where government already sits: ${POSTAL_CAPITALS.length} capitals, district 01. Give the hinterland a stable cluster code, then split units as streets appear. This is a schematic index of how a used code could run.`}
         backLink={{ href: "/projects#postal-codes", label: "Cool Projects" }}
         actions={
           <LinkButton href="/projects#postal-codes" variant="secondary">

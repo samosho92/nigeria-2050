@@ -17,7 +17,7 @@ export default function AskPage() {
       <PageHero
         eyebrow="AI guide"
         title="Ask the Archive"
-        description="A conversational guide into our curated content, not a general-purpose chatbot. Every answer links back to sourced material. You can exit anytime."
+        description="A conversational guide into our curated content. Every answer links back to sourced material. You can exit anytime."
         actions={
           <LinkButton href="/" variant="secondary" className="gap-1.5">
             <IconArrowLeft className="size-4" stroke={1.5} aria-hidden />

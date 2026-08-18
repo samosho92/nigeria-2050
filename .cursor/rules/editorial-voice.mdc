@@ -1,0 +1,38 @@
+---
+description: User-facing copy voice. No AI slop, no contrast formulas, no em dashes.
+alwaysApply: true
+---
+
+# Editorial voice
+
+Applies to every string a reader can see: `src/content/`, page heroes, component copy, search blurbs, Ask chunks, metadata. Code comments and legal disclaimers are exempt where the law needs a negation.
+
+## Write the thing
+
+State facts. Do not define by contrast.
+
+- Forbidden formulas: "It's X, not Y"; "This is not X; it is Y"; "X, not a Y"; "listed as X, not as Y".
+- Disclaimers are plain facts: "Schematic campaign data." "112 is unpublished here."
+- Keep genuine negation: "do not hang up", "does not publish", "are not guarantees".
+
+```
+Bad:  A conversational guide into our curated content, not a general-purpose chatbot.
+Good: A conversational guide into our curated content.
+
+Bad:  Frozen schematic hour, not TCN SCADA, not a DisCo app.
+Good: Frozen schematic hour.
+
+Bad:  Safety here is not a parade. It is a baseline.
+Good: Safety here is a baseline.
+```
+
+## Punctuation
+
+- No em dashes (`—`). Use a period, colon, or parentheses.
+- En dashes (`–`) are for ranges only: Lagos–Ibadan, 20:00–22:00 WAT, 2021–2024.
+
+## Register
+
+- Specific and slightly dry. Named places, codes, and sourced numbers over metaphor.
+- No filler: "delve", "tapestry", "landscape", "robust", "leverage", "In a world where", "It's important to note".
+- After a rewrite, read the paragraph once. Do not leave a doubled sentence or a comma splice where an em dash used to be.

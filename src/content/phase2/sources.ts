@@ -10,7 +10,7 @@ export const PHASE2_RAW_SOURCES: Source[] = [
   },
   {
     id: "fao-nigeria-agriculture",
-    title: "Nigeria at a Glance — Food & Agriculture",
+    title: "Nigeria at a Glance. Food & Agriculture",
     publisher: "FAO",
     year: 2024,
     url: "https://www.fao.org/nigeria",
@@ -24,21 +24,21 @@ export const PHASE2_RAW_SOURCES: Source[] = [
   },
   {
     id: "unido-manufacturing",
-    title: "Industrial Development Report — Africa",
+    title: "Industrial Development Report. Africa",
     publisher: "UNIDO",
     year: 2023,
     url: "https://www.unido.org",
   },
   {
     id: "world-bank-financial-inclusion",
-    title: "Global Findex — Nigeria",
+    title: "Global Findex. Nigeria",
     publisher: "World Bank",
     year: 2024,
     url: "https://www.worldbank.org/en/publication/globalfindex",
   },
   {
     id: "afdb-agriculture",
-    title: "Feed Africa Strategy — Nigeria Country Brief",
+    title: "Feed Africa Strategy. Nigeria Country Brief",
     publisher: "African Development Bank",
     year: 2023,
     url: "https://www.afdb.org",
@@ -75,7 +75,7 @@ export const PHASE2_RAW_SOURCES: Source[] = [
   },
   {
     id: "cahf-nigeria-housing",
-    title: "Africa Housing Finance Yearbook — Nigeria Country Profile",
+    title: "Africa Housing Finance Yearbook. Nigeria Country Profile",
     publisher: "Centre for Affordable Housing Finance Africa",
     year: 2024,
     url: "https://housingfinanceafrica.org/wp-content/uploads/2025/03/NIGERIA.pdf",

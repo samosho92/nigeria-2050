@@ -14,8 +14,7 @@ export function ScenarioRangePanel({ ranges }: ScenarioRangePanelProps) {
           2050 Scenario Ranges
         </h3>
         <p className="mb-6 text-sm text-muted-foreground">
-          Low / base / high scenario bands where the sector page supports a range — not a
-          sourced 2050 dataset, and not a single guaranteed outcome.
+          Low / base / high bands where the sector page supports a range. These are scenarios with stated assumptions.
         </p>
         <div className="space-y-6">
           {ranges.map((range) => (

@@ -93,7 +93,7 @@ export function ProjectSubmitForm({ sectorTitles, onCreated }: ProjectSubmitForm
           <h2 className="font-serif text-2xl font-bold tracking-tight">Submit an idea</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             Propose a concrete initiative that would make daily life in Nigeria work better by 2050.
-            Pick up to three sectors — the first one you select is the sector it moves most.
+            Pick up to three sectors, the first one you select is the sector it moves most.
           </p>
         </div>
       </div>

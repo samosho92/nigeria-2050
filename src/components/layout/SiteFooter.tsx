@@ -82,7 +82,7 @@ export function SiteFooter() {
           <span suppressHydrationWarning>
             © {new Date().getFullYear()} Naija2050.
           </span>{" "}
-          Optimistic, not naive. Every projection is a scenario built on stated assumptions.
+          Optimistic, with stated assumptions. Every projection is a scenario.
         </p>
         <div className="flex flex-wrap gap-x-4 gap-y-1">
           <Link href="/privacy" className="transition hover:text-foreground">

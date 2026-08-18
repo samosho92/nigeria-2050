@@ -9,7 +9,7 @@ import { getSectorTitles } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Icons",
-  description: `${CONTENT_STATS.iconCount} Nigerians — past and present — whose work shaped the country’s political, economic, and cultural life. Searchable, chronological, and sourced.`,
+  description: `${CONTENT_STATS.iconCount} Nigerians, past and present, whose work shaped the country’s political, economic, and cultural life. Searchable, chronological, and sourced.`,
 };
 
 export default function IconsPage() {
@@ -20,7 +20,7 @@ export default function IconsPage() {
       <PageHero
         eyebrow="People"
         title="Icons of Nigeria"
-        description={`A chronological register of ${CONTENT_STATS.iconCount} figures — writers, organisers, builders, athletes, and public servants — whose work is part of the national story. Sitting Nigerian officeholders are not listed while in office. Portraits are Wikimedia Commons headshots with a free license, never AI-generated likenesses or statue stand-ins.`}
+        description={`A chronological register of ${CONTENT_STATS.iconCount} figures: writers, organisers, builders, athletes, and public servants whose work is part of the national story. Sitting Nigerian officeholders are not listed while in office. Portraits are Wikimedia Commons headshots with a free license, never AI-generated likenesses or statue stand-ins.`}
         rail={[
           { year: "c.1533", label: "Amina", href: "#queen-amina" },
           { year: "1864", label: "Macaulay", href: "#herbert-macaulay" },

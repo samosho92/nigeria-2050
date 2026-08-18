@@ -68,7 +68,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       paragraphs: [
         "The site links to external sources cited in our Source Library. Those sites have their own privacy practices.",
         "Hosting and delivery may be provided by infrastructure vendors (for example, Vercel). They process technical request data needed to serve the site securely.",
-        "Ask the Archive runs a scoped retrieval pass on our servers against content shipped with the site. It is not a general web search tool and does not send your questions to third-party AI providers. We rate-limit requests and do not persist question text.",
+        "Ask the Archive runs a scoped retrieval pass on our servers against content shipped with the site. Questions stay on our servers; we do not send them to third-party AI providers. We rate-limit requests and do not persist question text.",
       ],
     },
     {
@@ -132,7 +132,7 @@ export const TERMS_OF_USE: LegalDocument = {
       id: "about",
       title: "What the Site provides",
       paragraphs: [
-        "Naija2050 publishes interactive history, sourced sector scenarios to 2050, comparators, and educational tools. It is independent civic media, not a government publication, investment advisory service, or news wire.",
+        "Naija2050 publishes interactive history, sourced sector scenarios to 2050, comparators, and educational tools. It is independent civic media.",
         "2050 figures are scenarios built on stated assumptions and cited sources. They are not guarantees, forecasts offered for trading purposes, or professional advice.",
       ],
     },
@@ -163,7 +163,7 @@ export const TERMS_OF_USE: LegalDocument = {
       title: "Ask the Archive and AI-labeled features",
       paragraphs: [
         "Ask the Archive retrieves answers from Naija2050's curated content store on the server. It may decline out-of-scope, abusive, unsafe, or injection-style questions rather than speculate. Requests are rate-limited.",
-        "AI-assisted responses and labels are provided for exploration, not as authoritative fact. Always follow links to primary timeline entries, sector pages, and the Source Library before relying on any answer.",
+        "AI-assisted responses and labels are for exploration. Follow the source links before relying on an answer. ",
         "Do not treat AI-generated summaries as a substitute for professional, legal, financial, or medical advice.",
       ],
     },

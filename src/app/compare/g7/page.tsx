@@ -24,7 +24,7 @@ export default function G7ComparePage() {
         backLink={{ href: "/compare", label: "Now vs. 2050" }}
         eyebrow="International benchmarks"
         title="Nigeria vs. the G7"
-        description={`Apples-to-apples only: each row uses one indicator definition and one reference year (${earliest}–${latest}) for Nigeria and all G7 members (${g7List}). Hover any metric title for the exact dataset and series ID. 2050 figures are Naija2050 scenarios — they are never mixed into the same-year cross-country baselines.`}
+        description={`Apples-to-apples only: each row uses one indicator definition and one reference year (${earliest}–${latest}) for Nigeria and all G7 members (${g7List}). Hover any metric title for the exact dataset and series ID. 2050 figures are Naija2050 scenarios. They are never mixed into the same-year cross-country baselines.`}
       />
       <Container className="py-12 md:py-16">
         <G7GapExplorer />

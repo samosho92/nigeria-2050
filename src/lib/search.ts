@@ -57,7 +57,7 @@ const searchItems: SearchResult[] = [
     id: "projects-index",
     type: "project" as const,
     title: "Cool Projects",
-    description: `${CONTENT_STATS.projectCount} civic ideas to make Nigeria work better by 2050 — vote and submit`,
+    description: `${CONTENT_STATS.projectCount} civic ideas to make Nigeria work better by 2050. Vote and submit.`,
     href: "/projects",
   },
   {
@@ -85,15 +85,22 @@ const searchItems: SearchResult[] = [
     id: "emergency-112-desk",
     type: "project" as const,
     title: "Emergency 112 dispatch",
-    description: "Mock desk: postal-code locate, radio ACK, launch gate — not a live number",
+    description: "Mock desk: postal-code locate, radio ACK, launch gate",
     href: "/projects/emergency-112",
   },
   {
     id: "land-title-register",
     type: "project" as const,
     title: "Land title register",
-    description: "Mock folio: C of O, consent, mapped parcel — not a live cadastre",
+    description: "Mock folio: C of O, consent, mapped parcel",
     href: "/projects/land-titles",
+  },
+  {
+    id: "grid-outage-watch",
+    type: "project" as const,
+    title: "Grid outage map",
+    description: "Mock hour: generation vs demand, DisCo feeder windows",
+    href: "/projects/grid-outage",
   },
   {
     id: "g7-compare",

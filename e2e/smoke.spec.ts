@@ -33,7 +33,7 @@ test.describe("critical paths", () => {
     await page.goto("/projects");
     await expect(page.getByRole("heading", { name: "Cool Projects" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /postal code/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /open the mock/i })).toHaveCount(5);
+    await expect(page.getByRole("link", { name: /open the mock/i })).toHaveCount(6);
   });
 
   test("postal code mock starts from capital cities", async ({ page }) => {
@@ -74,6 +74,14 @@ test.describe("critical paths", () => {
     await expect(page.getByText("FC-U01-001").first()).toBeVisible();
     await expect(page.getByText("Certificate of Occupancy").first()).toBeVisible();
     await expect(page.getByText("FC-C/2014/1108")).toBeVisible();
+  });
+
+  test("grid outage mock publishes a feeder window", async ({ page }) => {
+    await page.goto("/projects/grid-outage");
+    await expect(page.getByRole("heading", { name: /when the light is coming/i })).toBeVisible();
+    await expect(page.getByText("4,780 MW").first()).toBeVisible();
+    await expect(page.getByText("Egbin").first()).toBeVisible();
+    await expect(page.getByText("20:00–22:00 WAT")).toBeVisible();
   });
 
   test("correction API accepts valid payload", async ({ request }) => {

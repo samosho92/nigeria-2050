@@ -52,9 +52,8 @@ export function TitleRegister() {
   return (
     <div className="space-y-12">
       <p className="rounded-xl border border-border bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
-        Schematic parcels, not AGIS, not a state GIS, not legal advice. Holder labels are classes —
-        not named people. A bankable badge on this page is an editorial test of the folio, not a
-        valuation.
+        Schematic parcels. Holder labels are classes (no named people). A bankable badge here is an
+        editorial test of the folio.
       </p>
 
       <section aria-labelledby="torrens-heading">
@@ -62,7 +61,7 @@ export function TitleRegister() {
           How the folio works
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          {TITLE_STANDARD.name} — {TITLE_STANDARD.inspiredBy}. The Land Use Act already vests urban
+          {TITLE_STANDARD.name}, {TITLE_STANDARD.inspiredBy}. The Land Use Act already vests urban
           land in governors. The failure is the paper trail. One record, mapped, queryable, with
           consent on the same page.
         </p>
@@ -85,7 +84,7 @@ export function TitleRegister() {
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
           Five tests. Fail one and a mortgage is a rumour. A mortgage noted on a clean folio still
-          passes — that charge is the point of a public register.
+          passes, that charge is the point of a public register.
         </p>
         <ol className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-5">
           {BANKABLE_RULES.map((item) => (
@@ -255,8 +254,7 @@ function FolioCard({
         </Badge>
       </div>
       <p className="mt-3 text-sm text-muted-foreground">
-        {stats.queryable} queryable, {stats.paper} still paper. Illustrative backlog — not a live
-        lands bureau count.
+        {stats.queryable} queryable, {stats.paper} still paper. Illustrative backlog.
       </p>
 
       <ul className="mt-5 space-y-2">
@@ -311,7 +309,7 @@ function FolioCard({
           <p className="mt-3 text-xs text-muted-foreground">Gaps: {gaps.join(" · ")}</p>
         ) : (
           <p className="mt-3 text-xs text-muted-foreground">
-            Passes the five tests on this schematic. Still not a live valuation.
+            Passes the five tests on this schematic.
           </p>
         )}
         <p className="mt-4 text-sm">

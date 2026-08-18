@@ -187,7 +187,7 @@ export function NigeriaMapBeta() {
           </div>
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground md:text-base">
             Hover or select a geopolitical zone. Outline and zones are traced from Nigeria&apos;s
-            six-zone map — 36 states and the FCT, grouped as they are governed.
+            six-zone map, 36 states and the FCT, grouped as they are governed.
           </p>
         </div>
       </div>

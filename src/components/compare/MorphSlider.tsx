@@ -94,7 +94,7 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
         {/* Live interpolated value */}
         <div className="border-t border-border bg-card p-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Drag to morph — {metric.label} at{" "}
+            Drag to morph, {metric.label} at{" "}
             <span className="font-bold text-foreground">
               {Math.round(2024 + (2050 - 2024) * (position / 100))}
             </span>

@@ -1,6 +1,6 @@
 import type { EraId } from "@/content/timeline";
 
-/** Curated, portrait-first faces for the homepage teaser — keep this short. */
+/** Curated, portrait-first faces for the homepage teaser, keep this short. */
 export const HOME_FEATURED_ICON_IDS = [
   "funmilayo-ransome-kuti",
   "nnamdi-azikiwe",
@@ -12,7 +12,7 @@ export const HOME_FEATURED_ICON_IDS = [
   "burna-boy",
 ] as const;
 
-/** Four faces per era on the timeline — enough to invite, not a roll call. */
+/** Four faces per era on the timeline. */
 export const ERA_FEATURED_ICON_IDS: Record<EraId, readonly string[]> = {
   "pre-colonial": ["olaudah-equiano", "efunroye-tinubu", "ovonramwen", "jaja-of-opobo"],
   colonial: ["samuel-ajayi-crowther", "herbert-macaulay", "funmilayo-ransome-kuti", "margaret-ekpo"],
