@@ -194,7 +194,7 @@ const RAW_SOURCES: Source[] = [
 ];
 
 const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
-  "world-bank-nigeria-overview": { sectors: ["economy", "governance", "energy", "security"] },
+  "world-bank-nigeria-overview": { sectors: ["economy", "governance", "energy", "security", "transportation"] },
   "nbs-gdp-report-2024": { sectors: ["economy"] },
   "mckinsey-nigeria-2050": { sectors: ["economy", "technology", "education"] },
   "pwc-nigeria-2050": { sectors: ["economy"] },
@@ -206,11 +206,11 @@ const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
   "world-bank-doing-business": { sectors: ["economy", "governance"] },
   "sipri-security-africa": { sectors: ["security"], eras: ["civil-war", "military-rule"] },
   "npc-population-projection": { sectors: ["economy", "education"] },
-  "afdb-industrialization": { sectors: ["economy", "energy"] },
+  "afdb-industrialization": { sectors: ["economy", "energy", "transportation"] },
   "heritage-economic-freedom": { sectors: ["governance", "economy"] },
-  "cbo-nigeria-history": { eras: ["pre-colonial", "colonial", "independence", "civil-war", "military-rule", "democracy"] },
-  "agenda-2050-npc": { sectors: ["economy", "energy", "education", "governance"] },
-  "world-bank-g7-indicators": { sectors: ["economy", "governance", "energy", "technology"] },
+  "cbo-nigeria-history": { eras: ["pre-colonial", "colonial", "independence", "civil-war", "military-rule", "democracy", "reform"] },
+  "agenda-2050-npc": { sectors: ["economy", "energy", "education", "governance", "transportation"] },
+  "world-bank-g7-indicators": { sectors: ["economy", "governance", "energy", "technology", "transportation"] },
   "ilo-employment-stats": { sectors: ["economy"] },
   "itu-digital-indicators": { sectors: ["technology"] },
   "wipo-ip-stats": { sectors: ["technology"] },

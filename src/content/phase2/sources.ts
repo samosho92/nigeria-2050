@@ -57,6 +57,22 @@ export const PHASE2_RAW_SOURCES: Source[] = [
     year: 2024,
     url: "https://www.cbn.gov.ng",
   },
+  {
+    id: "world-bank-lpi",
+    title: "Logistics Performance Index 2023",
+    publisher: "World Bank",
+    year: 2023,
+    url: "https://lpi.worldbank.org/international/global",
+    accessedAt: "2026-08-18",
+  },
+  {
+    id: "who-road-safety",
+    title: "Global Status Report on Road Safety 2023",
+    publisher: "World Health Organization",
+    year: 2023,
+    url: "https://www.who.int/teams/social-determinants-of-health/safety-and-mobility/global-status-report-on-road-safety-2023",
+    accessedAt: "2026-08-18",
+  },
 ];
 
 export const PHASE2_SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
@@ -68,4 +84,6 @@ export const PHASE2_SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">
   "afdb-agriculture": { sectors: ["agriculture"] },
   "nollywood-industry-report": { sectors: ["creative-economy"], eras: ["democracy"] },
   "cbn-financial-access": { sectors: ["financial-inclusion", "technology"] },
+  "world-bank-lpi": { sectors: ["transportation", "economy"] },
+  "who-road-safety": { sectors: ["transportation", "security"] },
 };

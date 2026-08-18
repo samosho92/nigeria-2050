@@ -12,6 +12,7 @@ export function SourceCitation({ source, compact }: SourceCitationProps) {
     <cite className="not-italic">
       <span className="text-muted-foreground">
         {source.publisher}, {source.year}
+        {source.accessedAt && ` (accessed ${source.accessedAt})`}
         {!compact && ` — ${source.title}`}
       </span>
       {source.url && (

@@ -681,4 +681,149 @@ export const PHASE2_SECTORS: Sector[] = [
     ],
     sourceIds: ["world-bank-financial-inclusion", "cbn-financial-access"],
   },
+  {
+    slug: "transportation",
+    title: "Transportation & Logistics",
+    tagline: "Roads, rail, ports, and the cost of moving people and goods",
+    headline2050:
+      "A connected federation — standard-gauge rail from Lagos to Kano, 24-hour ports, and urban transit that makes 400 million people mobile without wasting a generation in traffic.",
+    baseline: {
+      logisticsPerformanceIndex: "2.6 / 5",
+      airPassengersPer1000: "31",
+      roadDeathsPer100k: "17.2",
+      standardGaugePassengerLines: "2 in service",
+    },
+    scenarioRanges: [
+      { label: "Logistics Performance Index (2050 scenario)", unit: "score 1–5", low: 2.9, base: 3.5, high: 3.9 },
+    ],
+    reviewStatus: "pending-review",
+    projections: [
+      {
+        year: 2030,
+        headline: "Corridors That Actually Connect",
+        narrative:
+          "Lagos–Ibadan and Abuja–Kaduna standard-gauge passenger services run daily. Lagos Metro Blue Line carries peak commuters. Cargo clearing at the Lagos ports is treated as a days-not-weeks problem — scanners, barge feeders, and a working truck call-up. BRT or equivalent busways operate in Lagos, Abuja, and Kano.",
+        metrics: {
+          logisticsPerformanceIndex: "2.8 / 5",
+          airPassengersPer1000: "80",
+          standardGaugePassengerLines: "Lagos–Ibadan + Abuja–Kaduna daily",
+        },
+      },
+      {
+        year: 2040,
+        headline: "The North–South Spine",
+        narrative:
+          "Standard-gauge freight and passenger rail links Lagos–Abuja–Kano, with spurs toward Warri and Port Harcourt. Inland dry ports in Kano and Kaduna take pressure off the coast. Urban rail or BRT reaches six state capitals. Highway concessions keep the Lagos–Ibadan and Abuja–Keffi corridors in maintainable condition.",
+        metrics: {
+          logisticsPerformanceIndex: "3.2 / 5",
+          airPassengersPer1000: "180",
+          northSouthSpine: "Lagos–Abuja–Kano freight + passenger",
+        },
+      },
+      {
+        year: 2050,
+        headline: "A Logistics Country, Not a Queue",
+        narrative:
+          "Nigeria's logistics score approaches today's Italy (LPI 3.7 in 2023). Coastal shipping and rail move bulk cargo; trucks handle last mile. Lagos, Abuja, and Kano have functioning urban rail. The colonial extractive map — rails to the sea, not to each other — is finally reversed.",
+        metrics: {
+          logisticsPerformanceIndex: "3.5 / 5",
+          airPassengersPer1000: "400",
+          roadDeathsPer100k: "8.0",
+        },
+      },
+    ],
+    historicalWaypoints: [
+      {
+        timelineEntryId: "colonial-economy",
+        title: "Rails Built to Extract",
+        summary: "Colonial railways ran interior to port, not region to region — a map the 2050 network is designed to invert.",
+      },
+      {
+        timelineEntryId: "lagos-brt",
+        title: "Lagos BRT",
+        summary: "Africa's first full BRT showed that Nigerian cities could move people at scale when lanes are protected and fares are simple.",
+      },
+      {
+        timelineEntryId: "standard-gauge-rail",
+        title: "Standard-Gauge Revival",
+        summary: "Lagos–Ibadan and Abuja–Kaduna lines proved modern rail is possible — and how slowly one corridor still becomes a network.",
+      },
+    ],
+    assumptions: [
+      {
+        title: "Standard-gauge completion, not just announcements",
+        detail:
+          "Lagos–Kano passenger and freight standard-gauge is fully operational by 2038, with Warri and Port Harcourt spurs by 2045. Contracts include maintenance set-asides so new lines do not decay within a decade of opening.",
+      },
+      {
+        title: "Port clearing in days, not weeks",
+        detail:
+          "The scenario assumes Lagos port cargo leaves the terminals in days rather than remaining stacked for weeks — through 24-hour gates, scanners, barge feeders, and a functioning truck call-up. We do not publish a current dwell-day baseline: World Bank LPI and CPPI do not report Apapa cargo dwell, and unpublished operator figures should not be presented as a sourced series.",
+      },
+      {
+        title: "Urban transit in the three largest metros",
+        detail:
+          "Lagos Metro (Blue and Red lines) plus BRT carry 1M+ daily trips by 2040. Abuja and Kano run dedicated busways or light rail on at least one high-demand corridor each by 2035.",
+      },
+      {
+        title: "Road asset management, not only new tarmac",
+        detail:
+          "WHO GSRRS 2023 records 84,000 paved kilometres in Nigeria (2019). The scenario is condition and safety of that network — FERMA and state PPPs keeping most federal paved roads in good or fair condition by 2035, with axle-load enforcement so the same stretches are not rebuilt every few years.",
+      },
+      {
+        title: "Inland dry ports and multimodal freight",
+        detail:
+          "Kano and Kaduna inland ports handle 30%+ of northern import containers by 2040, moving boxes by rail from the coast instead of 1,000 km of overloaded trucks.",
+      },
+      {
+        title: "Power and security on the corridors",
+        detail:
+          "Signalling, scanners, and night running require the energy-sector delivery path (12 GW by 2030). Highway and rail security in the northwest and north-central is good enough for overnight freight — otherwise the spine exists on paper only.",
+      },
+      {
+        title: "Coastal and inland waterways",
+        detail:
+          "Lagos–Warri–Port Harcourt coastal barges and Niger/Benue dredging take bulk off the roads by 2040, cutting tanker and cement truck volumes on the southwest–south-south axis.",
+      },
+    ],
+    risks: [
+      {
+        title: "White-elephant rail without freight",
+        detail:
+          "Passenger-only prestige lines that never carry containers would repeat Ajaokuta: capital spent, logistics unchanged. 2050 LPI gains require freight paths and last-mile trucking reform, not stations alone.",
+      },
+      {
+        title: "Port capture and trucking cartels",
+        detail:
+          "If call-up, scanning, and barge rules are captured by incumbents, cargo still sits in the terminals for weeks regardless of new cranes — the pattern that has survived every 'ease of doing business' announcement.",
+      },
+      {
+        title: "Insecurity on highways and rail",
+        detail:
+          "Kidnapping and vandalism on Abuja–Kaduna and northern highways would keep cargo on expensive air and escorted convoys, wiping out the cost advantage of a completed spine.",
+      },
+      {
+        title: "Urban sprawl without transit",
+        detail:
+          "If Lagos and Kano keep expanding without dedicated lanes, metro ridership never substitutes for danfo and okada, and commute times worsen even as GDP rises.",
+      },
+      {
+        title: "FX and contractor arrears",
+        detail:
+          "Imported rolling stock, signalling, and cranes stall when naira convertibility fails or government arrears pile up — the stop-start cycle that stretched Lagos–Ibadan over a decade.",
+      },
+      {
+        title: "Climate and flooding",
+        detail:
+          "Lagos coastal flooding and Niger Delta inundation can close ports and the Lagos–Ibadan corridor for days. Without drainage and elevation standards, 2050 assets sit below the waterline.",
+      },
+    ],
+    sourceIds: [
+      "world-bank-lpi",
+      "who-road-safety",
+      "afdb-industrialization",
+      "agenda-2050-npc",
+      "world-bank-nigeria-overview",
+    ],
+  },
 ];

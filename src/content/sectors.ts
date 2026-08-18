@@ -558,7 +558,7 @@ export const SECTORS: Sector[] = [
         year: 2040,
         headline: "Renewable Majority",
         narrative:
-          "Solar and hydro exceed 50% of generation. Cross-border West African power pool integrated. High-speed rail connects Lagos-Abuja-Kano.",
+          "Solar and hydro exceed 50% of generation. Cross-border West African power pool integrated. Standard-gauge rail connects Lagos–Abuja–Kano.",
         metrics: { gridDelivery: "45 GW", renewableShare: "52%", perCapitaConsumption: "800 kWh" },
       },
       {
@@ -615,7 +615,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Transport infrastructure",
         detail:
-          "Lagos metro Line 1 operational by 2030; Lagos–Abuja high-speed rail by 2040; port automation at Apapa/Tin Can reduces cargo dwell time from weeks to days — unlocking industrial input costs assumed in economic projections.",
+          "Lagos metro Line 1 operational by 2030 and Lagos–Abuja–Kano standard-gauge rail by 2040 are transportation-sector scenarios, not energy forecasts. Energy delivery is the constraint that makes night running, scanners, and electrified corridors possible.",
       },
       {
         title: "Regional power trade",

@@ -114,4 +114,55 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     sourceId: "world-bank-financial-inclusion",
     sourceSeries: "Global Findex · Digital payments",
   },
+  {
+    id: "lpi-overall",
+    sectorSlug: "transportation",
+    label: "Logistics Performance Index",
+    definition:
+      "World Bank LPI overall score (1 = low, 5 = high) — 2023 international survey wave, same release for Nigeria and all G7 members.",
+    unit: "score 1–5",
+    referenceYear: 2023,
+    nigeria: 2.6,
+    g7Countries: { CA: 4.0, FR: 3.9, DE: 4.1, IT: 3.7, JP: 3.9, GB: 3.7, US: 3.8 },
+    nigeria2050: 3.5,
+    higherIsBetter: true,
+    sourceId: "world-bank-lpi",
+    sourceSeries: "World Bank · LPI 2023 overall score",
+    context:
+      "Transcribed from the 2023 LPI global table (Nigeria rank 88). The 2050 figure is a Naija2050 scenario, not a World Bank forecast.",
+  },
+  {
+    id: "air-passengers-per-1000",
+    sectorSlug: "transportation",
+    label: "Air Passengers per 1,000 People",
+    definition:
+      "Air transport passengers carried (WDI IS.AIR.PSGR) divided by population (SP.POP.TOTL), × 1,000 — 2019, latest pre-pandemic common year. Counts passengers on carriers registered in that country.",
+    unit: "per 1,000 people",
+    referenceYear: 2019,
+    nigeria: 31,
+    g7Countries: { CA: 2482, FR: 1058, DE: 1319, IT: 465, JP: 1028, GB: 2137, US: 2806 },
+    nigeria2050: 400,
+    higherIsBetter: true,
+    sourceId: "world-bank-g7-indicators",
+    sourceSeries: "WDI · IS.AIR.PSGR / SP.POP.TOTL · 2019 (API retrieved 18 Aug 2026)",
+    context:
+      "Nigeria 6.54M passengers / 209.5M people. A 2050 scenario of 400 per 1,000 would still sit below Italy's 2019 level (465).",
+  },
+  {
+    id: "road-traffic-deaths",
+    sectorSlug: "transportation",
+    label: "Road Traffic Death Rate",
+    definition:
+      "WHO-estimated road traffic deaths per 100,000 population — Global Status Report on Road Safety 2023, 2021 modelled year for Nigeria and all G7 members.",
+    unit: "per 100k",
+    referenceYear: 2021,
+    nigeria: 17.2,
+    g7Countries: { CA: 4.7, FR: 4.7, DE: 3.3, IT: 5.0, JP: 2.7, GB: 2.4, US: 14.2 },
+    nigeria2050: 8.0,
+    higherIsBetter: false,
+    sourceId: "who-road-safety",
+    sourceSeries: "WHO · GSRRS 2023 · estimated rate per 100,000 (2021)",
+    context:
+      "Lower is better. Nigeria country profile: 17.2 (2021). United States profile: 14.2 (2021). The 2050 figure is a scenario, not a WHO projection.",
+  },
 ];

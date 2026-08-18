@@ -22,6 +22,10 @@ export const METHODOLOGY_PRINCIPLES = [
   "Built for the skeptic. Methodology, ranges, and corrections are public.",
 ];
 
+/** Shown on sector milestones, scenario ranges, and the Now vs. 2050 slider. */
+export const SCENARIO_UI_NOTE =
+  "2030–2050 figures are base-case scenarios with stated assumptions — not sourced forecasts or a 2050 dataset.";
+
 export const METHODOLOGY_SECTIONS: MethodologySection[] = [
   {
     id: "positioning",
@@ -53,7 +57,7 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     summary:
       "Sector visions are scenarios — structured narratives built on baselines, milestones, and explicit assumptions.",
     points: [
-      "Each sector page shows a current baseline, milestone narratives for 2030 / 2040 / 2050, and a detailed “What Would Have to Be True” assumptions panel.",
+      "Each sector page shows a sourced current baseline, then milestone narratives for 2030 / 2040 / 2050 labeled as scenarios — not as a 2050 dataset.",
       "Where underlying reports support it, we show low / base / high scenario ranges — the base case is the headline path, not a forecast.",
       "Projections synthesize McKinsey, PwC, NPC Agenda 2050, World Bank, and sector-specific sources — always cited on the page.",
       "2050 numbers are internally consistent within a sector (assumptions → milestones → ranges) but are not econometric models run by Naija2050.",
@@ -70,7 +74,7 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
       "Reference years are fixed per indicator (typically 2021–2024 depending on dataset lag) — Nigeria and every G7 country are measured in the same survey wave or WDI vintage.",
       "Series IDs (e.g. WDI · NY.GDP.PCAP.CD) are shown on hover — no mixing oil-specific metrics with general trade indicators.",
       "G7 average = simple arithmetic mean of the seven members for that indicator and year.",
-      "Nigeria 2050 projection values appear separately and are never blended into cross-country baseline tables.",
+      "Nigeria 2050 scenario values appear separately and are never blended into cross-country baseline tables.",
     ],
     links: [{ href: "/compare/g7", label: "Nigeria vs. G7" }],
   },
@@ -79,8 +83,8 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     title: "Now vs. 2050 Comparator",
     summary: "The morph slider interpolates between sourced baseline and base-case 2050 values.",
     points: [
-      "Eight headline metrics with named sources — GDP per capita, literacy, power capacity, internet penetration, and others.",
-      "The slider shows a linear interpolation for illustration; it is not a year-by-year economic forecast.",
+      "Nine headline metrics with named sources — GDP per capita, literacy, power capacity, internet penetration, logistics performance, and others.",
+      "The slider interpolates between a sourced baseline and a labeled 2050 scenario for illustration; it is not a year-by-year economic forecast.",
       "Low and high 2050 bounds are shown on sector pages where scenario ranges exist.",
     ],
     links: [{ href: "/compare", label: "Now vs. 2050" }],

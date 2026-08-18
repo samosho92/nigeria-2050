@@ -32,8 +32,8 @@ function buildSnapshotSections(sector: Sector): StatSnapshotSection[] {
   const primaryScenario = sector.scenarioRanges?.[0];
   if (primaryScenario) {
     sections.push({
-      heading: "2050 base case",
-      caption: primaryScenario.label,
+      heading: "2050 scenario",
+      caption: `${primaryScenario.label} — not a sourced forecast`,
       accent: true,
       rows: [
         {

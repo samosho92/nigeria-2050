@@ -12,6 +12,7 @@ import { SectorHero } from "@/components/sectors/SectorHero";
 import { FadeIn } from "@/components/motion";
 import { getSectorQuiz } from "@/content/quizzes";
 import { QuizPanel } from "@/components/quizzes/QuizPanel";
+import { SCENARIO_UI_NOTE } from "@/content/methodology";
 import { getSectorBySlug, getSourcesByIds, SECTORS } from "@/lib/content";
 
 interface SectorPageProps {
@@ -43,7 +44,10 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
       <Section variant="surface">
         <FadeIn>
-          <h2 className="mb-6 text-2xl font-bold">Current Baseline</h2>
+          <h2 className="mb-2 text-2xl font-bold">Sourced baseline</h2>
+          <p className="mb-6 max-w-2xl text-sm text-muted-foreground">
+            Figures below are from named datasets in the source panel on this page.
+          </p>
           <DataChart data={sector.baseline} title="Where Nigeria stands today" />
         </FadeIn>
       </Section>
@@ -55,7 +59,8 @@ export default async function SectorPage({ params }: SectorPageProps) {
       )}
 
       <Section>
-        <h2 className="mb-10 text-2xl font-bold">The Road to 2050</h2>
+        <h2 className="mb-3 text-2xl font-bold">The Road to 2050</h2>
+        <p className="mb-10 max-w-2xl text-sm text-muted-foreground">{SCENARIO_UI_NOTE}</p>
         <MilestoneTimeline projections={sector.projections} />
       </Section>
 

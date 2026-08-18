@@ -68,6 +68,14 @@ export const REVIEW_QUEUE: ReviewItem[] = [
     reviewer: "Editorial (internal)",
     notes: "Abstract SVG era scenes approved; settings only, no figures.",
   },
+  {
+    id: "sector-transportation-projections",
+    type: "sector",
+    title: "Transportation sector 2050 projections — infrastructure review",
+    status: "pending-review",
+    reviewer: "Transport economist (TBD)",
+    notes: "LPI 2023, WDI 2019 air passengers, and WHO GSRRS 2023 road-death rates transcribed from source tables. Port dwell-day baseline withheld until a named series exists.",
+  },
 ];
 
 export function getPendingReviews() {

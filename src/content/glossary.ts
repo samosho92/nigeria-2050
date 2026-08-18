@@ -61,6 +61,24 @@ export const GLOSSARY: GlossaryTerm[] = [
     definition:
       "Technology tools that improve citizen engagement with government — election monitoring apps, budget transparency portals, and digital public service delivery.",
   },
+  {
+    term: "LPI",
+    definition:
+      "Logistics Performance Index — a World Bank score (1–5) combining customs, infrastructure, international shipments, logistics quality, tracking, and timeliness. Nigeria scored 2.6 in the 2023 LPI (rank 88). The transportation 2050 figure of 3.5 is a Naija2050 scenario, not a World Bank forecast.",
+    relatedSlugs: ["transportation", "economy"],
+  },
+  {
+    term: "BRT",
+    definition:
+      "Bus Rapid Transit — high-capacity buses on dedicated lanes with prepaid fares. Lagos launched Africa's first full BRT in 2008; 2050 urban-transit scenarios assume similar protected corridors in Abuja and Kano.",
+    relatedSlugs: ["transportation"],
+  },
+  {
+    term: "Standard-gauge rail",
+    definition:
+      "Railway built to the 1,435 mm international gauge, as opposed to the colonial narrow-gauge network. Abuja–Kaduna (2016) and Lagos–Ibadan (2021) are Nigeria's modern standard-gauge passenger lines; the 2050 case assumes a Lagos–Kano freight-and-passenger spine.",
+    relatedSlugs: ["transportation", "energy"],
+  },
 ];
 
 export function getGlossaryTerm(term: string): GlossaryTerm | undefined {

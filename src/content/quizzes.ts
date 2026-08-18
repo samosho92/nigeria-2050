@@ -40,6 +40,25 @@ export const SECTOR_QUIZZES: SectorQuiz[] = [
       },
     ],
   },
+  {
+    sectorSlug: "transportation",
+    title: "Transportation check",
+    questions: [
+      {
+        id: "tra-1",
+        prompt: "Colonial railways in Nigeria were built primarily to:",
+        options: [
+          "Connect regions to each other",
+          "Move export crops from the interior to ports",
+          "Serve daily urban commuters",
+          "Link West African capitals",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Rails ran from cash-crop belts to the coast. The 2050 transportation case is to invert that map with a north–south freight-and-passenger spine.",
+      },
+    ],
+  },
 ];
 
 export function getSectorQuiz(sectorSlug: string): SectorQuiz | undefined {

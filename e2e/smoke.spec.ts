@@ -16,6 +16,11 @@ test.describe("critical paths", () => {
     await expect(page.getByText("Healthcare & Public Health")).toBeVisible();
   });
 
+  test("transportation sector page loads", async ({ page }) => {
+    await page.goto("/sectors/transportation");
+    await expect(page.getByRole("heading", { name: /Transportation/i })).toBeVisible();
+  });
+
   test("your 2050 page loads", async ({ page }) => {
     await page.goto("/your-2050");
     await expect(page.getByRole("heading", { name: "Your Nigeria 2050" })).toBeVisible();

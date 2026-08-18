@@ -8,20 +8,33 @@ import { Button } from "@/components/ui/Button";
 import { generateYour2050Vignette, shareVignette } from "@/lib/your-2050";
 import { trackEvent } from "@/lib/analytics";
 import { SECTORS } from "@/content/sectors";
+import { VIGNETTE_CITIES, VIGNETTE_SEASONS } from "@/content/your-2050-settings";
+import { cn } from "@/lib/utils";
 
 type ShareFeedback = "idle" | "shared" | "copied" | "error";
 
 export function YourNigeria2050Flow() {
   const [selected, setSelected] = useState<string[]>([]);
+  const [cityId, setCityId] = useState(VIGNETTE_CITIES[0].id);
+  const [seasonId, setSeasonId] = useState(VIGNETTE_SEASONS[0].id);
   const [name, setName] = useState("");
   const [generated, setGenerated] = useState(false);
   const [shareFeedback, setShareFeedback] = useState<ShareFeedback>("idle");
   const [shareError, setShareError] = useState("");
 
   const vignette = useMemo(
-    () => (generated ? generateYour2050Vignette({ sectorSlugs: selected, name }) : null),
-    [generated, name, selected],
+    () =>
+      generated
+        ? generateYour2050Vignette({ sectorSlugs: selected, name, cityId, seasonId })
+        : null,
+    [cityId, generated, name, seasonId, selected],
   );
+
+  const resetOutput = () => {
+    setGenerated(false);
+    setShareFeedback("idle");
+    setShareError("");
+  };
 
   const toggleSector = (slug: string) => {
     setSelected((prev) => {
@@ -29,8 +42,7 @@ export function YourNigeria2050Flow() {
       if (prev.length >= 2) return [prev[1], slug];
       return [...prev, slug];
     });
-    setGenerated(false);
-    setShareFeedback("idle");
+    resetOutput();
   };
 
   const handleGenerate = () => {
@@ -73,13 +85,13 @@ export function YourNigeria2050Flow() {
     <div className="mx-auto max-w-3xl space-y-8">
       <Badge variant="muted" className="gap-1">
         <IconRobot className="size-3" stroke={1.5} aria-hidden />
-        AI-generated · Grounded in sector projections only
+        AI-generated fiction · Grounded in sector projections
       </Badge>
 
       <section className="rounded-xl border border-border bg-card p-6">
         <h2 className="text-lg font-bold">1. Pick one or two sectors</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Your vignette pulls only from the 2050 projections and assumptions on those sector pages.
+          The story lives these projections instead of listing them. Numbers stay sourced.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           {SECTORS.map((sector) => (
@@ -87,11 +99,12 @@ export function YourNigeria2050Flow() {
               key={sector.slug}
               type="button"
               onClick={() => toggleSector(sector.slug)}
-              className={`rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+              className={cn(
+                "rounded-full border px-3 py-1.5 text-xs font-medium transition",
                 selected.includes(sector.slug)
                   ? "border-accent bg-accent text-accent-foreground"
-                  : "border-border text-muted-foreground hover:border-accent"
-              }`}
+                  : "border-border text-muted-foreground hover:border-accent",
+              )}
             >
               {sector.title}
             </button>
@@ -100,13 +113,69 @@ export function YourNigeria2050Flow() {
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6">
-        <h2 className="text-lg font-bold">2. Optional first name</h2>
+        <h2 className="text-lg font-bold">2. Choose a city and a season</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Setting, weather, and climate shape the day. The projections stay the same.
+        </p>
+        <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+          City
+        </p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {VIGNETTE_CITIES.map((city) => (
+            <button
+              key={city.id}
+              type="button"
+              onClick={() => {
+                setCityId(city.id);
+                resetOutput();
+              }}
+              className={cn(
+                "rounded-full border px-3 py-1.5 text-xs font-medium transition",
+                cityId === city.id
+                  ? "border-accent bg-accent text-accent-foreground"
+                  : "border-border text-muted-foreground hover:border-accent",
+              )}
+            >
+              {city.name}
+            </button>
+          ))}
+        </div>
+        <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+          Weather
+        </p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {VIGNETTE_SEASONS.map((season) => (
+            <button
+              key={season.id}
+              type="button"
+              onClick={() => {
+                setSeasonId(season.id);
+                resetOutput();
+              }}
+              className={cn(
+                "rounded-full border px-3 py-1.5 text-xs font-medium transition",
+                seasonId === season.id
+                  ? "border-accent bg-accent text-accent-foreground"
+                  : "border-border text-muted-foreground hover:border-accent",
+              )}
+            >
+              {season.label}
+            </button>
+          ))}
+        </div>
+        <p className="mt-3 text-sm text-muted-foreground">
+          {VIGNETTE_CITIES.find((city) => city.id === cityId)?.climate}.{" "}
+          {VIGNETTE_SEASONS.find((season) => season.id === seasonId)?.hint}.
+        </p>
+      </section>
+
+      <section className="rounded-xl border border-border bg-card p-6">
+        <h2 className="text-lg font-bold">3. Optional first name</h2>
         <input
           value={name}
           onChange={(e) => {
             setName(e.target.value);
-            setGenerated(false);
-            setShareFeedback("idle");
+            resetOutput();
           }}
           placeholder="Your first name (optional)"
           maxLength={40}
@@ -121,12 +190,15 @@ export function YourNigeria2050Flow() {
         className="gap-2"
       >
         <IconSparkles className="size-4" stroke={1.5} aria-hidden />
-        Generate my day in 2050
+        Write my day in 2050
       </Button>
 
       {generated && vignette && (
         <article className="rounded-xl border border-accent/30 bg-accent/5 p-6 md:p-8">
-          <h2 className="font-serif text-2xl font-bold">{vignette.title}</h2>
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+            {vignette.setting}
+          </p>
+          <h2 className="mt-2 font-serif text-2xl font-bold">{vignette.title}</h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-foreground/90">
             {vignette.body.split("\n\n").map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>

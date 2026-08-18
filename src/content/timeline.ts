@@ -119,7 +119,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "Railways, cocoa, groundnuts, and palm oil — infrastructure built to extract, not develop.",
     content:
       "Colonial Nigeria's economy was structured for raw material export: cocoa from the west, groundnuts and cotton from the north, palm oil from the east. Railways ran from interior to ports, not connecting Nigerian regions to each other. Western education was limited; northern indirect rule preserved emirate structures. By independence, Nigeria had institutions designed for extraction — a pattern the 2050 diversification scenario explicitly seeks to reverse.",
-    relatedSectorSlugs: ["economy", "energy"],
+    relatedSectorSlugs: ["economy", "energy", "transportation"],
     sourceIds: ["world-bank-nigeria-overview", "cbo-nigeria-history"],
     artDirection: "colonial",
   },
@@ -143,7 +143,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "Oil transforms Nigeria's economic calculus — blessing and curse in one.",
     content:
       "Commercial quantities of oil were discovered in Oloibiri, Bayelsa State, in 1956. By the 1970s oil boom, petroleum dominated federal revenue — rising from under 10% of exports in 1960 to over 80% by 1975. Oil concentrated wealth at the federal center, reduced incentive to diversify, and fueled corruption and conflict in the Niger Delta. Every 2050 economic scenario assumes breaking this dependency.",
-    relatedSectorSlugs: ["economy", "energy", "security"],
+    relatedSectorSlugs: ["economy", "energy", "security", "transportation"],
     sourceIds: ["world-bank-nigeria-overview", "nbs-gdp-report-2024"],
     artDirection: "independence",
   },
@@ -240,7 +240,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "Exchange rate unification attempts, subsidy debates, and institutional rebuilding.",
     content:
       "Multiple administrations pursued structural reforms: Treasury Single Account (TSA), bank verification (BVN), ghost worker purges, and partial fuel subsidy removal. Progress was uneven and politically costly — but the direction was clear: Nigeria could not reach 2050 targets without fixing fiscal leakages, power sector bottlenecks, and regulatory uncertainty. These reforms, however incomplete, anchor the 'base case' scenario assumptions.",
-    relatedSectorSlugs: ["governance", "economy", "energy"],
+    relatedSectorSlugs: ["governance", "economy", "energy", "transportation"],
     sourceIds: ["agenda-2050-npc", "heritage-economic-freedom"],
     artDirection: "reform",
   },
@@ -264,7 +264,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "The government's own long-range plan — top-20 economy, $4T GDP.",
     content:
       "The National Planning Commission published Agenda 2050, targeting a $4.5 trillion economy and top-20 global ranking by 2050. The plan assumes 7%+ sustained growth, massive infrastructure investment, and human capital development. Naija2050 treats this as one input among many — not gospel — and stress-tests its assumptions against World Bank, McKinsey, and PwC scenarios, which range from optimistic to cautious.",
-    relatedSectorSlugs: ["economy", "energy", "education", "governance"],
+    relatedSectorSlugs: ["economy", "energy", "education", "governance", "transportation"],
     sourceIds: ["agenda-2050-npc", "mckinsey-nigeria-2050", "pwc-nigeria-2050"],
     artDirection: "reform",
   },

@@ -348,6 +348,8 @@ export function formatBenchmarkValue(value: number, unit: string): string {
   if (unit === "kWh/year") return `${Math.round(value).toLocaleString()} kWh`;
   if (unit === "physicians") return value.toFixed(2);
   if (unit === "per 100 people") return `${value} per 100`;
+  if (unit === "per 1,000 people") return `${Math.round(value).toLocaleString()} per 1,000`;
+  if (unit === "score 1–5") return value.toFixed(1);
   return `${value.toLocaleString()} ${unit}`;
 }
 

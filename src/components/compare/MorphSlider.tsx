@@ -6,6 +6,8 @@ import type { ComparatorMetric } from "@/types/content";
 import { AnimatedCounter } from "@/components/motion";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
+import { comparatorCounterProps } from "@/lib/comparator-format";
+import { SCENARIO_UI_NOTE } from "@/content/methodology";
 
 interface MorphSliderProps {
   metrics: ComparatorMetric[];
@@ -82,7 +84,7 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
             </div>
             <IconArrowRight className="size-8 text-accent opacity-60" stroke={1.5} aria-hidden />
             <div className="text-center">
-              <p className="text-xs uppercase tracking-widest text-accent">2050</p>
+              <p className="text-xs uppercase tracking-widest text-accent">2050 scenario</p>
               <p className="text-2xl font-bold text-accent lg:text-4xl">
                 {metric.projected2050.toLocaleString()}
                 <span className="text-lg opacity-70">{metric.unit !== "%" && metric.unit !== "M" ? ` ${metric.unit}` : metric.unit === "%" ? "%" : "M"}</span>
@@ -98,13 +100,16 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
             <span className="font-bold text-foreground">
               {Math.round(2024 + (2050 - 2024) * (position / 100))}
             </span>
+            <span className="block mt-1 text-xs font-normal">
+              Interpolated for illustration. {SCENARIO_UI_NOTE}
+            </span>
           </p>
           <p className="mt-2 text-3xl font-bold text-accent">
             <AnimatedCounter
               value={interpolated}
               decimals={metric.unit === "USD" ? 0 : 1}
-              suffix={metric.unit === "%" ? "%" : metric.unit === "M" ? "M" : ""}
-              prefix={metric.unit === "USD" ? "$" : ""}
+              suffix={comparatorCounterProps(metric).suffix}
+              prefix={comparatorCounterProps(metric).prefix}
             />
           </p>
         </div>
@@ -142,8 +147,8 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
             />
           </div>
           <div className="mt-2 flex justify-between text-xs text-muted-foreground">
-            <span>Nigeria Now</span>
-            <span>Nigeria 2050</span>
+            <span>Nigeria now (sourced)</span>
+            <span>Nigeria 2050 (scenario)</span>
           </div>
         </div>
       </div>

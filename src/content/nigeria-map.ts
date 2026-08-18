@@ -30,7 +30,7 @@ export const NIGERIA_MAP_REGIONS: NigeriaMapRegion[] = [
     states: ["Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Sokoto", "Zamfara"],
     summary:
       "Sahel trade corridors, the Kano–Kaduna industrial axis, and the security challenge that frames every 2050 projection from this belt.",
-    sectorSlugs: ["security", "agriculture", "education"],
+    sectorSlugs: ["security", "agriculture", "education", "transportation"],
     path: "M 75.8 0.0 L 113.7 0.0 L 133.3 5.6 L 147.4 22.5 L 155.8 16.8 L 192.3 16.8 L 221.8 33.7 L 235.8 35.1 L 251.2 29.5 L 255.4 35.1 L 262.5 35.1 L 263.9 46.3 L 255.4 47.7 L 247.0 63.2 L 233.0 68.8 L 241.4 82.8 L 255.4 88.4 L 255.4 92.6 L 240.0 96.8 L 235.8 87.0 L 214.7 84.2 L 202.1 95.4 L 204.9 106.7 L 196.5 141.8 L 200.7 151.6 L 197.9 160.0 L 192.3 162.8 L 186.7 157.2 L 179.6 161.4 L 175.4 153.0 L 151.6 151.6 L 153.0 130.5 L 140.4 127.7 L 144.6 119.3 L 141.8 113.7 L 126.3 109.5 L 113.7 115.1 L 115.1 98.2 L 110.9 92.6 L 91.2 96.8 L 85.6 84.2 L 73.0 87.0 L 80.0 94.0 L 80.0 103.9 L 71.6 108.1 L 73.0 120.7 L 61.8 124.9 L 60.4 110.9 L 66.0 98.2 L 25.3 91.2 L 30.9 33.7 L 44.9 18.2 L 47.7 4.2 L 74.4 1.4 Z",
     labelX: 137,
     labelY: 62,
@@ -54,7 +54,7 @@ export const NIGERIA_MAP_REGIONS: NigeriaMapRegion[] = [
     states: ["Benue", "Kogi", "Kwara", "Nasarawa", "Niger", "Plateau", "FCT"],
     summary:
       "The Middle Belt and Abuja — federal power, the food basket, and the farmer–herder fault line at the center of the map.",
-    sectorSlugs: ["governance", "agriculture", "education"],
+    sectorSlugs: ["governance", "agriculture", "education", "transportation"],
     path: "M 82.8 82.8 L 88.4 84.2 L 95.4 96.8 L 112.3 91.2 L 116.5 115.1 L 122.1 109.5 L 138.9 108.1 L 146.0 117.9 L 141.8 126.3 L 153.0 127.7 L 154.4 151.6 L 176.8 150.2 L 181.1 160.0 L 189.5 157.2 L 193.7 161.4 L 199.3 153.0 L 195.1 143.2 L 202.1 116.5 L 207.7 116.5 L 223.2 143.2 L 233.0 143.2 L 241.4 133.3 L 263.9 146.0 L 265.3 165.6 L 238.6 183.9 L 223.2 185.3 L 223.2 193.7 L 217.5 197.9 L 231.6 200.7 L 241.4 210.5 L 233.0 233.0 L 233.0 248.4 L 226.0 248.4 L 218.9 240.0 L 209.1 240.0 L 204.9 233.0 L 171.2 244.2 L 171.2 235.8 L 157.2 226.0 L 131.9 245.6 L 130.5 220.4 L 113.7 214.7 L 92.6 195.1 L 60.4 195.1 L 51.9 181.1 L 50.5 165.6 L 39.3 157.2 L 26.7 168.4 L 0.0 178.2 L 0.0 157.2 L 28.1 119.3 L 33.7 91.2 L 64.6 95.4 L 67.4 106.7 L 60.4 113.7 L 64.6 122.1 L 73.0 116.5 L 70.2 106.7 L 78.6 102.5 L 78.6 95.4 L 70.2 91.2 L 70.2 85.6 L 81.4 84.2 Z",
     labelX: 95,
     labelY: 165,
@@ -66,7 +66,7 @@ export const NIGERIA_MAP_REGIONS: NigeriaMapRegion[] = [
     states: ["Ekiti", "Lagos", "Ogun", "Ondo", "Osun", "Oyo"],
     summary:
       "Lagos and the Yoruba hinterland — tech, finance, ports, and the densest 2050 economic case on the map.",
-    sectorSlugs: ["technology", "economy", "financial-inclusion", "creative-economy"],
+    sectorSlugs: ["technology", "economy", "financial-inclusion", "creative-economy", "transportation"],
     path: "M 36.5 155.8 L 54.7 162.8 L 53.3 178.2 L 63.2 193.7 L 94.0 192.3 L 112.3 207.7 L 102.5 235.8 L 94.0 238.6 L 89.8 233.0 L 80.0 240.0 L 78.6 265.3 L 63.2 266.7 L 42.1 249.8 L 0.0 251.2 L 0.0 176.8 L 35.1 157.2 Z",
     labelX: 48,
     labelY: 214,
@@ -78,7 +78,7 @@ export const NIGERIA_MAP_REGIONS: NigeriaMapRegion[] = [
     states: ["Abia", "Anambra", "Ebonyi", "Enugu", "Imo"],
     summary:
       "Trade, manufacturing, and a dense commercial culture — the industrial piece of the 2050 diversification story.",
-    sectorSlugs: ["manufacturing", "technology", "economy"],
+    sectorSlugs: ["manufacturing", "technology", "economy", "transportation"],
     path: "M 154.4 224.6 L 172.6 233.0 L 175.4 240.0 L 186.7 235.8 L 192.3 247.0 L 186.7 261.1 L 172.6 269.5 L 175.4 283.5 L 165.6 280.7 L 160.0 300.4 L 148.8 300.4 L 150.2 290.5 L 136.1 289.1 L 130.5 272.3 L 134.7 258.2 L 131.9 244.2 L 153.0 226.0 Z",
     labelX: 162,
     labelY: 256,
@@ -90,7 +90,7 @@ export const NIGERIA_MAP_REGIONS: NigeriaMapRegion[] = [
     states: ["Akwa Ibom", "Bayelsa", "Cross River", "Delta", "Edo", "Rivers"],
     summary:
       "The Niger Delta — oil, gas, ports, and the energy transition Nigeria has to make without stranding the region that funded the state.",
-    sectorSlugs: ["energy", "economy", "healthcare"],
+    sectorSlugs: ["energy", "economy", "healthcare", "transportation"],
     path: "M 109.5 210.5 L 134.7 221.8 L 131.9 238.6 L 136.1 259.6 L 131.9 277.9 L 140.4 289.1 L 153.0 289.1 L 151.6 298.9 L 158.6 298.9 L 164.2 279.3 L 172.6 279.3 L 175.4 262.5 L 183.9 261.1 L 189.5 252.6 L 186.7 238.6 L 202.1 231.6 L 226.0 244.2 L 226.0 261.1 L 207.7 279.3 L 202.1 306.0 L 164.2 317.2 L 95.4 318.6 L 87.0 294.7 L 77.2 282.1 L 80.0 258.2 L 75.8 251.2 L 82.8 233.0 L 101.1 235.8 L 108.1 211.9 Z",
     labelX: 155,
     labelY: 298,

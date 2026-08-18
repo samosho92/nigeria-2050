@@ -136,7 +136,7 @@ function MilestoneDetail({
       <div className="relative flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="min-w-0 flex-1">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            {projection.year} projection
+            {projection.year} scenario
           </p>
           <h3 className="mt-2 text-2xl font-bold text-balance md:text-3xl">
             {projection.headline}
@@ -206,7 +206,8 @@ export function MilestoneTimeline({ projections }: MilestoneTimelineProps) {
         onNext={() => selectMilestone(activeIndex + 1)}
       />
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        Use arrow keys to move between milestones
+        Use arrow keys to move between milestones. Metric chips are scenario values, not sourced
+        2030/2040/2050 datasets.
       </p>
     </div>
   );

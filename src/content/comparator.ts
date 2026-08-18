@@ -67,4 +67,14 @@ export const COMPARATOR_METRICS: ComparatorMetric[] = [
     projected2050: 400,
     sourceId: "npc-population-projection",
   },
+  {
+    id: "logistics-performance",
+    label: "Logistics Performance Index",
+    unit: "LPI",
+    current: 2.6,
+    projected2050: 3.5,
+    projected2050Low: 2.9,
+    projected2050High: 3.9,
+    sourceId: "world-bank-lpi",
+  },
 ];

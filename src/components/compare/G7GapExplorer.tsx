@@ -213,7 +213,7 @@ function GapBar({ metric }: { metric: G7BenchmarkMetric }) {
           <div>
             <div className="mb-1.5 flex justify-between text-xs">
               <span className="font-medium text-muted-foreground">
-                Nigeria 2050 projection (not comparable year)
+                Nigeria 2050 scenario (not a sourced year)
               </span>
               <span className="tabular-nums text-muted-foreground">
                 {formatBenchmarkValue(metric.nigeria2050, metric.unit)}

@@ -49,7 +49,7 @@ export const PHASE2_TIMELINE_ENTRIES: TimelineEntry[] = [
       "A Soviet-built integrated steel complex meant to industrialize Nigeria remains unfinished, symbolizing ambitious manufacturing plans that never fully delivered.",
     content:
       "In 1979, Nigeria signed a contract with Tyazhpromexport of the Soviet Union to build an integrated steel plant at Ajaokuta, on the Niger River in Kogi State. The vision was explicit: reduce dependence on imported steel, create upstream jobs in mining and downstream fabrication, and anchor a heavy-industry corridor in the middle belt. Construction progressed through the 1980s oil boom and continued after prices collapsed. By the early 1990s, much of the plant's physical infrastructure stood complete, but commissioning stalled over financing disputes, contract renegotiations, and governance turnover. Successive military and civilian administrations pledged completion; privatization attempts foundered. Decades later, Ajaokuta remains the country's most cited example of white-elephant industrial policy: billions spent, minimal output. Yet the ambition itself mattered. Nigeria's 2050 manufacturing scenarios assume learning from this failure: phased special economic zones, private operators with enforceable contracts, reliable power, and export markets rather than single mega-projects directed from Abuja without operational discipline.",
-    relatedSectorSlugs: ["manufacturing", "economy"],
+    relatedSectorSlugs: ["manufacturing", "economy", "transportation"],
     sourceIds: ["unido-manufacturing", "cbo-nigeria-history"],
     artDirection: "military",
   },
@@ -77,6 +77,32 @@ export const PHASE2_TIMELINE_ENTRIES: TimelineEntry[] = [
       "Traditional banks could not profitably serve Nigeria's vast informal and rural economy through branches alone. In 2013, the Central Bank of Nigeria published agent banking guidelines, allowing licensed banks and mobile money operators to recruit retail shops, pharmacists, and market traders as cash-in/cash-out points. Smartphone penetration and USSD codes lowered the technology barrier. Fintechs built agent networks at speed: OPay, Moniepoint, Palmpay, and others competed to sign up millions of agents who processed transfers, bill payments, and small-business collections for commissions. By the early 2020s, agent locations outnumbered bank branches by orders of magnitude, extending formal rails into peri-urban and rural corridors previously served only by cash and informal savings clubs. Regulatory updates tightened know-your-customer rules and capital requirements, but the model proved durable through FX volatility and policy shifts. Agent banking is the operational layer behind Nigeria's financial-inclusion gains: it connects market women, farmers, and gig workers to instant payment infrastructure that 2050 scenarios treat as foundational for tax formalization, social transfers, and digital commerce.",
     relatedSectorSlugs: ["financial-inclusion", "technology"],
     sourceIds: ["world-bank-financial-inclusion", "cbo-nigeria-history"],
+    artDirection: "reform",
+  },
+  {
+    id: "lagos-brt",
+    era: "democracy",
+    title: "Lagos Bus Rapid Transit",
+    dateRange: "2008",
+    summary:
+      "Africa's first full BRT corridor opens on Ikorodu Road — dedicated lanes, prepaid fares, and proof that a Nigerian megacity can move people at scale.",
+    content:
+      "In March 2008, the Lagos Metropolitan Area Transport Authority launched the BRT-Lite corridor along Ikorodu Road. It was the first bus rapid transit system in sub-Saharan Africa: physically separated lanes, high-capacity buses, and a simple fare collected before boarding. The project was born of necessity. Lagos had already passed 15 million residents; danfo minibuses filled every gap in the road, and average peak commutes stretched past two hours. World Bank and LAMATA planning documents treated the corridor as a demonstration: if dedicated lanes could cut travel time on one arterial, the model could spread. Ridership climbed into the hundreds of thousands of daily trips within a few years. The BRT did not solve Lagos traffic. It showed that the constraint was political and spatial — reclaiming asphalt from mixed traffic — not a lack of demand. Subsequent expansions and the later Blue Line light rail sit in that lineage. Every 2050 urban-transit scenario on this site assumes cities other than Lagos copy the core idea: protected right-of-way, enforceable lanes, and fares ordinary workers can pay.",
+    relatedSectorSlugs: ["transportation", "economy", "governance"],
+    sourceIds: ["world-bank-nigeria-overview", "cbo-nigeria-history"],
+    artDirection: "democracy",
+  },
+  {
+    id: "standard-gauge-rail",
+    era: "reform",
+    title: "Standard-Gauge Rail Revival",
+    dateRange: "2014–present",
+    summary:
+      "Abuja–Kaduna and Lagos–Ibadan passenger lines reopen modern rail in Nigeria — two corridors that prove the technology works and how slowly a network still forms.",
+    content:
+      "Colonial Nigeria built a narrow-gauge grid from interior cash-crop belts to the ports. By the 2000s those lines were largely unusable for passengers. From 2014, successive administrations contracted Chinese and other partners to lay standard-gauge track: Abuja–Kaduna opened to passengers in 2016; Lagos–Ibadan followed in 2021. The new lines cut a Lagos–Ibadan road trip that could take six hours in traffic to under two by rail. They also exposed the unfinished map. Freight paths, last-mile trucking, signalling, and security on the Kaduna corridor lagged the ribbon-cuttings. Bandit attacks on the Abuja–Kaduna service in 2022 forced suspensions that reminded planners: a railway is only as useful as the security and power around it. Completing Lagos–Kano as a freight-and-passenger spine, not a sequence of prestige stations, is the hinge assumption in Naija2050's transportation base case. Until containers move north by rail, Apapa trucks will keep grinding the same coastal roads colonial engineers first paved for export.",
+    relatedSectorSlugs: ["transportation", "economy", "energy", "security"],
+    sourceIds: ["agenda-2050-npc", "world-bank-lpi", "cbo-nigeria-history"],
     artDirection: "reform",
   },
 ];
