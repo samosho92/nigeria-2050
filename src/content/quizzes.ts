@@ -59,6 +59,20 @@ export const SECTOR_QUIZZES: SectorQuiz[] = [
       },
     ],
   },
+  {
+    sectorSlug: "real-estate",
+    title: "Housing check",
+    questions: [
+      {
+        id: "rea-1",
+        prompt: "About what share of Nigeria's urban population lived in slums in 2022 (World Bank / UN-Habitat)?",
+        options: ["About 10%", "About 25%", "About 49%", "About 80%"],
+        correctIndex: 2,
+        explanation:
+          "WDI EN.POP.SLUM.UR.ZS is 48.5% for 2022. That is the housing-quality gap — national density already matches Germany.",
+      },
+    ],
+  },
 ];
 
 export function getSectorQuiz(sectorSlug: string): SectorQuiz | undefined {

@@ -826,4 +826,151 @@ export const PHASE2_SECTORS: Sector[] = [
       "world-bank-nigeria-overview",
     ],
   },
+  {
+    slug: "real-estate",
+    title: "Real Estate & Housing",
+    tagline: "Density, land tenure, and the cost of a roof as the population heads toward 400 million",
+    headline2050:
+      "A country that can house 400 million people — denser cities with titled plots, mortgages that work, and rents that no longer swallow half a paycheck.",
+    baseline: {
+      populationDensity: "250 per km²",
+      urbanShare: "62%",
+      urbanInSlums: "48.5%",
+      housingDeficitRange: "22–28 million units",
+      mortgagesToGdp: "0.6%",
+    },
+    scenarioRanges: [
+      { label: "Urban population in slums (2050 scenario)", unit: "%", low: 38, base: 25, high: 15 },
+      { label: "Urban share of population (2050 scenario)", unit: "%", low: 66, base: 70, high: 74 },
+    ],
+    reviewStatus: "pending-review",
+    projections: [
+      {
+        year: 2030,
+        headline: "Titles Before Towers",
+        narrative:
+          "Population is still climbing fast. The binding constraint is not empty land — national density already matches Germany — but who holds a Certificate of Occupancy in Lagos, Kano, Abuja, and Onitsha. States digitize consent and cut the cost of registering property. Incremental upgrading reaches a first wave of informal settlements instead of demolition-only. Mortgage refinance starts to move off the National Housing Fund's tiny book.",
+        metrics: {
+          urbanInSlums: "42%",
+          urbanShare: "65%",
+          populationDensity: "~290 per km²",
+        },
+      },
+      {
+        year: 2040,
+        headline: "Supply Catches a Fraction of Demand",
+        narrative:
+          "Annual formal completions are no longer a rounding error against household formation. New towns along the Lagos–Ibadan and Abuja–Kaduna corridors — tied to the transportation spine — take pressure off the densest cores. Rent as a share of urban wages stops rising. Construction still imports too much cement chemistry, but local materials hubs cut the 2019–2024 cost spike from becoming a permanent tax on every wall.",
+        metrics: {
+          urbanInSlums: "33%",
+          urbanShare: "68%",
+          populationDensity: "~360 per km²",
+        },
+      },
+      {
+        year: 2050,
+        headline: "Dense, Titled, and Livable",
+        narrative:
+          "Four hundred million people on the same land mass means roughly 430 people per square kilometre — denser than today's United Kingdom. That only works if housing supply, transit, and power move together. The base case is not a G7 mortgage market. It is slum share down to about a quarter of urban residents, most urban land transactable, and rents that leave room for food. Speculative Lekki pricing still exists; it no longer defines how a nurse or teacher lives.",
+        metrics: {
+          urbanInSlums: "25%",
+          urbanShare: "70%",
+          populationDensity: "~430 per km²",
+        },
+      },
+    ],
+    historicalWaypoints: [
+      {
+        timelineEntryId: "colonial-economy",
+        title: "Colonial Towns, Extractive Land",
+        summary: "Lagos and the rail-head towns were built to move crops to ports — density without a housing system.",
+      },
+      {
+        timelineEntryId: "land-use-act-1978",
+        title: "The Land Use Act",
+        summary: "1978 vested urban land in state governors. Forty years later, titles are still the bottleneck that inflates prices.",
+      },
+      {
+        timelineEntryId: "structural-adjustment",
+        title: "Naira Shock and Housing Costs",
+        summary: "Devaluation made imported building materials and urban rent a larger share of shrinking real wages — a pattern that returned in 2023–24.",
+      },
+    ],
+    assumptions: [
+      {
+        title: "Population and density are the demand engine",
+        detail:
+          "NPC's published path toward ~400 million people by 2050, on ~924,000 km² of land, implies national density rising from 250 per km² (WDI 2023) to about 430. That is not a G7-style empty-continent problem: Nigeria is already as dense as Germany. Housing stress concentrates where people actually move — Lagos, Kano, Ibadan, Abuja, Onitsha, Port Harcourt — so prices and rents rise fastest in those agglomerations.",
+      },
+      {
+        title: "Urbanization still has a long way to run",
+        detail:
+          "WDI 2023: 62% urban versus ~80% in most G7 members. As the urban share rises toward a 70% 2050 scenario, more households compete for titled plots in the same cities. Without supply, density becomes overcrowding and slum growth, not productive agglomeration.",
+      },
+      {
+        title: "Informal urban housing is the measured gap",
+        detail:
+          "WDI / UN-Habitat: 48.5% of Nigeria's urban population lived in slums in 2022, against ~0–2% in G7 members. The 2050 base case (25%) still leaves tens of millions in inadequate housing — optimistic relative to today, not a claim that Lagos will look like Tokyo.",
+      },
+      {
+        title: "Deficit figures are a range, not a census",
+        detail:
+          "CAHF (2024 Yearbook) cites ~28 million missing units in 2023 (up from ~14 million in 2010). AFP fact-check reporting notes FMBN has used ~22 million. We treat 22–28 million as the sourced range and do not use larger political figures. Closing it requires on the order of hundreds of thousands of formal units a year; CAHF reports combined government-plus-private delivery around 50,000 versus ~700,000 needed.",
+      },
+      {
+        title: "House prices and rents are an inflation-plus-scarcity story",
+        detail:
+          "CAHF 2024 reports Lekki and Ikeja rents up more than 200% since 2019, and that many urban households spend over 50% of salary on rent — well above the 30% affordability rule of thumb. Cement prices in the same profile rose several-fold over 2019–2024. The scenario assumes naira stabilization plus titled supply so that rent-to-income stops climbing even as density rises. There is no WDI house-price index that includes Nigeria and the G7, so we do not invent a cross-country price-to-income row.",
+      },
+      {
+        title: "Land Use Act reform and cheaper registration",
+        detail:
+          "World Bank Doing Business 2020: registering property in Nigeria took 12 procedures, ~92 days, and over 11% of property value. CAHF notes NBS 2018: most landlords lack titles; C-of-O coverage is in the single digits. The 2030 path assumes states cut consent time and cost so land can be collateral — otherwise mortgages cannot scale past CAHF's 0.6% of GDP (2021).",
+      },
+      {
+        title: "Transit and power are housing policy",
+        detail:
+          "If the transportation spine and 12 GW-by-2030 energy delivery fail, new housing on the urban edge is a generator-and-okada tax. Commute time is part of housing cost. Real-estate scenarios assume those sector pages' base cases hold.",
+      },
+    ],
+    risks: [
+      {
+        title: "Inflation reprices every wall",
+        detail:
+          "Another naira slide repeats 2023–24: cement, granite, and dollar-linked finishes jump, developers freeze, and landlords pass costs into rent. Density then shows up as more people per room, not more buildings.",
+      },
+      {
+        title: "Title reform captured by insiders",
+        detail:
+          "Digitized C-of-O that only serves connected applicants would formalize speculation, not affordability — raising listed prices without shrinking slums.",
+      },
+      {
+        title: "Demolition without replacement",
+        detail:
+          "Clearing waterfront or highway-setback settlements without equivalent units elsewhere displaces households into farther slums and can raise, not lower, the urban slum share.",
+      },
+      {
+        title: "Prestige supply, missing middle",
+        detail:
+          "If completions stay concentrated in Lekki, Banana Island, and Maitama, median prices keep soaring while the 22–28 million unit gap is filled only by informal building.",
+      },
+      {
+        title: "Climate and flooding",
+        detail:
+          "Lagos and Delta flood risk can wipe out low-lying stock and insurance appetite. Building in the path of water makes 2050 density lethal rather than productive.",
+      },
+      {
+        title: "Insecurity and stalled new towns",
+        detail:
+          "Banditry on peri-urban corridors and farmer–herder conflict in the middle belt can freeze satellite-city land, forcing even more people into already expensive cores.",
+      },
+    ],
+    sourceIds: [
+      "world-bank-g7-indicators",
+      "cahf-nigeria-housing",
+      "npc-population-projection",
+      "world-bank-doing-business",
+      "world-bank-nigeria-overview",
+    ],
+  },
 ];

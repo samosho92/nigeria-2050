@@ -88,7 +88,7 @@ export const PHASE2_TIMELINE_ENTRIES: TimelineEntry[] = [
       "Africa's first full BRT corridor opens on Ikorodu Road — dedicated lanes, prepaid fares, and proof that a Nigerian megacity can move people at scale.",
     content:
       "In March 2008, the Lagos Metropolitan Area Transport Authority launched the BRT-Lite corridor along Ikorodu Road. It was the first bus rapid transit system in sub-Saharan Africa: physically separated lanes, high-capacity buses, and a simple fare collected before boarding. The project was born of necessity. Lagos had already passed 15 million residents; danfo minibuses filled every gap in the road, and average peak commutes stretched past two hours. World Bank and LAMATA planning documents treated the corridor as a demonstration: if dedicated lanes could cut travel time on one arterial, the model could spread. Ridership climbed into the hundreds of thousands of daily trips within a few years. The BRT did not solve Lagos traffic. It showed that the constraint was political and spatial — reclaiming asphalt from mixed traffic — not a lack of demand. Subsequent expansions and the later Blue Line light rail sit in that lineage. Every 2050 urban-transit scenario on this site assumes cities other than Lagos copy the core idea: protected right-of-way, enforceable lanes, and fares ordinary workers can pay.",
-    relatedSectorSlugs: ["transportation", "economy", "governance"],
+    relatedSectorSlugs: ["transportation", "economy", "governance", "real-estate"],
     sourceIds: ["world-bank-nigeria-overview", "cbo-nigeria-history"],
     artDirection: "democracy",
   },
@@ -104,5 +104,18 @@ export const PHASE2_TIMELINE_ENTRIES: TimelineEntry[] = [
     relatedSectorSlugs: ["transportation", "economy", "energy", "security"],
     sourceIds: ["agenda-2050-npc", "world-bank-lpi", "cbo-nigeria-history"],
     artDirection: "reform",
+  },
+  {
+    id: "land-use-act-1978",
+    era: "military-rule",
+    title: "The Land Use Act",
+    dateRange: "1978",
+    summary:
+      "Military decree vests urban land in state governors — the legal architecture still sitting under today's title delays and soaring urban prices.",
+    content:
+      "The Land Use Act of 1978, enacted under General Olusegun Obasanjo's military government, nationalized radical title: urban land was vested in state governors, rural land in local governments, to be held in trust. The Act was meant to curb speculation, simplify access, and make land available for development after the oil-boom scramble. In practice it created a consent bottleneck. Governors' consent is required to alienate land; Certificates of Occupancy became the scarce paper that banks will mortgage. World Bank Doing Business 2020 still recorded registering property in Nigeria as a dozen steps, months of waiting, and more than a tenth of the property's value in costs. CAHF and NBS figures show most urban landlords still lack titles. Every 2050 housing scenario on this site assumes states can issue and transfer rights cheaply enough that density does not automatically become slums and 200% rent spikes in Lagos corridors. Repeal is politically radioactive — the Act is entrenched in the 1999 Constitution — so the plausible path is administrative reform: digitized consent, time limits, and lower fees, not a fantasy clean-slate land market.",
+    relatedSectorSlugs: ["real-estate", "governance", "economy", "financial-inclusion"],
+    sourceIds: ["cahf-nigeria-housing", "world-bank-doing-business", "cbo-nigeria-history"],
+    artDirection: "military",
   },
 ];

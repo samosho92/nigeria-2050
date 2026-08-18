@@ -83,7 +83,7 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     title: "Now vs. 2050 Comparator",
     summary: "The morph slider interpolates between sourced baseline and base-case 2050 values.",
     points: [
-      "Nine headline metrics with named sources — GDP per capita, literacy, power capacity, internet penetration, logistics performance, and others.",
+      "Ten headline metrics with named sources — GDP per capita, literacy, power, internet, logistics, urban slum share, and others.",
       "The slider interpolates between a sourced baseline and a labeled 2050 scenario for illustration; it is not a year-by-year economic forecast.",
       "Low and high 2050 bounds are shown on sector pages where scenario ranges exist.",
     ],

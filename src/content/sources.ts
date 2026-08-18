@@ -194,7 +194,7 @@ const RAW_SOURCES: Source[] = [
 ];
 
 const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
-  "world-bank-nigeria-overview": { sectors: ["economy", "governance", "energy", "security", "transportation"] },
+  "world-bank-nigeria-overview": { sectors: ["economy", "governance", "energy", "security", "transportation", "real-estate"] },
   "nbs-gdp-report-2024": { sectors: ["economy"] },
   "mckinsey-nigeria-2050": { sectors: ["economy", "technology", "education"] },
   "pwc-nigeria-2050": { sectors: ["economy"] },
@@ -203,14 +203,14 @@ const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
   "iea-nigeria-energy": { sectors: ["energy"] },
   "gsma-nigeria-digital": { sectors: ["technology"] },
   "transparency-corruption-index": { sectors: ["governance"] },
-  "world-bank-doing-business": { sectors: ["economy", "governance"] },
+  "world-bank-doing-business": { sectors: ["economy", "governance", "real-estate"] },
   "sipri-security-africa": { sectors: ["security"], eras: ["civil-war", "military-rule"] },
-  "npc-population-projection": { sectors: ["economy", "education"] },
+  "npc-population-projection": { sectors: ["economy", "education", "real-estate"] },
   "afdb-industrialization": { sectors: ["economy", "energy", "transportation"] },
   "heritage-economic-freedom": { sectors: ["governance", "economy"] },
   "cbo-nigeria-history": { eras: ["pre-colonial", "colonial", "independence", "civil-war", "military-rule", "democracy", "reform"] },
-  "agenda-2050-npc": { sectors: ["economy", "energy", "education", "governance", "transportation"] },
-  "world-bank-g7-indicators": { sectors: ["economy", "governance", "energy", "technology", "transportation"] },
+  "agenda-2050-npc": { sectors: ["economy", "energy", "education", "governance", "transportation", "real-estate"] },
+  "world-bank-g7-indicators": { sectors: ["economy", "governance", "energy", "technology", "transportation", "real-estate"] },
   "ilo-employment-stats": { sectors: ["economy"] },
   "itu-digital-indicators": { sectors: ["technology"] },
   "wipo-ip-stats": { sectors: ["technology"] },

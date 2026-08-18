@@ -79,6 +79,24 @@ export const GLOSSARY: GlossaryTerm[] = [
       "Railway built to the 1,435 mm international gauge, as opposed to the colonial narrow-gauge network. Abuja–Kaduna (2016) and Lagos–Ibadan (2021) are Nigeria's modern standard-gauge passenger lines; the 2050 case assumes a Lagos–Kano freight-and-passenger spine.",
     relatedSlugs: ["transportation", "energy"],
   },
+  {
+    term: "Land Use Act",
+    definition:
+      "A 1978 law (now constitutional) that vests urban land in state governors. Transferring rights requires governor's consent and a Certificate of Occupancy — the bottleneck behind slow titles, thin mortgages, and high urban prices.",
+    relatedSlugs: ["real-estate", "governance"],
+  },
+  {
+    term: "Housing deficit",
+    definition:
+      "The gap between households and adequate dwellings. CAHF cites about 28 million units for Nigeria in 2023; FMBN has used about 22 million. Naija2050 treats 22–28 million as a sourced range, not a single census count.",
+    relatedSlugs: ["real-estate"],
+  },
+  {
+    term: "Slum (UN-Habitat)",
+    definition:
+      "An urban household lacking durable housing, sufficient living space, secure tenure, or access to water and sanitation. WDI records 48.5% of Nigeria's urban population in slums in 2022 versus near-zero in most G7 members.",
+    relatedSlugs: ["real-estate"],
+  },
 ];
 
 export function getGlossaryTerm(term: string): GlossaryTerm | undefined {

@@ -119,7 +119,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "Railways, cocoa, groundnuts, and palm oil — infrastructure built to extract, not develop.",
     content:
       "Colonial Nigeria's economy was structured for raw material export: cocoa from the west, groundnuts and cotton from the north, palm oil from the east. Railways ran from interior to ports, not connecting Nigerian regions to each other. Western education was limited; northern indirect rule preserved emirate structures. By independence, Nigeria had institutions designed for extraction — a pattern the 2050 diversification scenario explicitly seeks to reverse.",
-    relatedSectorSlugs: ["economy", "energy", "transportation"],
+    relatedSectorSlugs: ["economy", "energy", "transportation", "real-estate"],
     sourceIds: ["world-bank-nigeria-overview", "cbo-nigeria-history"],
     artDirection: "colonial",
   },
@@ -143,7 +143,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "Oil transforms Nigeria's economic calculus — blessing and curse in one.",
     content:
       "Commercial quantities of oil were discovered in Oloibiri, Bayelsa State, in 1956. By the 1970s oil boom, petroleum dominated federal revenue — rising from under 10% of exports in 1960 to over 80% by 1975. Oil concentrated wealth at the federal center, reduced incentive to diversify, and fueled corruption and conflict in the Niger Delta. Every 2050 economic scenario assumes breaking this dependency.",
-    relatedSectorSlugs: ["economy", "energy", "security", "transportation"],
+    relatedSectorSlugs: ["economy", "energy", "security", "transportation", "real-estate"],
     sourceIds: ["world-bank-nigeria-overview", "nbs-gdp-report-2024"],
     artDirection: "independence",
   },
@@ -204,7 +204,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "IMF-mandated reforms bite — devaluation, subsidy cuts, social pain.",
     content:
       "Under Babangida, Nigeria adopted IMF/World Bank Structural Adjustment Programs: currency devaluation, removal of agricultural subsidies, privatization of state enterprises. The naira collapsed; middle-class savings evaporated; universities deteriorated. The reforms were economically rational by textbook standards but socially devastating — fueling the brain drain and informal economy that 2050 scenarios assume gradually formalizing.",
-    relatedSectorSlugs: ["economy", "education"],
+    relatedSectorSlugs: ["economy", "education", "real-estate"],
     sourceIds: ["world-bank-nigeria-overview", "mckinsey-nigeria-2050"],
     artDirection: "military",
   },
@@ -264,7 +264,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "The government's own long-range plan — top-20 economy, $4T GDP.",
     content:
       "The National Planning Commission published Agenda 2050, targeting a $4.5 trillion economy and top-20 global ranking by 2050. The plan assumes 7%+ sustained growth, massive infrastructure investment, and human capital development. Naija2050 treats this as one input among many — not gospel — and stress-tests its assumptions against World Bank, McKinsey, and PwC scenarios, which range from optimistic to cautious.",
-    relatedSectorSlugs: ["economy", "energy", "education", "governance", "transportation"],
+    relatedSectorSlugs: ["economy", "energy", "education", "governance", "transportation", "real-estate"],
     sourceIds: ["agenda-2050-npc", "mckinsey-nigeria-2050", "pwc-nigeria-2050"],
     artDirection: "reform",
   },

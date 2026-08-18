@@ -77,4 +77,14 @@ export const COMPARATOR_METRICS: ComparatorMetric[] = [
     projected2050High: 3.9,
     sourceId: "world-bank-lpi",
   },
+  {
+    id: "urban-slum-share",
+    label: "Urban Population in Slums",
+    unit: "%",
+    current: 48.5,
+    projected2050: 25,
+    projected2050Low: 38,
+    projected2050High: 15,
+    sourceId: "world-bank-g7-indicators",
+  },
 ];

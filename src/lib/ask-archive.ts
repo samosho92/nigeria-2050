@@ -141,4 +141,5 @@ export const SUGGESTED_QUESTIONS = [
   "How is Nigeria diversifying beyond oil?",
   "What is brain drain and can it reverse?",
   "What does Nigeria's 2050 transportation vision look like?",
+  "How do population density and housing costs shape Nigeria's 2050 real estate scenario?",
 ];

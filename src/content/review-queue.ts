@@ -76,6 +76,15 @@ export const REVIEW_QUEUE: ReviewItem[] = [
     reviewer: "Transport economist (TBD)",
     notes: "LPI 2023, WDI 2019 air passengers, and WHO GSRRS 2023 road-death rates transcribed from source tables. Port dwell-day baseline withheld until a named series exists.",
   },
+  {
+    id: "sector-real-estate-projections",
+    type: "sector",
+    title: "Real estate sector 2050 projections — housing economist review",
+    status: "pending-review",
+    reviewer: "Housing economist (TBD)",
+    notes:
+      "WDI 2022 slum share, 2023 density and urban % transcribed from API. Housing deficit kept as CAHF/FMBN 22–28 million range. No G7 house-price row (no common series).",
+  },
 ];
 
 export function getPendingReviews() {

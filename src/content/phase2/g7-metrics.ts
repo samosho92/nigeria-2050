@@ -165,4 +165,38 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     context:
       "Lower is better. Nigeria country profile: 17.2 (2021). United States profile: 14.2 (2021). The 2050 figure is a scenario, not a WHO projection.",
   },
+  {
+    id: "urban-slum-share",
+    sectorSlug: "real-estate",
+    label: "Urban Population in Slums",
+    definition:
+      "Population living in slums (% of urban population) — UN-Habitat / World Bank WDI EN.POP.SLUM.UR.ZS, 2022 latest common year for Nigeria and all G7 members.",
+    unit: "%",
+    referenceYear: 2022,
+    nigeria: 48.5,
+    g7Countries: { CA: 1.1, FR: 0, DE: 0, IT: 0.02, JP: 2.0, GB: 0.16, US: 0.09 },
+    nigeria2050: 25,
+    higherIsBetter: false,
+    sourceId: "world-bank-g7-indicators",
+    sourceSeries: "WDI · EN.POP.SLUM.UR.ZS · 2022 (API retrieved 18 Aug 2026)",
+    context:
+      "This is the housing-quality gap. National density is not: Nigeria (250/km²) is already in Germany's range. The 2050 figure is a scenario.",
+  },
+  {
+    id: "urban-population-share",
+    sectorSlug: "real-estate",
+    label: "Urban Population Share",
+    definition:
+      "Urban population (% of total population) — WDI SP.URB.TOTL.IN.ZS, 2023 for Nigeria and all G7 members.",
+    unit: "%",
+    referenceYear: 2023,
+    nigeria: 62.2,
+    g7Countries: { CA: 82.5, FR: 78.8, DE: 81.9, IT: 69.5, JP: 92.1, GB: 83.2, US: 80.1 },
+    nigeria2050: 70,
+    higherIsBetter: true,
+    sourceId: "world-bank-g7-indicators",
+    sourceSeries: "WDI · SP.URB.TOTL.IN.ZS · 2023 (API retrieved 18 Aug 2026)",
+    context:
+      "Nigeria is less urban than the G7 — so housing demand will keep rising as people move to cities. Higher urban share is not automatically better housing; without supply it raises rents.",
+  },
 ];

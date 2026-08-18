@@ -16,9 +16,9 @@ test.describe("critical paths", () => {
     await expect(page.getByText("Healthcare & Public Health")).toBeVisible();
   });
 
-  test("transportation sector page loads", async ({ page }) => {
-    await page.goto("/sectors/transportation");
-    await expect(page.getByRole("heading", { name: /Transportation/i })).toBeVisible();
+  test("real estate sector page loads", async ({ page }) => {
+    await page.goto("/sectors/real-estate");
+    await expect(page.getByRole("heading", { name: /Real Estate/i })).toBeVisible();
   });
 
   test("your 2050 page loads", async ({ page }) => {

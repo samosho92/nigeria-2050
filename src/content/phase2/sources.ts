@@ -73,6 +73,14 @@ export const PHASE2_RAW_SOURCES: Source[] = [
     url: "https://www.who.int/teams/social-determinants-of-health/safety-and-mobility/global-status-report-on-road-safety-2023",
     accessedAt: "2026-08-18",
   },
+  {
+    id: "cahf-nigeria-housing",
+    title: "Africa Housing Finance Yearbook — Nigeria Country Profile",
+    publisher: "Centre for Affordable Housing Finance Africa",
+    year: 2024,
+    url: "https://housingfinanceafrica.org/wp-content/uploads/2025/03/NIGERIA.pdf",
+    accessedAt: "2026-08-18",
+  },
 ];
 
 export const PHASE2_SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
@@ -86,4 +94,5 @@ export const PHASE2_SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">
   "cbn-financial-access": { sectors: ["financial-inclusion", "technology"] },
   "world-bank-lpi": { sectors: ["transportation", "economy"] },
   "who-road-safety": { sectors: ["transportation", "security"] },
+  "cahf-nigeria-housing": { sectors: ["real-estate", "economy", "financial-inclusion"] },
 };
