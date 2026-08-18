@@ -6,8 +6,8 @@ An independent, design-forward public web app exploring Nigeria's history and cr
 
 ## Product docs
 
-- [Product Requirements Document](./Nigeria2050_PRD.md)
-- [MVP Plan](./MVP_PLAN.md)
+- [Product Requirements Document](./docs/Nigeria2050_PRD.md)
+- [MVP Plan](./docs/MVP_PLAN.md)
 
 ## Tech stack
 
@@ -15,11 +15,21 @@ An independent, design-forward public web app exploring Nigeria's history and cr
 |---|---|
 | Framework | Next.js 15 (App Router) |
 | Language | TypeScript |
-| Styling | Tailwind CSS v4 |
+| Styling | Tailwind CSS v4 + semantic design tokens |
+| Icons | Tabler Icons (`@tabler/icons-react`) |
+| Theming | `next-themes` (light / dark via CSS variables) |
 | Animation | Framer Motion |
 | Charts | Recharts |
 | Content | JSON/MDX in `src/content/` |
 | Hosting target | Static-generation-friendly (Vercel) |
+
+## Design system
+
+All colors, fonts, and radii live in `src/app/globals.css` as CSS custom properties — components use semantic tokens only (`bg-background`, `text-foreground`, `bg-primary`, etc.). Never hardcode hex values or font families in components.
+
+- **Dark mode** (default): Lagos night palette per PRD
+- **Light mode**: Warm earth-tone alternative
+- Toggle via the header theme control (respects system preference)
 
 ## Getting started
 
@@ -28,7 +38,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3500](http://localhost:3500).
 
 ## Scripts
 

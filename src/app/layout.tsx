@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { fontSans, fontSerif } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,11 +29,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="min-h-screen flex flex-col">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(
+          fontSans.variable,
+          fontSerif.variable,
+          "min-h-screen flex flex-col font-sans",
+        )}
+      >
+        <ThemeProvider>
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+        </ThemeProvider>
       </body>
     </html>
   );

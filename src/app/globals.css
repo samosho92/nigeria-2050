@@ -1,27 +1,128 @@
 @import "tailwindcss";
 
-@theme {
-  /* Nigerian-inspired palette — dark-mode-first (PRD §8.1) */
-  --color-adire-indigo: #1e3a5f;
-  --color-adire-indigo-light: #2d5a8a;
-  --color-terracotta: #c45c3e;
-  --color-terracotta-muted: #a04a32;
-  --color-earth: #8b6914;
-  --color-earth-muted: #6b5010;
-  --color-lagos-night: #0a0e17;
-  --color-lagos-surface: #121826;
-  --color-lagos-elevated: #1a2234;
-  --color-lagos-border: #2a3548;
-  --color-optimism-gold: #e8b84a;
-  --color-optimism-warm: #f5d78e;
-  --color-text-primary: #f0f2f5;
-  --color-text-secondary: #a8b2c1;
-  --color-text-muted: #6b7789;
+/* ─── Design tokens: light theme ─────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  --background: #faf8f5;
+  --foreground: #1a1a2e;
 
-  --font-serif: "Georgia", "Times New Roman", serif;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --card: #ffffff;
+  --card-foreground: #1a1a2e;
+
+  --surface: #f5f2ed;
+  --surface-elevated: #ffffff;
+
+  --muted: #ebe6de;
+  --muted-foreground: #5c5c6f;
+
+  --border: #e2dcd3;
+  --input: #e2dcd3;
+  --ring: #1e3a5f;
+
+  --primary: #c45c3e;
+  --primary-foreground: #ffffff;
+  --primary-hover: #a04a32;
+
+  --secondary: #1e3a5f;
+  --secondary-foreground: #ffffff;
+  --secondary-hover: #2d5a8a;
+
+  --accent: #b8860b;
+  --accent-foreground: #1a1a2e;
+  --accent-muted: #d4a017;
+
+  --code: #8b6914;
+
+  --header-background: rgb(250 248 245 / 0.9);
+  --hero-gradient-from: rgb(30 58 95 / 0.12);
 }
 
+/* ─── Design tokens: dark theme (PRD default) ─────────────────────────────── */
+[data-theme="dark"] {
+  --background: #0a0e17;
+  --foreground: #f0f2f5;
+
+  --card: #121826;
+  --card-foreground: #f0f2f5;
+
+  --surface: #121826;
+  --surface-elevated: #1a2234;
+
+  --muted: #1a2234;
+  --muted-foreground: #a8b2c1;
+
+  --border: #2a3548;
+  --input: #2a3548;
+  --ring: #2d5a8a;
+
+  --primary: #c45c3e;
+  --primary-foreground: #ffffff;
+  --primary-hover: #a04a32;
+
+  --secondary: #2d5a8a;
+  --secondary-foreground: #f0f2f5;
+  --secondary-hover: #3d6ea8;
+
+  --accent: #e8b84a;
+  --accent-foreground: #0a0e17;
+  --accent-muted: #f5d78e;
+
+  --code: #f5d78e;
+
+  --header-background: rgb(10 14 23 / 0.9);
+  --hero-gradient-from: rgb(30 58 95 / 0.2);
+}
+
+/* ─── Shared primitives ───────────────────────────────────────────────────── */
+:root {
+  --radius: 0.625rem;
+}
+
+/* ─── Tailwind theme bridge (semantic only — no hardcoded values in components) */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-muted: var(--accent-muted);
+
+  --color-code: var(--code);
+
+  --color-header-background: var(--header-background);
+  --color-hero-gradient-from: var(--hero-gradient-from);
+
+  --font-serif: var(--font-serif-family), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans-family), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ─── Base styles ─────────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -42,7 +143,7 @@
   }
 
   body {
-    @apply bg-lagos-night text-text-primary antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
   }
 
@@ -51,6 +152,10 @@
   h3,
   h4 {
     font-family: var(--font-serif);
+  }
+
+  code {
+    @apply text-code;
   }
 }
 

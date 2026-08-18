@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { Container } from "@/components/ui/Container";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { PlaceholderPanel } from "@/components/ui/PlaceholderPanel";
 
 export const metadata: Metadata = {
   title: "Glossary",
@@ -7,16 +10,14 @@ export const metadata: Metadata = {
 
 export default function GlossaryPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16 lg:px-8">
-      <h1 className="text-3xl font-bold md:text-4xl">Glossary</h1>
-      <p className="mt-4 text-text-secondary">
-        Terms surfaced inline across the site with plain-language definitions.
-      </p>
-      <div className="mt-12 rounded-xl border border-dashed border-lagos-border bg-lagos-surface p-8">
-        <p className="text-text-secondary">
-          Glossary content and inline surfacing ship in MVP Sprint 5.
-        </p>
-      </div>
-    </div>
+    <Container size="narrow" className="py-16">
+      <PageHeader
+        title="Glossary"
+        description="Terms surfaced inline across the site with plain-language definitions."
+      />
+      <PlaceholderPanel>
+        Glossary content and inline surfacing ship in MVP Sprint 5.
+      </PlaceholderPanel>
+    </Container>
   );
 }
