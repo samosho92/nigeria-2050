@@ -10,10 +10,10 @@
 | Phase | Goal | Status |
 |---|---|---|
 | **Phase 1** | Ship MVP — history + 6 sectors + fusion + AI core | ✅ Engineering complete · **launch blocked** on external editorial review + Vercel deploy |
-| **Phase 2** | Expand content, localization, AI depth, engagement | ⚠️ **Content + engagement mostly shipped** · i18n, audio, commissioned art, WebGL, CMS **deferred** |
+| **Phase 2** | Expand content, localization, AI depth, engagement | ⚠️ **Content + engagement mostly shipped** (Icons, Cool Projects, Ask API) · i18n, audio, commissioned art, WebGL, CMS **deferred** |
 | **Phase 3** | Commercialization (licensing, membership, white-label) | 🔮 Not started |
 
-**What is live in the repo today:** 13 sectors, 26 timeline entries, 38 sources, G7 comparator, Your Nigeria 2050, correction form, home map, 5 sector quizzes. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
+**What is live in the repo today:** 13 sectors, 26 timeline entries, 38 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (26 editorial ideas + vote/submit, plus postal-code and road-sign mocks), correction form, home map, 5 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
 
 ---
 
@@ -36,17 +36,20 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 
 | Deliverable | Route / location | Notes |
 |---|---|---|
-| Home | `/` | Hero metrics, pillar overview, sector grid, isometric zone map, Ask the Archive CTA |
+| Home | `/` | Hero metrics, pillar overview, sector grid, isometric zone map, Ask / Projects / Your 2050 CTAs |
 | Sector vision pages | `/sectors/[slug]` | Editorial hero, baseline chart, scenario ranges, interactive milestone timeline, How We Got Here, assumptions/risks, sources. **13 sectors live** (6 MVP + 7 expansion) |
 | Interactive history timeline | `/timeline` | 8 eras, 26 entries, scrollytelling spine, era scrubber, sector cross-links |
 | Now vs. 2050 comparator | `/compare` | Morph slider; 2030–2050 figures labeled as scenarios |
 | Nigeria vs. G7 | `/compare/g7` | Same-indicator, same-year benchmarks (Phase 2 addition) |
-| Your Nigeria 2050 | `/your-2050` | Client-side grounded vignette (Phase 2 addition) |
-| Ask the Archive | `/ask` | Client-side RAG, sourced answers, out-of-scope guardrails |
-| Source library | `/sources` | Sector + era filters |
+| Your Nigeria 2050 | `/your-2050` | Client-side grounded vignette; display names sanitized (Phase 2 addition) |
+| Icons of Nigeria | `/icons` | 150 sourced figures, Wikimedia portraits, no sitting officeholders, no AI likenesses |
+| Cool Projects | `/projects` | 26 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`) |
+| Ask the Archive | `/ask` | Server-side retrieval (`POST /api/ask`), sourced answers, expanded guardrails |
+| Source library | `/sources` | Sector + era filters (38 editorial sources; icon citations listed per figure) |
 | Glossary | `/glossary` | Terms + inline `AutoGlossary` |
-| Methodology | `/methodology` | Editorial policy, scenario labeling (`SCENARIO_UI_NOTE`), correction contact |
-| Editorial review queue | `/editorial/review` | Internal sign-off tracker — **8 items still `pending-review`** |
+| Methodology | `/methodology` | Editorial policy, scenario labeling (`SCENARIO_UI_NOTE`), AI/Ask scope, correction contact |
+| Privacy / Terms | `/privacy`, `/terms` | Legal copy in `src/content/legal.ts` (Ask is server-side, not persisted) |
+| Editorial review queue | `/editorial/review` | Internal sign-off tracker — **9 items still `pending-review`**; `noindex` |
 
 ### Fusion mechanism
 
@@ -58,26 +61,32 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 
 - Next.js 15 App Router, TypeScript, Tailwind v4 semantic tokens
 - CI: lint, typecheck, build (`.github/workflows/ci.yml`) — Playwright smoke tests exist locally (`npm run test:e2e`) but are **not yet in CI**
-- SEO: metadata, OG image, sitemap, robots
+- SEO: metadata, OG image, sitemap; `robots.ts` disallows `/api/` and `/editorial/`
+- Security headers in `next.config.ts` (CSP, `X-Frame-Options: DENY`, HSTS, `Permissions-Policy`, COOP); `poweredByHeader: false`
+- API hardening: origin check in production, JSON body caps, in-memory IP rate limits (`src/lib/security.ts`); webhook URL allowlist (public HTTPS only)
+- Ask / corrections / projects write paths share phrase-first moderation (`src/lib/ask-guardrails.ts`)
 - Accessibility: skip link, reduced-motion + data-saver modes
 - Hydration-safe motion (`AnimatedCounter`, `FadeIn`, `useMounted`)
 - Dev cache guards (`scripts/ensure-dev-stopped.mjs`, `scripts/stop-dev.mjs`)
 - Optional Plausible production analytics (`NEXT_PUBLIC_PLAUSIBLE_DOMAIN`)
-- Optional corrections webhook (`CORRECTIONS_WEBHOOK_URL`)
+- Optional webhooks: `CORRECTIONS_WEBHOOK_URL`, `PROJECTS_WEBHOOK_URL`
 
 ### Content library (current)
 
 | Asset | Count |
 |---|---|
-| Sources | 38 |
+| Editorial sources | 38 |
+| Icon citations (Wikimedia / named sources) | 150 |
 | Timeline eras | 8 |
 | Timeline entries | 26 (17 MVP + 9 Phase 2) |
 | Sectors | 13 |
+| Icons of Nigeria | 150 |
+| Cool Projects (editorial) | 26 |
 | Glossary terms | 18 |
 | Comparator metrics | 10 |
 | G7 benchmark rows | 31 |
 | Sector quizzes | 5 |
-| Review-queue items | 11 (8 pending) |
+| Review-queue items | 12 (9 pending, including Icons register) |
 
 ---
 
@@ -94,29 +103,32 @@ Unchanged from Phase 1 — **none of this is done.** Content expansion does not 
   - `NEXT_PUBLIC_SITE_URL` → production domain
   - `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` → optional analytics
   - `CORRECTIONS_WEBHOOK_URL` → optional (correction form logs in development without it)
-- [ ] Smoke-test all routes on production URL
-- [ ] Confirm OG image and sitemap resolve on production domain
+  - `PROJECTS_WEBHOOK_URL` → optional (Cool Projects submissions)
+- [ ] Smoke-test all routes on production URL (include `/icons`, `/projects`, `/projects/postal-codes`, `/projects/road-signs`, `/privacy`, `/ask`)
+- [ ] Confirm OG image, sitemap, and `robots.txt` disallow of `/api/` + `/editorial/` on production domain
 
 ### QA (owner: product)
 
 - [ ] Cross-browser pass: Chrome, Safari, Firefox, mobile Safari/Chrome
 - [ ] Lighthouse audit on 4G throttled — target ≥ 80 performance, ≥ 90 accessibility
 - [ ] Test data-saver mode and `prefers-reduced-motion`
-- [ ] Verify Ask the Archive declines out-of-scope queries
+- [ ] Verify Ask the Archive declines out-of-scope, abusive, and injection-style queries (and still answers civic history, e.g. Civil War)
+- [ ] Confirm Cool Projects vote + submit; corrections reject off-site / `javascript:` page URLs
 - [ ] Test interactive milestone timeline (click + keyboard navigation)
 
 ### Editorial (owner: content — **launch blocker**)
 
 - [ ] Historian review: Civil War timeline entry
 - [ ] Economist review: Economy + Security sector projections
-- [ ] Sign off editorial review queue items marked `pending-review` (8 remaining, including healthcare, agriculture, transportation, real estate)
-- [ ] Final proofread of methodology page
+- [ ] Sign off editorial review queue items marked `pending-review` (9 remaining, including healthcare, agriculture, transportation, real estate, and the Icons register)
+- [ ] Final proofread of methodology, privacy, and terms pages
 
 ### Post-launch (week 1)
 
 - [ ] Share launch URL on primary distribution channel (diaspora / education / press)
 - [ ] Monitor Plausible for cross-pillar nav rate and morph slider engagement
 - [ ] Triage correction emails / webhook submissions via methodology contact
+- [ ] Triage Cool Projects submissions (`PROJECTS_WEBHOOK_URL` or runtime store)
 
 ---
 
@@ -140,7 +152,7 @@ These were never in MVP. Several were later pulled forward into Phase 2 (see §2
 
 - Multilingual content — **still deferred**
 - Additional sectors beyond the flagship 6 — **done in Phase 2** (now 13)
-- User accounts or community submissions — **still deferred** (correction form is not a community CMS)
+- User accounts — **still deferred**. Anonymous Cool Projects votes (browser UUID) and idea submissions shipped without accounts; they are not a community CMS
 - Real-time data feeds — **still deferred**
 - Native mobile app — **still deferred** (Phase 3)
 - 3D/WebGL centerpiece — **still deferred**; CSS isometric map shipped instead
@@ -232,16 +244,23 @@ MVP six remain: `economy`, `technology`, `governance`, `education`, `energy`, `s
 
 ## 2.3 Sprint C — AI depth
 
+### Ask the Archive (hardened)
+
+**Status:** ✅ **Moved server-side** — still **without** a paid LLM API.
+
+`POST /api/ask` runs phrase-first guardrails then retrieves from curated chunks (`src/lib/ask-archive.ts`). The client pre-checks locally and never receives full chunk text — only the answer, internal links, and source titles. Rate limit: 20 questions / minute / IP. Questions are not persisted as transcripts and are not sent to third-party AI providers.
+
+Guardrails (`src/lib/ask-guardrails.ts`) cover abuse, NSFW, spam, prompt injection, self-harm, scams, PII, and off-topic crime/medical/investing phrasing. Civic questions (“who was killed in the Civil War?”) stay allowed. Methodology + privacy policy describe this as of 18 Aug 2026.
+
 ### "Your Nigeria 2050" personalized scenario
 
 **Status:** ✅ **Done** at `/your-2050` — **without** a paid LLM API.
 
-Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/content/your-2050-settings.ts`): user picks sectors, city, and season; copy is composed only from that sector's sourced 2050 projections. Labeled fiction, not a forecast. No PII stored.
+Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/content/your-2050-settings.ts`): user picks sectors, city, and season; copy is composed only from that sector's sourced 2050 projections. Optional first name is sanitized (`sanitizeDisplayName`). Labeled fiction, not a forecast. No PII stored.
 
 **Deferred vs original spec:**
 
 - [ ] Server route / OpenAI / Anthropic generation
-- [ ] Rate limiting + cost caps (not needed until an API is added)
 - [ ] Per-vignette OG image cards (share text exists; unique OG per vignette does not)
 
 ### AI-narrated audio walkthroughs
@@ -252,7 +271,7 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 - [ ] `<audio>` player component with transcript fallback
 - [ ] Data-saver: disable auto-load
 
-**Exit criteria (original):** Your Nigeria 2050 live on `/your-2050` ✅; audio on ≥ 8 timeline entries ❌.
+**Exit criteria (original):** Your Nigeria 2050 live on `/your-2050` ✅; audio on ≥ 8 timeline entries ❌. **Added:** server-side Ask + expanded guardrails ✅.
 
 ---
 
@@ -271,12 +290,32 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 
 ### Community correction flow
 
-**Status:** ✅ **Done**
+**Status:** ✅ **Done** (hardened)
 
 - Structured correction form (methodology) → `POST /api/corrections`
-- Optional `CORRECTIONS_WEBHOOK_URL`; otherwise logs in development
+- Origin check, rate limit (5 / 10 min / IP), allowed page-host only, submission guardrails, safe webhook URL
+- Optional `CORRECTIONS_WEBHOOK_URL`; otherwise logs an id + page URL in development (not the full claim)
 - Submissions are **not** auto-published
-- Review queue remains editorial (`/editorial/review`)
+- Review queue remains editorial (`/editorial/review`, `noindex`)
+
+### Icons of Nigeria
+
+**Status:** ✅ **Done** at `/icons`
+
+- 150 chronological figures with a named citation each; sitting Nigerian officeholders omitted
+- Portraits: Wikimedia Commons headshots with a free license only — never AI-generated likenesses
+- Wired into search, Ask the Archive, timeline era face-rows, and home teaser
+- External historian sign-off still pending (`icons-register` in the review queue)
+
+### Cool Projects
+
+**Status:** ✅ **Done** at `/projects`
+
+- 26 editorial civic ideas in `src/content/projects.ts` (Tabler icon per card)
+- Anonymous upvote/downvote against a browser UUID; server tally in `data/projects-runtime.json` (gitignored; `/tmp` on Vercel)
+- Reader submissions via `POST /api/projects/submit` (guardrails, sector allowlist, rate limit)
+- Optional `PROJECTS_WEBHOOK_URL`
+- Ideas are civic proposals, not sourced 2050 forecasts — labeled as such on the page
 
 ### 3D/WebGL centerpiece (PRD 8.2 stretch)
 
@@ -287,7 +326,7 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 - [ ] Interactive R3F map — states light up by sector data
 - [ ] Beta flag for 3D prototype
 
-**Exit criteria (original):** Quiz on timeline ❌; correction form wired ✅; 3D map prototype on home ❌ (2D isometric map ✅).
+**Exit criteria (original):** Quiz on timeline ❌; correction form wired ✅; 3D map prototype on home ❌ (2D isometric map ✅). **Added beyond original sprint:** Icons register ✅; Cool Projects board ✅.
 
 ---
 
@@ -296,10 +335,10 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 | Area | Status | Notes |
 |---|---|---|
 | CMS | ⏸️ Deferred | Content still lives in `src/content/`; evaluate Sanity / Contentful only if update frequency requires it |
-| API | ⏸️ Deferred | No public B2B content API |
+| API | ⚠️ Internal only | Write APIs for Ask, corrections, and projects (rate-limited). No public B2B content API |
 | Analytics | ⚠️ Partial | Optional Plausible env var exists; production domain + goals dashboard not wired |
 | Performance | ⚠️ Partial | Data-saver + lazy art in product; Image CDN / CWV monitoring wait on deploy |
-| Testing | ⚠️ Partial | Playwright smoke tests in `e2e/`; **not hooked to GitHub Actions** |
+| Testing | ⚠️ Partial | Playwright smoke tests in `e2e/` (pages + Ask/corrections API). **Not hooked to GitHub Actions** |
 
 ---
 
@@ -312,6 +351,7 @@ Unchanged — **not measurable until production deploy.**
 | Sectors viewed per session | Increase from ~1.5 to ≥ 2.5 |
 | Localization traffic | ≥ 10% of sessions in non-English locales *(blocked on Sprint B)* |
 | Your Nigeria 2050 completions | ≥ 5% of returning visitors |
+| Cool Projects votes / submits | Qualitative — civic-idea engagement *(new)* |
 | Audio mode usage | ≥ 8% of timeline sessions *(blocked on TTS)* |
 | Correction submissions | Qualitative — credible engagement signal |
 
@@ -345,7 +385,7 @@ Pull from here only after launch (or if a specific item is funded).
 | Headless CMS | Infrastructure | Typed TS content is enough at current cadence |
 | Public content API | Infrastructure | No B2B licensee yet |
 | Playwright in CI | Infrastructure | Local `npm run test:e2e` only |
-| User accounts / community submissions | Phase 1 non-goal | Correction form is the only write path |
+| User accounts | Phase 1 non-goal | Cool Projects + corrections write without accounts; no login |
 
 ---
 
@@ -360,6 +400,9 @@ flowchart LR
   Q[Sector quizzes]
   C[Correction form]
   M[Home isometric map]
+  I[Icons of Nigeria]
+  P[Cool Projects]
+  Ask[Ask API + guardrails]
   Launch[Production launch]
   B[Sprint B: i18n]
   Audio[TTS audio]
@@ -373,8 +416,12 @@ flowchart LR
   A --> Q
   A --> C
   A --> M
+  A --> I
+  A --> P
+  P1 --> Ask
   P1 --> Launch
   A --> Launch
+  Ask --> Launch
   Launch --> B
   Launch --> Audio
   Launch --> Art
@@ -382,7 +429,7 @@ flowchart LR
   B --> P3
 ```
 
-Sprint A and engagement work ran **before** launch. Localization, audio, commissioned art, and WebGL wait on launch (and, for i18n, on English copy lock).
+Sprint A, Icons, Cool Projects, and Ask hardening ran **before** launch. Localization, audio, commissioned art, and WebGL wait on launch (and, for i18n, on English copy lock).
 
 ---
 
@@ -393,8 +440,8 @@ Sprint A and engagement work ran **before** launch. Localization, audio, commiss
 | Phase 1 launch prep | 3–5 days | 2–4 weeks external review | ⚠️ Review + deploy still open |
 | Sprint A | 1 week | 6–8 weeks | ✅ Shipped (13 sectors) |
 | Sprint B | 3–4 weeks | 4–6 weeks per language | ⏸️ Deferred |
-| Sprint C | 3–4 weeks | 2 weeks prompt/grounding QA | ⚠️ Your 2050 done; audio deferred |
-| Sprint D | 4–5 weeks | 2 weeks quiz copy | ⚠️ Corrections + map + partial quizzes; WebGL deferred |
+| Sprint C | 3–4 weeks | 2 weeks prompt/grounding QA | ⚠️ Your 2050 + Ask API/guardrails done; audio deferred |
+| Sprint D | 4–5 weeks | 2 weeks quiz copy | ⚠️ Corrections, map, Icons, Cool Projects, partial quizzes; WebGL deferred |
 
 ---
 

@@ -6,6 +6,7 @@ import {
   IconSparkles,
   IconTimeline,
   IconUsers,
+  IconBulb,
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -29,6 +30,7 @@ const HISTORY_LINKS: NavLink[] = [
 const VISION_LINKS: NavLink[] = [
   { href: "/sectors", label: "Sectors", icon: IconChartBar },
   { href: "/your-2050", label: "Your 2050", icon: IconSparkles },
+  { href: "/projects", label: "Projects", icon: IconBulb },
 ];
 
 const COMPARE_LINKS: { href: string; label: string; icon: TablerIcon }[] = [

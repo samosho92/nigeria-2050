@@ -1,11 +1,13 @@
 import { Index } from "flexsearch";
 import { GLOSSARY } from "@/content/glossary";
 import { ICONS } from "@/content/icons";
+import { COOL_PROJECTS } from "@/content/projects";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
+import { stripControlChars } from "@/lib/ask-guardrails";
 import { CONTENT_STATS } from "@/lib/content-stats";
 
-export type SearchResultType = "sector" | "timeline" | "glossary" | "icon";
+export type SearchResultType = "sector" | "timeline" | "glossary" | "icon" | "project";
 
 export interface SearchResult {
   id: string;
@@ -44,6 +46,34 @@ const searchItems: SearchResult[] = [
     description: g.definition.slice(0, 120) + "…",
     href: `/glossary#${encodeURIComponent(g.term)}`,
   })),
+  ...COOL_PROJECTS.map((project) => ({
+    id: project.id,
+    type: "project" as const,
+    title: project.title,
+    description: project.summary,
+    href: project.mockHref ?? `/projects#${project.id}`,
+  })),
+  {
+    id: "projects-index",
+    type: "project" as const,
+    title: "Cool Projects",
+    description: `${CONTENT_STATS.projectCount} civic ideas to make Nigeria work better by 2050 — vote and submit`,
+    href: "/projects",
+  },
+  {
+    id: "postal-code-engine",
+    type: "project" as const,
+    title: "National postal code engine",
+    description: "Mock index: 37 capitals, rural clusters to urban street blocks",
+    href: "/projects/postal-codes",
+  },
+  {
+    id: "road-sign-campaign",
+    type: "project" as const,
+    title: "Road-sign campaign",
+    description: "Mock: speed, stop, school zone, and km markers on capital corridors",
+    href: "/projects/road-signs",
+  },
   {
     id: "g7-compare",
     type: "sector" as const,
@@ -80,8 +110,9 @@ function getIndex(): Index {
 }
 
 export function searchContent(query: string, limit = 8): SearchResult[] {
-  if (!query.trim()) return [];
-  const results = getIndex().search(query, { limit });
+  const trimmed = stripControlChars(query).trim().slice(0, 80);
+  if (!trimmed) return [];
+  const results = getIndex().search(trimmed, { limit: Math.min(limit, 12) });
   return results.map((i) => searchItems[i as number]).filter(Boolean);
 }
 

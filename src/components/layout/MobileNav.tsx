@@ -12,6 +12,7 @@ import {
   IconTimeline,
   IconUsers,
   IconX,
+  IconBulb,
 } from "@tabler/icons-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -21,6 +22,7 @@ const MOBILE_LINKS = [
   { href: "/icons", label: "Icons", icon: IconUsers },
   { href: "/sectors", label: "Sectors", icon: IconChartBar },
   { href: "/your-2050", label: "Your 2050", icon: IconSparkles },
+  { href: "/projects", label: "Cool Projects", icon: IconBulb },
   { href: "/compare", label: "Now vs. 2050", icon: IconArrowsLeftRight },
   { href: "/compare/g7", label: "Nigeria vs. G7", icon: IconScale },
 ] as const;

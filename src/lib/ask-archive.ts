@@ -1,17 +1,19 @@
 import { GLOSSARY } from "@/content/glossary";
 import { ICONS } from "@/content/icons";
+import { COOL_PROJECTS } from "@/content/projects";
+import { POSTAL_CODE_SCHEME } from "@/content/postal-code-engine";
+import { ROAD_SIGN_STANDARD } from "@/content/road-signs";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
 import { getSourceById } from "@/content/sources";
-import { checkAskGuardrails } from "@/lib/ask-guardrails";
-import type { GuardrailReason } from "@/lib/ask-guardrails";
+import { checkAskGuardrails, isInternalPath, type GuardrailReason } from "@/lib/ask-guardrails";
 
 export interface ArchiveChunk {
   id: string;
   text: string;
   title: string;
   href: string;
-  type: "timeline" | "sector" | "glossary" | "icon";
+  type: "timeline" | "sector" | "glossary" | "icon" | "project";
   sourceIds?: string[];
 }
 
@@ -42,6 +44,27 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
     type: "icon" as const,
     sourceIds: [`icon-${figure.id}`],
   })),
+  ...COOL_PROJECTS.map((project) => ({
+    id: `project-${project.id}`,
+    text: `${project.title}. ${project.summary} ${project.detail} Inspired by ${project.inspiredBy}.`,
+    title: project.title,
+    href: project.mockHref ?? `/projects#${project.id}`,
+    type: "project" as const,
+  })),
+  {
+    id: "project-postal-codes-engine",
+    text: `National postal code engine mock. Format ${POSTAL_CODE_SCHEME.example}: state plate, density band (rural peri-urban urban), district 01 for each state capital, then a street-zone unit. Urban codes split named streets onto odd and even sides (Independence Avenue odd is not the even side). Rural clusters have no street zones until roads are gazetted. Not NIPOST.`,
+    title: "National postal code engine",
+    href: "/projects/postal-codes",
+    type: "project" as const,
+  },
+  {
+    id: "project-road-signs-campaign",
+    text: `Road-sign campaign mock. National shape book ${ROAD_SIGN_STANDARD.name}: speed limits 50/80/100, stop, yield, school zone, kilometre markers. Seed corridors between capitals (Lagos–Ibadan, Abuja–Kaduna, Kaduna–Kano, Enugu–Port Harcourt, Kano–Maiduguri). Installed, missing, or damaged — not a speed-camera programme. Not FRSC inventory.`,
+    title: "Road-sign campaign",
+    href: "/projects/road-signs",
+    type: "project" as const,
+  },
   ...GLOSSARY.map((g) => ({
     id: `glossary-${g.term}`,
     text: `${g.term}: ${g.definition}`,
@@ -52,7 +75,7 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
 ];
 
 const OUT_OF_SCOPE_RESPONSE =
-  "I can only answer questions grounded in Naija2050's curated content — timeline entries, sector projections, icons, and glossary terms. Try asking about Nigeria's history, a specific person on the Icons page, a sector's 2050 vision, or a term like 'Amalgamation' or 'brain drain'.";
+  "I can only answer questions grounded in Naija2050's curated content — timeline entries, sector projections, icons, cool projects, and glossary terms. Try asking about Nigeria's history, a specific person on the Icons page, a sector's 2050 vision, a civic project like postal codes, or a term like 'Amalgamation' or 'brain drain'.";
 
 function tokenize(text: string): string[] {
   return text
@@ -78,6 +101,14 @@ function scoreChunk(query: string, chunk: ArchiveChunk): number {
   return score;
 }
 
+export interface ArchiveAnswer {
+  answer: string;
+  isGrounded: boolean;
+  blocked?: GuardrailReason;
+  sources: { id: string; title: string; publisher: string }[];
+  links: { title: string; href: string }[];
+}
+
 export interface ArchiveResponse {
   answer: string;
   chunks: ArchiveChunk[];
@@ -86,8 +117,21 @@ export interface ArchiveResponse {
   blocked?: GuardrailReason;
 }
 
+function toSafeAnswer(response: ArchiveResponse): ArchiveAnswer {
+  return {
+    answer: response.answer,
+    isGrounded: response.isGrounded,
+    blocked: response.blocked,
+    sources: response.sources,
+    links: response.chunks
+      .map((chunk) => ({ title: chunk.title, href: chunk.href }))
+      .filter((link) => isInternalPath(link.href)),
+  };
+}
+
 export function queryArchive(question: string): ArchiveResponse {
-  const guardrail = checkAskGuardrails(question);
+  const trimmed = question.trim().slice(0, 500);
+  const guardrail = checkAskGuardrails(trimmed);
   if (!guardrail.allowed) {
     return {
       answer: guardrail.message,
@@ -100,7 +144,7 @@ export function queryArchive(question: string): ArchiveResponse {
 
   const scored = ARCHIVE_CHUNKS.map((chunk) => ({
     chunk,
-    score: scoreChunk(question, chunk),
+    score: scoreChunk(trimmed, chunk),
   }))
     .filter((s) => s.score > 0)
     .sort((a, b) => b.score - a.score)
@@ -115,14 +159,23 @@ export function queryArchive(question: string): ArchiveResponse {
     };
   }
 
-  const topChunks = scored.map((s) => s.chunk);
+  const topChunks = scored.map((s) => s.chunk).filter((chunk) => isInternalPath(chunk.href));
+  const primary = topChunks[0];
+  if (!primary) {
+    return {
+      answer: OUT_OF_SCOPE_RESPONSE,
+      chunks: [],
+      sources: [],
+      isGrounded: false,
+    };
+  }
+
   const sourceIds = [...new Set(topChunks.flatMap((c) => c.sourceIds ?? []))];
   const sources = sourceIds
     .map((id) => getSourceById(id))
     .filter(Boolean)
     .map((s) => ({ id: s!.id, title: s!.title, publisher: s!.publisher }));
 
-  const primary = topChunks[0];
   const excerpt = primary.text.slice(0, 400).trim();
   const related = topChunks
     .slice(1)
@@ -142,13 +195,6 @@ export function queryArchive(question: string): ArchiveResponse {
   };
 }
 
-export const SUGGESTED_QUESTIONS = [
-  "What caused the Civil War?",
-  "How did Nigeria's economy change after oil was discovered?",
-  "What is Nigeria's 2050 economic vision?",
-  "What was the 1914 Amalgamation?",
-  "How is Nigeria diversifying beyond oil?",
-  "What is brain drain and can it reverse?",
-  "What does Nigeria's 2050 transportation vision look like?",
-  "Who was Funmilayo Ransome-Kuti?",
-];
+export function answerArchiveQuestion(question: string): ArchiveAnswer {
+  return toSafeAnswer(queryArchive(question));
+}

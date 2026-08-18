@@ -5,6 +5,7 @@ import {
   type VignetteCity,
   type VignetteSeasonId,
 } from "@/content/your-2050-settings";
+import { sanitizeDisplayName } from "@/lib/ask-guardrails";
 import { siteUrl } from "@/lib/site";
 import type { Sector } from "@/types/content";
 
@@ -185,6 +186,7 @@ function closingParagraph(
 }
 
 export function generateYour2050Vignette(input: Your2050Input): Your2050Vignette {
+  const name = sanitizeDisplayName(input.name);
   const sectors = input.sectorSlugs
     .map((slug) => SECTORS.find((sector) => sector.slug === slug))
     .filter((sector): sector is Sector => Boolean(sector));
@@ -202,7 +204,7 @@ export function generateYour2050Vignette(input: Your2050Input): Your2050Vignette
   const season = getVignetteSeason(input.seasonId ?? "rainy");
   const seasonId = season.id;
   const seed = hashSeed(
-    `${sectors.map((s) => s.slug).join("-")}|${city.id}|${seasonId}|${input.name ?? ""}`,
+    `${sectors.map((s) => s.slug).join("-")}|${city.id}|${seasonId}|${name ?? ""}`,
   );
 
   const primary = sectors[0];
@@ -210,7 +212,7 @@ export function generateYour2050Vignette(input: Your2050Input): Your2050Vignette
   const weather = city.weather[seasonId];
 
   const body = [
-    openingParagraph(input, city, seasonId, seed),
+    openingParagraph({ ...input, name }, city, seasonId, seed),
     sectorParagraph(primary, city, seasonId, seed, "primary"),
     secondary
       ? sectorParagraph(secondary, city, seasonId, seed + 11, "secondary")

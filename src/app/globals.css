@@ -57,6 +57,11 @@
 
   --header-background: rgb(255 255 255 / 0.92);
   --hero-gradient-from: rgb(0 135 81 / 0.08);
+
+  --sign-stop: #c1121f;
+  --sign-warning: #efbf04;
+  --sign-face: #ffffff;
+  --sign-ink: #111111;
 }
 
 /* ─── Design tokens: dark theme ───────────────────────────────────────────── */
@@ -93,6 +98,11 @@
 
   --header-background: rgb(4 26 16 / 0.92);
   --hero-gradient-from: rgb(0 135 81 / 0.22);
+
+  --sign-stop: #e23d3d;
+  --sign-warning: #f0c808;
+  --sign-face: #f7f7f5;
+  --sign-ink: #0a0a0a;
 }
 
 /* ─── Tailwind theme bridge (semantic only — no hardcoded values in components) */
@@ -126,6 +136,11 @@
   --color-accent-muted: var(--accent-muted);
 
   --color-code: var(--code);
+
+  --color-sign-stop: var(--sign-stop);
+  --color-sign-warning: var(--sign-warning);
+  --color-sign-face: var(--sign-face);
+  --color-sign-ink: var(--sign-ink);
 
   --color-header-background: var(--header-background);
   --color-hero-gradient-from: var(--hero-gradient-from);

@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   IconArrowRight,
   IconBuildingSkyscraper,
+  IconBulb,
   IconMessageChatbot,
   IconSparkles,
   IconTimeline,
@@ -118,7 +119,7 @@ export default function HomePage() {
 
       <Section variant="muted">
         <FadeIn>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">
               <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/15">
                 <IconSparkles className="size-7 text-accent" stroke={1.5} aria-hidden />
@@ -130,6 +131,19 @@ export default function HomePage() {
               </p>
               <LinkButton href="/your-2050" variant="primary" className="mt-auto w-fit">
                 Build your vignette
+              </LinkButton>
+            </div>
+            <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">
+              <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/15">
+                <IconBulb className="size-7 text-accent" stroke={1.5} aria-hidden />
+              </div>
+              <h2 className="text-xl font-bold">Cool Projects</h2>
+              <p className="text-muted-foreground">
+                Vote on civic ideas — postal codes, road signs, libraries — and submit the
+                initiative you think Nigeria should build by 2050.
+              </p>
+              <LinkButton href="/projects" variant="secondary" className="mt-auto w-fit">
+                Rank the ideas
               </LinkButton>
             </div>
             <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">

@@ -1,16 +1,20 @@
 "use client";
 
+import type { GuardrailReason } from "@/lib/ask-guardrails";
+
 type AnalyticsEvent =
   | { name: "cross_pillar_nav"; from: string; to: string; targetType: "sector" | "timeline" }
   | { name: "morph_slider_use"; metric: string }
   | { name: "milestone_select"; year: number }
   | { name: "g7_sector_filter"; sector: string }
   | { name: "ask_archive_query"; grounded: boolean }
-  | { name: "ask_archive_blocked"; reason: "abusive" | "nsfw" | "spam" }
+  | { name: "ask_archive_blocked"; reason: GuardrailReason }
   | { name: "quiz_complete"; quizId: string; score: number; total: number }
   | { name: "your_2050_complete"; sectors: string }
   | { name: "correction_submit"; pageUrl: string }
   | { name: "map_region_select"; region: string }
+  | { name: "project_vote"; projectId: string; vote: "up" | "down" | "none" }
+  | { name: "project_submit"; sectors: string }
   | { name: "page_view"; path: string };
 
 const STORAGE_KEY = "naija2050-analytics";
@@ -61,6 +65,12 @@ function mirrorProductionAnalytics(event: AnalyticsEvent) {
       break;
     case "map_region_select":
       window.plausible("Map Region Select", { props: { region: event.region } });
+      break;
+    case "project_vote":
+      window.plausible("Project Vote", { props: { projectId: event.projectId, vote: event.vote } });
+      break;
+    case "project_submit":
+      window.plausible("Project Submit", { props: { sectors: event.sectors } });
       break;
     case "page_view":
       window.plausible("pageview");

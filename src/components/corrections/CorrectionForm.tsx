@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { IconSend } from "@tabler/icons-react";
 import { CORRECTIONS_EMAIL } from "@/content/methodology";
+import { checkSubmissionGuardrails, sanitizePlainText } from "@/lib/ask-guardrails";
 import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/Button";
 import type { CorrectionSubmission } from "@/types/content";
@@ -25,7 +26,19 @@ export function CorrectionForm({ defaultPageUrl = "" }: CorrectionFormProps) {
     e.preventDefault();
     setStatus("submitting");
 
-    const payload = { pageUrl, claim, counterSource, email: email || undefined };
+    const payload = {
+      pageUrl: sanitizePlainText(pageUrl, 300),
+      claim: sanitizePlainText(claim, 2000),
+      counterSource: sanitizePlainText(counterSource, 2000),
+      email: email.trim() || undefined,
+    };
+
+    const guardrail = checkSubmissionGuardrails(`${payload.claim} ${payload.counterSource}`);
+    if (!guardrail.allowed) {
+      setStatus("error");
+      setMessage("That report doesn’t meet our community guidelines. Please rephrase.");
+      return;
+    }
 
     try {
       const response = await fetch("/api/corrections", {
@@ -45,7 +58,7 @@ export function CorrectionForm({ defaultPageUrl = "" }: CorrectionFormProps) {
         pageUrl,
         claim,
         counterSource,
-        email: email || undefined,
+        email: undefined,
         submittedAt: new Date().toISOString(),
       };
 
@@ -61,10 +74,12 @@ export function CorrectionForm({ defaultPageUrl = "" }: CorrectionFormProps) {
       setMessage("Thank you. We review every correction and publish dated updates when warranted.");
       setClaim("");
       setCounterSource("");
-    } catch {
+    } catch (error) {
       setStatus("error");
       setMessage(
-        `We could not save your submission online. Please email ${CORRECTIONS_EMAIL} directly with the same details.`,
+        error instanceof Error && error.message && error.message !== "Submission failed"
+          ? error.message
+          : `We could not save your submission online. Please email ${CORRECTIONS_EMAIL} directly with the same details.`,
       );
     }
   };

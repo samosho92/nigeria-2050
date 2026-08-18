@@ -186,3 +186,20 @@ export interface IconFigure {
   image?: IconPortrait;
   reviewStatus?: "draft" | "pending-review" | "reviewed";
 }
+
+export type CoolProjectSource = "editorial" | "community";
+
+export interface CoolProject {
+  id: string;
+  title: string;
+  summary: string;
+  detail: string;
+  /** Where a working version of this idea already exists. */
+  inspiredBy: string;
+  /** Ordered: first slug is the sector this idea moves most. */
+  sectorSlugs: string[];
+  source: CoolProjectSource;
+  submittedAt?: string;
+  /** Internal mock of the idea, if one exists. */
+  mockHref?: string;
+}

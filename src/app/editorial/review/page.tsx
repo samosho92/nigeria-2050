@@ -6,6 +6,7 @@ import { REVIEW_QUEUE, getPendingReviews } from "@/content/review-queue";
 export const metadata: Metadata = {
   title: "Editorial Review Queue",
   description: "Internal editorial review status for Naija2050 content.",
+  robots: { index: false, follow: false },
 };
 
 export default function EditorialReviewPage() {

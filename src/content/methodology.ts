@@ -1,5 +1,5 @@
 export const METHODOLOGY_META = {
-  lastUpdated: "August 17, 2026",
+  lastUpdated: "August 18, 2026",
 };
 
 export interface MethodologyLink {
@@ -110,7 +110,7 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     title: "AI & Interactive Tools",
     summary: "AI features are scoped, labeled, and grounded in our curated content store.",
     points: [
-      "Ask the Archive retrieves answers only from Naija2050’s own timeline, sector, glossary, icons, and source content. Out-of-scope, abusive, and explicit messages are declined before retrieval.",
+      "Ask the Archive retrieves answers only from Naija2050’s own timeline, sector, glossary, icons, and source content. Questions are rate-limited on the server, not persisted as transcripts, and not sent to third-party AI providers. Out-of-scope, abusive, explicit, self-harm, scam, and prompt-injection messages are declined before retrieval.",
       "Out-of-scope questions are declined rather than hallucinated; answers include links back to source pages.",
       "All AI-assisted UI is labeled. Era portal art uses abstract CSS placeholders for settings only, with no depictions of real historical figures.",
       "AI-generated media promoted into the permanent library requires human editorial review before publication.",

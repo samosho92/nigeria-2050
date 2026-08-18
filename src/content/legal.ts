@@ -22,7 +22,7 @@ export const PRIVACY_POLICY: LegalDocument = {
   eyebrow: "Legal",
   description:
     "How Naija2050 handles data when you browse the site, use interactive tools, or contact us.",
-  lastUpdated: "August 17, 2026",
+  lastUpdated: "August 18, 2026",
   sections: [
     {
       id: "overview",
@@ -41,8 +41,8 @@ export const PRIVACY_POLICY: LegalDocument = {
       bullets: [
         "Anonymous usage events (page views, cross-pillar navigation, comparator interactions) when analytics is enabled in production.",
         "Browser-local preferences you set on your device, such as theme, data-saver mode, and a short rolling log of anonymous analytics events stored in localStorage.",
-        "Questions you type into Ask the Archive, processed in your browser against our curated content. We do not operate a user account system and do not persist chat transcripts on our servers by default.",
-        "Information you choose to send by email (for example, a correction report), including your email address and message content.",
+        "Questions you type into Ask the Archive. They are sent to our server for retrieval against curated site content, rate-limited, and not stored as chat transcripts. Blocked or abusive prompts are declined and are not persisted.",
+        "Information you choose to send by email or through the corrections and project-idea forms (for example a page URL, a claim, an optional email address, or a civic proposal). Do not include passwords, bank details, or other sensitive personal data.",
       ],
     },
     {
@@ -68,7 +68,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       paragraphs: [
         "The site links to external sources cited in our Source Library. Those sites have their own privacy practices.",
         "Hosting and delivery may be provided by infrastructure vendors (for example, Vercel). They process technical request data needed to serve the site securely.",
-        "Ask the Archive runs client-side retrieval against content shipped with the site. It is not a general web search tool and does not send your questions to third-party AI providers in the current implementation.",
+        "Ask the Archive runs a scoped retrieval pass on our servers against content shipped with the site. It is not a general web search tool and does not send your questions to third-party AI providers. We rate-limit requests and do not persist question text.",
       ],
     },
     {
@@ -118,7 +118,7 @@ export const TERMS_OF_USE: LegalDocument = {
   eyebrow: "Legal",
   description:
     "Rules for using Naija2050, our editorial content, interactive tools, and projections.",
-  lastUpdated: "August 17, 2026",
+  lastUpdated: "August 18, 2026",
   sections: [
     {
       id: "acceptance",
@@ -162,7 +162,7 @@ export const TERMS_OF_USE: LegalDocument = {
       id: "ai-tools",
       title: "Ask the Archive and AI-labeled features",
       paragraphs: [
-        "Ask the Archive retrieves answers from Naija2050's curated content store. It may decline out-of-scope questions rather than speculate.",
+        "Ask the Archive retrieves answers from Naija2050's curated content store on the server. It may decline out-of-scope, abusive, unsafe, or injection-style questions rather than speculate. Requests are rate-limited.",
         "AI-assisted responses and labels are provided for exploration, not as authoritative fact. Always follow links to primary timeline entries, sector pages, and the Source Library before relying on any answer.",
         "Do not treat AI-generated summaries as a substitute for professional, legal, financial, or medical advice.",
       ],

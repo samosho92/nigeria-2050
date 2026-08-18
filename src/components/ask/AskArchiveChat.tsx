@@ -11,9 +11,9 @@ import {
   IconTimeline,
   IconX,
 } from "@tabler/icons-react";
-import { queryArchive, SUGGESTED_QUESTIONS } from "@/lib/ask-archive";
+import { SUGGESTED_QUESTIONS } from "@/lib/ask-suggested";
+import { checkAskGuardrails, isInternalPath, type GuardrailReason } from "@/lib/ask-guardrails";
 import { trackEvent } from "@/lib/analytics";
-import type { GuardrailReason } from "@/lib/ask-guardrails";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { LinkButton } from "@/components/ui/LinkButton";
@@ -39,6 +39,7 @@ export function AskArchiveChat() {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const lastAsks = useRef<number[]>([]);
 
   const endConversation = () => {
     setMessages(initialMessages());
@@ -47,48 +48,106 @@ export function AskArchiveChat() {
     inputRef.current?.focus();
   };
 
-  const send = (text: string) => {
-    if (!text.trim() || loading) return;
+  const send = async (text: string) => {
+    const trimmed = text.trim().slice(0, 500);
+    if (!trimmed || loading) return;
+
+    const now = Date.now();
+    lastAsks.current = lastAsks.current.filter((stamp) => now - stamp < 60_000);
+    if (lastAsks.current.length >= 12) {
+      setMessages((current) => [
+        ...current,
+        { role: "user", content: "Message withheld", withheld: true },
+        {
+          role: "assistant",
+          content: "Please wait a moment before asking another question.",
+        },
+      ]);
+      return;
+    }
+    lastAsks.current.push(now);
+
+    const localGuard = checkAskGuardrails(trimmed);
+    if (!localGuard.allowed) {
+      setMessages((current) => [
+        ...current,
+        { role: "user", content: "Message withheld", withheld: true },
+        { role: "assistant", content: localGuard.message },
+      ]);
+      trackEvent({ name: "ask_archive_blocked", reason: localGuard.reason });
+      setInput("");
+      return;
+    }
 
     setLoading(true);
     setInput("");
 
-    setTimeout(() => {
-      const response = queryArchive(text);
+    try {
+      const response = await fetch("/api/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: trimmed }),
+      });
+      const data = (await response.json()) as {
+        ok?: boolean;
+        answer?: string;
+        isGrounded?: boolean;
+        blocked?: GuardrailReason;
+        sources?: { id: string; title: string; publisher: string }[];
+        links?: { title: string; href: string }[];
+        message?: string;
+      };
 
-      if (response.blocked) {
-        setMessages((m) => [
-          ...m,
-          {
-            role: "user",
-            content: "Message withheld",
-            withheld: true,
-          },
+      if (response.status === 429) {
+        setMessages((current) => [
+          ...current,
+          { role: "user", content: trimmed },
           {
             role: "assistant",
-            content: response.answer,
+            content: data.message ?? "Too many questions. Please wait a moment.",
           },
         ]);
-        trackEvent({
-          name: "ask_archive_blocked",
-          reason: response.blocked as GuardrailReason,
-        });
-      } else {
-        setMessages((m) => [
-          ...m,
-          { role: "user", content: text },
-          {
-            role: "assistant",
-            content: response.answer,
-            sources: response.sources,
-            links: response.chunks.map((c) => ({ title: c.title, href: c.href })),
-          },
-        ]);
-        trackEvent({ name: "ask_archive_query", grounded: response.isGrounded });
+        return;
       }
 
+      if (!response.ok || !data.ok || !data.answer) {
+        throw new Error(data.message ?? "Ask failed");
+      }
+
+      if (data.blocked) {
+        setMessages((current) => [
+          ...current,
+          { role: "user", content: "Message withheld", withheld: true },
+          { role: "assistant", content: data.answer! },
+        ]);
+        trackEvent({ name: "ask_archive_blocked", reason: data.blocked });
+      } else {
+        const links = (data.links ?? []).filter((link) => isInternalPath(link.href));
+        setMessages((current) => [
+          ...current,
+          { role: "user", content: trimmed },
+          {
+            role: "assistant",
+            content: data.answer!,
+            sources: data.sources,
+            links,
+          },
+        ]);
+        trackEvent({ name: "ask_archive_query", grounded: Boolean(data.isGrounded) });
+      }
+    } catch {
+      setMessages((current) => [
+        ...current,
+        { role: "user", content: trimmed },
+        {
+          role: "assistant",
+          content:
+            "I couldn't reach the archive just then. Try again, or browse the timeline and sector pages directly.",
+        },
+      ]);
+    } finally {
       setLoading(false);
-    }, 600);
+    }
   };
 
   return (
