@@ -47,6 +47,7 @@ export const COOL_PROJECTS: CoolProject[] = [
     inspiredBy: "EU 112, US 911",
     sectorSlugs: ["security", "healthcare", "technology", "governance"],
     source: "editorial",
+    mockHref: "/projects/emergency-112",
   },
   {
     id: "civil-registry",
@@ -69,6 +70,7 @@ export const COOL_PROJECTS: CoolProject[] = [
     inspiredBy: "Torrens title (Australia/NZ), Rwanda’s land register",
     sectorSlugs: ["real-estate", "governance", "financial-inclusion"],
     source: "editorial",
+    mockHref: "/projects/land-titles",
   },
   {
     id: "solar-streetlights",

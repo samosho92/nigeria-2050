@@ -3,6 +3,8 @@ import { ICONS } from "@/content/icons";
 import { COOL_PROJECTS } from "@/content/projects";
 import { POSTAL_CODE_SCHEME } from "@/content/postal-code-engine";
 import { LIBRARY_STANDARD } from "@/content/public-libraries";
+import { EMERGENCY_STANDARD } from "@/content/emergency-112";
+import { TITLE_STANDARD } from "@/content/land-titles";
 import { ROAD_SIGN_STANDARD } from "@/content/road-signs";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
@@ -71,6 +73,20 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
     text: `Public library floor mock. National standard ${LIBRARY_STANDARD.name}: rural floor ${LIBRARY_STANDARD.ruralFloorKm} km, then urban densify within ${LIBRARY_STANDARD.urbanWalkKm} km or one branch per 50,000 people. Minimum kit: children’s section, study seats, working toilets, electricity, a librarian, wifi. Seed systems in Abuja, Ikeja, Kano, Enugu, Port Harcourt, Maiduguri, Makurdi, Yenagoa. A title in Makurdi can be requested in Maiduguri. Not a National Library inventory.`,
     title: "Public library floor",
     href: "/projects/public-libraries",
+    type: "project" as const,
+  },
+  {
+    id: "project-emergency-112-desk",
+    text: `Emergency 112 dispatch mock. National desk ${EMERGENCY_STANDARD.name}: one number ${EMERGENCY_STANDARD.number}, answer in ${EMERGENCY_STANDARD.answerSeconds} seconds, locate on the postal code (FC-U01-001 Independence Avenue odd; rural FC-R04-027 Kwali hinterland has no street zone), classify police fire ambulance, protocol card, assign nearest radio unit, ACK in ${EMERGENCY_STANDARD.ackSeconds} seconds or send the next unit — never voicemail. Launch gate: night call-takers, dispatcher, radio, urban codes loaded. Maiduguri cluster is not published because the night line would ring into voicemail. Seed clusters: Abuja, Ikeja, Kano, Enugu, Port Harcourt. Languages: English, Pidgin, Hausa, Yoruba, Igbo. Not a live emergency service.`,
+    title: "Emergency 112 dispatch",
+    href: "/projects/emergency-112",
+    type: "project" as const,
+  },
+  {
+    id: "project-land-titles-register",
+    text: `Land title register mock. Torrens-style folio ${TITLE_STANDARD.name}: one record per parcel, mapped to the postal street zone, queryable, with governor’s or FCT minister’s consent on the same record. Bankable only if queryable, mapped, C of O or R of O, consent granted or not required, and no caveat or dispute. A mortgage noted on a clean folio can still be bankable. Sample folios: Independence Avenue odd FC-U01-001 plot 17 (bankable), Allen Avenue dispute, Kwali hinterland customary unmapped. Seed registries: Abuja, Ikeja, Kano, Enugu, Port Harcourt, Kaduna. Not AGIS, not legal advice.`,
+    title: "Land title register",
+    href: "/projects/land-titles",
     type: "project" as const,
   },
   ...GLOSSARY.map((g) => ({

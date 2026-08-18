@@ -82,6 +82,20 @@ const searchItems: SearchResult[] = [
     href: "/projects/public-libraries",
   },
   {
+    id: "emergency-112-desk",
+    type: "project" as const,
+    title: "Emergency 112 dispatch",
+    description: "Mock desk: postal-code locate, radio ACK, launch gate — not a live number",
+    href: "/projects/emergency-112",
+  },
+  {
+    id: "land-title-register",
+    type: "project" as const,
+    title: "Land title register",
+    description: "Mock folio: C of O, consent, mapped parcel — not a live cadastre",
+    href: "/projects/land-titles",
+  },
+  {
     id: "g7-compare",
     type: "sector" as const,
     title: "Nigeria vs. G7",

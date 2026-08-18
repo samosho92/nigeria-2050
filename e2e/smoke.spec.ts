@@ -33,7 +33,7 @@ test.describe("critical paths", () => {
     await page.goto("/projects");
     await expect(page.getByRole("heading", { name: "Cool Projects" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /postal code/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /open the mock/i })).toHaveCount(3);
+    await expect(page.getByRole("link", { name: /open the mock/i })).toHaveCount(5);
   });
 
   test("postal code mock starts from capital cities", async ({ page }) => {
@@ -58,6 +58,22 @@ test.describe("critical paths", () => {
     await expect(page.getByRole("heading", { name: /Abuja/i })).toBeVisible();
     await expect(page.getByText("Children’s section").first()).toBeVisible();
     await expect(page.getByText("Things Fall Apart")).toBeVisible();
+  });
+
+  test("emergency 112 mock walks a dispatch ticket", async ({ page }) => {
+    await page.goto("/projects/emergency-112");
+    await expect(page.getByRole("heading", { name: /emergency number that actually dispatches/i })).toBeVisible();
+    await expect(page.getByText("FC-U01-001").first()).toBeVisible();
+    await expect(page.getByRole("button", { name: /next beat/i })).toBeVisible();
+    await expect(page.getByText("voicemail").first()).toBeVisible();
+  });
+
+  test("land title mock looks up a folio", async ({ page }) => {
+    await page.goto("/projects/land-titles");
+    await expect(page.getByRole("heading", { name: /titles you can look up/i })).toBeVisible();
+    await expect(page.getByText("FC-U01-001").first()).toBeVisible();
+    await expect(page.getByText("Certificate of Occupancy").first()).toBeVisible();
+    await expect(page.getByText("FC-C/2014/1108")).toBeVisible();
   });
 
   test("correction API accepts valid payload", async ({ request }) => {
