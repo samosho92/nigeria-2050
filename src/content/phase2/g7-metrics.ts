@@ -199,4 +199,21 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     context:
       "Nigeria is less urban than the G7, so housing demand will keep rising as people move to cities. Higher urban share is not automatically better housing; without supply it raises rents.",
   },
+  {
+    id: "unesco-world-heritage-count",
+    sectorSlug: "tourism",
+    label: "UNESCO World Heritage Properties",
+    definition:
+      "Properties inscribed on the UNESCO World Heritage List, counted by State Party. Same list, same session, for Nigeria and all G7 members.",
+    unit: "sites",
+    referenceYear: 2025,
+    nigeria: 2,
+    g7Countries: { CA: 22, FR: 54, DE: 55, IT: 61, JP: 26, GB: 35, US: 26 },
+    nigeria2050: 6,
+    higherIsBetter: true,
+    sourceId: "unesco-world-heritage",
+    sourceSeries: "UNESCO WHC · properties by State Party · after 47th session (July 2025)",
+    context:
+      "Nigeria: Sukur (1999) and Osun-Osogbo (2005). WDI tourism receipts for 2019 omit Canada and the UK, so this site does not publish a G7 receipts row. The 2050 figure is a scenario.",
+  },
 ];

@@ -13,7 +13,7 @@ import { SECTORS } from "@/content/sectors";
 import { CONTENT_STATS } from "@/lib/content-stats";
 
 /** Highlighted until they sit with the rest of the grid as familiar entries. */
-const NEW_SECTOR_SLUGS = new Set(["transportation", "real-estate"]);
+const NEW_SECTOR_SLUGS = new Set(["transportation", "real-estate", "tourism"]);
 
 export const metadata: Metadata = {
   title: "Sectors",

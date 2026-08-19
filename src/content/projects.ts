@@ -294,6 +294,17 @@ export const COOL_PROJECTS: CoolProject[] = [
     sectorSlugs: ["manufacturing", "healthcare", "economy", "governance"],
     source: "editorial",
   },
+  {
+    id: "heritage-circuit",
+    title: "A heritage circuit you can actually book",
+    summary:
+      "One public calendar for Yankari, Obudu, Osun-Osogbo, Sukur, Calabar Carnival, and Argungu, with a ranger payroll and a room that holds.",
+    detail:
+      "Nigeria already has parks, groves, and festivals. The missing product is a dated calendar, a ticket, a paid ranger, and a bed within a day's travel. Publish opening hours and fees for Yankari, Obudu, Osun-Osogbo, and Sukur; keep Calabar Carnival and Argungu on the same board; require the visa desk to match the calendar. Rwanda’s gorilla permits and Kenya’s park gates show the sequence: quota, payment, a staffed gate. Morocco’s circuits show how a week of cities and sites becomes a habit. Start with four sites and two festivals, then add Kano’s old city and the Jos plateau when the highway is usable.",
+    inspiredBy: "Rwanda’s gorilla-permit system, Kenya Wildlife Service park gates, Morocco’s circuit tourism",
+    sectorSlugs: ["tourism", "security", "transportation", "creative-economy"],
+    source: "editorial",
+  },
 ];
 
 export function getCoolProjectById(id: string): CoolProject | undefined {

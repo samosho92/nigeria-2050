@@ -36,7 +36,7 @@ export const PHASE2_TIMELINE_ENTRIES: TimelineEntry[] = [
       "Direct-to-video filmmaking in Lagos creates the world's second-largest film industry by output, turning storytelling into a national export.",
     content:
       "Nigeria's film industry did not begin in a studio lot. It began in markets. The 1992 release of Living in Bondage, shot on video for home viewing, proved that Igbo-language stories about ambition, ritual, and urban life could sell hundreds of thousands of VCD copies without cinema distribution. Producers copied the model: low budgets, fast turnaround, sales through Idumota and Alaba electronics hubs. By the early 2000s, Nigeria was releasing over a thousand titles a year, surpassing Hollywood in volume and employing actors, marketers, musicians, and technicians across Lagos, Enugu, and Asaba. Nollywood gave Nigeria a soft-power asset no oil field could match: recognizable narratives consumed across Africa and its diaspora. Distribution moved from VCD to DSTV channels, then to YouTube and streaming apps. Piracy cut margins, but the industry professionalized through guilds, film festivals, and co-production deals. For the creative economy, Nollywood demonstrated that cultural production at scale could generate jobs, foreign earnings, and global brand recognition from domestic talent and domestic audiences first.",
-    relatedSectorSlugs: ["creative-economy", "technology"],
+    relatedSectorSlugs: ["creative-economy", "technology", "tourism"],
     sourceIds: ["nollywood-industry-report", "cbo-nigeria-history"],
     artDirection: "democracy",
   },
@@ -117,5 +117,18 @@ export const PHASE2_TIMELINE_ENTRIES: TimelineEntry[] = [
     relatedSectorSlugs: ["real-estate", "governance", "economy", "financial-inclusion"],
     sourceIds: ["cahf-nigeria-housing", "world-bank-doing-business", "cbo-nigeria-history"],
     artDirection: "military",
+  },
+  {
+    id: "osun-osogbo-unesco",
+    era: "democracy",
+    title: "Sukur and Osun-Osogbo on the World Heritage List",
+    dateRange: "1999–2005",
+    summary:
+      "Nigeria's two UNESCO World Heritage inscriptions: Sukur Cultural Landscape in Adamawa (1999) and the Osun-Osogbo Sacred Grove (2005).",
+    content:
+      "Sukur Cultural Landscape, on the Mandara Mountains in Adamawa, was inscribed in 1999: terraced farmland, dry-stone architecture, and a still-living Hidi palace culture. The Osun-Osogbo Sacred Grove, along the Osun River in Osun State, followed in 2005, a forest shrine complex restored in the twentieth century and still used for the annual Osun festival. They remain Nigeria's only World Heritage properties. The tentative list has since named Kano's walls, Idanre Hill, Ogbunike Caves, and other sites; none had joined the list by the 47th Committee session in 2025. Calabar Carnival (from 2004) and older festivals such as Argungu sit beside those groves as the living calendar. Every 2050 tourism scenario on this site treats the two inscriptions as a conservation payroll and a visitor path. Further inscriptions are labelled scenarios.",
+    relatedSectorSlugs: ["tourism", "creative-economy", "agriculture"],
+    sourceIds: ["unesco-world-heritage", "cbo-nigeria-history"],
+    artDirection: "democracy",
   },
 ];

@@ -73,6 +73,20 @@ export const SECTOR_QUIZZES: SectorQuiz[] = [
       },
     ],
   },
+  {
+    sectorSlug: "tourism",
+    title: "Tourism check",
+    questions: [
+      {
+        id: "tou-1",
+        prompt: "How many UNESCO World Heritage properties does Nigeria have on the list?",
+        options: ["None", "Two", "Six", "Twelve"],
+        correctIndex: 1,
+        explanation:
+          "Sukur (1999) and Osun-Osogbo (2005). The 2050 tourism base case of six sites is a scenario if further tentative-list inscriptions succeed.",
+      },
+    ],
+  },
 ];
 
 export function getSectorQuiz(sectorSlug: string): SectorQuiz | undefined {

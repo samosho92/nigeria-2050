@@ -81,6 +81,30 @@ export const PHASE2_RAW_SOURCES: Source[] = [
     url: "https://housingfinanceafrica.org/wp-content/uploads/2025/03/NIGERIA.pdf",
     accessedAt: "2026-08-18",
   },
+  {
+    id: "world-bank-tourism",
+    title: "International Tourism Arrivals and Receipts. Nigeria",
+    publisher: "World Bank World Development Indicators",
+    year: 2024,
+    url: "https://data.worldbank.org/indicator/ST.INT.ARVL?locations=NG",
+    accessedAt: "2026-08-18",
+  },
+  {
+    id: "ntdc-akwaaba-2024",
+    title: "Nigeria hosted 1.2m international visitors in 2023. Tourism Minister",
+    publisher: "News Agency of Nigeria via BusinessDay",
+    year: 2024,
+    url: "https://businessday.ng/life-arts/article/nigeria-hosted-1-2m-international-visitors-in-2023-tourism-minister/",
+    accessedAt: "2026-08-18",
+  },
+  {
+    id: "unesco-world-heritage",
+    title: "World Heritage List. Properties inscribed by State Party",
+    publisher: "UNESCO World Heritage Centre",
+    year: 2025,
+    url: "https://whc.unesco.org/en/list/?action=stat",
+    accessedAt: "2026-08-18",
+  },
 ];
 
 export const PHASE2_SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
@@ -95,4 +119,7 @@ export const PHASE2_SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">
   "world-bank-lpi": { sectors: ["transportation", "economy"] },
   "who-road-safety": { sectors: ["transportation", "security"] },
   "cahf-nigeria-housing": { sectors: ["real-estate", "economy", "financial-inclusion"] },
+  "world-bank-tourism": { sectors: ["tourism", "economy"] },
+  "ntdc-akwaaba-2024": { sectors: ["tourism"] },
+  "unesco-world-heritage": { sectors: ["tourism", "creative-economy"], eras: ["democracy"] },
 };

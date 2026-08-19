@@ -3,6 +3,7 @@ import {
   IconBooks,
   IconBulb,
   IconBus,
+  IconCamera,
   IconClipboardList,
   IconCloudRain,
   IconDroplet,
@@ -57,6 +58,7 @@ const PROJECT_ICONS: Record<string, TablerIcon> = {
   "keep-the-drains": IconCloudRain,
   "artist-royalties": IconMusic,
   "standards-lab": IconFlask,
+  "heritage-circuit": IconCamera,
 };
 
 interface ProjectIconProps {

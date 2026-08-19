@@ -13,7 +13,7 @@
 | **Phase 2** | Expand content, localization, AI depth, engagement | ⚠️ **Content + engagement mostly shipped** (Icons, Cool Projects, Ask API) · i18n, audio, commissioned art, WebGL, CMS **deferred** |
 | **Phase 3** | Commercialization (licensing, membership, white-label) | 🧪 Street Pulse MVP started |
 
-**What is live in the repo today:** 13 sectors, 26 timeline entries, 39 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (26 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, grid-outage, and open-budget mocks), Street Pulse (`/pulse`, 8 categories × 4 questions, random draw, unlock-after-answer), correction form, home map, 5 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
+**What is live in the repo today:** 14 sectors, 27 timeline entries, 42 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (27 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, grid-outage, and open-budget mocks), Street Pulse (`/pulse`, 8 categories × 4 questions, random draw, unlock-after-answer), correction form, home map, 6 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
 
 ---
 
@@ -37,20 +37,20 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 | Deliverable | Route / location | Notes |
 |---|---|---|
 | Home | `/` | Hero metrics, pillar overview, sector grid, isometric zone map, Ask / Projects / Pulse / Your 2050 CTAs |
-| Sector vision pages | `/sectors/[slug]` | Editorial hero, baseline chart, scenario ranges, interactive milestone timeline, How We Got Here, assumptions/risks, sources. **13 sectors live** (6 MVP + 7 expansion) |
-| Interactive history timeline | `/timeline` | 8 eras, 26 entries, scrollytelling spine, era scrubber, sector cross-links |
+| Sector vision pages | `/sectors/[slug]` | Editorial hero, baseline chart, scenario ranges, interactive milestone timeline, How We Got Here, assumptions/risks, sources. **14 sectors live** (6 MVP + 8 expansion) |
+| Interactive history timeline | `/timeline` | 8 eras, 27 entries, scrollytelling spine, era scrubber, sector cross-links |
 | Now vs. 2050 comparator | `/compare` | Morph slider; 2030–2050 figures labeled as scenarios |
 | Nigeria vs. G7 | `/compare/g7` | Same-indicator, same-year benchmarks (Phase 2 addition) |
 | Your Nigeria 2050 | `/your-2050` | Client-side grounded vignette; display names sanitized (Phase 2 addition) |
 | Icons of Nigeria | `/icons` | 150 sourced figures, Wikimedia portraits, no sitting officeholders, no AI likenesses |
-| Cool Projects | `/projects` | 26 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`), public libraries (`/projects/public-libraries`), emergency 112 (`/projects/emergency-112`), land titles (`/projects/land-titles`), grid outage (`/projects/grid-outage`), open budgets (`/projects/open-budgets`) |
+| Cool Projects | `/projects` | 27 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`), public libraries (`/projects/public-libraries`), emergency 112 (`/projects/emergency-112`), land titles (`/projects/land-titles`), grid outage (`/projects/grid-outage`), open budgets (`/projects/open-budgets`) |
 | Street Pulse | `/pulse` | 8 questions per round from a pool of 32 (8 categories × 4). Refresh or Draw another 8 starts a new round from unanswered items. Unlock-after-answer. Age band, gender, zone. Live n. Optional `POLLS_WEBHOOK_URL`. MVP for aggregate research licensing |
 | Ask the Archive | `/ask` | Server-side retrieval (`POST /api/ask`), sourced answers, expanded guardrails |
-| Source library | `/sources` | Sector + era filters (38 editorial sources; icon citations listed per figure) |
+| Source library | `/sources` | Sector + era filters (42 editorial sources; icon citations listed per figure) |
 | Glossary | `/glossary` | Terms + inline `AutoGlossary` |
 | Methodology | `/methodology` | Editorial policy, scenario labeling (`SCENARIO_UI_NOTE`), AI/Ask scope, correction contact |
 | Privacy / Terms | `/privacy`, `/terms` | Legal copy in `src/content/legal.ts` (Ask is server-side, not persisted) |
-| Editorial review queue | `/editorial/review` | Internal sign-off tracker — **9 items still `pending-review`**; `noindex` |
+| Editorial review queue | `/editorial/review` | Internal sign-off tracker — **10 items still `pending-review`**; `noindex` |
 
 ### Fusion mechanism
 
@@ -77,19 +77,19 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 
 | Asset | Count |
 |---|---|
-| Editorial sources | 39 |
+| Editorial sources | 42 |
 | Icon citations (Wikimedia / named sources) | 150 |
 | Timeline eras | 8 |
-| Timeline entries | 26 (17 MVP + 9 Phase 2) |
-| Sectors | 13 |
+| Timeline entries | 27 (17 MVP + 10 Phase 2) |
+| Sectors | 14 |
 | Icons of Nigeria | 150 |
-| Cool Projects (editorial) | 26 |
+| Cool Projects (editorial) | 27 |
 | Street Pulse polls | 32 (8 categories × 4) |
-| Glossary terms | 55 |
-| Comparator metrics | 10 |
-| G7 benchmark rows | 31 |
-| Sector quizzes | 5 |
-| Review-queue items | 12 (9 pending, including Icons register) |
+| Glossary terms | 57 |
+| Comparator metrics | 11 |
+| G7 benchmark rows | 32 |
+| Sector quizzes | 6 |
+| Review-queue items | 13 (10 pending, including Icons register) |
 
 ---
 
@@ -125,7 +125,7 @@ Unchanged from Phase 1 — **none of this is done.** Content expansion does not 
 
 - [ ] Historian review: Civil War timeline entry
 - [ ] Economist review: Economy + Security sector projections
-- [ ] Sign off editorial review queue items marked `pending-review` (9 remaining, including healthcare, agriculture, transportation, real estate, and the Icons register)
+- [ ] Sign off editorial review queue items marked `pending-review` (10 remaining, including healthcare, agriculture, transportation, real estate, tourism, and the Icons register)
 - [ ] Final proofread of methodology, privacy, and terms pages
 
 ### Post-launch (week 1)
@@ -179,7 +179,7 @@ Phase 2 grows the content library, deepens AI interactivity, and adds engagement
 
 ### Sectors
 
-Original plan: five additional sectors. **Shipped seven:**
+Original plan: five additional sectors. **Shipped eight:**
 
 | Sector | Slug | Status |
 |---|---|---|
@@ -190,12 +190,13 @@ Original plan: five additional sectors. **Shipped seven:**
 | Financial Inclusion | `financial-inclusion` | ✅ Live |
 | Transportation | `transportation` | ✅ Live · `pending-review` (added beyond original five) |
 | Real Estate & Housing | `real-estate` | ✅ Live · `pending-review` (added beyond original five) |
+| Tourism & Heritage | `tourism` | ✅ Live · `pending-review` (added beyond original five) |
 
 MVP six remain: `economy`, `technology`, `governance`, `education`, `energy`, `security`.
 
 **Engineering:** sector template via `src/content/sectors.ts` + `src/content/phase2/sectors.ts`. 2030–2050 figures labeled as scenarios (`SCENARIO_UI_NOTE` in `src/content/methodology.ts`).
 
-**Also shipped with this sprint:** `/compare/g7` (31 same-year G7 rows); map corridors and zone copy in `src/content/nigeria-map.ts`.
+**Also shipped with this sprint:** `/compare/g7` (32 same-year G7 rows); map corridors and zone copy in `src/content/nigeria-map.ts`.
 
 ### Timeline additions
 
@@ -210,9 +211,10 @@ MVP six remain: `economy`, `technology`, `governance`, `education`, `energy`, `s
 | Lagos BRT | ✅ |
 | Standard-gauge rail | ✅ |
 | Land Use Act 1978 | ✅ |
+| Sukur and Osun-Osogbo UNESCO | ✅ |
 
 **Exit criteria (original):** 11 live sectors; timeline ≥ 22 entries; era art on ≥ 4 eras.  
-**Actual:** 13 sectors; 26 entries; abstract SVG era scenes on all 8 eras (internal review signed off as `phase2-era-art`).
+**Actual:** 14 sectors; 27 entries; abstract SVG era scenes on all 8 eras (internal review signed off as `phase2-era-art`).
 
 ### Commissioned era illustration
 
@@ -288,7 +290,7 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 
 | Item | Status |
 |---|---|
-| Sector knowledge checks | ✅ 5 of 13 sectors (`economy`, `agriculture`, `healthcare`, `transportation`, `real-estate`) |
+| Sector knowledge checks | ✅ 6 of 14 sectors (`economy`, `agriculture`, `healthcare`, `transportation`, `real-estate`, `tourism`) |
 | Era quiz after timeline sections | ⏸️ Deferred |
 | Results shareable; no accounts | ⚠️ In-page only; no share card |
 | `quiz_complete` analytics | ✅ Event defined in `src/lib/analytics.ts` |
@@ -316,7 +318,7 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 
 **Status:** ✅ **Done** at `/projects`
 
-- 26 editorial civic ideas in `src/content/projects.ts` (Tabler icon per card)
+- 27 editorial civic ideas in `src/content/projects.ts` (Tabler icon per card)
 - Working mocks: postal codes, road signs, public libraries, emergency 112, land titles, grid outage, open budgets (`/projects/open-budgets`, 2026 Appropriation Act envelope + sample awards)
 - Anonymous upvote/downvote against a browser UUID; server tally in `data/projects-runtime.json` (gitignored; `/tmp` on Vercel)
 - Reader submissions via `POST /api/projects/submit` (guardrails, sector allowlist, rate limit)
@@ -457,7 +459,7 @@ Sprint A, Icons, Cool Projects, and Ask hardening ran **before** launch. Localiz
 | Phase / sprint | Engineering | Content / editorial | Status |
 |---|---|---|---|
 | Phase 1 launch prep | 3–5 days | 2–4 weeks external review | ⚠️ Review + deploy still open |
-| Sprint A | 1 week | 6–8 weeks | ✅ Shipped (13 sectors) |
+| Sprint A | 1 week | 6–8 weeks | ✅ Shipped (14 sectors) |
 | Sprint B | 3–4 weeks | 4–6 weeks per language | ⏸️ Deferred |
 | Sprint C | 3–4 weeks | 2 weeks prompt/grounding QA | ⚠️ Your 2050 + Ask API/guardrails done; audio deferred |
 | Sprint D | 4–5 weeks | 2 weeks quiz copy | ⚠️ Corrections, map, Icons, Cool Projects, partial quizzes; WebGL deferred |

@@ -23,6 +23,11 @@ test.describe("critical paths", () => {
     await expect(page.getByRole("heading", { name: /Real Estate/i })).toBeVisible();
   });
 
+  test("tourism sector page loads", async ({ page }) => {
+    await page.goto("/sectors/tourism");
+    await expect(page.getByRole("heading", { name: /Tourism/i })).toBeVisible();
+  });
+
   test("icons page lists sourced figures", async ({ page }) => {
     await page.goto("/icons");
     await expect(page.getByRole("heading", { name: "Icons of Nigeria" })).toBeVisible();

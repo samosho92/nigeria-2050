@@ -86,6 +86,15 @@ export const REVIEW_QUEUE: ReviewItem[] = [
       "WDI 2022 slum share, 2023 density and urban % transcribed from API. Housing deficit kept as CAHF/FMBN 22–28 million range. No G7 house-price row (no common series).",
   },
   {
+    id: "sector-tourism-projections",
+    type: "sector",
+    title: "Tourism sector 2050 projections, tourism economist review",
+    status: "pending-review",
+    reviewer: "Tourism economist (TBD)",
+    notes:
+      "WDI ST.INT.ARVL last year for Nigeria is 2016 (5.265 million). Ministerial 2023 visitors (1.2 million) kept as a separate series. WDI receipts 2019 $1.471bn. No G7 receipts row (CA and GB missing in 2019). UNESCO WH counts after 47th session (July 2025).",
+  },
+  {
     id: "icons-register",
     type: "icons",
     title: "Icons of Nigeria register, historian review",

@@ -159,6 +159,13 @@ function scenesForSector(
       `You board something in ${cityName} that leaves when it says it will. A rail, or a lane that is actually a lane. The old joke about sitting in traffic until you forget your own name has become a story grandparents tell, the way they tell stories about generators.`,
       `Cargo moves like a country that has decided the map should connect people to each other as well as to the sea. You watch a bus pull away on time and feel, briefly, the luxury of expecting the next one.`,
     ],
+    tourism: () => {
+      const visitors = metric(sector, "internationalVisitors") ?? "8 million";
+      return [
+        `A stranger in ${cityName} asks for a room that was already paid for. The desk finds it. Later there is a grove, a park gate, or a festival week that kept its date. ${visitors} international visitors is a ministry sentence. On this street it is a booking that held, and a ranger who showed up.`,
+        `You eat something that was cooked for a visitor who did not need a cousin to translate the menu. Tourism here is a payroll: the guide, the driver, the woman who sells water at the gate. In 2050 ${cityName} can host a week without improvising the whole country around one guest.`,
+      ];
+    },
   };
 
   const write = writers[sector.slug];

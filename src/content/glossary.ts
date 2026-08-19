@@ -245,7 +245,13 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: "Nollywood",
     definition:
       "Nigeria’s film and video industry, which scaled in the 1990s on cheap digital video and home-video distribution, then into cinema and streaming. It is already an export; the 2050 creative-economy constraint is a collecting society and a small-claims path so a fee reaches the credited name.",
-    relatedSlugs: ["creative-economy"],
+    relatedSlugs: ["creative-economy", "tourism"],
+  },
+  {
+    term: "NTDC",
+    definition:
+      "Nigerian Tourism Development Corporation, the federal promoter of destinations, site standards, and the public calendar of parks and festivals (later statutes also use Nigerian Tourism Development Authority). The 2050 tourism case assumes a visa that clears, a ranger who is paid, and a room that was booked in advance.",
+    relatedSlugs: ["tourism", "governance"],
   },
   {
     term: "Open Contracting",
@@ -323,6 +329,12 @@ export const GLOSSARY: GlossaryTerm[] = [
     definition:
       "A land-registration system, originating in South Australia, in which the state keeps one authoritative folio per parcel and the folio is the title. Australia, New Zealand, and Rwanda used it to make land bankable. Nigeria’s Land Use Act already vests radical title in governors; the daily failure is the paper trail. The title mock is a Torrens-style schematic (NG-TR 01).",
     relatedSlugs: ["real-estate", "governance"],
+  },
+  {
+    term: "UNESCO World Heritage",
+    definition:
+      "A property inscribed on UNESCO’s World Heritage List against cultural and/or natural criteria. Nigeria has two: Sukur Cultural Landscape in Adamawa (1999) and the Osun-Osogbo Sacred Grove (2005). After the 47th Committee session (July 2025) Italy had 61 inscriptions; the tourism 2050 base case of six Nigerian sites is a scenario if further tentative-list dossiers succeed.",
+    relatedSlugs: ["tourism", "creative-economy"],
   },
   {
     term: "WDI",

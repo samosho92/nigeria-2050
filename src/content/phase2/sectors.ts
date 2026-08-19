@@ -973,4 +973,158 @@ export const PHASE2_SECTORS: Sector[] = [
       "world-bank-nigeria-overview",
     ],
   },
+  {
+    slug: "tourism",
+    title: "Tourism & Heritage",
+    tagline: "Parks, festivals, and cities that can host a visitor who arrived on purpose",
+    headline2050:
+      "A country people visit on purpose: Yankari and Obudu with working rangers, Osun-Osogbo and Sukur with upkeep, and Lagos, Calabar, and Kano that can host a festival week.",
+    baseline: {
+      visitors2023: "1.2 million",
+      arrivals2016: "5.3 million",
+      receipts2019: "$1.47 billion",
+      worldHeritageSites: "2",
+      gdpShare2022: "3.65%",
+      jobs2022: "1.91 million",
+    },
+    scenarioRanges: [
+      { label: "International visitors (2050 scenario)", unit: "million", low: 4, base: 8, high: 15 },
+      { label: "International tourism receipts (2050 scenario)", unit: "USD bn", low: 6, base: 12, high: 22 },
+    ],
+    reviewStatus: "pending-review",
+    projections: [
+      {
+        year: 2030,
+        headline: "A Visa and a Ranger Payroll",
+        narrative:
+          "The first decade is operations. Visa on arrival and e-visa actually clear at the desk. Yankari, Obudu, and Cross River parks publish opening hours and pay rangers. Calabar Carnival, Argungu, and Osun-Osogbo keep a dated public calendar. Lagos and Abuja hotel supply is still thin; the constraint is a booking that holds and a road that is safe enough to use.",
+        metrics: {
+          internationalVisitors: "3 million",
+          receipts: "$4 billion",
+          worldHeritageSites: "2",
+        },
+      },
+      {
+        year: 2040,
+        headline: "Domestic Circuits Catch Up",
+        narrative:
+          "A Nigerian middle class that can take a week off is the volume engine: Jos plateau, Kano's old city, Nike and Lekki in Lagos, the Calabar–Obudu loop. One or two further World Heritage inscriptions move off the tentative list if conservation budgets hold. International arrivals recover toward the last full WDI year and then past it, if airlift and highway security hold.",
+        metrics: {
+          internationalVisitors: "5.5 million",
+          receipts: "$8 billion",
+          worldHeritageSites: "4",
+        },
+      },
+      {
+        year: 2050,
+        headline: "A Destination You Can Book",
+        narrative:
+          "Eight million international visitors and about $12 billion in receipts is the base case: still far below France or the United States in 2019, in range of a serious African destination if parks, visas, and cities work together. Six World Heritage properties would mean the tentative list produced inscriptions. Tourism is a non-oil export you can walk into: a grove, a game drive, a festival week, a room that was paid for in advance.",
+        metrics: {
+          internationalVisitors: "8 million",
+          receipts: "$12 billion",
+          worldHeritageSites: "6",
+          gdpShare: "6%",
+        },
+      },
+    ],
+    historicalWaypoints: [
+      {
+        timelineEntryId: "colonial-economy",
+        title: "Extractive Leisure",
+        summary: "Hill stations and later game reserves were laid out for colonial officers. Rails ran crops to ports.",
+      },
+      {
+        timelineEntryId: "osun-osogbo-unesco",
+        title: "Two World Heritage Inscriptions",
+        summary: "Sukur (1999) and Osun-Osogbo (2005) remain Nigeria's only UNESCO World Heritage properties. The tentative list has waited since.",
+      },
+      {
+        timelineEntryId: "telecom-revolution",
+        title: "Booking Without a Cousin",
+        summary: "GSM and later data made a room, a visa form, and a festival date reachable from a phone. The 2050 case assumes that pipe is boring.",
+      },
+    ],
+    assumptions: [
+      {
+        title: "Two arrival series, both kept",
+        detail:
+          "WDI ST.INT.ARVL last publishes Nigeria in 2016 at 5.265 million. The Minister of Tourism, speaking at AKWAABA in Lagos (September 2024, via NAN / BusinessDay), reported 1.2 million international visitors in 2023 and 3 million domestic trips. Definitions differ. We show both vintages and do not splice them into one trend line.",
+      },
+      {
+        title: "Receipts have a WDI year",
+        detail:
+          "WDI ST.INT.RCPT.CD: Nigeria earned $1.471 billion in international tourism receipts in 2019 ($1.977 billion in 2018; $321 million in 2020). The 2050 base case ($12 billion, current dollars, undated for inflation) assumes visas, airlift, and park product recover from that pre-pandemic book, then grow. It is a scenario.",
+      },
+      {
+        title: "UNESCO stock is two properties",
+        detail:
+          "Sukur Cultural Landscape (Adamawa, 1999) and the Osun-Osogbo Sacred Grove (Osun, 2005) are Nigeria's World Heritage inscriptions. The 2050 base case of 6 assumes further inscriptions from the tentative list (Kano walls, Idanre, Ogbunike, and others) if conservation and dossiers hold. Italy had 61 properties after the 47th Committee session (July 2025).",
+      },
+      {
+        title: "GDP share and jobs are ministerial",
+        detail:
+          "The same September 2024 speech put tourism at 3.65% of GDP ($17.3 billion) in 2022 and 1.91 million jobs, with 1,000+ festivals. Treat those as named ministerial / WTTC-style totals (direct plus wider). They are a different series from WDI receipts.",
+      },
+      {
+        title: "Security, visa, and airlift are the product",
+        detail:
+          "Yankari (Bauchi), Obudu and Calabar (Cross River), and the Abuja–Jos plateau only sell if the highway is usable and a ranger is paid. Visa on arrival and e-visa have to clear at the airport. The 2030 path assumes those three are policy, the way Rwanda priced gorilla permits as a quota you can actually book.",
+      },
+      {
+        title: "Domestic travel is the volume",
+        detail:
+          "Three million domestic trips in 2023 is the minister's figure, with a claimed 200 million potential travellers. A 400-million-person country in 2050 can fill parks without matching France's inbound book if a Lagos or Kano household can take a week off, buy a ticket, and sleep in a room with power.",
+      },
+      {
+        title: "No G7 receipts row for 2019",
+        detail:
+          "WDI ST.INT.RCPT.CD is complete for Nigeria, France, Germany, Italy, Japan, and the United States in 2019. Canada and the United Kingdom are blank that year. This site does not mix years inside a G7 row. The peer benchmark is UNESCO World Heritage counts after the 47th session (July 2025), the same list for all eight countries.",
+      },
+      {
+        title: "Transit and power are tourism policy",
+        detail:
+          "If the transportation spine and grid-delivery base cases fail, a park stay is a generator-and-escort tax. Tourism scenarios assume those sector pages' base cases hold.",
+      },
+    ],
+    risks: [
+      {
+        title: "Insecurity closes the product",
+        detail:
+          "Kidnapping on Abuja–Kaduna, banditry on northern highways, and park poaching would keep Yankari and Sukur on a map and off an itinerary. Festival weeks in Calabar or Argungu shrink to locals who already know the road.",
+      },
+      {
+        title: "Visa friction at the desk",
+        detail:
+          "An e-visa that still requires a queue, a cash request, or a denied boarding would cap arrivals near the 2023 ministerial book no matter how many parks are gazetted.",
+      },
+      {
+        title: "Heritage without a payroll",
+        detail:
+          "Inscriptions without rangers, drainage, and a published opening hour become dossiers. The grove and the plateau degrade, and the tentative list stays a list.",
+      },
+      {
+        title: "FX and imported hotel kit",
+        detail:
+          "Another naira slide reprices linen, lifts, and diesel. Developers freeze. Rooms that exist price out the domestic weekender who is supposed to be the volume.",
+      },
+      {
+        title: "Prestige events, missing parks",
+        detail:
+          "If spending concentrates on a single carnival week or a coastal resort, receipts stay thin and seasonal. Yankari, Obudu, and the old cities stay a speech.",
+      },
+      {
+        title: "Climate and flooding",
+        detail:
+          "Lagos waterfront stock, Delta access roads, and grove hydrology can fail in a wet decade. A 2050 visitor who cannot reach the site is a cancelled booking.",
+      },
+    ],
+    sourceIds: [
+      "world-bank-tourism",
+      "ntdc-akwaaba-2024",
+      "unesco-world-heritage",
+      "world-bank-g7-indicators",
+      "world-bank-nigeria-overview",
+    ],
+  },
 ];

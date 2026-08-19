@@ -118,8 +118,8 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     dateRange: "1900–1960",
     summary: "Railways, cocoa, groundnuts, and palm oil: infrastructure built to extract.",
     content:
-      "Colonial Nigeria's economy was structured for raw material export: cocoa from the west, groundnuts and cotton from the north, palm oil from the east. Railways ran from interior to ports, leaving Nigerian regions poorly connected to each other. Western education was limited; northern indirect rule preserved emirate structures. By independence, Nigeria had institutions designed for extraction, a pattern the 2050 diversification scenario explicitly seeks to reverse.",
-    relatedSectorSlugs: ["economy", "energy", "transportation", "real-estate"],
+      "Colonial Nigeria's economy was structured for raw material export: cocoa from the west, groundnuts and cotton from the north, palm oil from the east. Railways ran from interior to ports, leaving Nigerian regions poorly connected to each other. Hill stations such as Jos, and later game reserves, were laid out as leisure for colonial officers. Western education was limited; northern indirect rule preserved emirate structures. By independence, Nigeria had institutions designed for extraction, a pattern the 2050 diversification scenario explicitly seeks to reverse.",
+    relatedSectorSlugs: ["economy", "energy", "transportation", "real-estate", "tourism"],
     sourceIds: ["world-bank-nigeria-overview", "cbo-nigeria-history"],
     artDirection: "colonial",
   },
@@ -131,7 +131,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "Nigeria becomes a sovereign federation. Nnamdi Azikiwe sworn in as Governor-General.",
     content:
       "On October 1, 1960, Nigeria gained independence from Britain as a federal republic of three regions (North, East, West) plus the Lagos Federal Territory. The moment was celebrated across the country and the diaspora. Africa's most populous nation was free. The First Republic's constitution balanced regional autonomy with a weak center, a design that would prove unstable as oil wealth and ethnic competition intensified.",
-    relatedSectorSlugs: ["governance", "economy"],
+    relatedSectorSlugs: ["governance", "economy", "tourism"],
     sourceIds: ["cbo-nigeria-history"],
     artDirection: "independence",
   },
@@ -216,7 +216,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "Olusegun Obasanjo elected president. The Fourth Republic begins.",
     content:
       "After Abacha's death in 1998, General Abdulsalami Abubakar handed power to civilians. Olusegun Obasanjo, a former military head of state turned democrat, won the 1999 election. For the first time in a generation, Nigerians could vote out their leaders. The transition was imperfect: military elites retained influence, electoral fraud persisted, but the principle of civilian supremacy held for 25+ years, a precondition for every governance projection on this site.",
-    relatedSectorSlugs: ["governance", "security"],
+    relatedSectorSlugs: ["governance", "security", "tourism"],
     sourceIds: ["cbo-nigeria-history"],
     artDirection: "democracy",
   },
@@ -228,7 +228,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "GSM licenses unleash Africa's largest mobile market.",
     content:
       "Nigeria's 2001 GSM auction broke NITEL's monopoly. Within a decade, mobile subscriptions exceeded 100 million, leapfrogging fixed-line infrastructure entirely. Mobile money, social media, and e-commerce followed. This digital foundation, built without waiting for legacy infrastructure, is the template for the technology sector's 2050 vision and explains why fintech led Nigeria's first tech wave.",
-    relatedSectorSlugs: ["technology", "economy"],
+    relatedSectorSlugs: ["technology", "economy", "tourism"],
     sourceIds: ["gsma-nigeria-digital"],
     artDirection: "democracy",
   },
@@ -264,7 +264,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     summary: "The government's own long-range plan, top-20 economy, $4T GDP.",
     content:
       "The National Planning Commission published Agenda 2050, targeting a $4.5 trillion economy and top-20 global ranking by 2050. The plan assumes 7%+ sustained growth, massive infrastructure investment, and human capital development. Naija2050 treats this as one input among many and stress-tests its assumptions against World Bank, McKinsey, and PwC scenarios, which range from optimistic to cautious.",
-    relatedSectorSlugs: ["economy", "energy", "education", "governance", "transportation", "real-estate"],
+    relatedSectorSlugs: ["economy", "energy", "education", "governance", "transportation", "real-estate", "tourism"],
     sourceIds: ["agenda-2050-npc", "mckinsey-nigeria-2050", "pwc-nigeria-2050"],
     artDirection: "reform",
   },

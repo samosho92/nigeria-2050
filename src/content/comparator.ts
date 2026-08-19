@@ -87,4 +87,14 @@ export const COMPARATOR_METRICS: ComparatorMetric[] = [
     projected2050High: 15,
     sourceId: "world-bank-g7-indicators",
   },
+  {
+    id: "tourism-receipts",
+    label: "International Tourism Receipts",
+    unit: "USD bn",
+    current: 1.47,
+    projected2050: 12,
+    projected2050Low: 6,
+    projected2050High: 22,
+    sourceId: "world-bank-tourism",
+  },
 ];
