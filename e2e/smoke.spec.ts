@@ -104,11 +104,22 @@ test.describe("critical paths", () => {
     await expect(page.getByRole("button", { name: /Unlock the wheel/i })).toBeDisabled();
   });
 
+  test("street pulse explains when the visitor is outside Nigeria", async ({ browser }) => {
+    const context = await browser.newContext({
+      extraHTTPHeaders: { "x-vercel-ip-country": "GB" },
+    });
+    const page = await context.newPage();
+    await page.goto(`${ORIGIN}/pulse`);
+    await expect(page.getByRole("heading", { name: /answers from Nigeria/i })).toBeVisible();
+    await expect(page.getByRole("checkbox", { name: /18 or older/i })).toHaveCount(0);
+    await context.close();
+  });
+
   test("street pulse API records a meals ballot", async ({ request }) => {
     const clientId = crypto.randomUUID();
     const otherId = crypto.randomUUID();
     const response = await request.post("/api/polls", {
-      headers: { Origin: ORIGIN },
+      headers: { Origin: ORIGIN, "x-vercel-ip-country": "NG" },
       data: {
         clientId,
         pollId: "meals",
@@ -128,10 +139,30 @@ test.describe("critical paths", () => {
     const lockedBody = await locked.json();
     expect(lockedBody.tallies.meals).toBeUndefined();
 
-    const mine = await request.get(`/api/polls?clientId=${clientId}`);
+    const mine = await request.get(`/api/polls?clientId=${clientId}`, {
+      headers: { "x-vercel-ip-country": "NG" },
+    });
     const mineBody = await mine.json();
     expect(mineBody.voted.meals).toBe("1-2.5k");
     expect(mineBody.tallies.meals.n).toBeGreaterThanOrEqual(1);
+  });
+
+  test("street pulse API rejects a ballot from outside Nigeria", async ({ request }) => {
+    const response = await request.post("/api/polls", {
+      headers: { Origin: ORIGIN, "x-vercel-ip-country": "US" },
+      data: {
+        clientId: crypto.randomUUID(),
+        pollId: "meals",
+        optionId: "1-2.5k",
+        age: "25-34",
+        gender: "skip",
+        zone: "south-west",
+      },
+    });
+    expect(response.status()).toBe(403);
+    const body = await response.json();
+    expect(body.ok).toBe(false);
+    expect(body.message).toMatch(/Nigeria/i);
   });
 
   test("street pulse export rejects missing credentials", async ({ request }) => {

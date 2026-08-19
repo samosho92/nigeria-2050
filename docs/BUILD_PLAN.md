@@ -44,7 +44,7 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 | Your Nigeria 2050 | `/your-2050` | Client-side grounded vignette; display names sanitized (Phase 2 addition) |
 | Icons of Nigeria | `/icons` | 150 sourced figures, Wikimedia portraits, no sitting officeholders, no AI likenesses |
 | Cool Projects | `/projects` | 27 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`), public libraries (`/projects/public-libraries`), emergency 112 (`/projects/emergency-112`), land titles (`/projects/land-titles`), grid outage (`/projects/grid-outage`), open budgets (`/projects/open-budgets`) |
-| Street Pulse | `/pulse` | 8 questions per round from a pool of 32 (8 categories × 4). Refresh or Draw another 8 starts a new round from unanswered items. Unlock-after-answer. Age band, gender, zone. Live n. Optional `POLLS_WEBHOOK_URL`. MVP for aggregate research licensing |
+| Street Pulse | `/pulse` | 8 questions per round from a pool of 32 (8 categories × 4). Nigeria-only (edge country header). Refresh or Draw another 8 starts a new round from unanswered items. Unlock-after-answer. Age band, gender, zone. Live n. Optional `POLLS_WEBHOOK_URL`. MVP for aggregate research licensing |
 | Ask the Archive | `/ask` | Server-side retrieval (`POST /api/ask`), sourced answers, expanded guardrails |
 | Source library | `/sources` | Sector + era filters (42 editorial sources; icon citations listed per figure) |
 | Glossary | `/glossary` | Terms + inline `AutoGlossary` |
@@ -331,7 +331,7 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 
 - 32 banded polls in `src/content/polls.ts` across 8 categories (pay, commute, meals, till, power, data, ride, basket). Each category has 4 question types. A visit draws 8 unanswered questions (one per category when possible). Refresh the page, or tap Draw another 8, for a new round from the remaining pool
 - Results for that question unlock only after you answer. Live n. No seed tallies. Zone crosstabs when a cell has 5+ answers
-- Demographics once: 18+ confirmation, age band, gender, geopolitical zone or diaspora
+- Demographics once: 18+ confirmation, age band, gender, geopolitical zone. Answers only from Nigeria (Vercel / Cloudflare country header). Visitors outside Nigeria see a short explanation and cannot spin or vote
 - Anonymous browser UUID; `POST /api/polls`; store in `data/polls-runtime.json` (gitignored; `/tmp` on Vercel). Each ballot has `recordedAt`, option band, age, gender, zone
 - Research copy: optional `POLLS_WEBHOOK_URL` (HTTPS, no UUID; hashed respondent id if `POLLS_EXPORT_SECRET` is set). Operators pull JSON/CSV via `GET /api/polls/export` with `Authorization: Bearer $POLLS_EXPORT_SECRET`. Plausible events send `pollId` only
 - Product bet: if n grows, license aggregate psychographic / purchase-behavior tables. Public civic content stays free

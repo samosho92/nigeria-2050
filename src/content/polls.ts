@@ -52,7 +52,6 @@ export const PULSE_GENDERS: PulseChoice[] = [
 
 export const PULSE_ZONES: PulseChoice[] = [
   ...NIGERIA_MAP_REGIONS.map((region) => ({ id: region.id, label: region.label })),
-  { id: "diaspora", label: "Outside Nigeria" },
   { id: "skip", label: "Prefer not to say" },
 ];
 
@@ -495,9 +494,15 @@ export const PULSE_META = {
   eyebrow: "Street Pulse",
   name: "Street Pulse",
   description:
-    "Eight questions per round, drawn from a larger pool. Spin, answer, then see how other readers answered. Refresh the page for a new round. Age band, gender, and zone travel with the ballot.",
+    "Eight questions per round, drawn from a larger pool. Spin, answer, then see how other readers in Nigeria answered. Refresh the page for a new round. Age band, gender, and zone travel with the ballot.",
   profileLead:
-    "Three bands, then the wheel. We keep answers in ranges. You must be 18 or older.",
+    "Three bands, then the wheel. We keep answers in ranges. You must be 18 or older, and answering from Nigeria.",
+  outsideTitle: "Street Pulse takes answers from Nigeria",
+  outsideLead:
+    "These questions are about daily life here: pay, power, the commute, the market. The tables describe people answering from inside the country.",
+  outsideHint:
+    "You can still read the sectors, the timeline, and Cool Projects. If you are in Nigeria, turn off a VPN or private relay and refresh.",
+  outsideApiMessage: "Street Pulse only records answers from Nigeria.",
   researchNote:
     "Answers are anonymous. Naija2050 does not sell your personal information.",
   emptyChart: "You are the first on this question. Share the page and come back for a crowd.",

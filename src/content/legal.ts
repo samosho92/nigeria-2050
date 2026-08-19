@@ -42,7 +42,7 @@ export const PRIVACY_POLICY: LegalDocument = {
         "Anonymous usage events (page views, cross-pillar navigation, comparator interactions, Street Pulse spin and answer events that name only the poll id) when analytics is enabled in production.",
         "Browser-local preferences you set on your device, such as theme, data-saver mode, a Street Pulse profile (age band, gender, zone), and a short rolling log of anonymous analytics events stored in localStorage.",
         "Questions you type into Ask the Archive. They are sent to our server for retrieval against curated site content, rate-limited, and not stored as chat transcripts. Blocked or abusive prompts are declined and are not persisted.",
-        "Street Pulse ballots: a random browser UUID, the poll and option you pick, plus the age band, gender, and geopolitical zone you chose. We do not ask for a name, email, or GPS coordinates. Salary and spend answers are stored as bands.",
+        "Street Pulse ballots: a random browser UUID, the poll and option you pick, plus the age band, gender, and geopolitical zone you chose. Country is read from the request at the edge and is not stored on the ballot. We do not ask for a name, email, or GPS coordinates. Salary and spend answers are stored as bands.",
         "Information you choose to send by email or through the corrections and project-idea forms (for example a page URL, a claim, an optional email address, or a civic proposal). Do not include passwords, bank details, or other sensitive personal data.",
       ],
     },
@@ -59,7 +59,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: "street-pulse",
       title: "Street Pulse",
       paragraphs: [
-        "Street Pulse is an anonymous poll. You must confirm you are 18 or older. We store one answer per poll per browser UUID, with the age band, gender, and zone you select. Results for a poll are shown to you only after you answer it.",
+        "Street Pulse is an anonymous poll for people 18 or older answering from Nigeria. We check country from the network address used to reach the site. We do not store that country on the ballot. We store one answer per poll per browser UUID, with the age band, gender, and zone you select. Results for a poll are shown to you only after you answer it.",
         "Ballots live in a server-side file on the host that serves the site. Each row records the question, the band you picked, age, gender, zone, and a timestamp. On some hosts that file is ephemeral. We may forward a copy of a new ballot to an optional research webhook (Make, a Google Sheet, or similar). That copy uses a short hash instead of the browser UUID. Operators may export the same rows with a secret token.",
         "If enough people answer, Naija2050 may license aggregate tables and crosstabs (for example pay band by zone) to organizations studying Nigerian consumer behavior. We do not sell a row that identifies a person. Crosstabs on the public page require at least five answers in that cell.",
       ],
@@ -102,7 +102,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: "children",
       title: "Children",
       paragraphs: [
-        "Naija2050 is a public educational resource intended for a general audience. We do not knowingly collect personal information from children under 13. Street Pulse is limited to people 18 or older. If you believe a child has provided us personal information, contact us and we will delete it.",
+        "Naija2050 is a public educational resource intended for a general audience. We do not knowingly collect personal information from children under 13. Street Pulse is limited to people 18 or older answering from Nigeria. If you believe a child has provided us personal information, contact us and we will delete it.",
       ],
     },
     {
@@ -181,7 +181,7 @@ export const TERMS_OF_USE: LegalDocument = {
       id: "street-pulse",
       title: "Street Pulse",
       paragraphs: [
-        "Street Pulse is for people 18 or older. Answers are anonymous bands. By submitting a ballot you grant Naija2050 a license to use it in aggregate research, public charts, and licensed reports. You may skip a demographic field labeled Prefer not to say.",
+        "Street Pulse is for people 18 or older answering from Nigeria. Answers are anonymous bands. By submitting a ballot you grant Naija2050 a license to use it in aggregate research, public charts, and licensed reports. You may skip a demographic field labeled Prefer not to say.",
         "The sample is whoever uses this site. Live n is shown. Treat small counts as a weak signal.",
       ],
     },

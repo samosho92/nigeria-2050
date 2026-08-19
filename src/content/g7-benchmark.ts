@@ -351,6 +351,7 @@ export function formatBenchmarkValue(value: number, unit: string): string {
   if (unit === "per 1,000 people") return `${Math.round(value).toLocaleString()} per 1,000`;
   if (unit === "score 1–5") return value.toFixed(1);
   if (unit === "per km²") return `${Math.round(value).toLocaleString()} / km²`;
+  if (unit === "sites") return `${Math.round(value)} sites`;
   return `${value.toLocaleString()} ${unit}`;
 }
 

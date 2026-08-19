@@ -3,6 +3,7 @@ import type { ComparatorMetric } from "@/types/content";
 export function formatComparatorValue(value: number, unit: string): string {
   const formatted = value.toLocaleString();
   if (unit === "USD") return `$${formatted}`;
+  if (unit === "USD bn") return `$${formatted}bn`;
   if (unit === "M") return `${formatted}M`;
   if (unit === "GW") return `${formatted} GW`;
   if (unit === "%") return `${formatted}%`;
@@ -16,6 +17,7 @@ export function formatComparatorBaseline(metric: ComparatorMetric): string {
 
 export function comparatorCounterProps(metric: ComparatorMetric) {
   if (metric.unit === "USD") return { prefix: "$", suffix: "" };
+  if (metric.unit === "USD bn") return { prefix: "$", suffix: "bn" };
   if (metric.unit === "M") return { prefix: "", suffix: "M" };
   if (metric.unit === "GW") return { prefix: "", suffix: " GW" };
   if (metric.unit === "%") return { prefix: "", suffix: "%" };

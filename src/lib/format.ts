@@ -17,6 +17,7 @@ export function formatScenarioValue(
 ): string {
   const raw = String(value);
   if (range.unit === "USD") return `$${Number(raw).toLocaleString()}`;
+  if (range.unit === "USD bn") return `$${Number(raw).toLocaleString()}bn`;
   if (range.unit === "%") return `${raw}%`;
   if (range.unit) return `${raw} ${range.unit}`;
   return raw;

@@ -1,12 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
 import { useReducedMotion } from "framer-motion";
 import { PollWheel } from "@/components/pulse/PollWheel";
 import { useDataSaver } from "@/components/providers/DataSaverProvider";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { LinkButton } from "@/components/ui/LinkButton";
 import {
   PULSE_AGES,
   PULSE_CATEGORIES,
@@ -48,6 +48,7 @@ export function StreetPulse() {
   const [tallies, setTallies] = useState<Record<string, PulsePollTally>>({});
   const [session, setSession] = useState<PulsePoll[]>([]);
   const [votedReady, setVotedReady] = useState(false);
+  const [eligible, setEligible] = useState<boolean | null>(null);
   const [rotation, setRotation] = useState(0);
   const [spinning, setSpinning] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -86,15 +87,22 @@ export function StreetPulse() {
       .then(
         (data: {
           ok?: boolean;
+          eligible?: boolean;
           voted?: Record<string, string>;
           tallies?: Record<string, PulsePollTally>;
         }) => {
-          if (!data.ok) return;
+          if (!data.ok) {
+            setEligible(true);
+            return;
+          }
+          setEligible(data.eligible !== false);
+          if (data.eligible === false) return;
           if (data.voted) setVoted(data.voted);
           if (data.tallies) setTallies(data.tallies);
         },
       )
       .catch(() => {
+        setEligible(true);
         // Local profile still works if the tally is down.
       })
       .finally(() => setVotedReady(true));
@@ -108,9 +116,9 @@ export function StreetPulse() {
   }, []);
 
   useEffect(() => {
-    if (!votedReady) return;
+    if (!votedReady || eligible === false) return;
     beginRound(votedRef.current);
-  }, [votedReady, beginRound]);
+  }, [votedReady, eligible, beginRound]);
 
   const landOn = useCallback(
     (poll: PulsePoll) => {
@@ -215,8 +223,32 @@ export function StreetPulse() {
     }
   };
 
-  if (!mounted) {
+  if (!mounted || eligible === null) {
     return <div className="min-h-[24rem] rounded-xl border border-border bg-card" aria-hidden />;
+  }
+
+  if (eligible === false) {
+    return (
+      <div className="flex flex-col gap-10">
+        <Card className="p-6 md:p-8">
+          <h2 className="font-serif text-2xl font-bold">{PULSE_META.outsideTitle}</h2>
+          <p className="mt-3 text-sm text-muted-foreground">{PULSE_META.outsideLead}</p>
+          <p className="mt-3 text-sm text-muted-foreground">{PULSE_META.outsideHint}</p>
+          <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+            <LinkButton href="/sectors" variant="link">
+              Sector visions
+            </LinkButton>
+            <LinkButton href="/timeline" variant="link">
+              Timeline
+            </LinkButton>
+            <LinkButton href="/projects" variant="link">
+              Cool Projects
+            </LinkButton>
+          </div>
+        </Card>
+        <PulseFinePrint />
+      </div>
+    );
   }
 
   const unlocked = PULSE_POLLS.filter((poll) => voted[poll.id]);
@@ -332,15 +364,21 @@ export function StreetPulse() {
         </section>
       ) : null}
 
-      <Card className="border-dashed p-6">
-        <p className="text-sm text-muted-foreground">{PULSE_META.researchNote}</p>
-        <p className="mt-3 text-sm text-muted-foreground">
-          <Link href="/privacy" className="font-medium text-accent hover:underline">
-            Privacy Policy
-          </Link>
-        </p>
-      </Card>
+      <PulseFinePrint />
     </div>
+  );
+}
+
+function PulseFinePrint() {
+  return (
+    <Card className="border-dashed p-6">
+      <p className="text-sm text-muted-foreground">{PULSE_META.researchNote}</p>
+      <p className="mt-3">
+        <LinkButton href="/privacy" variant="link">
+          Privacy Policy
+        </LinkButton>
+      </p>
+    </Card>
   );
 }
 

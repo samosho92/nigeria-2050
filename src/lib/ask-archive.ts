@@ -108,7 +108,7 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
   },
   {
     id: "street-pulse",
-    text: `${PULSE_META.name} at /pulse. ${PULSE_META.description} Each visit draws ${PULSE_SESSION_SIZE} questions from ${PULSE_POLLS.length} across ${PULSE_CATEGORIES.length} categories. Refresh the page for a new round from questions you have not answered. ${PULSE_CATEGORIES.map((category) => `${category.wheel}: ${PULSE_POLLS.filter((poll) => poll.category === category.id).map((poll) => poll.question).join(" ")}`).join(" ")} Age band, gender, and geopolitical zone travel with each ballot. Results unlock after you answer that question. Live n from this site. Convenience sample of Naija2050 readers. Aggregate tables may be licensed to teams marketing in Nigeria.`,
+    text: `${PULSE_META.name} at /pulse. ${PULSE_META.description} Each visit draws ${PULSE_SESSION_SIZE} questions from ${PULSE_POLLS.length} across ${PULSE_CATEGORIES.length} categories. Refresh the page for a new round from questions you have not answered. ${PULSE_CATEGORIES.map((category) => `${category.wheel}: ${PULSE_POLLS.filter((poll) => poll.category === category.id).map((poll) => poll.question).join(" ")}`).join(" ")} Age band, gender, and geopolitical zone travel with each ballot. Results unlock after you answer that question. Live n from this site. Convenience sample of Naija2050 readers in Nigeria. Aggregate tables may be licensed to teams marketing in Nigeria.`,
     title: PULSE_META.name,
     href: "/pulse",
     type: "pulse" as const,

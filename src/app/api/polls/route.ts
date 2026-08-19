@@ -1,4 +1,5 @@
-import { PULSE_POLLS } from "@/content/polls";
+import { PULSE_META, PULSE_POLLS } from "@/content/polls";
+import { isNigeriaPulseRequest } from "@/lib/polls-geo";
 import { isPulseProfile } from "@/lib/polls";
 import { getClientPulseState, recordPulseAnswer } from "@/lib/polls-store";
 import { isValidClientId } from "@/lib/projects";
@@ -28,13 +29,22 @@ export async function GET(request: Request) {
     return jsonError("Too many requests", 429);
   }
 
+  const eligible = isNigeriaPulseRequest(request);
   const clientId = new URL(request.url).searchParams.get("clientId")?.trim() ?? "";
   if (!isValidClientId(clientId)) {
-    return Response.json({ ok: true, pollCount: PULSE_POLLS.length, voted: {}, tallies: {} });
+    return Response.json({
+      ok: true,
+      eligible,
+      pollCount: PULSE_POLLS.length,
+      voted: {},
+      tallies: {},
+    });
   }
 
-  const state = await getClientPulseState(clientId);
-  return Response.json({ ok: true, pollCount: PULSE_POLLS.length, ...state });
+  const state = eligible
+    ? await getClientPulseState(clientId)
+    : { voted: {}, tallies: {} };
+  return Response.json({ ok: true, eligible, pollCount: PULSE_POLLS.length, ...state });
 }
 
 export async function POST(request: Request) {
@@ -45,6 +55,10 @@ export async function POST(request: Request) {
   const ip = getClientIp(request);
   if (!rateLimit(`polls-answer:${ip}`, 40, 60_000)) {
     return jsonError("Too many answers", 429);
+  }
+
+  if (!isNigeriaPulseRequest(request)) {
+    return jsonError(PULSE_META.outsideApiMessage, 403);
   }
 
   const parsed = await readJsonBody<AnswerBody>(request, 2_048);

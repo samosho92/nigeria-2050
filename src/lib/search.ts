@@ -114,7 +114,7 @@ const searchItems: SearchResult[] = [
     id: "street-pulse",
     type: "pulse" as const,
     title: PULSE_META.name,
-    description: `${PULSE_SESSION_SIZE} questions per round from ${PULSE_POLLS.length} in ${PULSE_CATEGORIES.length} categories (pay, commute, meals, till, power, data, ride, basket). Refresh for a new round, then see the crowd.`,
+    description: `${PULSE_SESSION_SIZE} questions per round from ${PULSE_POLLS.length} in ${PULSE_CATEGORIES.length} categories. Answers from Nigeria. Refresh for a new round, then see the crowd.`,
     href: "/pulse",
   },
   {
