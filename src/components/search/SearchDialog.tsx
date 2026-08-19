@@ -13,6 +13,7 @@ const TYPE_LABELS = {
   glossary: "Glossary",
   icon: "Icon",
   project: "Project",
+  pulse: "Pulse",
 };
 
 export function SearchDialog() {
@@ -58,7 +59,7 @@ export function SearchDialog() {
           <input
             autoFocus
             type="search"
-            placeholder="Search sectors, timeline, icons, projects, glossary…"
+            placeholder="Search sectors, timeline, icons, projects, pulse, glossary…"
             value={query}
             maxLength={80}
             onChange={(e) => handleSearch(e.target.value)}

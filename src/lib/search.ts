@@ -1,4 +1,5 @@
 import { Index } from "flexsearch";
+import { PULSE_CATEGORIES, PULSE_META, PULSE_POLLS, PULSE_SESSION_SIZE } from "@/content/polls";
 import { GLOSSARY } from "@/content/glossary";
 import { ICONS } from "@/content/icons";
 import { COOL_PROJECTS } from "@/content/projects";
@@ -7,7 +8,7 @@ import { TIMELINE_ENTRIES } from "@/content/timeline";
 import { stripControlChars } from "@/lib/ask-guardrails";
 import { CONTENT_STATS } from "@/lib/content-stats";
 
-export type SearchResultType = "sector" | "timeline" | "glossary" | "icon" | "project";
+export type SearchResultType = "sector" | "timeline" | "glossary" | "icon" | "project" | "pulse";
 
 export interface SearchResult {
   id: string;
@@ -108,6 +109,13 @@ const searchItems: SearchResult[] = [
     title: "Open budgets and contracts",
     description: "Mock portal: 2026 Appropriation Act envelope, MDA tables, sample awards",
     href: "/projects/open-budgets",
+  },
+  {
+    id: "street-pulse",
+    type: "pulse" as const,
+    title: PULSE_META.name,
+    description: `${PULSE_SESSION_SIZE} questions per round from ${PULSE_POLLS.length} in ${PULSE_CATEGORIES.length} categories (pay, commute, meals, till, power, data, ride, basket). Refresh for a new round, then see the crowd.`,
+    href: "/pulse",
   },
   {
     id: "g7-compare",

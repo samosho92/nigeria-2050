@@ -37,6 +37,8 @@ yarn-error.log*
 
 # local cool-projects vote/submit tally
 /data/projects-runtime.json
+# local street-pulse ballots
+/data/polls-runtime.json
 
 # face-crop model (downloaded by scripts/crop-icon-faces.py)
 /scripts/models/

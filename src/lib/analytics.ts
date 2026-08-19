@@ -15,6 +15,8 @@ type AnalyticsEvent =
   | { name: "map_region_select"; region: string }
   | { name: "project_vote"; projectId: string; vote: "up" | "down" | "none" }
   | { name: "project_submit"; sectors: string }
+  | { name: "pulse_spin"; pollId: string }
+  | { name: "pulse_answer"; pollId: string }
   | { name: "page_view"; path: string };
 
 const STORAGE_KEY = "naija2050-analytics";
@@ -71,6 +73,12 @@ function mirrorProductionAnalytics(event: AnalyticsEvent) {
       break;
     case "project_submit":
       window.plausible("Project Submit", { props: { sectors: event.sectors } });
+      break;
+    case "pulse_spin":
+      window.plausible("Pulse Spin", { props: { pollId: event.pollId } });
+      break;
+    case "pulse_answer":
+      window.plausible("Pulse Answer", { props: { pollId: event.pollId } });
       break;
     case "page_view":
       window.plausible("pageview");

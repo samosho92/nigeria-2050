@@ -1,3 +1,4 @@
+import { createHash, timingSafeEqual } from "node:crypto";
 import { siteUrl } from "@/lib/site";
 
 const buckets = new Map<string, { count: number; resetAt: number }>();
@@ -121,4 +122,17 @@ export async function readJsonBody<T>(
 
 export function jsonError(message: string, status: number) {
   return Response.json({ ok: false, message }, { status });
+}
+
+export function secretsMatch(provided: string, expected: string): boolean {
+  if (!provided || !expected) return false;
+  const left = Buffer.from(provided);
+  const right = Buffer.from(expected);
+  if (left.length !== right.length) return false;
+  return timingSafeEqual(left, right);
+}
+
+export function hashWithSecret(value: string, secret: string): string {
+  if (!secret) return "";
+  return createHash("sha256").update(`${secret}:${value}`).digest("hex").slice(0, 16);
 }

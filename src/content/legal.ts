@@ -39,9 +39,10 @@ export const PRIVACY_POLICY: LegalDocument = {
         "Most use of Naija2050 does not involve submitting personal information. Depending on how you interact with the site, we may process:",
       ],
       bullets: [
-        "Anonymous usage events (page views, cross-pillar navigation, comparator interactions) when analytics is enabled in production.",
-        "Browser-local preferences you set on your device, such as theme, data-saver mode, and a short rolling log of anonymous analytics events stored in localStorage.",
+        "Anonymous usage events (page views, cross-pillar navigation, comparator interactions, Street Pulse spin and answer events that name only the poll id) when analytics is enabled in production.",
+        "Browser-local preferences you set on your device, such as theme, data-saver mode, a Street Pulse profile (age band, gender, zone), and a short rolling log of anonymous analytics events stored in localStorage.",
         "Questions you type into Ask the Archive. They are sent to our server for retrieval against curated site content, rate-limited, and not stored as chat transcripts. Blocked or abusive prompts are declined and are not persisted.",
+        "Street Pulse ballots: a random browser UUID, the poll and option you pick, plus the age band, gender, and geopolitical zone you chose. We do not ask for a name, email, or GPS coordinates. Salary and spend answers are stored as bands.",
         "Information you choose to send by email or through the corrections and project-idea forms (for example a page URL, a claim, an optional email address, or a civic proposal). Do not include passwords, bank details, or other sensitive personal data.",
       ],
     },
@@ -51,14 +52,23 @@ export const PRIVACY_POLICY: LegalDocument = {
       paragraphs: [
         "In production, we may enable privacy-oriented analytics through Plausible when NEXT_PUBLIC_PLAUSIBLE_DOMAIN is configured. Plausible is designed to measure aggregate traffic without cross-site tracking profiles.",
         "We also record lightweight, anonymous interaction events locally in your browser to help us understand whether features such as timeline-to-sector links are working. These events do not include your name, email, or precise location.",
-        "You can limit site motion and some client-side behavior with the data-saver toggle in the header. Clearing site data in your browser removes locally stored preferences and analytics summaries.",
+        "You can limit site motion and some client-side behavior with the data-saver toggle in the header. Clearing site data in your browser removes locally stored preferences, Street Pulse profile, and analytics summaries.",
+      ],
+    },
+    {
+      id: "street-pulse",
+      title: "Street Pulse",
+      paragraphs: [
+        "Street Pulse is an anonymous poll. You must confirm you are 18 or older. We store one answer per poll per browser UUID, with the age band, gender, and zone you select. Results for a poll are shown to you only after you answer it.",
+        "Ballots live in a server-side file on the host that serves the site. Each row records the question, the band you picked, age, gender, zone, and a timestamp. On some hosts that file is ephemeral. We may forward a copy of a new ballot to an optional research webhook (Make, a Google Sheet, or similar). That copy uses a short hash instead of the browser UUID. Operators may export the same rows with a secret token.",
+        "If enough people answer, Naija2050 may license aggregate tables and crosstabs (for example pay band by zone) to organizations studying Nigerian consumer behavior. We do not sell a row that identifies a person. Crosstabs on the public page require at least five answers in that cell.",
       ],
     },
     {
       id: "cookies",
       title: "Cookies and local storage",
       paragraphs: [
-        "Naija2050 uses browser local storage for functional preferences (theme, data-saver, anonymous analytics mirror). We do not use local storage for cross-site advertising.",
+        "Naija2050 uses browser local storage for functional preferences (theme, data-saver, Street Pulse profile, anonymous analytics mirror). We do not use local storage for cross-site advertising.",
         "If Plausible analytics is enabled, Plausible may set a first-party cookie or use local storage consistent with its documentation. Refer to Plausible's own privacy policy for details on their processing.",
       ],
     },
@@ -75,7 +85,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: "retention",
       title: "Retention",
       paragraphs: [
-        "Local browser data persists until you clear it. Email correspondence is retained only as long as needed to investigate corrections, respond to you, and maintain an editorial record of updates.",
+        "Local browser data persists until you clear it. Street Pulse ballots are retained on the server until the host file is rotated or deleted. Email correspondence is retained only as long as needed to investigate corrections, respond to you, and maintain an editorial record of updates.",
         "Aggregate analytics, if enabled, is retained according to our analytics provider's settings.",
       ],
     },
@@ -92,7 +102,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: "children",
       title: "Children",
       paragraphs: [
-        "Naija2050 is a public educational resource intended for a general audience. We do not knowingly collect personal information from children under 13. If you believe a child has provided us personal information, contact us and we will delete it.",
+        "Naija2050 is a public educational resource intended for a general audience. We do not knowingly collect personal information from children under 13. Street Pulse is limited to people 18 or older. If you believe a child has provided us personal information, contact us and we will delete it.",
       ],
     },
     {
@@ -142,7 +152,7 @@ export const TERMS_OF_USE: LegalDocument = {
       paragraphs: ["You may use the Site for personal, educational, and non-commercial reference, including:"],
       bullets: [
         "Reading, sharing links to, and citing our public pages with attribution.",
-        "Using interactive tools (timeline, comparators, Ask the Archive) as intended.",
+        "Using interactive tools (timeline, comparators, Ask the Archive, Street Pulse) as intended.",
         "Reporting factual errors or broken sources through our corrections process.",
       ],
     },
@@ -154,7 +164,7 @@ export const TERMS_OF_USE: LegalDocument = {
         "Scrape, bulk-download, or mirror the Site in a way that impairs performance or misrepresents ownership.",
         "Attempt to bypass security, probe systems, or inject malicious code.",
         "Misrepresent Site content as official government policy, guaranteed economic outcomes, or personalized professional advice.",
-        "Use Ask the Archive or other tools to generate harassment, spam, or unlawful content.",
+        "Use Ask the Archive, Street Pulse, or other tools to generate harassment, spam, or unlawful content.",
         "Remove source attributions or imply endorsement by Naija2050 where none exists.",
       ],
     },
@@ -165,6 +175,14 @@ export const TERMS_OF_USE: LegalDocument = {
         "Ask the Archive retrieves answers from Naija2050's curated content store on the server. It may decline out-of-scope, abusive, unsafe, or injection-style questions rather than speculate. Requests are rate-limited.",
         "AI-assisted responses and labels are for exploration. Follow the source links before relying on an answer. ",
         "Do not treat AI-generated summaries as a substitute for professional, legal, financial, or medical advice.",
+      ],
+    },
+    {
+      id: "street-pulse",
+      title: "Street Pulse",
+      paragraphs: [
+        "Street Pulse is for people 18 or older. Answers are anonymous bands. By submitting a ballot you grant Naija2050 a license to use it in aggregate research, public charts, and licensed reports. You may skip a demographic field labeled Prefer not to say.",
+        "The sample is whoever uses this site. Live n is shown. Treat small counts as a weak signal.",
       ],
     },
     {

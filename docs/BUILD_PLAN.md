@@ -11,9 +11,9 @@
 |---|---|---|
 | **Phase 1** | Ship MVP — history + 6 sectors + fusion + AI core | ✅ Engineering complete · **launch blocked** on external editorial review + Vercel deploy |
 | **Phase 2** | Expand content, localization, AI depth, engagement | ⚠️ **Content + engagement mostly shipped** (Icons, Cool Projects, Ask API) · i18n, audio, commissioned art, WebGL, CMS **deferred** |
-| **Phase 3** | Commercialization (licensing, membership, white-label) | 🔮 Not started |
+| **Phase 3** | Commercialization (licensing, membership, white-label) | 🧪 Street Pulse MVP started |
 
-**What is live in the repo today:** 13 sectors, 26 timeline entries, 39 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (26 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, grid-outage, and open-budget mocks), correction form, home map, 5 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
+**What is live in the repo today:** 13 sectors, 26 timeline entries, 39 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (26 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, grid-outage, and open-budget mocks), Street Pulse (`/pulse`, 8 categories × 4 questions, random draw, unlock-after-answer), correction form, home map, 5 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
 
 ---
 
@@ -36,7 +36,7 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 
 | Deliverable | Route / location | Notes |
 |---|---|---|
-| Home | `/` | Hero metrics, pillar overview, sector grid, isometric zone map, Ask / Projects / Your 2050 CTAs |
+| Home | `/` | Hero metrics, pillar overview, sector grid, isometric zone map, Ask / Projects / Pulse / Your 2050 CTAs |
 | Sector vision pages | `/sectors/[slug]` | Editorial hero, baseline chart, scenario ranges, interactive milestone timeline, How We Got Here, assumptions/risks, sources. **13 sectors live** (6 MVP + 7 expansion) |
 | Interactive history timeline | `/timeline` | 8 eras, 26 entries, scrollytelling spine, era scrubber, sector cross-links |
 | Now vs. 2050 comparator | `/compare` | Morph slider; 2030–2050 figures labeled as scenarios |
@@ -44,6 +44,7 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 | Your Nigeria 2050 | `/your-2050` | Client-side grounded vignette; display names sanitized (Phase 2 addition) |
 | Icons of Nigeria | `/icons` | 150 sourced figures, Wikimedia portraits, no sitting officeholders, no AI likenesses |
 | Cool Projects | `/projects` | 26 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`), public libraries (`/projects/public-libraries`), emergency 112 (`/projects/emergency-112`), land titles (`/projects/land-titles`), grid outage (`/projects/grid-outage`), open budgets (`/projects/open-budgets`) |
+| Street Pulse | `/pulse` | 8 questions per round from a pool of 32 (8 categories × 4). Refresh or Draw another 8 starts a new round from unanswered items. Unlock-after-answer. Age band, gender, zone. Live n. Optional `POLLS_WEBHOOK_URL`. MVP for aggregate research licensing |
 | Ask the Archive | `/ask` | Server-side retrieval (`POST /api/ask`), sourced answers, expanded guardrails |
 | Source library | `/sources` | Sector + era filters (38 editorial sources; icon citations listed per figure) |
 | Glossary | `/glossary` | Terms + inline `AutoGlossary` |
@@ -69,7 +70,8 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 - Hydration-safe motion (`AnimatedCounter`, `FadeIn`, `useMounted`)
 - Dev cache guards (`scripts/ensure-dev-stopped.mjs`, `scripts/stop-dev.mjs`)
 - Optional Plausible production analytics (`NEXT_PUBLIC_PLAUSIBLE_DOMAIN`)
-- Optional webhooks: `CORRECTIONS_WEBHOOK_URL`, `PROJECTS_WEBHOOK_URL`
+- Optional webhooks: `CORRECTIONS_WEBHOOK_URL`, `PROJECTS_WEBHOOK_URL`, `POLLS_WEBHOOK_URL`
+- Street Pulse operator export: `POLLS_EXPORT_SECRET` (Bearer token for `GET /api/polls/export`)
 
 ### Content library (current)
 
@@ -82,6 +84,7 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 | Sectors | 13 |
 | Icons of Nigeria | 150 |
 | Cool Projects (editorial) | 26 |
+| Street Pulse polls | 32 (8 categories × 4) |
 | Glossary terms | 55 |
 | Comparator metrics | 10 |
 | G7 benchmark rows | 31 |
@@ -104,7 +107,9 @@ Unchanged from Phase 1 — **none of this is done.** Content expansion does not 
   - `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` → optional analytics
   - `CORRECTIONS_WEBHOOK_URL` → optional (correction form logs in development without it)
   - `PROJECTS_WEBHOOK_URL` → optional (Cool Projects submissions)
-- [ ] Smoke-test all routes on production URL (include `/icons`, `/projects`, `/projects/postal-codes`, `/projects/road-signs`, `/projects/public-libraries`, `/projects/emergency-112`, `/projects/land-titles`, `/projects/grid-outage`, `/projects/open-budgets`, `/privacy`, `/ask`)
+  - `POLLS_WEBHOOK_URL` → optional (Street Pulse rows to a sheet / Make)
+  - `POLLS_EXPORT_SECRET` → optional (16+ chars; Bearer token for `GET /api/polls/export`)
+- [ ] Smoke-test all routes on production URL (include `/icons`, `/projects`, `/projects/postal-codes`, `/projects/road-signs`, `/projects/public-libraries`, `/projects/emergency-112`, `/projects/land-titles`, `/projects/grid-outage`, `/projects/open-budgets`, `/pulse`, `/privacy`, `/ask`)
 - [ ] Confirm OG image, sitemap, and `robots.txt` disallow of `/api/` + `/editorial/` on production domain
 
 ### QA (owner: product)
@@ -318,6 +323,17 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 - Optional `PROJECTS_WEBHOOK_URL`
 - Ideas are civic proposals, not sourced 2050 forecasts — labeled as such on the page
 
+### Street Pulse
+
+**Status:** 🧪 **MVP** at `/pulse`
+
+- 32 banded polls in `src/content/polls.ts` across 8 categories (pay, commute, meals, till, power, data, ride, basket). Each category has 4 question types. A visit draws 8 unanswered questions (one per category when possible). Refresh the page, or tap Draw another 8, for a new round from the remaining pool
+- Results for that question unlock only after you answer. Live n. No seed tallies. Zone crosstabs when a cell has 5+ answers
+- Demographics once: 18+ confirmation, age band, gender, geopolitical zone or diaspora
+- Anonymous browser UUID; `POST /api/polls`; store in `data/polls-runtime.json` (gitignored; `/tmp` on Vercel). Each ballot has `recordedAt`, option band, age, gender, zone
+- Research copy: optional `POLLS_WEBHOOK_URL` (HTTPS, no UUID; hashed respondent id if `POLLS_EXPORT_SECRET` is set). Operators pull JSON/CSV via `GET /api/polls/export` with `Authorization: Bearer $POLLS_EXPORT_SECRET`. Plausible events send `pollId` only
+- Product bet: if n grows, license aggregate psychographic / purchase-behavior tables. Public civic content stays free
+
 ### 3D/WebGL centerpiece (PRD 8.2 stretch)
 
 **Status:** ⏸️ **Deferred** as React Three Fiber.
@@ -327,7 +343,7 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 - [ ] Interactive R3F map — states light up by sector data
 - [ ] Beta flag for 3D prototype
 
-**Exit criteria (original):** Quiz on timeline ❌; correction form wired ✅; 3D map prototype on home ❌ (2D isometric map ✅). **Added beyond original sprint:** Icons register ✅; Cool Projects board ✅.
+**Exit criteria (original):** Quiz on timeline ❌; correction form wired ✅; 3D map prototype on home ❌ (2D isometric map ✅). **Added beyond original sprint:** Icons register ✅; Cool Projects board ✅; Street Pulse MVP ✅.
 
 ---
 
@@ -336,10 +352,10 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 | Area | Status | Notes |
 |---|---|---|
 | CMS | ⏸️ Deferred | Content still lives in `src/content/`; evaluate Sanity / Contentful only if update frequency requires it |
-| API | ⚠️ Internal only | Write APIs for Ask, corrections, and projects (rate-limited). No public B2B content API |
+| API | ⚠️ Internal only | Write APIs for Ask, corrections, projects, and Street Pulse (rate-limited). No public B2B content API |
 | Analytics | ⚠️ Partial | Optional Plausible env var exists; production domain + goals dashboard not wired |
 | Performance | ⚠️ Partial | Data-saver + lazy art in product; Image CDN / CWV monitoring wait on deploy |
-| Testing | ⚠️ Partial | Playwright smoke tests in `e2e/` (pages + Ask/corrections API). **Not hooked to GitHub Actions** |
+| Testing | ⚠️ Partial | Playwright smoke tests in `e2e/` (pages + Ask/corrections/polls API). **Not hooked to GitHub Actions** |
 
 ---
 
@@ -353,6 +369,7 @@ Unchanged — **not measurable until production deploy.**
 | Localization traffic | ≥ 10% of sessions in non-English locales *(blocked on Sprint B)* |
 | Your Nigeria 2050 completions | ≥ 5% of returning visitors |
 | Cool Projects votes / submits | Qualitative — civic-idea engagement *(new)* |
+| Street Pulse answers | Qualitative — n per poll, % who unlock 3+ questions *(new)* |
 | Audio mode usage | ≥ 8% of timeline sessions *(blocked on TTS)* |
 | Correction submissions | Qualitative — credible engagement signal |
 
@@ -363,6 +380,7 @@ Unchanged — **not measurable until production deploy.**
 Phase 3 (not scoped here) covers commercialization per PRD Section 12:
 
 - Institutional licensing (schools, diaspora orgs)
+- **Street Pulse aggregate research** for teams marketing in Nigeria (pay, commute, meals, till). MVP is live at `/pulse`; readers stay unpaid
 - Supporter membership tier
 - Sponsorship firewall policy
 - White-label platform for other countries

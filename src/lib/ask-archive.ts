@@ -1,6 +1,7 @@
 import { GLOSSARY } from "@/content/glossary";
 import { ICONS } from "@/content/icons";
 import { COOL_PROJECTS } from "@/content/projects";
+import { PULSE_CATEGORIES, PULSE_META, PULSE_POLLS, PULSE_SESSION_SIZE } from "@/content/polls";
 import { POSTAL_CODE_SCHEME } from "@/content/postal-code-engine";
 import { LIBRARY_STANDARD } from "@/content/public-libraries";
 import { EMERGENCY_STANDARD } from "@/content/emergency-112";
@@ -18,7 +19,7 @@ export interface ArchiveChunk {
   text: string;
   title: string;
   href: string;
-  type: "timeline" | "sector" | "glossary" | "icon" | "project";
+  type: "timeline" | "sector" | "glossary" | "icon" | "project" | "pulse";
   sourceIds?: string[];
 }
 
@@ -105,6 +106,13 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
     href: "/projects/open-budgets",
     type: "project" as const,
   },
+  {
+    id: "street-pulse",
+    text: `${PULSE_META.name} at /pulse. ${PULSE_META.description} Each visit draws ${PULSE_SESSION_SIZE} questions from ${PULSE_POLLS.length} across ${PULSE_CATEGORIES.length} categories. Refresh the page for a new round from questions you have not answered. ${PULSE_CATEGORIES.map((category) => `${category.wheel}: ${PULSE_POLLS.filter((poll) => poll.category === category.id).map((poll) => poll.question).join(" ")}`).join(" ")} Age band, gender, and geopolitical zone travel with each ballot. Results unlock after you answer that question. Live n from this site. Convenience sample of Naija2050 readers. Aggregate tables may be licensed to teams marketing in Nigeria.`,
+    title: PULSE_META.name,
+    href: "/pulse",
+    type: "pulse" as const,
+  },
   ...GLOSSARY.map((g) => ({
     id: `glossary-${g.term}`,
     text: `${g.term}: ${g.definition}`,
@@ -115,7 +123,7 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
 ];
 
 const OUT_OF_SCOPE_RESPONSE =
-  "I can only answer questions grounded in Naija2050's curated content, timeline entries, sector projections, icons, cool projects, and glossary terms. Try asking about Nigeria's history, a specific person on the Icons page, a sector's 2050 vision, a civic project like postal codes, or a term like 'Amalgamation' or 'brain drain'.";
+  "I can only answer questions grounded in Naija2050's curated content, timeline entries, sector projections, icons, cool projects, Street Pulse, and glossary terms. Try asking about Nigeria's history, a specific person on the Icons page, a sector's 2050 vision, a civic project like postal codes, Street Pulse polls, or a term like 'Amalgamation' or 'brain drain'.";
 
 function tokenize(text: string): string[] {
   return text

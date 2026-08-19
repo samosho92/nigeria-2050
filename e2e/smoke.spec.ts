@@ -92,6 +92,48 @@ test.describe("critical paths", () => {
     await expect(page.getByText("Jos").first()).toBeVisible();
   });
 
+  test("street pulse page loads the wheel", async ({ page }) => {
+    await page.goto("/pulse");
+    await expect(page.getByRole("heading", { name: /How Nigeria actually lives/i })).toBeVisible();
+    await expect(page.getByRole("checkbox", { name: /18 or older/i })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Unlock the wheel/i })).toBeDisabled();
+  });
+
+  test("street pulse API records a meals ballot", async ({ request }) => {
+    const clientId = crypto.randomUUID();
+    const otherId = crypto.randomUUID();
+    const response = await request.post("/api/polls", {
+      headers: { Origin: ORIGIN },
+      data: {
+        clientId,
+        pollId: "meals",
+        optionId: "1-2.5k",
+        age: "25-34",
+        gender: "skip",
+        zone: "south-west",
+      },
+    });
+    expect(response.ok()).toBeTruthy();
+    const body = await response.json();
+    expect(body.ok).toBe(true);
+    expect(body.optionId).toBe("1-2.5k");
+    expect(body.tally.n).toBeGreaterThanOrEqual(1);
+
+    const locked = await request.get(`/api/polls?clientId=${otherId}`);
+    const lockedBody = await locked.json();
+    expect(lockedBody.tallies.meals).toBeUndefined();
+
+    const mine = await request.get(`/api/polls?clientId=${clientId}`);
+    const mineBody = await mine.json();
+    expect(mineBody.voted.meals).toBe("1-2.5k");
+    expect(mineBody.tallies.meals.n).toBeGreaterThanOrEqual(1);
+  });
+
+  test("street pulse export rejects missing credentials", async ({ request }) => {
+    const response = await request.get("/api/polls/export");
+    expect(response.status()).toBe(401);
+  });
+
   test("correction API accepts valid payload", async ({ request }) => {
     const response = await request.post("/api/corrections", {
       headers: { Origin: ORIGIN },

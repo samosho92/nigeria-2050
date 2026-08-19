@@ -255,6 +255,17 @@
     animation: milestone-panel-enter 0.25s ease-out;
   }
 
+  .pulse-wheel {
+    transform-origin: 50% 50%;
+    transition: transform 4.6s cubic-bezier(0.12, 0.78, 0.08, 1);
+    will-change: transform;
+  }
+
+  html[data-saver="true"] .pulse-wheel {
+    transition: none;
+    will-change: auto;
+  }
+
   .page-hero-grid {
     background-image:
       linear-gradient(
@@ -316,6 +327,11 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .pulse-wheel {
+      transition: none;
+      will-change: auto;
+    }
+
     .milestone-panel-enter {
       animation: none;
     }
