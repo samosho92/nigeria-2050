@@ -33,7 +33,7 @@ test.describe("critical paths", () => {
     await page.goto("/projects");
     await expect(page.getByRole("heading", { name: "Cool Projects" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /postal code/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /open the mock/i })).toHaveCount(6);
+    await expect(page.getByRole("link", { name: /open the mock/i })).toHaveCount(7);
   });
 
   test("postal code mock starts from capital cities", async ({ page }) => {
@@ -82,6 +82,14 @@ test.describe("critical paths", () => {
     await expect(page.getByText("4,780 MW").first()).toBeVisible();
     await expect(page.getByText("Egbin").first()).toBeVisible();
     await expect(page.getByText("20:00–22:00 WAT")).toBeVisible();
+  });
+
+  test("open budgets mock publishes the 2026 envelope", async ({ page }) => {
+    await page.goto("/projects/open-budgets");
+    await expect(page.getByRole("heading", { name: /budgets and contracts in public/i })).toBeVisible();
+    await expect(page.getByText("₦68.32tn").first()).toBeVisible();
+    await expect(page.getByText("FC-WORKS-2026-0147").first()).toBeVisible();
+    await expect(page.getByText("Jos").first()).toBeVisible();
   });
 
   test("correction API accepts valid payload", async ({ request }) => {

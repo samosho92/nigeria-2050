@@ -104,6 +104,7 @@ export const COOL_PROJECTS: CoolProject[] = [
     inspiredBy: "US data.gov, UK Contracts Finder, Open Contracting Data Standard",
     sectorSlugs: ["governance", "technology", "economy"],
     source: "editorial",
+    mockHref: "/projects/open-budgets",
   },
   {
     id: "waste-routes",

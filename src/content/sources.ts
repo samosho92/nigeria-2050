@@ -157,6 +157,13 @@ const RAW_SOURCES: Source[] = [
     url: "https://internationalbudget.org",
   },
   {
+    id: "statehouse-2026-appropriation",
+    title: "President Tinubu Assents to 2026 Appropriation Bill and 2025 Budget Extension",
+    publisher: "The State House, Abuja",
+    year: 2026,
+    url: "https://statehouse.gov.ng/president-tinubu-assents-to-2026-appropriation-bill-and-2025-budget-extension/",
+  },
+  {
     id: "unesco-education-spending",
     title: "Education Finance Watch",
     publisher: "UNESCO",
@@ -217,6 +224,7 @@ const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
   "wipo-ip-stats": { sectors: ["technology"] },
   "idea-election-turnout": { sectors: ["governance"] },
   "international-budget-partnership": { sectors: ["governance"] },
+  "statehouse-2026-appropriation": { sectors: ["governance", "economy"] },
   "unesco-education-spending": { sectors: ["education"] },
   "who-health-workforce": { sectors: ["education"] },
   "global-peace-index": { sectors: ["security"] },

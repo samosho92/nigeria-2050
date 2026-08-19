@@ -5,7 +5,7 @@ import { GLOSSARY } from "@/content/glossary";
 
 export const metadata: Metadata = {
   title: "Glossary",
-  description: "Plain-language definitions for terms newcomers won't know.",
+  description: "Plain-language definitions for terms used across Naija2050.",
 };
 
 export default function GlossaryPage() {
@@ -14,7 +14,7 @@ export default function GlossaryPage() {
       <PageHero
         eyebrow="Reference"
         title="Glossary"
-        description="Plain-language definitions for terms used across sector pages and the timeline. Built for the curious newcomer."
+        description={`${GLOSSARY.length} plain-language definitions for terms used on sector pages, the timeline, and Cool Projects.`}
       />
       <Container size="narrow" className="py-12 md:py-16">
         <dl className="space-y-6">

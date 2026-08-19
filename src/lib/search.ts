@@ -103,6 +103,13 @@ const searchItems: SearchResult[] = [
     href: "/projects/grid-outage",
   },
   {
+    id: "open-budget-portal",
+    type: "project" as const,
+    title: "Open budgets and contracts",
+    description: "Mock portal: 2026 Appropriation Act envelope, MDA tables, sample awards",
+    href: "/projects/open-budgets",
+  },
+  {
     id: "g7-compare",
     type: "sector" as const,
     title: "Nigeria vs. G7",

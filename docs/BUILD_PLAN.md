@@ -13,7 +13,7 @@
 | **Phase 2** | Expand content, localization, AI depth, engagement | ⚠️ **Content + engagement mostly shipped** (Icons, Cool Projects, Ask API) · i18n, audio, commissioned art, WebGL, CMS **deferred** |
 | **Phase 3** | Commercialization (licensing, membership, white-label) | 🔮 Not started |
 
-**What is live in the repo today:** 13 sectors, 26 timeline entries, 38 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (26 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, and grid-outage mocks), correction form, home map, 5 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
+**What is live in the repo today:** 13 sectors, 26 timeline entries, 39 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (26 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, grid-outage, and open-budget mocks), correction form, home map, 5 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
 
 ---
 
@@ -43,7 +43,7 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 | Nigeria vs. G7 | `/compare/g7` | Same-indicator, same-year benchmarks (Phase 2 addition) |
 | Your Nigeria 2050 | `/your-2050` | Client-side grounded vignette; display names sanitized (Phase 2 addition) |
 | Icons of Nigeria | `/icons` | 150 sourced figures, Wikimedia portraits, no sitting officeholders, no AI likenesses |
-| Cool Projects | `/projects` | 26 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`), public libraries (`/projects/public-libraries`), emergency 112 (`/projects/emergency-112`), land titles (`/projects/land-titles`), grid outage (`/projects/grid-outage`) |
+| Cool Projects | `/projects` | 26 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`), public libraries (`/projects/public-libraries`), emergency 112 (`/projects/emergency-112`), land titles (`/projects/land-titles`), grid outage (`/projects/grid-outage`), open budgets (`/projects/open-budgets`) |
 | Ask the Archive | `/ask` | Server-side retrieval (`POST /api/ask`), sourced answers, expanded guardrails |
 | Source library | `/sources` | Sector + era filters (38 editorial sources; icon citations listed per figure) |
 | Glossary | `/glossary` | Terms + inline `AutoGlossary` |
@@ -75,14 +75,14 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 
 | Asset | Count |
 |---|---|
-| Editorial sources | 38 |
+| Editorial sources | 39 |
 | Icon citations (Wikimedia / named sources) | 150 |
 | Timeline eras | 8 |
 | Timeline entries | 26 (17 MVP + 9 Phase 2) |
 | Sectors | 13 |
 | Icons of Nigeria | 150 |
 | Cool Projects (editorial) | 26 |
-| Glossary terms | 18 |
+| Glossary terms | 55 |
 | Comparator metrics | 10 |
 | G7 benchmark rows | 31 |
 | Sector quizzes | 5 |
@@ -104,7 +104,7 @@ Unchanged from Phase 1 — **none of this is done.** Content expansion does not 
   - `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` → optional analytics
   - `CORRECTIONS_WEBHOOK_URL` → optional (correction form logs in development without it)
   - `PROJECTS_WEBHOOK_URL` → optional (Cool Projects submissions)
-- [ ] Smoke-test all routes on production URL (include `/icons`, `/projects`, `/projects/postal-codes`, `/projects/road-signs`, `/projects/public-libraries`, `/projects/emergency-112`, `/projects/land-titles`, `/projects/grid-outage`, `/privacy`, `/ask`)
+- [ ] Smoke-test all routes on production URL (include `/icons`, `/projects`, `/projects/postal-codes`, `/projects/road-signs`, `/projects/public-libraries`, `/projects/emergency-112`, `/projects/land-titles`, `/projects/grid-outage`, `/projects/open-budgets`, `/privacy`, `/ask`)
 - [ ] Confirm OG image, sitemap, and `robots.txt` disallow of `/api/` + `/editorial/` on production domain
 
 ### QA (owner: product)
@@ -312,6 +312,7 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 **Status:** ✅ **Done** at `/projects`
 
 - 26 editorial civic ideas in `src/content/projects.ts` (Tabler icon per card)
+- Working mocks: postal codes, road signs, public libraries, emergency 112, land titles, grid outage, open budgets (`/projects/open-budgets`, 2026 Appropriation Act envelope + sample awards)
 - Anonymous upvote/downvote against a browser UUID; server tally in `data/projects-runtime.json` (gitignored; `/tmp` on Vercel)
 - Reader submissions via `POST /api/projects/submit` (guardrails, sector allowlist, rate limit)
 - Optional `PROJECTS_WEBHOOK_URL`

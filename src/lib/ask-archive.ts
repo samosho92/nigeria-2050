@@ -6,6 +6,7 @@ import { LIBRARY_STANDARD } from "@/content/public-libraries";
 import { EMERGENCY_STANDARD } from "@/content/emergency-112";
 import { TITLE_STANDARD } from "@/content/land-titles";
 import { GRID_STANDARD } from "@/content/grid-outage";
+import { BUDGET_STANDARD } from "@/content/open-budgets";
 import { ROAD_SIGN_STANDARD } from "@/content/road-signs";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
@@ -95,6 +96,13 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
     text: `Grid outage map mock. National hour ${GRID_STANDARD.name}, snapshot ${GRID_STANDARD.snapshotLabel}: generated ${GRID_STANDARD.generatedMw} MW versus unconstrained demand ${GRID_STANDARD.unconstrainedDemandMw} MW. Fuel mix gas hydro solar import. Plants (Egbin, Kainji, Jebba, Shiroro, Zungeru, Azura-Edo) post output versus capability. DisCo feeders with status on, load-shed, fault, or unknown, a restoration window or an honest unknown. AEDC Garki clinic shed 20:00–22:00 WAT. Maiduguri / Yola offtake does not publish timestamps.`,
     title: "Grid outage map",
     href: "/projects/grid-outage",
+    type: "project" as const,
+  },
+  {
+    id: "project-open-budgets-portal",
+    text: `Open budgets mock. National standard ${BUDGET_STANDARD.name}: 2026 Appropriation Act envelope ₦68.32tn, assented 17 April 2026 (State House). Capital ₦32.2tn, recurrent ₦15.4tn, debt service ₦15.8tn, statutory transfers ₦4.799tn. MDA vintage at passage: Works capital, Agriculture capital, Defence recurrent. Sample awards: FC-WORKS-2026-0147 Abuja–Kaduna dual, PL-MKT-2026-0004 Jos terminus lighting signed 24 April 2026, AB-PWR-2026-0011 Aba artisan meters. Seed jurisdictions: Federal, Lagos, Kaduna, Rivers, Plateau, Abia. Supplier labels are classes.`,
+    title: "Open budgets and contracts",
+    href: "/projects/open-budgets",
     type: "project" as const,
   },
   ...GLOSSARY.map((g) => ({

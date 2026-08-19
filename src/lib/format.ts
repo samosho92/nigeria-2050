@@ -21,3 +21,21 @@ export function formatScenarioValue(
   if (range.unit) return `${raw} ${range.unit}`;
   return raw;
 }
+
+/** Compact naira for civic tables (₦68.32tn, ₦186bn, ₦890m). */
+export function formatNaira(naira: number): string {
+  const abs = Math.abs(naira);
+  if (abs >= 1_000_000_000_000) {
+    const tn = naira / 1_000_000_000_000;
+    return `₦${tn.toLocaleString("en-NG", { maximumFractionDigits: tn >= 10 ? 2 : 3 })}tn`;
+  }
+  if (abs >= 1_000_000_000) {
+    const bn = naira / 1_000_000_000;
+    return `₦${bn.toLocaleString("en-NG", { maximumFractionDigits: bn >= 10 ? 1 : 2 })}bn`;
+  }
+  if (abs >= 1_000_000) {
+    const m = naira / 1_000_000;
+    return `₦${m.toLocaleString("en-NG", { maximumFractionDigits: m >= 10 ? 0 : 1 })}m`;
+  }
+  return `₦${naira.toLocaleString("en-NG")}`;
+}
