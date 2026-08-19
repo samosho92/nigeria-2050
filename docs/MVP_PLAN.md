@@ -3,7 +3,7 @@
 **Derived from:** [Nigeria2050_PRD.md](./Nigeria2050_PRD.md) (Draft v2, Aug 17 2026)  
 **Build plan:** [BUILD_PLAN.md](./BUILD_PLAN.md) — Phase 1 launch checklist + Phase 2 done / deferred  
 **Status:** ✅ **MVP engineering complete** · ⚠️ **Phase 2 content shipped ahead of launch** (Icons, Cool Projects, server-side Ask) · launch blocked on external editorial review + production deploy  
-**Last updated:** August 18, 2026
+**Last updated:** August 19, 2026
 
 ---
 
@@ -24,7 +24,7 @@
 - [x] Source library + methodology page live
 - [x] Morph slider and Ask the Archive shipped
 - [x] Cross-pillar link tracking (`src/lib/analytics.ts`)
-- [x] Production analytics hook (optional Plausible via `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`)
+- [x] Production analytics hook (optional Plausible + GA4 via env vars; consent-gated)
 - [ ] Performance audit on 4G throttled *(manual Lighthouse — see BUILD_PLAN Phase 1 checklist)*
 - [ ] Production deploy to Vercel
 - [ ] Historian + economist sign-off on `pending-review` queue items
@@ -133,7 +133,8 @@
 - [x] `vercel.json` deploy config
 - [x] Hydration mismatch fixes (`AnimatedCounter`, `FadeIn`, `useMounted`)
 - [x] Dev cache corruption guards (`prebuild`, `preclean`, `turbopack.root`)
-- [x] Optional Plausible analytics integration
+- [x] Optional Plausible + GA4 analytics integration (consent-gated cookie banner)
+- [x] FAQ page (`/faq`)
 - [x] Playwright smoke tests (`e2e/smoke.spec.ts`) — pages plus Ask/corrections API; **not yet in CI**
 - [x] Security headers (CSP, framing denial, HSTS) + `/api` `no-store` / `noindex`
 - [x] Privacy + terms pages (`src/content/legal.ts`)
@@ -206,6 +207,6 @@
 3. [ ] Historian sign-off on Civil War entry **and** Icons register
 4. [ ] Economist sign-off on Economy/Security (and remaining `pending-review` sectors)
 5. [ ] `npm run stop:dev && npm run build` → merge `dev` → `main` → deploy on Vercel
-6. [ ] Set `NEXT_PUBLIC_SITE_URL` + optional `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`, `CORRECTIONS_WEBHOOK_URL`, `PROJECTS_WEBHOOK_URL` in Vercel
+6. [ ] Set production env vars per `docs/DEPLOY.md` (`NEXT_PUBLIC_SITE_URL`, Upstash Redis, optional `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`, `NEXT_PUBLIC_GA4_MEASUREMENT_ID`, webhooks)
 7. [ ] Run Lighthouse audit on 4G throttled
 8. [ ] After launch: pick from deferred backlog (i18n first if distribution needs it)

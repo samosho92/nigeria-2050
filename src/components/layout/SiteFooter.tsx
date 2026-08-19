@@ -4,6 +4,7 @@ import {
   IconBook2,
   IconBooks,
   IconChartBar,
+  IconHelpCircle,
   IconFileText,
   IconMessageChatbot,
   IconScale,
@@ -15,6 +16,7 @@ import {
 } from "@tabler/icons-react";
 import type { TablerIcon } from "@tabler/icons-react";
 import { Container } from "@/components/ui/Container";
+import { CookieSettingsButton } from "@/components/legal/CookieSettingsButton";
 
 const EXPLORE_LINKS: { href: string; label: string; icon: TablerIcon }[] = [
   { href: "/timeline", label: "Timeline", icon: IconTimeline },
@@ -31,6 +33,7 @@ const REFERENCE_LINKS: { href: string; label: string; icon: TablerIcon }[] = [
   { href: "/sources", label: "Sources", icon: IconBooks },
   { href: "/glossary", label: "Glossary", icon: IconBook2 },
   { href: "/methodology", label: "Methodology", icon: IconFileText },
+  { href: "/faq", label: "FAQ", icon: IconHelpCircle },
   { href: "/ask", label: "Ask the Archive", icon: IconMessageChatbot },
 ];
 
@@ -93,6 +96,7 @@ export function SiteFooter() {
           <Link href="/terms" className="transition hover:text-foreground">
             Terms of Use
           </Link>
+          <CookieSettingsButton />
         </div>
       </Container>
     </footer>

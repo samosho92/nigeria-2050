@@ -1,7 +1,7 @@
 # Naija2050 — Build Plan (Phase 1 & Phase 2)
 
 **Derived from:** [Nigeria2050_PRD.md](./Nigeria2050_PRD.md) · [MVP_PLAN.md](./MVP_PLAN.md)  
-**Last updated:** August 18, 2026
+**Last updated:** August 19, 2026
 
 ---
 
@@ -13,7 +13,7 @@
 | **Phase 2** | Expand content, localization, AI depth, engagement | ⚠️ **Content + engagement mostly shipped** (Icons, Cool Projects, Ask API) · i18n, audio, commissioned art, WebGL, CMS **deferred** |
 | **Phase 3** | Commercialization (licensing, membership, white-label) | 🧪 Street Pulse MVP started |
 
-**What is live in the repo today:** 14 sectors, 27 timeline entries, 42 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (27 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, grid-outage, and open-budget mocks), Street Pulse (`/pulse`, 8 categories × 4 questions, random draw, unlock-after-answer), correction form, home map, 6 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
+**What is live in the repo today:** 14 sectors, 27 timeline entries, 42 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (27 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, grid-outage, and open-budget mocks), Street Pulse (`/pulse`, 8 categories × 4 questions, random draw, unlock-after-answer, Nigeria-only, Upstash Redis in production), FAQ (`/faq`), cookie consent banner, correction form, home map, 6 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails and Nigeria basics retrieval. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
 
 ---
 
@@ -49,6 +49,7 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 | Source library | `/sources` | Sector + era filters (42 editorial sources; icon citations listed per figure) |
 | Glossary | `/glossary` | Terms + inline `AutoGlossary` |
 | Methodology | `/methodology` | Editorial policy, scenario labeling (`SCENARIO_UI_NOTE`), AI/Ask scope, correction contact |
+| FAQ | `/faq` | Plain-language answers for visitors (no technical jargon) |
 | Privacy / Terms | `/privacy`, `/terms` | Legal copy in `src/content/legal.ts` (Ask is server-side, not persisted) |
 | Editorial review queue | `/editorial/review` | Internal sign-off tracker — **10 items still `pending-review`**; `noindex` |
 
@@ -69,7 +70,10 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 - Accessibility: skip link, reduced-motion + data-saver modes
 - Hydration-safe motion (`AnimatedCounter`, `FadeIn`, `useMounted`)
 - Dev cache guards (`scripts/ensure-dev-stopped.mjs`, `scripts/stop-dev.mjs`)
-- Optional Plausible production analytics (`NEXT_PUBLIC_PLAUSIBLE_DOMAIN`)
+- Optional dual analytics: Plausible (`NEXT_PUBLIC_PLAUSIBLE_DOMAIN`) + GA4 (`NEXT_PUBLIC_GA4_MEASUREMENT_ID`), both consent-gated via cookie banner (`src/lib/consent.ts`, `src/components/legal/CookieConsentBanner.tsx`)
+- Unified event bus in `src/lib/analytics.ts` mirrors to Plausible and GA4 (`src/lib/gtag.ts`)
+- Street Pulse production storage: Upstash Redis (`UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`); local dev uses `data/polls-runtime.json`
+- Deploy guide: `docs/DEPLOY.md`
 - Optional webhooks: `CORRECTIONS_WEBHOOK_URL`, `PROJECTS_WEBHOOK_URL`, `POLLS_WEBHOOK_URL`
 - Street Pulse operator export: `POLLS_EXPORT_SECRET` (Bearer token for `GET /api/polls/export`)
 
@@ -102,14 +106,16 @@ Unchanged from Phase 1 — **none of this is done.** Content expansion does not 
 - [ ] Stop local dev server before production build (`npm run stop:dev`)
 - [ ] Verify clean build: `npm run typecheck && npm run lint && npm run build`
 - [ ] Merge `dev` → `main`
-- [ ] Connect repo to Vercel; set env vars:
+- [ ] Connect repo to Vercel; set env vars (see `docs/DEPLOY.md`):
   - `NEXT_PUBLIC_SITE_URL` → production domain
+  - `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` → Street Pulse ballots (production only)
   - `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` → optional analytics
+  - `NEXT_PUBLIC_GA4_MEASUREMENT_ID` → optional analytics
   - `CORRECTIONS_WEBHOOK_URL` → optional (correction form logs in development without it)
   - `PROJECTS_WEBHOOK_URL` → optional (Cool Projects submissions)
   - `POLLS_WEBHOOK_URL` → optional (Street Pulse rows to a sheet / Make)
   - `POLLS_EXPORT_SECRET` → optional (16+ chars; Bearer token for `GET /api/polls/export`)
-- [ ] Smoke-test all routes on production URL (include `/icons`, `/projects`, `/projects/postal-codes`, `/projects/road-signs`, `/projects/public-libraries`, `/projects/emergency-112`, `/projects/land-titles`, `/projects/grid-outage`, `/projects/open-budgets`, `/pulse`, `/privacy`, `/ask`)
+- [ ] Smoke-test all routes on production URL (include `/faq`, `/icons`, `/projects`, `/projects/postal-codes`, `/projects/road-signs`, `/projects/public-libraries`, `/projects/emergency-112`, `/projects/land-titles`, `/projects/grid-outage`, `/projects/open-budgets`, `/pulse`, `/privacy`, `/ask`)
 - [ ] Confirm OG image, sitemap, and `robots.txt` disallow of `/api/` + `/editorial/` on production domain
 
 ### QA (owner: product)
@@ -120,6 +126,7 @@ Unchanged from Phase 1 — **none of this is done.** Content expansion does not 
 - [ ] Verify Ask the Archive declines out-of-scope, abusive, and injection-style queries (and still answers civic history, e.g. Civil War)
 - [ ] Confirm Cool Projects vote + submit; corrections reject off-site / `javascript:` page URLs
 - [ ] Test interactive milestone timeline (click + keyboard navigation)
+- [ ] Accept/decline cookie banner; confirm Plausible + GA4 only load after opt-in
 
 ### Editorial (owner: content — **launch blocker**)
 
@@ -131,7 +138,7 @@ Unchanged from Phase 1 — **none of this is done.** Content expansion does not 
 ### Post-launch (week 1)
 
 - [ ] Share launch URL on primary distribution channel (diaspora / education / press)
-- [ ] Monitor Plausible for cross-pillar nav rate and morph slider engagement
+- [ ] Monitor Plausible + GA4 for cross-pillar nav rate, morph slider engagement, and Ask usage
 - [ ] Triage correction emails / webhook submissions via methodology contact
 - [ ] Triage Cool Projects submissions (`PROJECTS_WEBHOOK_URL` or runtime store)
 
@@ -139,7 +146,7 @@ Unchanged from Phase 1 — **none of this is done.** Content expansion does not 
 
 ## 1.3 Phase 1 success metrics (first 8 weeks)
 
-From PRD Section 15 — track via Plausible + custom events **after production deploy**:
+From PRD Section 15 — track via Plausible + GA4 custom events **after production deploy and consent**:
 
 | Metric | Target (directional) |
 |---|---|
@@ -255,9 +262,9 @@ MVP six remain: `economy`, `technology`, `governance`, `education`, `energy`, `s
 
 **Status:** ✅ **Moved server-side** — still **without** a paid LLM API.
 
-`POST /api/ask` runs phrase-first guardrails then retrieves from curated chunks (`src/lib/ask-archive.ts`). The client pre-checks locally and never receives full chunk text — only the answer, internal links, and source titles. Rate limit: 20 questions / minute / IP. Questions are not persisted as transcripts and are not sent to third-party AI providers.
+`POST /api/ask` runs phrase-first guardrails then retrieves from curated chunks (`src/lib/ask-archive.ts`), including Nigeria basics (states, population, leadership, GDP) from `src/content/nigeria-basics.ts`. The client pre-checks locally and never receives full chunk text — only the answer, internal links, and source titles. Rate limit: 20 questions / minute / IP. Questions are not persisted as transcripts and are not sent to third-party AI providers.
 
-Guardrails (`src/lib/ask-guardrails.ts`) cover abuse, NSFW, spam, prompt injection, self-harm, scams, PII, and off-topic crime/medical/investing phrasing. Civic questions (“who was killed in the Civil War?”) stay allowed. Methodology + privacy policy describe this as of 18 Aug 2026.
+Guardrails (`src/lib/ask-guardrails.ts`) cover abuse, NSFW, spam, prompt injection, self-harm, scams, PII, and off-topic crime/medical/investing phrasing. Civic questions (“who was killed in the Civil War?”) stay allowed. Methodology + privacy policy describe this as of 19 Aug 2026.
 
 ### "Your Nigeria 2050" personalized scenario
 
@@ -332,8 +339,8 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 - 32 banded polls in `src/content/polls.ts` across 8 categories (pay, commute, meals, till, power, data, ride, basket). Each category has 4 question types. A visit draws 8 unanswered questions (one per category when possible). Refresh the page, or tap Draw another 8, for a new round from the remaining pool
 - Results for that question unlock only after you answer. Live n. No seed tallies. Zone crosstabs when a cell has 5+ answers
 - Demographics once: 18+ confirmation, age band, gender, geopolitical zone. Answers only from Nigeria (Vercel / Cloudflare country header). Visitors outside Nigeria see a short explanation and cannot spin or vote
-- Anonymous browser UUID; `POST /api/polls`; store in `data/polls-runtime.json` (gitignored; `/tmp` on Vercel). Each ballot has `recordedAt`, option band, age, gender, zone
-- Research copy: optional `POLLS_WEBHOOK_URL` (HTTPS, no UUID; hashed respondent id if `POLLS_EXPORT_SECRET` is set). Operators pull JSON/CSV via `GET /api/polls/export` with `Authorization: Bearer $POLLS_EXPORT_SECRET`. Plausible events send `pollId` only
+- Anonymous browser UUID; `POST /api/polls`; production store in Upstash Redis (local dev: `data/polls-runtime.json`). Each ballot has `recordedAt`, option band, age, gender, zone
+- Research copy: optional `POLLS_WEBHOOK_URL` (HTTPS, no UUID; hashed respondent id if `POLLS_EXPORT_SECRET` is set). Operators pull JSON/CSV via `GET /api/polls/export` with `Authorization: Bearer $POLLS_EXPORT_SECRET`. Analytics events send `pollId` only
 - Product bet: if n grows, license aggregate psychographic / purchase-behavior tables. Public civic content stays free
 
 ### 3D/WebGL centerpiece (PRD 8.2 stretch)
@@ -355,7 +362,34 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 |---|---|---|
 | CMS | ⏸️ Deferred | Content still lives in `src/content/`; evaluate Sanity / Contentful only if update frequency requires it |
 | API | ⚠️ Internal only | Write APIs for Ask, corrections, projects, and Street Pulse (rate-limited). No public B2B content API |
-| Analytics | ⚠️ Partial | Optional Plausible env var exists; production domain + goals dashboard not wired |
+| Analytics | ✅ Consent-gated | Cookie banner + `src/lib/analytics.ts` event bus; mirrors to Plausible and GA4 when env vars set. See `docs/DEPLOY.md` |
+
+**Tracked events** (all consent-gated, mirrored to Plausible + GA4):
+
+| Event | Trigger |
+|---|---|
+| `page_view` | Route change |
+| `cross_pillar_nav` | Timeline ↔ sector link click |
+| `morph_slider_use` | Comparator slider move |
+| `milestone_select` | Sector milestone year pick |
+| `g7_sector_filter` | G7 comparator sector filter |
+| `ask_archive_query` | Grounded Ask answer |
+| `ask_archive_blocked` | Ask guardrail block |
+| `ask_suggested_click` | Suggested question chip |
+| `quiz_complete` | Sector quiz finished |
+| `your_2050_complete` | Vignette generated |
+| `correction_submit` | Correction form sent |
+| `map_region_select` | Home map zone select |
+| `project_vote` | Cool Projects vote |
+| `project_submit` | Cool Projects idea submit |
+| `pulse_spin` | Street Pulse wheel spin |
+| `pulse_answer` | Street Pulse answer saved |
+| `search_open` | Search dialog opened |
+| `search_select` | Search result clicked |
+| `consent_choice` | Analytics opt-in |
+| `consent_preferences_open` | Cookie settings reopened |
+| `data_saver_toggle` | Data saver toggled |
+| `theme_toggle` | Light/dark theme switch |
 | Performance | ⚠️ Partial | Data-saver + lazy art in product; Image CDN / CWV monitoring wait on deploy |
 | Testing | ⚠️ Partial | Playwright smoke tests in `e2e/` (pages + Ask/corrections/polls API). **Not hooked to GitHub Actions** |
 

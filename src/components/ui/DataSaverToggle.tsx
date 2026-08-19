@@ -3,6 +3,7 @@
 import { IconBoltOff } from "@tabler/icons-react";
 import { Button } from "@/components/ui/Button";
 import { useDataSaver } from "@/components/providers/DataSaverProvider";
+import { trackEvent } from "@/lib/analytics";
 
 export function DataSaverToggle() {
   const { enabled, toggle } = useDataSaver();
@@ -13,7 +14,11 @@ export function DataSaverToggle() {
       size="icon"
       aria-label={enabled ? "Disable data saver mode" : "Enable data saver mode"}
       aria-pressed={enabled}
-      onClick={toggle}
+      onClick={() => {
+        const next = !enabled;
+        toggle();
+        trackEvent({ name: "data_saver_toggle", enabled: next });
+      }}
       title="Data saver, reduces animations and heavy visuals"
     >
       <IconBoltOff

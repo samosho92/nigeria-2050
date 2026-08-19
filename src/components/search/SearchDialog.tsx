@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { IconSearch, IconX } from "@tabler/icons-react";
 import Link from "next/link";
 import { searchContent, type SearchResult } from "@/lib/search";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -31,6 +32,7 @@ export function SearchDialog() {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setOpen((o) => !o);
+        trackEvent({ name: "search_open", method: "shortcut" });
       }
       if (e.key === "Escape") setOpen(false);
     };
@@ -44,7 +46,10 @@ export function SearchDialog() {
         variant="ghost"
         size="icon"
         aria-label="Search"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          trackEvent({ name: "search_open", method: "button" });
+          setOpen(true);
+        }}
       >
         <IconSearch className="size-5" stroke={1.5} />
       </Button>
@@ -77,7 +82,14 @@ export function SearchDialog() {
             <li key={`${result.type}-${result.id}`}>
               <Link
                 href={result.href}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  trackEvent({
+                    name: "search_select",
+                    resultType: result.type,
+                    href: result.href,
+                  });
+                  setOpen(false);
+                }}
                 className="flex items-start gap-3 rounded-lg p-3 transition hover:bg-muted"
               >
                 <span

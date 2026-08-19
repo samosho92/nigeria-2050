@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { DataSaverProvider } from "@/components/providers/DataSaverProvider";
 import { AnalyticsPageView } from "@/components/providers/AnalyticsPageView";
 import { ProductionAnalytics } from "@/components/providers/ProductionAnalytics";
+import { CookieConsentBanner } from "@/components/legal/CookieConsentBanner";
 import { fontSans, fontSerif } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { siteUrl, siteName } from "@/lib/site";
@@ -73,6 +74,7 @@ export default function RootLayout({
               {children}
             </main>
             <SiteFooter />
+            <CookieConsentBanner />
           </DataSaverProvider>
         </ThemeProvider>
       </body>

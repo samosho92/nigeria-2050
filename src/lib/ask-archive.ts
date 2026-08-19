@@ -11,6 +11,7 @@ import { BUDGET_STANDARD } from "@/content/open-budgets";
 import { ROAD_SIGN_STANDARD } from "@/content/road-signs";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
+import { NIGERIA_BASIC_FACTS, NIGERIA_BASICS_META } from "@/content/nigeria-basics";
 import { getSourceById } from "@/content/sources";
 import { checkAskGuardrails, isInternalPath, type GuardrailReason } from "@/lib/ask-guardrails";
 
@@ -120,10 +121,18 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
     href: `/glossary#${encodeURIComponent(g.term)}`,
     type: "glossary" as const,
   })),
+  ...NIGERIA_BASIC_FACTS.map((fact) => ({
+    id: `basics-${fact.id}`,
+    text: `${NIGERIA_BASICS_META.title}. ${fact.title}. ${fact.value}. ${fact.summary} ${fact.aliases.join(" ")}.`,
+    title: `Nigeria basics: ${fact.title}`,
+    href: fact.href,
+    type: "glossary" as const,
+    sourceIds: fact.sourceIds,
+  })),
 ];
 
 const OUT_OF_SCOPE_RESPONSE =
-  "I can only answer questions grounded in Naija2050's curated content, timeline entries, sector projections, icons, cool projects, Street Pulse, and glossary terms. Try asking about Nigeria's history, a specific person on the Icons page, a sector's 2050 vision, a civic project like postal codes, Street Pulse polls, or a term like 'Amalgamation' or 'brain drain'.";
+  "I can only answer questions grounded in Naija2050's curated content, including Nigeria basics, timeline entries, sector projections, icons, cool projects, Street Pulse, and glossary terms. Try asking about Nigeria's history, number of states, population, current leadership, GDP, a specific person on the Icons page, or a sector's 2050 vision.";
 
 function tokenize(text: string): string[] {
   return text

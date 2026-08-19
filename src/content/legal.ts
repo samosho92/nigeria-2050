@@ -22,7 +22,7 @@ export const PRIVACY_POLICY: LegalDocument = {
   eyebrow: "Legal",
   description:
     "How Naija2050 handles data when you browse the site, use interactive tools, or contact us.",
-  lastUpdated: "August 18, 2026",
+  lastUpdated: "August 19, 2026",
   sections: [
     {
       id: "overview",
@@ -50,9 +50,10 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: "analytics",
       title: "Analytics",
       paragraphs: [
-        "In production, we may enable privacy-oriented analytics through Plausible when NEXT_PUBLIC_PLAUSIBLE_DOMAIN is configured. Plausible is designed to measure aggregate traffic without cross-site tracking profiles.",
-        "We also record lightweight, anonymous interaction events locally in your browser to help us understand whether features such as timeline-to-sector links are working. These events do not include your name, email, or precise location.",
-        "You can limit site motion and some client-side behavior with the data-saver toggle in the header. Clearing site data in your browser removes locally stored preferences, Street Pulse profile, and analytics summaries.",
+        "We ask for your consent before enabling optional analytics. If you accept, we may send privacy-oriented usage data to Plausible and Google Analytics 4 (GA4) when those services are configured in production.",
+        "If you decline, optional analytics stays off. Core site functions still work.",
+        "When analytics is enabled, we record lightweight, anonymous interaction events (page views, cross-pillar navigation, comparator use, Ask the Archive queries, Street Pulse spin and answer events that name only the poll id, search selections, and preference toggles). These events do not include your name, email, or precise location.",
+        "You can change your choice anytime through Cookie settings in the footer. Clearing site data in your browser removes locally stored preferences, Street Pulse profile, consent choice, and analytics summaries.",
       ],
     },
     {
@@ -60,7 +61,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       title: "Street Pulse",
       paragraphs: [
         "Street Pulse is an anonymous poll for people 18 or older answering from Nigeria. We check country from the network address used to reach the site. We do not store that country on the ballot. We store one answer per poll per browser UUID, with the age band, gender, and zone you select. Results for a poll are shown to you only after you answer it.",
-        "Ballots live in a server-side file on the host that serves the site. Each row records the question, the band you picked, age, gender, zone, and a timestamp. On some hosts that file is ephemeral. We may forward a copy of a new ballot to an optional research webhook (Make, a Google Sheet, or similar). That copy uses a short hash instead of the browser UUID. Operators may export the same rows with a secret token.",
+        "In production, ballots are stored in a managed data store. In local development, ballots use a local file for testing. Each row records the question, the band you picked, age, gender, zone, and a timestamp. We may forward a copy of a new ballot to an optional research webhook (Make, a Google Sheet, or similar). That copy uses a short hash instead of the browser UUID. Operators may export the same rows with a secret token.",
         "If enough people answer, Naija2050 may license aggregate tables and crosstabs (for example pay band by zone) to organizations studying Nigerian consumer behavior. We do not sell a row that identifies a person. Crosstabs on the public page require at least five answers in that cell.",
       ],
     },
@@ -68,8 +69,10 @@ export const PRIVACY_POLICY: LegalDocument = {
       id: "cookies",
       title: "Cookies and local storage",
       paragraphs: [
-        "Naija2050 uses browser local storage for functional preferences (theme, data-saver, Street Pulse profile, anonymous analytics mirror). We do not use local storage for cross-site advertising.",
-        "If Plausible analytics is enabled, Plausible may set a first-party cookie or use local storage consistent with its documentation. Refer to Plausible's own privacy policy for details on their processing.",
+        "Naija2050 uses browser local storage for functional preferences such as theme, data-saver, Street Pulse profile, and your analytics consent choice.",
+        "Optional analytics only runs after consent. You can accept, decline, or reopen cookie settings from the site footer.",
+        "If Plausible analytics is enabled, Plausible may set a first-party cookie or use local storage consistent with its documentation.",
+        "If GA4 is enabled, Google may set first-party cookies consistent with Google's documentation. We configure GA4 with anonymized IP and without ad personalization.",
       ],
     },
     {
@@ -94,6 +97,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       title: "Your choices and rights",
       paragraphs: [
         "You may browse without creating an account. You can disable non-essential client storage by clearing site data in your browser settings.",
+        "You can change analytics consent at any time through Cookie settings in the footer.",
         "Depending on where you live, you may have rights to access, correct, or delete personal information we hold about you. Because we collect very little identifiable data, many requests may simply confirm that we do not maintain a profile for you.",
         "To exercise privacy rights or ask a question about this policy, contact us at the email below.",
       ],
@@ -128,7 +132,7 @@ export const TERMS_OF_USE: LegalDocument = {
   eyebrow: "Legal",
   description:
     "Rules for using Naija2050, our editorial content, interactive tools, and projections.",
-  lastUpdated: "August 18, 2026",
+  lastUpdated: "August 19, 2026",
   sections: [
     {
       id: "acceptance",

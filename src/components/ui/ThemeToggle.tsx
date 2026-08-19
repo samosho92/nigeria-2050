@@ -4,6 +4,7 @@ import { IconMoon, IconSun } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { trackEvent } from "@/lib/analytics";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -22,7 +23,11 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      onClick={() => {
+        const nextTheme = isDark ? "light" : "dark";
+        setTheme(nextTheme);
+        trackEvent({ name: "theme_toggle", theme: nextTheme });
+      }}
     >
       {isDark ? <IconSun className="size-5" stroke={1.5} /> : <IconMoon className="size-5" stroke={1.5} />}
     </Button>

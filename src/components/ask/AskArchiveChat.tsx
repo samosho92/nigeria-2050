@@ -81,6 +81,7 @@ export function AskArchiveChat() {
 
     setLoading(true);
     setInput("");
+    setMessages((current) => [...current, { role: "user", content: trimmed }]);
 
     try {
       const response = await fetch("/api/ask", {
@@ -101,7 +102,6 @@ export function AskArchiveChat() {
       if (response.status === 429) {
         setMessages((current) => [
           ...current,
-          { role: "user", content: trimmed },
           {
             role: "assistant",
             content: data.message ?? "Too many questions. Please wait a moment.",
@@ -117,7 +117,6 @@ export function AskArchiveChat() {
       if (data.blocked) {
         setMessages((current) => [
           ...current,
-          { role: "user", content: "Message withheld", withheld: true },
           { role: "assistant", content: data.answer! },
         ]);
         trackEvent({ name: "ask_archive_blocked", reason: data.blocked });
@@ -125,7 +124,6 @@ export function AskArchiveChat() {
         const links = (data.links ?? []).filter((link) => isInternalPath(link.href));
         setMessages((current) => [
           ...current,
-          { role: "user", content: trimmed },
           {
             role: "assistant",
             content: data.answer!,
@@ -138,7 +136,6 @@ export function AskArchiveChat() {
     } catch {
       setMessages((current) => [
         ...current,
-        { role: "user", content: trimmed },
         {
           role: "assistant",
           content:
@@ -213,9 +210,9 @@ export function AskArchiveChat() {
                   <p className="whitespace-pre-wrap">{msg.content}</p>
                   {msg.links && msg.links.length > 0 && (
                     <div className="mt-3 flex flex-wrap gap-2 border-t border-border/50 pt-3">
-                      {msg.links.map((link) => (
+                      {msg.links.map((link, index) => (
                         <Link
-                          key={link.href}
+                          key={`${link.href}-${link.title}-${index}`}
                           href={link.href}
                           className="text-xs font-medium text-accent hover:underline"
                         >
@@ -250,7 +247,11 @@ export function AskArchiveChat() {
                 <button
                   key={q}
                   type="button"
-                  onClick={() => send(q)}
+                  onClick={() => {
+                    trackEvent({ name: "ask_suggested_click", question: q });
+                    send(q);
+                  }}
+                  disabled={loading}
                   className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition hover:border-accent hover:text-accent"
                 >
                   {q}

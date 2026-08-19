@@ -198,6 +198,41 @@ const RAW_SOURCES: Source[] = [
     year: 2024,
     url: "https://ucdp.uu.se",
   },
+  {
+    id: "nigeria-constitution-1999",
+    title: "Constitution of the Federal Republic of Nigeria 1999 (as amended)",
+    publisher: "Federal Republic of Nigeria",
+    year: 1999,
+    url: "https://placng.org/lawsofnigeria/laws/C23.pdf",
+  },
+  {
+    id: "world-bank-population-total",
+    title: "Population, total - Nigeria",
+    publisher: "World Bank Data",
+    year: 2025,
+    url: "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=NG",
+  },
+  {
+    id: "world-bank-gdp-current-usd",
+    title: "GDP (current US$) - Nigeria",
+    publisher: "World Bank Data",
+    year: 2025,
+    url: "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=NG",
+  },
+  {
+    id: "state-house-president-profile",
+    title: "President Bola Ahmed Tinubu",
+    publisher: "State House, Abuja",
+    year: 2026,
+    url: "https://statehouse.gov.ng/president-bola-ahmed-tinubu/",
+  },
+  {
+    id: "state-house-vice-president-profile",
+    title: "Vice President Kashim Shettima",
+    publisher: "State House, Abuja",
+    year: 2026,
+    url: "https://statehouse.gov.ng/vice-president-kashim-shettima/",
+  },
   ...PHASE2_RAW_SOURCES,
 ];
 
@@ -230,6 +265,11 @@ const SOURCE_META: Record<string, Pick<Source, "sectors" | "eras">> = {
   "global-peace-index": { sectors: ["security"] },
   "unodc-crime-stats": { sectors: ["security"] },
   "ucdp-conflict-data": { sectors: ["security"] },
+  "nigeria-constitution-1999": { sectors: ["governance"] },
+  "world-bank-population-total": { sectors: ["economy", "education", "real-estate"] },
+  "world-bank-gdp-current-usd": { sectors: ["economy"] },
+  "state-house-president-profile": { sectors: ["governance"] },
+  "state-house-vice-president-profile": { sectors: ["governance"] },
   ...PHASE2_SOURCE_META,
 };
 

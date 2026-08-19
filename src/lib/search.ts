@@ -138,6 +138,13 @@ const searchItems: SearchResult[] = [
     description: "Sourcing standards, projection methodology, G7 benchmarks, AI guardrails",
     href: "/methodology",
   },
+  {
+    id: "faq",
+    type: "sector" as const,
+    title: "FAQ",
+    description: "Plain answers to common questions about using Naija2050 and Street Pulse",
+    href: "/faq",
+  },
 ];
 
 let index: Index | null = null;
