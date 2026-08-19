@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { PULSE_POLLS, PULSE_ZONES, getPulsePoll } from "@/content/polls";
-import { isValidPulseBallot, type PulsePollTally, type PulseProfile, type PulseSplitRow } from "@/lib/polls";
+import { isValidPulseBallot, unlockedPulseTallies, type PulsePollTally, type PulseProfile, type PulseSplitRow } from "@/lib/polls";
 import { isValidClientId } from "@/lib/projects";
 import { hashWithSecret } from "@/lib/security";
 
@@ -116,7 +116,7 @@ export async function getClientPulseState(clientId: string): Promise<{
     tallies[poll.id] = tallyPoll(poll.id, ballots);
   }
 
-  return { voted, tallies };
+  return { voted, tallies: unlockedPulseTallies(voted, tallies) };
 }
 
 export async function recordPulseAnswer(

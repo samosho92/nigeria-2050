@@ -28,6 +28,7 @@ import {
   isPulseProfile,
   readPulseClientId,
   readPulseProfile,
+  unlockedPulseTallies,
   writePulseProfile,
   type PulsePollTally,
   type PulseProfile,
@@ -97,8 +98,9 @@ export function StreetPulse() {
           }
           setEligible(data.eligible !== false);
           if (data.eligible === false) return;
-          if (data.voted) setVoted(data.voted);
-          if (data.tallies) setTallies(data.tallies);
+          const nextVoted = data.voted ?? {};
+          setVoted(nextVoted);
+          setTallies(unlockedPulseTallies(nextVoted, data.tallies ?? {}));
         },
       )
       .catch(() => {
@@ -214,7 +216,12 @@ export function StreetPulse() {
         return;
       }
       setVoted((current) => ({ ...current, [active.id]: data.optionId! }));
-      setTallies((current) => ({ ...current, [active.id]: data.tally! }));
+      setTallies((current) =>
+        unlockedPulseTallies(
+          { ...votedRef.current, [active.id]: data.optionId! },
+          { ...current, [active.id]: data.tally! },
+        ),
+      );
       trackEvent({ name: "pulse_answer", pollId: active.id });
     } catch {
       setError("Could not save that answer. Try again.");
@@ -251,7 +258,10 @@ export function StreetPulse() {
     );
   }
 
-  const unlocked = PULSE_POLLS.filter((poll) => voted[poll.id]);
+  const unlocked =
+    profile
+      ? PULSE_POLLS.filter((poll) => Boolean(voted[poll.id] && tallies[poll.id]))
+      : [];
   const listed = roundDone || poolDone ? unlocked : unlocked.filter((poll) => poll.id !== activeId);
   const answeredThisRound = session.filter((poll) => voted[poll.id]).length;
 
@@ -304,17 +314,17 @@ export function StreetPulse() {
                 disabled={sessionOpen.length === 0}
               />
               <div className="flex flex-col gap-6">
-                {active && !voted[active.id] ? (
-                  <PollCard
-                    poll={active}
-                    saving={saving}
-                    onAnswer={handleAnswer}
-                  />
-                ) : active && voted[active.id] ? (
+                {active && voted[active.id] && tallies[active.id] ? (
                   <ResultCard
                     poll={active}
                     tally={tallies[active.id]}
                     mine={voted[active.id]}
+                  />
+                ) : active ? (
+                  <PollCard
+                    poll={active}
+                    saving={saving}
+                    onAnswer={handleAnswer}
                   />
                 ) : (
                   <Card className="p-6">
@@ -353,14 +363,19 @@ export function StreetPulse() {
       {listed.length > 0 ? (
         <section className="flex flex-col gap-6" aria-label="Unlocked results">
           <h2 className="text-xl font-bold">What others answered</h2>
-          {listed.map((poll) => (
-            <ResultCard
-              key={poll.id}
-              poll={poll}
-              tally={tallies[poll.id]}
-              mine={voted[poll.id]}
-            />
-          ))}
+          {listed.map((poll) => {
+            const tally = tallies[poll.id];
+            const mine = voted[poll.id];
+            if (!tally || !mine) return null;
+            return (
+              <ResultCard
+                key={poll.id}
+                poll={poll}
+                tally={tally}
+                mine={mine}
+              />
+            );
+          })}
         </section>
       ) : null}
 
@@ -496,11 +511,11 @@ function ResultCard({
   mine,
 }: {
   poll: PulsePoll;
-  tally?: PulsePollTally;
+  tally: PulsePollTally;
   mine: string;
 }) {
-  const n = tally?.n ?? 0;
-  const max = Math.max(1, ...(tally?.options.map((row) => row.count) ?? [0]));
+  const n = tally.n;
+  const max = Math.max(1, ...tally.options.map((row) => row.count));
   const note = n <= 1 ? PULSE_META.emptyChart : n < 5 ? PULSE_META.smallChart : null;
 
   return (
@@ -514,7 +529,7 @@ function ResultCard({
       </p>
       <ul className="mt-4 flex flex-col gap-3">
         {poll.options.map((option) => {
-          const count = tally?.options.find((row) => row.id === option.id)?.count ?? 0;
+          const count = tally.options.find((row) => row.id === option.id)?.count ?? 0;
           const pct = n ? Math.round((count / n) * 100) : 0;
           const width = (count / max) * 100;
           const isMine = option.id === mine;
@@ -544,7 +559,7 @@ function ResultCard({
         })}
       </ul>
       {note ? <p className="mt-4 text-sm text-muted-foreground">{note}</p> : null}
-      {tally && tally.byZone.length > 0 ? (
+      {tally.byZone.length > 0 ? (
         <div className="mt-6 border-t border-border pt-4">
           <p className="text-[0.6875rem] font-semibold uppercase tracking-widest text-muted-foreground">
             By zone (5 or more answers)

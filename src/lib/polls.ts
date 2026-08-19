@@ -63,6 +63,21 @@ export function writePulseProfile(profile: PulseProfile): void {
   localStorage.setItem(POLL_PROFILE_KEY, JSON.stringify(profile));
 }
 
+/** Keep aggregate charts only for questions this client has already answered. */
+export function unlockedPulseTallies(
+  voted: Record<string, string>,
+  tallies: Record<string, PulsePollTally>,
+): Record<string, PulsePollTally> {
+  const next: Record<string, PulsePollTally> = {};
+  for (const [pollId, optionId] of Object.entries(voted)) {
+    if (!optionId || !isPulsePollId(pollId)) continue;
+    const tally = tallies[pollId];
+    if (!tally) continue;
+    next[pollId] = tally;
+  }
+  return next;
+}
+
 export function isValidPulseBallot(
   clientId: string,
   pollId: string,

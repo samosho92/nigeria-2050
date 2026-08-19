@@ -102,6 +102,7 @@ test.describe("critical paths", () => {
     await expect(page.getByRole("heading", { name: /How Nigeria actually lives/i })).toBeVisible();
     await expect(page.getByRole("checkbox", { name: /18 or older/i })).toBeVisible();
     await expect(page.getByRole("button", { name: /Unlock the wheel/i })).toBeDisabled();
+    await expect(page.getByRole("heading", { name: /What others answered/i })).toHaveCount(0);
   });
 
   test("street pulse explains when the visitor is outside Nigeria", async ({ browser }) => {
@@ -137,7 +138,8 @@ test.describe("critical paths", () => {
 
     const locked = await request.get(`/api/polls?clientId=${otherId}`);
     const lockedBody = await locked.json();
-    expect(lockedBody.tallies.meals).toBeUndefined();
+    expect(lockedBody.tallies).toEqual({});
+    expect(lockedBody.voted).toEqual({});
 
     const mine = await request.get(`/api/polls?clientId=${clientId}`, {
       headers: { "x-vercel-ip-country": "NG" },
