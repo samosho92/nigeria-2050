@@ -27,6 +27,7 @@ type AnalyticsEvent =
   | { name: "data_saver_toggle"; enabled: boolean }
   | { name: "theme_toggle"; theme: "light" | "dark" }
   | { name: "ask_suggested_click"; question: string }
+  | { name: "compare_lever_toggle"; leverId: string; enabled: boolean }
   | { name: "page_view"; path: string };
 
 const STORAGE_KEY = "naija2050-analytics";
@@ -113,6 +114,11 @@ function mirrorPlausible(event: AnalyticsEvent) {
     case "ask_suggested_click":
       window.plausible("Ask Suggested Click", { props: { question: event.question } });
       break;
+    case "compare_lever_toggle":
+      window.plausible("Compare Lever Toggle", {
+        props: { leverId: event.leverId, enabled: event.enabled },
+      });
+      break;
     case "page_view":
       window.plausible("pageview");
       break;
@@ -191,6 +197,9 @@ function mirrorGa4(event: AnalyticsEvent) {
       break;
     case "ask_suggested_click":
       gaEvent("ask_suggested_click", { question: event.question });
+      break;
+    case "compare_lever_toggle":
+      gaEvent("compare_lever_toggle", { lever_id: event.leverId, enabled: event.enabled });
       break;
     case "page_view":
       gaPageView(event.path);

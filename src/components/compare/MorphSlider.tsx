@@ -11,15 +11,34 @@ import { SCENARIO_UI_NOTE } from "@/content/methodology";
 
 interface MorphSliderProps {
   metrics: ComparatorMetric[];
+  activeMetricIndex?: number;
+  onActiveMetricChange?: (index: number) => void;
+  scenario2050?: number;
+  baseline2050?: number;
+  selectedLeverCount?: number;
 }
 
-export function MorphSlider({ metrics }: MorphSliderProps) {
-  const [position, setPosition] = useState(0);
-  const [activeMetric, setActiveMetric] = useState(0);
+export function MorphSlider({
+  metrics,
+  activeMetricIndex: controlledIndex,
+  onActiveMetricChange,
+  scenario2050,
+  baseline2050,
+  selectedLeverCount = 0,
+}: MorphSliderProps) {
+  const [internalIndex, setInternalIndex] = useState(0);
+  const [position, setPosition] = useState(50);
   const trackRef = useRef<HTMLDivElement>(null);
 
+  const activeMetric = controlledIndex ?? internalIndex;
+  const setActiveMetric = onActiveMetricChange ?? setInternalIndex;
+
   const metric = metrics[activeMetric];
-  const interpolated = metric.current + (metric.projected2050 - metric.current) * (position / 100);
+  const target2050 = scenario2050 ?? metric.projected2050;
+  const base2050 = baseline2050 ?? metric.projected2050;
+  const showAdjusted = Math.abs(target2050 - base2050) > 0.01;
+
+  const interpolated = metric.current + (target2050 - metric.current) * (position / 100);
 
   const handlePointer = useCallback((clientX: number) => {
     if (!trackRef.current) return;
@@ -30,7 +49,6 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
 
   return (
     <div className="space-y-8">
-      {/* Metric selector */}
       <div className="flex flex-wrap gap-2">
         {metrics.map((m, i) => (
           <button
@@ -52,9 +70,7 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
         ))}
       </div>
 
-      {/* Morph viewport */}
       <div className="relative overflow-hidden rounded-2xl border border-border">
-        {/* Skyline morph background */}
         <div
           className="relative h-48 transition-[filter] duration-300 lg:h-64"
           style={{
@@ -74,7 +90,7 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
               opacity={0.15 + position / 200}
             />
           </svg>
-          <div className="absolute inset-0 flex items-center justify-center gap-8 px-6">
+          <div className="absolute inset-0 flex items-center justify-center gap-6 px-6 lg:gap-8">
             <div className="text-center">
               <p className="text-xs uppercase tracking-widest text-muted-foreground">Now</p>
               <p className="text-2xl font-bold lg:text-4xl">
@@ -83,36 +99,49 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
             </div>
             <IconArrowRight className="size-8 text-accent opacity-60" stroke={1.5} aria-hidden />
             <div className="text-center">
-              <p className="text-xs uppercase tracking-widest text-accent">2050 scenario</p>
-              <p className="text-2xl font-bold text-accent lg:text-4xl">
-                {formatComparatorValue(metric.projected2050, metric.unit)}
+              <p className="text-xs uppercase tracking-widest text-accent">
+                2050{showAdjusted ? " with projects" : " scenario"}
               </p>
+              <p className="text-2xl font-bold text-accent lg:text-4xl">
+                {formatComparatorValue(target2050, metric.unit)}
+              </p>
+              {showAdjusted && (
+                <p className="mt-1 text-xs text-muted-foreground line-through">
+                  Base: {formatComparatorValue(base2050, metric.unit)}
+                </p>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Live interpolated value */}
         <div className="border-t border-border bg-card p-6 text-center">
           <p className="text-sm text-muted-foreground">
             Drag to morph, {metric.label} at{" "}
             <span className="font-bold text-foreground">
               {Math.round(2024 + (2050 - 2024) * (position / 100))}
             </span>
-            <span className="block mt-1 text-xs font-normal">
-              Interpolated for illustration. {SCENARIO_UI_NOTE}
-            </span>
+            {selectedLeverCount > 0 && (
+              <span className="block mt-1 text-xs font-medium text-accent">
+                {selectedLeverCount} project{selectedLeverCount === 1 ? "" : "s"} selected
+              </span>
+            )}
+            <span className="block mt-1 text-xs font-normal">{SCENARIO_UI_NOTE}</span>
           </p>
           <p className="mt-2 text-3xl font-bold text-accent">
-            <AnimatedCounter
-              value={interpolated}
-              decimals={metric.unit === "USD" ? 0 : 1}
-              suffix={comparatorCounterProps(metric).suffix}
-              prefix={comparatorCounterProps(metric).prefix}
-            />
+            {showAdjusted ? (
+              formatComparatorValue(interpolated, metric.unit)
+            ) : (
+              <AnimatedCounter
+                key={`${metric.id}-${interpolated}`}
+                value={interpolated}
+                decimals={metric.unit === "USD" ? 0 : 1}
+                suffix={comparatorCounterProps(metric).suffix}
+                prefix={comparatorCounterProps(metric).prefix}
+              />
+            )}
           </p>
         </div>
 
-        {/* Slider track */}
         <div className="border-t border-border bg-surface p-6">
           <div
             ref={trackRef}
@@ -146,7 +175,7 @@ export function MorphSlider({ metrics }: MorphSliderProps) {
           </div>
           <div className="mt-2 flex justify-between text-xs text-muted-foreground">
             <span>Nigeria now (sourced)</span>
-            <span>Nigeria 2050 (scenario)</span>
+            <span>2050 with your picks</span>
           </div>
         </div>
       </div>

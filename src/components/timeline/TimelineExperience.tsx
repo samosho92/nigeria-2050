@@ -100,7 +100,7 @@ export function TimelineExperience({ entries, eraIcons, sectorTitles }: Timeline
                       <p className="text-sm font-medium uppercase tracking-widest text-accent">
                         {era.period}
                       </p>
-                      <h2 className="mt-2 text-3xl font-bold md:text-4xl">{era.label}</h2>
+                      <h2 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">{era.label}</h2>
                       <p className="mt-3 max-w-2xl text-muted-foreground">{era.description}</p>
                     </div>
                   </header>

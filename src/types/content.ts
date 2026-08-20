@@ -107,6 +107,24 @@ export interface ComparatorMetric {
   projected2050Low?: number;
   projected2050High?: number;
   sourceId: string;
+  /** When false, lower 2050 values are better (e.g. slum share). Default true. */
+  higherIsBetter?: boolean;
+}
+
+export interface ComparatorLeverImpact {
+  metricId: string;
+  /** Share of the baseline→2050 gap this lever closes when selected (0–1). */
+  gapShare: number;
+}
+
+export interface ComparatorLever {
+  id: string;
+  title: string;
+  summary: string;
+  /** Cool Projects id when this lever maps to an editorial idea. */
+  projectId?: string;
+  sectorSlugs: string[];
+  impacts: ComparatorLeverImpact[];
 }
 
 export type G7CountryCode = "CA" | "FR" | "DE" | "IT" | "JP" | "GB" | "US";

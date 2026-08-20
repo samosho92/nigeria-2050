@@ -49,7 +49,7 @@ export function EraPortalArt({ eraId, artDirection, className }: EraPortalArtPro
   if (dataSaver || !art) {
     return (
       <div
-        className={cn("era-portal-pattern absolute inset-0 opacity-30", className)}
+        className={cn("era-portal-pattern absolute inset-0 opacity-20", className)}
         aria-hidden
       />
     );
@@ -61,11 +61,15 @@ export function EraPortalArt({ eraId, artDirection, className }: EraPortalArtPro
         src={art.src}
         alt=""
         fill
-        className={cn("object-cover opacity-80", className)}
+        className={cn("object-cover opacity-25", className)}
         sizes="(max-width: 768px) 100vw, 800px"
         priority={eraId === "pre-colonial"}
       />
-      <div className="era-portal-pattern absolute inset-0 opacity-20" aria-hidden />
+      <div className="era-portal-pattern absolute inset-0 opacity-10" aria-hidden />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70"
+        aria-hidden
+      />
     </>
   );
 }

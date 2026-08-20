@@ -86,6 +86,7 @@ export const COMPARATOR_METRICS: ComparatorMetric[] = [
     projected2050Low: 38,
     projected2050High: 15,
     sourceId: "world-bank-g7-indicators",
+    higherIsBetter: false,
   },
   {
     id: "tourism-receipts",

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
-import { MorphSlider } from "@/components/compare/MorphSlider";
+import { Compare2050Explorer } from "@/components/compare/Compare2050Explorer";
 import { SourcePanel } from "@/components/ui/SourceCitation";
 import { COMPARATOR_METRICS } from "@/content/comparator";
 import { getSourcesByIds } from "@/content/sources";
@@ -22,7 +22,7 @@ export default function ComparePage() {
       <PageHero
         eyebrow="Baseline vs. scenario"
         title="Nigeria Now vs. Nigeria 2050"
-        description="Drag the morph slider. Left side is a sourced baseline; right side is a labeled 2050 scenario. Optimistic, with stated assumptions."
+        description="Pick civic projects, then watch the 2050 trajectory shift. Drag the morph slider to explore the path. Left side is sourced baseline; right side is a labeled scenario."
       />
       <Container size="narrow" className="py-12 md:py-16">
         <Link
@@ -38,7 +38,7 @@ export default function ComparePage() {
           <IconArrowRight className="size-5 shrink-0 text-accent" stroke={1.5} aria-hidden />
         </Link>
         <div className="mt-12">
-          <MorphSlider metrics={COMPARATOR_METRICS} />
+          <Compare2050Explorer metrics={COMPARATOR_METRICS} />
         </div>
         <div className="mt-12">
           <SourcePanel sources={sources} title="Comparator Data Sources" />
