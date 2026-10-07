@@ -178,7 +178,7 @@ export const TERMS_OF_USE: LegalDocument = {
       paragraphs: ["You may use the Site for personal, educational, and non-commercial reference, including:"],
       bullets: [
         "Reading, sharing links to, and citing our public pages with attribution.",
-        "Using interactive tools (timeline, comparators, Ask the Archive, Street Pulse) as intended.",
+        "Using interactive tools (timeline, Icons, Nigeria in Literature, comparators, Ask the Archive, Street Pulse) as intended.",
         "Reporting factual errors or broken sources through our corrections process.",
       ],
     },

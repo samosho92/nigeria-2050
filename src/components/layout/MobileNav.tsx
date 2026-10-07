@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   IconArrowsLeftRight,
+  IconBook,
   IconChartBar,
   IconMenu2,
   IconScale,
@@ -20,6 +21,7 @@ import { cn } from "@/lib/utils";
 const MOBILE_LINKS = [
   { href: "/timeline", label: "Timeline", icon: IconTimeline },
   { href: "/icons", label: "Icons", icon: IconUsers },
+  { href: "/literature", label: "Literature", icon: IconBook },
   { href: "/sectors", label: "Sectors", icon: IconChartBar },
   { href: "/projects", label: "Cool Projects", icon: IconBulb },
   { href: "/pulse", label: "Street Pulse", icon: IconWheel },

@@ -80,6 +80,10 @@ export default function HomePage() {
                   {copy.storyIconsCta}
                   <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
                 </LinkButton>
+                <LinkButton href="/literature" variant="link">
+                  {copy.storyLiteratureCta}
+                  <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
+                </LinkButton>
               </CardFooter>
             </Card>
           </FadeIn>

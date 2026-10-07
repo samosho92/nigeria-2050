@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   IconArrowsLeftRight,
+  IconBook,
   IconChartBar,
   IconScale,
   IconTimeline,
@@ -26,6 +27,7 @@ interface NavLink {
 const HISTORY_LINKS: NavLink[] = [
   { href: "/timeline", label: "Timeline", icon: IconTimeline },
   { href: "/icons", label: "Icons", icon: IconUsers },
+  { href: "/literature", label: "Literature", icon: IconBook },
 ];
 
 const VISION_LINKS: NavLink[] = [

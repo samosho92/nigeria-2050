@@ -2,13 +2,21 @@ import { Index } from "flexsearch";
 import { PULSE_CATEGORIES, PULSE_META, PULSE_POLLS, PULSE_SESSION_SIZE } from "@/content/polls";
 import { GLOSSARY } from "@/content/glossary";
 import { ICONS } from "@/content/icons";
+import { LITERATURE_WORKS } from "@/content/literature";
 import { COOL_PROJECTS } from "@/content/projects";
 import { SECTORS } from "@/content/sectors";
 import { TIMELINE_ENTRIES } from "@/content/timeline";
 import { stripControlChars } from "@/lib/ask-guardrails";
 import { CONTENT_STATS } from "@/lib/content-stats";
 
-export type SearchResultType = "sector" | "timeline" | "glossary" | "icon" | "project" | "pulse";
+export type SearchResultType =
+  | "sector"
+  | "timeline"
+  | "glossary"
+  | "icon"
+  | "project"
+  | "pulse"
+  | "literature";
 
 export interface SearchResult {
   id: string;
@@ -53,6 +61,13 @@ const searchItems: SearchResult[] = [
     title: project.title,
     description: project.summary,
     href: project.mockHref ?? `/projects#${project.id}`,
+  })),
+  ...LITERATURE_WORKS.map((work) => ({
+    id: `lit-${work.id}`,
+    type: "literature" as const,
+    title: work.title,
+    description: `${work.year} · ${work.creators.map((creator) => creator.name).join(", ")} · ${work.settingLabel}`,
+    href: `/literature#${work.id}`,
   })),
   {
     id: "projects-index",
@@ -131,6 +146,21 @@ const searchItems: SearchResult[] = [
     description: `${CONTENT_STATS.iconCount} sourced historical and contemporary Nigerian figures`,
     href: "/icons",
   },
+  {
+    id: "about",
+    type: "sector" as const,
+    title: "About Us",
+    description: "History beside the case for 2050. Independent civic media built for the skeptic",
+    href: "/about",
+  },
+  {
+    id: "literature",
+    type: "sector" as const,
+    title: "Nigeria in Literature",
+    description: `${CONTENT_STATS.literatureCount} novels, memoirs, plays, and films picturing Nigerian eras, each with a verified source`,
+    href: "/literature",
+  },
+
   {
     id: "methodology",
     type: "sector" as const,

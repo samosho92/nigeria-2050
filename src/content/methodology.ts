@@ -130,11 +130,13 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
       "Pre-colonial eras present a plurality of kingdoms and polities.",
       "Timeline entries are 150–300 words at a “smart newcomer” reading level, with links to deeper sources.",
       "The Icons register lists 150 historical and contemporary figures with a named citation each. Sitting Nigerian public officeholders are omitted while in office (non-partisan policy). Portraits are Wikimedia Commons headshots with a free license only, never AI-generated likenesses, and never statues or body-only photographs standing in for a face.",
+      "Nigeria in Literature lists novels, memoirs, plays, and films that picture Nigerian eras. Each work carries a verified publication claim and outbound sources. Commercial jackets are omitted; typographic cover plates and Icons portraits are used instead.",
       "Sensitive entries carry editorial review status in the internal review queue until subject-matter sign-off.",
     ],
     links: [
       { href: "/timeline", label: "Interactive timeline" },
       { href: "/icons", label: "Icons of Nigeria" },
+      { href: "/literature", label: "Nigeria in Literature" },
     ],
   },
   {
@@ -142,7 +144,7 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     title: "AI & Interactive Tools",
     summary: "AI features are scoped, labeled, and grounded in our curated content store.",
     points: [
-      "Ask the Archive retrieves answers only from Nigeria2050’s own timeline, sector, glossary, icons, and source content. Questions are rate-limited on the server. They are not stored as transcripts and are not sent to third-party AI providers. Out-of-scope, abusive, explicit, self-harm, scam, and prompt-injection messages are declined before retrieval.",
+      "Ask the Archive retrieves answers only from Nigeria2050’s own timeline, sector, glossary, icons, Nigeria in Literature, and source content. Questions are rate-limited on the server. They are not stored as transcripts and are not sent to third-party AI providers. Out-of-scope, abusive, explicit, self-harm, scam, and prompt-injection messages are declined before retrieval.",
       "Out-of-scope questions are declined rather than hallucinated; answers include links back to source pages.",
       "All AI-assisted UI is labeled. Era portal art uses abstract CSS placeholders for settings only, with no depictions of real historical figures.",
       "AI-generated media promoted into the permanent library requires human editorial review before publication.",

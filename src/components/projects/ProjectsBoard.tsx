@@ -22,7 +22,7 @@ import {
   type ProjectVote,
   type ProjectVoteMap,
 } from "@/lib/projects";
-import { cn } from "@/lib/utils";
+import { FilterChip } from "@/components/ui/FilterChip";
 import type { CoolProject } from "@/types/content";
 
 type SortMode = "top" | "newest";
@@ -336,30 +336,5 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
 
       <p className="text-xs text-muted-foreground">{PROJECT_ENGAGEMENT.boardFootnote}</p>
     </div>
-  );
-}
-
-function FilterChip({
-  active,
-  onClick,
-  label,
-}: {
-  active: boolean;
-  onClick: () => void;
-  label: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={cn(
-        "rounded-lg px-3 py-1.5 text-xs font-medium transition",
-        active
-          ? "bg-accent text-accent-foreground"
-          : "bg-muted text-muted-foreground hover:text-foreground",
-      )}
-    >
-      {label}
-    </button>
   );
 }

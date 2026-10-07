@@ -1,5 +1,6 @@
 import { GLOSSARY } from "@/content/glossary";
 import { ICONS } from "@/content/icons";
+import { LITERATURE_WORKS } from "@/content/literature";
 import { COOL_PROJECTS } from "@/content/projects";
 import { PULSE_CATEGORIES, PULSE_META, PULSE_POLLS, PULSE_SESSION_SIZE } from "@/content/polls";
 import { POSTAL_CODE_SCHEME } from "@/content/postal-code-engine";
@@ -20,7 +21,7 @@ export interface ArchiveChunk {
   text: string;
   title: string;
   href: string;
-  type: "timeline" | "sector" | "glossary" | "icon" | "project" | "pulse";
+  type: "timeline" | "sector" | "glossary" | "icon" | "project" | "pulse" | "literature";
   sourceIds?: string[];
 }
 
@@ -57,6 +58,14 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
     title: project.title,
     href: project.mockHref ?? `/projects#${project.id}`,
     type: "project" as const,
+  })),
+  ...LITERATURE_WORKS.map((work) => ({
+    id: `literature-${work.id}`,
+    text: `${work.title} (${work.year}). ${work.creators.map((creator) => creator.name).join(", ")}. ${work.settingLabel}. ${work.summary} ${work.verifiedClaim}`,
+    title: work.title,
+    href: `/literature#${work.id}`,
+    type: "literature" as const,
+    sourceIds: work.sourceIds,
   })),
   {
     id: "project-postal-codes-engine",
@@ -132,7 +141,7 @@ const ARCHIVE_CHUNKS: ArchiveChunk[] = [
 ];
 
 const OUT_OF_SCOPE_RESPONSE =
-  "I can only answer questions grounded in Nigeria2050's curated content, including Nigeria basics, timeline entries, sector projections, icons, cool projects, Street Pulse, and glossary terms. Try asking about Nigeria's history, number of states, population, current leadership, GDP, a specific person on the Icons page, or a sector's 2050 vision.";
+  "I can only answer questions grounded in Nigeria2050's curated content, including Nigeria basics, timeline entries, sector projections, icons, Nigeria in Literature, cool projects, Street Pulse, and glossary terms. Try asking about Nigeria's history, number of states, population, current leadership, GDP, a specific person on the Icons page, a book or film on the Literature page, or a sector's 2050 vision.";
 
 function tokenize(text: string): string[] {
   return text

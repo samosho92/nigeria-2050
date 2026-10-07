@@ -1,4 +1,5 @@
 import { ICONS } from "@/content/icons";
+import { LITERATURE_WORKS } from "@/content/literature";
 import { PULSE_CATEGORIES, PULSE_POLLS } from "@/content/polls";
 import { COOL_PROJECTS } from "@/content/projects";
 import { SECTORS } from "@/content/sectors";
@@ -9,6 +10,7 @@ export const CONTENT_STATS = {
   timelineEntryCount: TIMELINE_ENTRIES.length,
   eraCount: TIMELINE_ERAS.length,
   iconCount: ICONS.length,
+  literatureCount: LITERATURE_WORKS.length,
   projectCount: COOL_PROJECTS.length,
   pulsePollCount: PULSE_POLLS.length,
   pulseCategoryCount: PULSE_CATEGORIES.length,

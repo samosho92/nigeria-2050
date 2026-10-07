@@ -6,6 +6,8 @@ import {
   IconChartBar,
   IconHelpCircle,
   IconFileText,
+  IconInfoCircle,
+  IconBook,
   IconMessageChatbot,
   IconScale,
   IconTimeline,
@@ -21,6 +23,7 @@ import { siteName } from "@/lib/site";
 const EXPLORE_LINKS: { href: string; label: string; icon: TablerIcon }[] = [
   { href: "/timeline", label: "Timeline", icon: IconTimeline },
   { href: "/icons", label: "Icons", icon: IconUsers },
+  { href: "/literature", label: "Nigeria in Literature", icon: IconBook },
   { href: "/sectors", label: "Sectors", icon: IconChartBar },
   { href: "/projects", label: "Cool Projects", icon: IconBulb },
   { href: "/pulse", label: "Street Pulse", icon: IconWheel },
@@ -29,6 +32,7 @@ const EXPLORE_LINKS: { href: string; label: string; icon: TablerIcon }[] = [
 ];
 
 const REFERENCE_LINKS: { href: string; label: string; icon: TablerIcon }[] = [
+  { href: "/about", label: "About Us", icon: IconInfoCircle },
   { href: "/sources", label: "Sources", icon: IconBooks },
   { href: "/glossary", label: "Glossary", icon: IconBook2 },
   { href: "/methodology", label: "Methodology", icon: IconFileText },

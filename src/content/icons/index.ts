@@ -68,6 +68,8 @@ export const ICONS_PAGE_META = {
     `A chronological register of ${iconCount} figures: writers, organisers, builders, athletes, and public servants whose work is part of the national story. Sitting Nigerian officeholders are not listed while in office. Portraits are Wikimedia Commons headshots with a free license, never AI-generated likenesses or statue stand-ins.`,
   inventory: (people: number, portraits: number) =>
     `${people} people · ${portraits} face portraits (free license) · remaining cards use initials when no Commons headshot exists. Each achievement links to a named source.`,
+  literatureLead: "For novels, memoirs, and films by era, open",
+  literatureCta: "Nigeria in Literature",
   rail: [
     { year: "c.1533", label: "Amina", href: "#queen-amina" },
     { year: "1864", label: "Macaulay", href: "#herbert-macaulay" },

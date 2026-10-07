@@ -1,4 +1,4 @@
-import { IconArrowRight, IconUsers } from "@tabler/icons-react";
+import { IconArrowRight, IconBook, IconUsers } from "@tabler/icons-react";
 import { FadeIn } from "@/components/motion";
 import { HomeIconsFaces } from "@/components/home/HomeIconsFaces";
 import { LinkButton } from "@/components/ui/LinkButton";
@@ -21,11 +21,18 @@ export function HomeIconsTeaser() {
           {copy.title(CONTENT_STATS.iconCount)}
         </h2>
         <p className="mt-4 max-w-md text-muted-foreground">{copy.body}</p>
-        <LinkButton href="/icons" variant="primary" className="mt-8 w-fit">
-          <IconUsers className="size-4" stroke={1.5} aria-hidden />
-          {copy.cta}
-          <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
-        </LinkButton>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <LinkButton href="/icons" variant="primary" className="w-fit">
+            <IconUsers className="size-4" stroke={1.5} aria-hidden />
+            {copy.cta}
+            <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
+          </LinkButton>
+          <LinkButton href="/literature" variant="secondary" className="w-fit">
+            <IconBook className="size-4" stroke={1.5} aria-hidden />
+            {copy.literatureCta}
+            <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
+          </LinkButton>
+        </div>
       </FadeIn>
 
       <FadeIn delay={0.12} className="lg:col-span-7">

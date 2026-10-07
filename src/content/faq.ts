@@ -20,7 +20,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is Nigeria2050?",
     answer:
-      "Nigeria2050 is a public learning site about Nigeria's past and possible futures. It combines history, sector pages, and interactive tools so people can explore ideas to 2050.",
+      "Nigeria2050 is a public learning site about Nigeria's past and possible futures. It combines history, Icons, Nigeria in Literature, sector pages, and interactive tools so people can explore ideas to 2050.",
   },
   {
     question: "Are these predictions guaranteed to happen?",
@@ -35,7 +35,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How should I use this site?",
     answer:
-      "Start with Timeline for context, then open Sectors to compare where Nigeria is now and where it could be by 2050.",
+      "Start with Timeline for context, browse Icons or Nigeria in Literature for people and stories, then open Sectors to compare where Nigeria is now and where it could be by 2050.",
+  },
+  {
+    question: "What is Nigeria in Literature?",
+    answer:
+      "A sourced shelf of novels, memoirs, plays, and films that picture different Nigerian eras. Each entry links to a named publication source.",
   },
   {
     question: "What is Street Pulse?",

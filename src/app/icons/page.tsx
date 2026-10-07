@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { BackToTop } from "@/components/layout/BackToTop";
@@ -24,8 +25,15 @@ export default function IconsPage() {
         rail={[...ICONS_PAGE_META.rail]}
       />
       <Container className="py-12 md:py-16">
-        <p className="mb-8 text-sm text-muted-foreground">
+        <p className="mb-2 text-sm text-muted-foreground">
           {ICONS_PAGE_META.inventory(ICONS.length, portraits)}
+        </p>
+        <p className="mb-8 text-sm text-muted-foreground">
+          {ICONS_PAGE_META.literatureLead}{" "}
+          <Link href="/literature" className="font-medium text-accent transition hover:underline">
+            {ICONS_PAGE_META.literatureCta}
+          </Link>
+          .
         </p>
         <IconsTimeline figures={ICONS} sectorTitles={getSectorTitles()} />
       </Container>

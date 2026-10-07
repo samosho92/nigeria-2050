@@ -1,6 +1,7 @@
 import type { Source } from "@/types/content";
 import { PHASE2_RAW_SOURCES, PHASE2_SOURCE_META } from "./phase2/sources";
 import { ICON_SOURCES } from "./icons";
+import { LITERATURE_SOURCES } from "./literature";
 
 const RAW_SOURCES: Source[] = [
   {
@@ -363,6 +364,7 @@ export const SOURCES: Source[] = [
     ...SOURCE_META[source.id],
   })),
   ...ICON_SOURCES,
+  ...LITERATURE_SOURCES,
 ];
 
 export function getSourceById(id: string): Source | undefined {
@@ -379,5 +381,5 @@ export const SOURCES_PAGE_META = {
   eyebrow: "Credibility",
   title: "Source Library",
   description:
-    "Every quantitative claim on Nigeria2050 traces back here. Filter by sector or era, then click through to verify independently.",
+    "Every quantitative claim on Nigeria2050 traces back here, including Nigeria in Literature publication sources. Filter by sector or era, then click through to verify independently.",
 } as const;

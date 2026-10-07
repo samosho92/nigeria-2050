@@ -30,9 +30,10 @@ export const HOME_SECTIONS = {
   pillarsLead: "History and future vision, fused by bidirectional links.",
   storyTitle: "The Nigeria Story",
   storyDescription: (eraCount: number, entryCount: number, iconCount: number) =>
-    `${eraCount} eras · ${entryCount} entries · ${iconCount} icons · scrollytelling spine with sector cross-links.`,
+    `${eraCount} eras · ${entryCount} entries · ${iconCount} icons · literature by era · scrollytelling spine with sector cross-links.`,
   storyTimelineCta: "View timeline",
   storyIconsCta: "View icons",
+  storyLiteratureCta: "Nigeria in Literature",
   sectorsPillarTitle: "Sector Visions to 2050",
   sectorsPillarDescription: (sectorCount: number) =>
     `${sectorCount} sectors with sourced projections, milestone narratives, and “How we got here” modules.`,
@@ -44,13 +45,14 @@ export const HOME_SECTIONS = {
   projectsCta: "Rank the ideas",
   askTitle: "Ask the Archive",
   askBody:
-    "Ask about Nigerian history or 2050 projections. Grounded in curated content, with guardrails for respectful use.",
+    "Ask about Nigerian history, Icons, Nigeria in Literature, or 2050 projections. Grounded in curated content, with guardrails for respectful use.",
   askCta: "Try it now",
 } as const;
 
 export const HOME_ICONS_TEASER = {
   eyebrow: "People",
   title: (iconCount: number) => `${iconCount} icons. One register.`,
-  body: "Writers, organisers, builders, and athletes, sourced, chronological, and searchable. The timeline tells what happened. The icons page tells who carried it.",
+  body: "Writers, organisers, builders, and athletes, sourced, chronological, and searchable. The timeline tells what happened. The icons page tells who carried it. Nigeria in Literature holds the books and films.",
   cta: "Browse the icons",
+  literatureCta: "Nigeria in Literature",
 } as const;

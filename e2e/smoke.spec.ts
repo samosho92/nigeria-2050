@@ -45,6 +45,14 @@ test.describe("critical paths", () => {
     await page.goto("/icons");
     await expect(page.getByRole("heading", { name: "Icons of Nigeria" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /Chinua Achebe/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Nigeria in Literature/i })).toBeVisible();
+  });
+
+  test("literature page lists sourced works", async ({ page }) => {
+    await page.goto("/literature");
+    await expect(page.getByRole("heading", { name: "Nigeria in Literature" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Things Fall Apart/i })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Leaders in their words/i })).toBeVisible();
   });
 
   test("cool projects page lists starter ideas", async ({ page }) => {

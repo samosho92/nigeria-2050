@@ -221,3 +221,41 @@ export interface CoolProject {
   /** Internal mock of the idea, if one exists. */
   mockHref?: string;
 }
+
+export type LiteratureMedium = "book" | "memoir" | "biography" | "play" | "film" | "series";
+
+export type LiteraturePeriodId =
+  | "oral-to-print"
+  | "colonial-encounter"
+  | "independence"
+  | "civil-war"
+  | "military-allegory"
+  | "leaders-memory"
+  | "video-boom"
+  | "contemporary";
+
+export interface LiteratureCreator {
+  name: string;
+  role: string;
+  /** Optional Icons register id for a freely licensed portrait. */
+  iconId?: string;
+}
+
+export interface LiteratureWork {
+  id: string;
+  title: string;
+  medium: LiteratureMedium;
+  year: number;
+  creators: LiteratureCreator[];
+  periodId: LiteraturePeriodId;
+  /** Period of Nigerian life the work pictures. */
+  settingLabel: string;
+  summary: string;
+  /** Short factual claim tied to the cited sources (year, publisher, credit). */
+  verifiedClaim: string;
+  sourceIds: string[];
+  relatedTimelineIds?: string[];
+  relatedIconIds?: string[];
+  /** Era motif art used for the typographic cover plate. */
+  coverMotif: TimelineEntry["artDirection"];
+}

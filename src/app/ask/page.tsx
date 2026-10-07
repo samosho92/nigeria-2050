@@ -32,8 +32,12 @@ export default function AskPage() {
           {ASK_PAGE_META.footerLead}{" "}
           <Link href="/timeline" className="font-medium text-accent hover:underline">
             {ASK_PAGE_META.footerTimeline}
-          </Link>{" "}
-          or{" "}
+          </Link>
+          ,{" "}
+          <Link href="/literature" className="font-medium text-accent hover:underline">
+            {ASK_PAGE_META.footerLiterature}
+          </Link>
+          , or{" "}
           <Link href="/sources" className="font-medium text-accent hover:underline">
             {ASK_PAGE_META.footerSources}
           </Link>
