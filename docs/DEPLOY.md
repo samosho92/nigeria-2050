@@ -17,6 +17,7 @@ Set the following in your Vercel project settings under **Settings > Environment
 | `POLLS_EXPORT_SECRET` | Recommended | ≥32-char secret for ballot field hashing and Bearer-only CSV/JSON export (`Authorization: Bearer …`). Do not put it in query strings. Set before launch and do not rotate without a ballot migration. |
 | `POLLS_WEBHOOK_URL` | Optional | Webhook URL called on each new ballot (Slack, Zapier, etc.) |
 | `CORRECTIONS_WEBHOOK_URL` | Optional | Webhook for correction form submissions |
+| `PROJECTS_WEBHOOK_URL` | Optional | Webhook for Cool Projects community submissions |
 | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Optional | Domain for Plausible analytics (loads after consent) |
 | `NEXT_PUBLIC_GA4_MEASUREMENT_ID` | Optional | Google Analytics 4 measurement ID (loads after consent) |
 

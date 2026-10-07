@@ -2,8 +2,17 @@ import { COMPARATOR_METRICS } from "@/content/comparator";
 import { SECTORS } from "@/content/sectors";
 
 export const METHODOLOGY_META = {
+  seoTitle: "Editorial Methodology",
+  seoDescription:
+    "How Nigeria2050 sources, models 2050 scenarios, benchmarks against the G7, and handles AI, review, and corrections.",
+  eyebrow: "Editorial policy",
+  title: "How Nigeria2050 works",
+  description:
+    "Sourcing rules, projection methodology, G7 benchmark standards, AI guardrails, and how we handle corrections. Written for skeptics first.",
+  updatedPrefix: "Updated",
   lastUpdated: "October 4, 2026",
-};
+  nonGoalsTitle: "What we are not",
+} as const;
 
 export interface MethodologyLink {
   href: string;

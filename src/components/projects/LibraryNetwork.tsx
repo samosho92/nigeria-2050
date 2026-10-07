@@ -31,6 +31,7 @@ import {
   type KitStatus,
   type LibraryBranch,
 } from "@/content/public-libraries";
+import { formatInteger } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 const DEFAULT_CITY = "abuja";
@@ -82,7 +83,7 @@ export function LibraryNetwork() {
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
           {LIBRARY_STANDARD.name}, {LIBRARY_STANDARD.inspiredBy}. {LIBRARY_STANDARD.ruralFloorKm} km
           is the rural floor. Cities walk {LIBRARY_STANDARD.urbanWalkKm} km, or one branch per{" "}
-          {LIBRARY_STANDARD.urbanPerPeople.toLocaleString("en-NG")} people. This mock is a coverage
+          {formatInteger(LIBRARY_STANDARD.urbanPerPeople)} people. This mock is a coverage
           plan.
         </p>
         <ol className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-4">

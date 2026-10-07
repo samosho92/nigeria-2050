@@ -3,13 +3,13 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { ProjectsBoard } from "@/components/projects/ProjectsBoard";
-import { COOL_PROJECTS } from "@/content/projects";
+import { COOL_PROJECTS, PROJECTS_PAGE_META } from "@/content/projects";
 import { getSectorTitles } from "@/lib/content";
 import { CONTENT_STATS } from "@/lib/content-stats";
 
 export const metadata: Metadata = {
-  title: "Cool Projects",
-  description: `Civic ideas that would make Nigeria work better by 2050. Vote, filter by sector, and submit your own. ${CONTENT_STATS.projectCount} starter proposals.`,
+  title: PROJECTS_PAGE_META.seoTitle,
+  description: PROJECTS_PAGE_META.seoDescription(CONTENT_STATS.projectCount),
 };
 
 export default function ProjectsPage() {
@@ -18,12 +18,12 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Civic bets"
-        title="Cool Projects"
-        description="Concrete initiatives (postal codes, road signs, libraries, clinics) that would make daily life work better by 2050. Vote them up or down. Add yours. Each card names the sectors it would move most."
+        eyebrow={PROJECTS_PAGE_META.eyebrow}
+        title={PROJECTS_PAGE_META.title}
+        description={PROJECTS_PAGE_META.description}
         actions={
           <LinkButton href="#submit-idea" variant="secondary">
-            Submit an idea
+            {PROJECTS_PAGE_META.submitCta}
           </LinkButton>
         }
       />

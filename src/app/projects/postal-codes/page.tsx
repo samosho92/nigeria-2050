@@ -3,25 +3,25 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { PostalCodeEngine } from "@/components/projects/PostalCodeEngine";
-import { POSTAL_CAPITALS } from "@/content/postal-code-engine";
+import { POSTAL_CAPITALS, POSTAL_CODES_PAGE_META } from "@/content/postal-code-engine";
+import { PROJECT_MOCK_UI } from "@/content/projects";
 
 export const metadata: Metadata = {
-  title: "National postal code engine (mock)",
-  description:
-    "A working mock of a Nigerian postal code that starts in the 36 state capitals plus Abuja, then densifies from rural clusters to urban street blocks.",
+  title: POSTAL_CODES_PAGE_META.seoTitle,
+  description: POSTAL_CODES_PAGE_META.seoDescription,
 };
 
 export default function PostalCodeMockPage() {
   return (
     <>
       <PageHero
-        eyebrow="Cool Projects mock"
-        title="A national postal code engine"
-        description={`Start where government already sits: ${POSTAL_CAPITALS.length} capitals, district 01. Give the hinterland a stable cluster code, then split units as streets appear. This is a schematic index of how a used code could run.`}
-        backLink={{ href: "/projects#postal-codes", label: "Cool Projects" }}
+        eyebrow={PROJECT_MOCK_UI.eyebrow}
+        title={POSTAL_CODES_PAGE_META.title}
+        description={POSTAL_CODES_PAGE_META.description(POSTAL_CAPITALS.length)}
+        backLink={{ href: POSTAL_CODES_PAGE_META.backHref, label: PROJECT_MOCK_UI.backLabel }}
         actions={
-          <LinkButton href="/projects#postal-codes" variant="secondary">
-            Back to the idea
+          <LinkButton href={POSTAL_CODES_PAGE_META.backHref} variant="secondary">
+            {PROJECT_MOCK_UI.backCta}
           </LinkButton>
         }
       />

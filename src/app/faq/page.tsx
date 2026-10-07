@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { FaqPageContent } from "@/components/faq/FaqPageContent";
+import { FAQ_META } from "@/content/faq";
 
 export const metadata: Metadata = {
-  title: "FAQ",
-  description: "Plain answers to common questions about Nigeria2050 and Street Pulse.",
+  title: FAQ_META.seoTitle,
+  description: FAQ_META.seoDescription,
 };
 
 export default function FaqPage() {

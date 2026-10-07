@@ -919,3 +919,13 @@ export function reportFor(clusterId: string): ClusterReport | undefined {
 }
 
 export { formatBeatClock } from "@/lib/emergency-format";
+
+export const EMERGENCY_PAGE_META = {
+  seoTitle: "Emergency 112 dispatch (mock)",
+  seoDescription:
+    "A schematic public-safety desk: one number, a postal-code location, trained dispatch, and radio ACK. Clusters that cannot staff the night line stay unpublished.",
+  title: "One emergency number that actually dispatches",
+  backHref: "/projects#emergency-112",
+  description: (clusterCount: number, number: string) =>
+    `${clusterCount} seed clusters. ${number} is a desk: answer, locate on a postal code, classify, radio ACK. A cluster that rings into voicemail does not get the number. A public-safety desk mock.`,
+} as const;

@@ -5,9 +5,17 @@ import { IconArrowRight } from "@tabler/icons-react";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/LinkButton";
+import { ProjectComments } from "@/components/projects/ProjectComments";
 import { ProjectIcon } from "@/components/projects/ProjectIcon";
+import { ProjectReactions } from "@/components/projects/ProjectReactions";
 import { ProjectVoteControls } from "@/components/projects/ProjectVoteControls";
-import type { ProjectTally, ProjectVote } from "@/lib/projects";
+import type {
+  ProjectComment,
+  ProjectReactionId,
+  ProjectReactionTally,
+  ProjectTally,
+  ProjectVote,
+} from "@/lib/projects";
 import type { CoolProject } from "@/types/content";
 
 interface ProjectCardProps {
@@ -16,6 +24,11 @@ interface ProjectCardProps {
   tally: ProjectTally | undefined;
   myVote: ProjectVote | undefined;
   onVote: (vote: ProjectVote) => void;
+  reactionTally: ProjectReactionTally | undefined;
+  myReaction: ProjectReactionId | undefined;
+  onReact: (reaction: ProjectReactionId) => void;
+  comments: ProjectComment[];
+  onComment: (body: string) => Promise<{ ok: boolean; message?: string }>;
   disabled?: boolean;
 }
 
@@ -25,6 +38,11 @@ export function ProjectCard({
   tally,
   myVote,
   onVote,
+  reactionTally,
+  myReaction,
+  onReact,
+  comments,
+  onComment,
   disabled,
 }: ProjectCardProps) {
   const [primary, ...rest] = project.sectorSlugs;
@@ -80,6 +98,19 @@ export function ProjectCard({
               <IconArrowRight className="size-3.5" stroke={1.5} aria-hidden />
             </LinkButton>
           ) : null}
+
+          <ProjectReactions
+            tally={reactionTally}
+            myReaction={myReaction}
+            onReact={onReact}
+            disabled={disabled}
+          />
+          <ProjectComments
+            projectId={project.id}
+            comments={comments}
+            onSubmit={onComment}
+            disabled={disabled}
+          />
         </div>
       </div>
     </Card>

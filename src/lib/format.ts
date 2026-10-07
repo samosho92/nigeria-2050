@@ -1,3 +1,8 @@
+/** Locale-aware integers for civic counts (people, seats, ballots). */
+export function formatInteger(value: number, locale = "en-NG"): string {
+  return value.toLocaleString(locale);
+}
+
 /** camelCase metric keys → readable labels (e.g. gdpPerCapita → Gdp Per Capita). */
 export function formatMetricKey(key: string): string {
   return key

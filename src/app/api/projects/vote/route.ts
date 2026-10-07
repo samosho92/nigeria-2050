@@ -1,5 +1,4 @@
-import { COOL_PROJECTS } from "@/content/projects";
-import { getCommunityProjects, setClientVote } from "@/lib/projects-store";
+import { isKnownProjectId, setClientVote } from "@/lib/projects-store";
 import { isValidClientId, isValidProjectId, type ProjectVote } from "@/lib/projects";
 import {
   getClientIp,
@@ -46,11 +45,7 @@ export async function POST(request: Request) {
     return jsonError("Invalid id", 400);
   }
 
-  const editorial = COOL_PROJECTS.some((project) => project.id === projectId);
-  const community = editorial ? [] : await getCommunityProjects();
-  const known = editorial || community.some((project) => project.id === projectId);
-
-  if (!known) {
+  if (!(await isKnownProjectId(projectId))) {
     return jsonError("Unknown project", 404);
   }
 

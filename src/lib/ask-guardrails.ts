@@ -300,6 +300,40 @@ export function checkSubmissionGuardrails(input: string): GuardrailResult {
   });
 }
 
+/**
+ * Cool Projects card comments: shorter, no URLs, automatic refuse on policy breach.
+ * Empty or near-empty strings are treated as spam so the API can return a clear refusal.
+ */
+export function checkCommentGuardrails(input: string): GuardrailResult {
+  const trimmed = stripControlChars(input).trim();
+  if (trimmed.length < 12) {
+    return {
+      allowed: false,
+      reason: "spam",
+      message:
+        "Comments need at least a short civic sentence. Insults, spam, and personal details are refused.",
+    };
+  }
+
+  const letters = (trimmed.match(/[A-Za-zÀ-ÿ]/g) ?? []).length;
+  if (letters < 8) {
+    return {
+      allowed: false,
+      reason: "spam",
+      message: GUARDRAIL_MESSAGES.spam,
+    };
+  }
+
+  return checkModeration(trimmed, {
+    maxLength: 400,
+    maxUrls: 0,
+    checkInjection: true,
+    checkSelfHarm: true,
+    checkScam: true,
+    checkPii: true,
+  });
+}
+
 /** Optional first name on Your 2050. */
 export function checkDisplayName(input: string): GuardrailResult {
   return checkModeration(input, {

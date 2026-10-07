@@ -4,9 +4,25 @@ import { useEffect, useMemo, useState } from "react";
 import { FadeIn } from "@/components/motion";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { ProjectSubmitForm } from "@/components/projects/ProjectSubmitForm";
+import { PROJECT_ENGAGEMENT } from "@/content/projects";
 import { useMounted } from "@/hooks/useMounted";
 import { trackEvent } from "@/lib/analytics";
-import { hasProjectMock, isValidClientId, PROJECT_CLIENT_KEY, PROJECT_SUBMISSIONS_KEY, PROJECT_VOTES_KEY, type ProjectTally, type ProjectVote, type ProjectVoteMap } from "@/lib/projects";
+import {
+  hasProjectMock,
+  isProjectReactionId,
+  isValidClientId,
+  PROJECT_CLIENT_KEY,
+  PROJECT_REACTIONS_KEY,
+  PROJECT_SUBMISSIONS_KEY,
+  PROJECT_VOTES_KEY,
+  type ProjectComment,
+  type ProjectReactionId,
+  type ProjectReactionMap,
+  type ProjectReactionTally,
+  type ProjectTally,
+  type ProjectVote,
+  type ProjectVoteMap,
+} from "@/lib/projects";
 import { cn } from "@/lib/utils";
 import type { CoolProject } from "@/types/content";
 
@@ -38,7 +54,14 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
   const mounted = useMounted();
   const [community, setCommunity] = useState<CoolProject[]>([]);
   const [tallies, setTallies] = useState<Record<string, ProjectTally>>({});
+  const [reactionTallies, setReactionTallies] = useState<Record<string, ProjectReactionTally>>(
+    {},
+  );
+  const [commentsByProject, setCommentsByProject] = useState<Record<string, ProjectComment[]>>(
+    {},
+  );
   const [myVotes, setMyVotes] = useState<ProjectVoteMap>({});
+  const [myReactions, setMyReactions] = useState<ProjectReactionMap>({});
   const [clientId, setClientId] = useState("");
   const [sectorFilter, setSectorFilter] = useState<string | "all">("all");
   const [sort, setSort] = useState<SortMode>("top");
@@ -54,21 +77,38 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
     const id = readClientId();
     setClientId(id);
     setMyVotes(readJson<ProjectVoteMap>(PROJECT_VOTES_KEY, {}));
+    const storedReactions = readJson<ProjectReactionMap>(PROJECT_REACTIONS_KEY, {});
+    const validReactions = Object.fromEntries(
+      Object.entries(storedReactions).filter((entry): entry is [string, ProjectReactionId] =>
+        isProjectReactionId(entry[1]),
+      ),
+    );
+    setMyReactions(validReactions);
     setCommunity(readJson<CoolProject[]>(PROJECT_SUBMISSIONS_KEY, []));
 
     fetch("/api/projects")
       .then((response) => response.json())
-      .then((data: { ok?: boolean; tallies?: Record<string, ProjectTally>; community?: CoolProject[] }) => {
-        if (!data.ok) return;
-        if (data.tallies) setTallies(data.tallies);
-        if (data.community) {
-          setCommunity((local) => {
-            const merged = [...data.community!, ...local];
-            const unique = new Map(merged.map((project) => [project.id, project]));
-            return [...unique.values()];
-          });
-        }
-      })
+      .then(
+        (data: {
+          ok?: boolean;
+          tallies?: Record<string, ProjectTally>;
+          reactions?: Record<string, ProjectReactionTally>;
+          comments?: Record<string, ProjectComment[]>;
+          community?: CoolProject[];
+        }) => {
+          if (!data.ok) return;
+          if (data.tallies) setTallies(data.tallies);
+          if (data.reactions) setReactionTallies(data.reactions);
+          if (data.comments) setCommentsByProject(data.comments);
+          if (data.community) {
+            setCommunity((local) => {
+              const merged = [...data.community!, ...local];
+              const unique = new Map(merged.map((project) => [project.id, project]));
+              return [...unique.values()];
+            });
+          }
+        },
+      )
       .catch(() => {
         // local votes still work if the tally is down
       });
@@ -78,6 +118,15 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
     setMyVotes(next);
     try {
       localStorage.setItem(PROJECT_VOTES_KEY, JSON.stringify(next));
+    } catch {
+      // ignore quota
+    }
+  };
+
+  const persistReactions = (next: ProjectReactionMap) => {
+    setMyReactions(next);
+    try {
+      localStorage.setItem(PROJECT_REACTIONS_KEY, JSON.stringify(next));
     } catch {
       // ignore quota
     }
@@ -113,6 +162,80 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
       }
     } catch {
       persistVotes(myVotes);
+    }
+  };
+
+  const react = async (projectId: string, reaction: ProjectReactionId) => {
+    const previous = myReactions[projectId];
+    const nextReaction = previous === reaction ? undefined : reaction;
+    const nextMap = { ...myReactions };
+    if (nextReaction) nextMap[projectId] = nextReaction;
+    else delete nextMap[projectId];
+    persistReactions(nextMap);
+    trackEvent({
+      name: "project_react",
+      projectId,
+      reaction: nextReaction ?? "none",
+    });
+
+    try {
+      const response = await fetch("/api/projects/react", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          clientId,
+          projectId,
+          reaction: nextReaction ?? null,
+        }),
+      });
+      const data = (await response.json()) as {
+        ok?: boolean;
+        tally?: ProjectReactionTally;
+      };
+      if (data.ok && data.tally) {
+        setReactionTallies((current) => ({ ...current, [projectId]: data.tally! }));
+      }
+    } catch {
+      persistReactions(myReactions);
+    }
+  };
+
+  const comment = async (
+    projectId: string,
+    body: string,
+  ): Promise<{ ok: boolean; message?: string }> => {
+    try {
+      const response = await fetch("/api/projects/comment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ clientId, projectId, body }),
+      });
+      const data = (await response.json()) as {
+        ok?: boolean;
+        refused?: boolean;
+        message?: string;
+        comments?: ProjectComment[];
+      };
+
+      if (!response.ok || !data.ok) {
+        trackEvent({
+          name: "project_comment_refused",
+          projectId,
+          reason: data.refused ? "policy" : "error",
+        });
+        return {
+          ok: false,
+          message: data.message || PROJECT_ENGAGEMENT.commentRefusedFallback,
+        };
+      }
+
+      if (data.comments) {
+        setCommentsByProject((current) => ({ ...current, [projectId]: data.comments! }));
+      }
+      trackEvent({ name: "project_comment", projectId });
+      return { ok: true };
+    } catch {
+      return { ok: false, message: PROJECT_ENGAGEMENT.commentRefusedFallback };
     }
   };
 
@@ -176,6 +299,11 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
                 tally={tallies[project.id]}
                 myVote={myVotes[project.id]}
                 onVote={(direction) => vote(project.id, direction)}
+                reactionTally={reactionTallies[project.id]}
+                myReaction={myReactions[project.id]}
+                onReact={(reaction) => react(project.id, reaction)}
+                comments={commentsByProject[project.id] ?? []}
+                onComment={(body) => comment(project.id, body)}
                 disabled={!clientId}
               />
             </FadeIn>
@@ -187,10 +315,7 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
         <p className="text-center text-muted-foreground">No ideas in that sector yet. Submit one below.</p>
       ) : null}
 
-      <p className="text-xs text-muted-foreground">
-        Votes are stored against a random id in this browser and counted on this site’s tally.
-        Ideas are civic proposals.
-      </p>
+      <p className="text-xs text-muted-foreground">{PROJECT_ENGAGEMENT.boardFootnote}</p>
 
       <ProjectSubmitForm sectorTitles={sectorTitles} onCreated={handleCreated} />
     </div>

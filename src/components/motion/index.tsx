@@ -4,6 +4,7 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useDataSaver } from "@/components/providers/DataSaverProvider";
 import { useMounted } from "@/hooks/useMounted";
+import { formatInteger } from "@/lib/format";
 
 interface AnimatedCounterProps {
   value: number;
@@ -14,7 +15,7 @@ interface AnimatedCounterProps {
 }
 
 function formatDisplay(display: number, decimals: number) {
-  return decimals > 0 ? display.toFixed(decimals) : Math.round(display).toLocaleString();
+  return decimals > 0 ? display.toFixed(decimals) : formatInteger(Math.round(display), "en-US");
 }
 
 export function AnimatedCounter({

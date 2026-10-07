@@ -713,3 +713,13 @@ export { formatPostalCode, formatStreetCode } from "@/lib/postal-format";
 export function getPostalCapital(id: string): PostalCapital | undefined {
   return POSTAL_CAPITALS.find((city) => city.id === id);
 }
+
+export const POSTAL_CODES_PAGE_META = {
+  seoTitle: "National postal code engine (mock)",
+  seoDescription:
+    "A working mock of a Nigerian postal code that starts in the 36 state capitals plus Abuja, then densifies from rural clusters to urban street blocks.",
+  title: "A national postal code engine",
+  backHref: "/projects#postal-codes",
+  description: (capitalCount: number) =>
+    `Start where government already sits: ${capitalCount} capitals, district 01. Give the hinterland a stable cluster code, then split units as streets appear. This is a schematic index of how a used code could run.`,
+} as const;

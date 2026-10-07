@@ -108,12 +108,12 @@ export function MethodologyPageContent() {
   return (
     <>
       <PageHero
-        eyebrow="Editorial policy"
-        title="How Nigeria2050 works"
-        description="Sourcing rules, projection methodology, G7 benchmark standards, AI guardrails, and how we handle corrections. Written for skeptics first."
+        eyebrow={METHODOLOGY_META.eyebrow}
+        title={METHODOLOGY_META.title}
+        description={METHODOLOGY_META.description}
       >
         <p className="mt-2 text-xs text-muted-foreground">
-          Updated {METHODOLOGY_META.lastUpdated}
+          {METHODOLOGY_META.updatedPrefix} {METHODOLOGY_META.lastUpdated}
         </p>
         <ul className="mt-8 grid gap-3 sm:grid-cols-2">
           {METHODOLOGY_PRINCIPLES.map((principle) => (
@@ -141,7 +141,7 @@ export function MethodologyPageContent() {
         <MotifDivider />
 
         <section className="rounded-xl border border-border bg-surface p-6 md:p-8">
-          <h2 className="text-lg font-bold">What we are not</h2>
+          <h2 className="text-lg font-bold">{METHODOLOGY_META.nonGoalsTitle}</h2>
           <ul className="mt-4 space-y-2">
             {METHODOLOGY_NON_GOALS.map((item) => (
               <li key={item} className="flex gap-2 text-sm text-muted-foreground">

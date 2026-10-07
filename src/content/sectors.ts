@@ -848,3 +848,51 @@ export function getSectorTitles(): Record<string, string> {
 export function getAllSectorSlugs(): string[] {
   return SECTORS.map((s) => s.slug);
 }
+
+export const SECTORS_PAGE_META = {
+  seoTitle: "Sectors",
+  seoDescription: (sectorCount: number) =>
+    `${sectorCount} sector visions for Nigeria by 2050.`,
+  eyebrow: "2050 visions",
+  title: "Sector Visions",
+  description: (sectorCount: number) =>
+    `Sourced, scenario-based projections across ${sectorCount} sectors. Each page links back to the historical throughline that makes the future case plausible.`,
+  /** Highlighted until they sit with the rest of the grid as familiar entries. */
+  newSectorSlugs: ["transportation", "real-estate", "tourism"] as const,
+  newBadge: "New",
+} as const;
+
+export const SECTOR_DETAIL_UI = {
+  notFoundTitle: "Sector Not Found",
+  backLabel: "All sectors",
+  eyebrow: (sectorNumber: string, sectorCount: number) =>
+    `Sector ${sectorNumber} · ${sectorCount} flagship projections`,
+  methodologyCta: "How we model projections",
+  reviewLabels: {
+    reviewed: "Editorially reviewed",
+    "pending-review": "Pending review",
+    draft: "Draft",
+  } as const,
+  snapshotToday: "Today",
+  snapshotScenario: "2050 scenario",
+  snapshotScenarioCaption: (label: string) => `${label} (scenario)`,
+  snapshotProjection: "Projection",
+  baselineTitle: "Sourced baseline",
+  baselineLead: "Figures below are from named datasets in the source panel on this page.",
+  baselineChartTitle: "Where Nigeria stands today",
+  roadTitle: "The Road to 2050",
+  assumptionsTitle: "Scenario Assumptions & Risks",
+  howWeGotHereTitle: "How We Got Here",
+  waypointLabel: (index: number) => `Waypoint ${index}`,
+  scenarioRangesTitle: "2050 Scenario Ranges",
+  scenarioRangesLead:
+    "Low / base / high bands where the sector page supports a range. These are scenarios with stated assumptions.",
+  low: "Low",
+  base: "Base",
+  high: "High",
+  assumptionsHeading: "What Would Have to Be True",
+  assumptionsLead: "Specific conditions the base-case 2050 projection depends on.",
+  risksHeading: "Risks to This Scenario",
+  risksLead:
+    "Known ways the base case could fail, reflected in the low end of scenario ranges where applicable.",
+} as const;

@@ -347,3 +347,13 @@ export const GLOSSARY: GlossaryTerm[] = [
 export function getGlossaryTerm(term: string): GlossaryTerm | undefined {
   return GLOSSARY.find((g) => g.term.toLowerCase() === term.toLowerCase());
 }
+
+export const GLOSSARY_PAGE_META = {
+  seoTitle: "Glossary",
+  seoDescription: (count: number) =>
+    `${count} plain-language definitions for terms used across Nigeria2050. Searchable.`,
+  eyebrow: "Reference",
+  title: "Glossary",
+  description: (count: number) =>
+    `${count} plain-language definitions for terms used on sector pages, the timeline, and Cool Projects.`,
+} as const;

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { MethodologyPageContent } from "@/components/methodology/MethodologyPageContent";
+import { METHODOLOGY_META } from "@/content/methodology";
 
 export const metadata: Metadata = {
-  title: "Editorial Methodology",
-  description:
-    "How Nigeria2050 sources, models 2050 scenarios, benchmarks against the G7, and handles AI, review, and corrections.",
+  title: METHODOLOGY_META.seoTitle,
+  description: METHODOLOGY_META.seoDescription,
 };
 
 export default function MethodologyPage() {

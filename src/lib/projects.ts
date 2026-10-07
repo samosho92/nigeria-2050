@@ -1,17 +1,47 @@
 import type { CoolProject } from "@/types/content";
-import { COOL_PROJECTS } from "@/content/projects";
+import {
+  COOL_PROJECTS,
+  PROJECT_REACTIONS,
+  type ProjectReactionId,
+} from "@/content/projects";
 import { redactPii, sanitizePlainText } from "@/lib/ask-guardrails";
 
 export const PROJECT_CLIENT_KEY = "nigeria2050-project-client";
 export const PROJECT_VOTES_KEY = "nigeria2050-project-votes";
+export const PROJECT_REACTIONS_KEY = "nigeria2050-project-reactions";
 export const PROJECT_SUBMISSIONS_KEY = "nigeria2050-project-submissions";
 
 export type ProjectVote = "up" | "down";
 export type ProjectVoteMap = Record<string, ProjectVote>;
+export type ProjectReactionMap = Record<string, ProjectReactionId>;
+export type { ProjectReactionId };
 
 export interface ProjectTally {
   up: number;
   down: number;
+}
+
+export type ProjectReactionTally = Record<ProjectReactionId, number>;
+
+export interface ProjectComment {
+  id: string;
+  body: string;
+  recordedAt: string;
+}
+
+export const EMPTY_REACTION_TALLY: ProjectReactionTally = {
+  love: 0,
+  curious: 0,
+  concern: 0,
+  cheer: 0,
+};
+
+export function isProjectReactionId(value: string): value is ProjectReactionId {
+  return PROJECT_REACTIONS.some((reaction) => reaction.id === value);
+}
+
+export function emptyReactionTally(): ProjectReactionTally {
+  return { ...EMPTY_REACTION_TALLY };
 }
 
 export function projectScore(tally: ProjectTally | undefined): number {

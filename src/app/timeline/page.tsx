@@ -3,15 +3,14 @@ import { Container } from "@/components/ui/Container";
 import { TimelineExperience } from "@/components/timeline/TimelineExperience";
 import { BackToTop } from "@/components/layout/BackToTop";
 import { PageHero } from "@/components/layout/PageHero";
-import { TIMELINE_ENTRIES } from "@/content/timeline";
+import { TIMELINE_ENTRIES, TIMELINE_PAGE_META } from "@/content/timeline";
 import { getSectorTitles } from "@/lib/content";
 import { CONTENT_STATS } from "@/lib/content-stats";
 import { getAllEraFeaturedIcons } from "@/lib/icons";
 
 export const metadata: Metadata = {
-  title: "The Nigeria Story",
-  description:
-    "An interactive timeline of Nigeria's history from pre-colonial kingdoms to the reform era.",
+  title: TIMELINE_PAGE_META.seoTitle,
+  description: TIMELINE_PAGE_META.seoDescription,
 };
 
 export default function TimelinePage() {
@@ -20,9 +19,9 @@ export default function TimelinePage() {
   return (
     <>
       <PageHero
-        eyebrow="Interactive history"
-        title="The Nigeria Story"
-        description={`Scroll through ${CONTENT_STATS.eraCount} eras, from pre-colonial kingdoms to the reforms setting up 2050. Every entry links forward to the sectors it shaped.`}
+        eyebrow={TIMELINE_PAGE_META.eyebrow}
+        title={TIMELINE_PAGE_META.title}
+        description={TIMELINE_PAGE_META.description(CONTENT_STATS.eraCount)}
       />
       <Container className="py-12 md:py-16">
         <TimelineExperience

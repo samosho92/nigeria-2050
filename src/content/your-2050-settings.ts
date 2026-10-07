@@ -259,3 +259,7 @@ export function getVignetteCity(id: string): VignetteCity {
 export function getVignetteSeason(id: string): VignetteSeason {
   return VIGNETTE_SEASONS.find((season) => season.id === id) ?? VIGNETTE_SEASONS[0];
 }
+
+export const YOUR_2050_PAGE_META = {
+  seoTitle: "Your Nigeria 2050",
+} as const;

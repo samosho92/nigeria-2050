@@ -9,24 +9,23 @@ import {
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { Badge } from "@/components/ui/Badge";
-import { SECTORS } from "@/content/sectors";
+import { SECTORS, SECTORS_PAGE_META } from "@/content/sectors";
 import { CONTENT_STATS } from "@/lib/content-stats";
 
-/** Highlighted until they sit with the rest of the grid as familiar entries. */
-const NEW_SECTOR_SLUGS = new Set(["transportation", "real-estate", "tourism"]);
+const NEW_SECTOR_SLUGS = new Set<string>(SECTORS_PAGE_META.newSectorSlugs);
 
 export const metadata: Metadata = {
-  title: "Sectors",
-  description: `${CONTENT_STATS.sectorCount} sector visions for Nigeria by 2050.`,
+  title: SECTORS_PAGE_META.seoTitle,
+  description: SECTORS_PAGE_META.seoDescription(CONTENT_STATS.sectorCount),
 };
 
 export default function SectorsPage() {
   return (
     <>
       <PageHero
-        eyebrow="2050 visions"
-        title="Sector Visions"
-        description={`Sourced, scenario-based projections across ${CONTENT_STATS.sectorCount} sectors. Each page links back to the historical throughline that makes the future case plausible.`}
+        eyebrow={SECTORS_PAGE_META.eyebrow}
+        title={SECTORS_PAGE_META.title}
+        description={SECTORS_PAGE_META.description(CONTENT_STATS.sectorCount)}
       />
       <Container className="py-12 md:py-16">
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -37,7 +36,7 @@ export default function SectorsPage() {
                   <CardHeader>
                     {NEW_SECTOR_SLUGS.has(sector.slug) && (
                       <Badge variant="accent" className="mb-1 w-fit">
-                        New
+                        {SECTORS_PAGE_META.newBadge}
                       </Badge>
                     )}
                     <CardTitle className="text-lg group-hover:text-accent">

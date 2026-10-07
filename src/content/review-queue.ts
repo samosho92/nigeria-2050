@@ -108,3 +108,14 @@ export const REVIEW_QUEUE: ReviewItem[] = [
 export function getPendingReviews() {
   return REVIEW_QUEUE.filter((item) => item.status === "pending-review");
 }
+
+export const REVIEW_PAGE_META = {
+  seoTitle: "Editorial Review Queue",
+  seoDescription: "Internal editorial review status for Nigeria2050 content.",
+  eyebrow: "Internal",
+  title: "Editorial Review Queue",
+  description:
+    "Human review pass for sensitive history, sector projections, and AI-generated art before publication.",
+  pendingSummary: (count: number) =>
+    `${count} item${count === 1 ? "" : "s"} pending review.`,
+} as const;

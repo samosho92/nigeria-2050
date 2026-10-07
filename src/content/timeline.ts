@@ -282,3 +282,13 @@ export function getTimelineEntriesByEra(eraId: string): TimelineEntry[] {
 export function getEraById(id: string) {
   return TIMELINE_ERAS.find((e) => e.id === id);
 }
+
+export const TIMELINE_PAGE_META = {
+  seoTitle: "The Nigeria Story",
+  seoDescription:
+    "An interactive timeline of Nigeria's history from pre-colonial kingdoms to the reform era.",
+  eyebrow: "Interactive history",
+  title: "The Nigeria Story",
+  description: (eraCount: number) =>
+    `Scroll through ${eraCount} eras, from pre-colonial kingdoms to the reforms setting up 2050. Every entry links forward to the sectors it shaped.`,
+} as const;

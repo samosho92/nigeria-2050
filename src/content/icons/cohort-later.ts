@@ -839,7 +839,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Singer-songwriter who became Mavin Records’ flagship female artist and a face of Afrobeats’ global touring decade.",
     summary:
-      "Savage trained in London (including work with the production world around George Michael) then came home to Lagos pop. If I Start to Talk and later albums made her a headliner rather than a featured verse. Listed as a recording artist who professionalised the female Afrobeats lane.",
+      "Savage trained in London (including work with the production world around George Michael) then came home to Lagos pop. If I Start to Talk and later albums made her a headliner. Listed as a recording artist who professionalised the female Afrobeats lane.",
     citation: {
       title: "Tiwa Savage",
       publisher: "Recording Academy / Grammy Awards",

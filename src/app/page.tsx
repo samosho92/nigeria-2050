@@ -23,12 +23,14 @@ import { LinkButton } from "@/components/ui/LinkButton";
 import { MotifDivider } from "@/components/ui/MotifDivider";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/motion";
+import { HOME_SECTIONS } from "@/content/home";
 import { PULSE_META, PULSE_POLLS, PULSE_SESSION_SIZE } from "@/content/polls";
 import { SECTORS } from "@/lib/constants/sectors";
 import { CONTENT_STATS } from "@/lib/content-stats";
 
 export default function HomePage() {
   const showIndependenceDay = isIndependenceDaySeasonActive();
+  const copy = HOME_SECTIONS;
 
   return (
     <div className="relative overflow-hidden">
@@ -48,9 +50,9 @@ export default function HomePage() {
 
       <Section variant="surface">
         <FadeIn>
-          <h2 className="text-center text-2xl font-bold md:text-3xl">Two Co-Equal Pillars</h2>
+          <h2 className="text-center text-2xl font-bold md:text-3xl">{copy.pillarsTitle}</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            History and future vision, fused by bidirectional links.
+            {copy.pillarsLead}
           </p>
         </FadeIn>
         <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -59,20 +61,23 @@ export default function HomePage() {
               <CardHeader>
                 <CardTitle className="text-accent">
                   <IconTimeline className="mb-2 size-6" stroke={1.5} aria-hidden />
-                  The Nigeria Story
+                  {copy.storyTitle}
                 </CardTitle>
                 <CardDescription>
-                  {CONTENT_STATS.eraCount} eras · {CONTENT_STATS.timelineEntryCount} entries ·{" "}
-                  {CONTENT_STATS.iconCount} icons · scrollytelling spine with sector cross-links.
+                  {copy.storyDescription(
+                    CONTENT_STATS.eraCount,
+                    CONTENT_STATS.timelineEntryCount,
+                    CONTENT_STATS.iconCount,
+                  )}
                 </CardDescription>
               </CardHeader>
               <CardFooter className="flex flex-wrap gap-4">
                 <LinkButton href="/timeline" variant="link">
-                  View timeline
+                  {copy.storyTimelineCta}
                   <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
                 </LinkButton>
                 <LinkButton href="/icons" variant="link">
-                  View icons
+                  {copy.storyIconsCta}
                   <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
                 </LinkButton>
               </CardFooter>
@@ -83,16 +88,15 @@ export default function HomePage() {
               <CardHeader>
                 <CardTitle className="text-accent">
                   <IconBuildingSkyscraper className="mb-2 size-6" stroke={1.5} aria-hidden />
-                  Sector Visions to 2050
+                  {copy.sectorsPillarTitle}
                 </CardTitle>
                 <CardDescription>
-                  {CONTENT_STATS.sectorCount} sectors with sourced projections, milestone
-                  narratives, and &ldquo;How we got here&rdquo; modules.
+                  {copy.sectorsPillarDescription(CONTENT_STATS.sectorCount)}
                 </CardDescription>
               </CardHeader>
               <CardFooter>
                 <LinkButton href="/sectors" variant="link">
-                  Browse sectors
+                  {copy.sectorsPillarCta}
                   <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
                 </LinkButton>
               </CardFooter>
@@ -108,7 +112,7 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <h2 className="text-2xl font-bold md:text-3xl">All Sector Visions</h2>
+        <h2 className="text-2xl font-bold md:text-3xl">{copy.allSectorsTitle}</h2>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SECTORS.map((sector, i) => (
             <FadeIn key={sector.slug} delay={i * 0.05}>
@@ -134,13 +138,10 @@ export default function HomePage() {
               <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/15">
                 <IconBulb className="size-7 text-accent" stroke={1.5} aria-hidden />
               </div>
-              <h2 className="text-xl font-bold">Cool Projects</h2>
-              <p className="text-muted-foreground">
-                Vote on civic ideas, postal codes, road signs, libraries, and submit the
-                initiative you think Nigeria should build by 2050.
-              </p>
+              <h2 className="text-xl font-bold">{copy.projectsTitle}</h2>
+              <p className="text-muted-foreground">{copy.projectsBody}</p>
               <LinkButton href="/projects" variant="primary" className="mt-auto w-fit">
-                Rank the ideas
+                {copy.projectsCta}
               </LinkButton>
             </div>
             <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">
@@ -159,13 +160,10 @@ export default function HomePage() {
               <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/15">
                 <IconMessageChatbot className="size-7 text-accent" stroke={1.5} aria-hidden />
               </div>
-              <h2 className="text-xl font-bold">Ask the Archive</h2>
-              <p className="text-muted-foreground">
-                Ask about Nigerian history or 2050 projections. Grounded in curated content,
-                with guardrails for respectful use.
-              </p>
+              <h2 className="text-xl font-bold">{copy.askTitle}</h2>
+              <p className="text-muted-foreground">{copy.askBody}</p>
               <LinkButton href="/ask" variant="secondary" className="mt-auto w-fit">
-                Try it now
+                {copy.askCta}
               </LinkButton>
             </div>
           </div>

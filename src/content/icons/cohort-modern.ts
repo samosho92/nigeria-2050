@@ -354,7 +354,7 @@ export const ICON_COHORT_MODERN: Draft[] = [
     achievement:
       "Pharmacist who, as NAFDAC director-general (2001–08), led a public war on counterfeit drugs that had flooded Nigerian markets.",
     summary:
-      "Akunyili used raids, publicity, and ugly television ads to make fake drugs a national scandal rather than a quiet killer. She survived an assassination attempt in 2002. Later, as information minister, she was a more conventional politician; NAFDAC is the reason her name is still said with respect in hospitals.",
+      "Akunyili used raids, publicity, and ugly television ads to make fake drugs a national scandal. She survived an assassination attempt in 2002. Later, as information minister, she was a more conventional politician; NAFDAC is the reason her name is still said with respect in hospitals.",
     citation: {
       title: "Dora Akunyili",
       publisher: "The Lancet (obituary)",

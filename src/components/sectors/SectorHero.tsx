@@ -4,6 +4,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { AutoGlossary } from "@/components/ui/GlossaryTerm";
 import { StatSnapshot, type StatSnapshotSection } from "@/components/ui/StatSnapshot";
 import { FadeIn } from "@/components/motion";
+import { SECTOR_DETAIL_UI } from "@/content/sectors";
 import { SECTORS } from "@/lib/content";
 import { formatMetricKey, formatScenarioValue } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -13,13 +14,8 @@ interface SectorHeroProps {
   sector: Sector;
 }
 
-const REVIEW_LABELS: Record<NonNullable<Sector["reviewStatus"]>, string> = {
-  reviewed: "Editorially reviewed",
-  "pending-review": "Pending review",
-  draft: "Draft",
-};
-
 function buildSnapshotSections(sector: Sector): StatSnapshotSection[] {
+  const ui = SECTOR_DETAIL_UI;
   const baselineRows = Object.entries(sector.baseline)
     .slice(0, 4)
     .map(([key, value]) => ({
@@ -27,17 +23,17 @@ function buildSnapshotSections(sector: Sector): StatSnapshotSection[] {
       value: String(value),
     }));
 
-  const sections: StatSnapshotSection[] = [{ heading: "Today", rows: baselineRows }];
+  const sections: StatSnapshotSection[] = [{ heading: ui.snapshotToday, rows: baselineRows }];
 
   const primaryScenario = sector.scenarioRanges?.[0];
   if (primaryScenario) {
     sections.push({
-      heading: "2050 scenario",
-      caption: `${primaryScenario.label} (scenario)`,
+      heading: ui.snapshotScenario,
+      caption: ui.snapshotScenarioCaption(primaryScenario.label),
       accent: true,
       rows: [
         {
-          label: "Projection",
+          label: ui.snapshotProjection,
           value: formatScenarioValue(primaryScenario, primaryScenario.base),
         },
       ],
@@ -50,12 +46,13 @@ function buildSnapshotSections(sector: Sector): StatSnapshotSection[] {
 export function SectorHero({ sector }: SectorHeroProps) {
   const sectorIndex = SECTORS.findIndex((entry) => entry.slug === sector.slug);
   const sectorNumber = String(sectorIndex + 1).padStart(2, "0");
+  const ui = SECTOR_DETAIL_UI;
 
   return (
     <FadeIn>
       <PageHero
-        backLink={{ href: "/sectors", label: "All sectors" }}
-        eyebrow={`Sector ${sectorNumber} · ${SECTORS.length} flagship projections`}
+        backLink={{ href: "/sectors", label: ui.backLabel }}
+        eyebrow={ui.eyebrow(sectorNumber, SECTORS.length)}
         title={sector.title}
         description={sector.tagline}
         aside={
@@ -75,7 +72,7 @@ export function SectorHero({ sector }: SectorHeroProps) {
                   : "text-muted-foreground",
               )}
             >
-              {REVIEW_LABELS[sector.reviewStatus]}
+              {ui.reviewLabels[sector.reviewStatus]}
             </p>
           )}
         </div>
@@ -88,7 +85,7 @@ export function SectorHero({ sector }: SectorHeroProps) {
           href="/methodology"
           className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition hover:text-accent"
         >
-          How we model projections
+          {ui.methodologyCta}
           <IconArrowRight className="size-3.5" stroke={1.5} aria-hidden />
         </Link>
       </PageHero>

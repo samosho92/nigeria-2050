@@ -3,25 +3,28 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { TitleRegister } from "@/components/projects/TitleRegister";
-import { TITLE_SEED_IDS, TITLE_STANDARD } from "@/content/land-titles";
+import { LAND_TITLES_PAGE_META, TITLE_SEED_IDS, TITLE_STANDARD } from "@/content/land-titles";
+import { PROJECT_MOCK_UI } from "@/content/projects";
 
 export const metadata: Metadata = {
-  title: "Land title register (mock)",
-  description:
-    "A schematic Torrens-style folio: one record per parcel, mapped to a postal street zone, with governor’s consent on the same page.",
+  title: LAND_TITLES_PAGE_META.seoTitle,
+  description: LAND_TITLES_PAGE_META.seoDescription,
 };
 
 export default function LandTitlesMockPage() {
   return (
     <>
       <PageHero
-        eyebrow="Cool Projects mock"
-        title="Titles you can look up"
-        description={`${TITLE_SEED_IDS.length} seed registries. ${TITLE_STANDARD.name}: one folio, a mapped parcel, a queryable layer, consent written here. A schematic register of sample folios.`}
-        backLink={{ href: "/projects#land-titles", label: "Cool Projects" }}
+        eyebrow={PROJECT_MOCK_UI.eyebrow}
+        title={LAND_TITLES_PAGE_META.title}
+        description={LAND_TITLES_PAGE_META.description(
+          TITLE_SEED_IDS.length,
+          TITLE_STANDARD.name,
+        )}
+        backLink={{ href: LAND_TITLES_PAGE_META.backHref, label: PROJECT_MOCK_UI.backLabel }}
         actions={
-          <LinkButton href="/projects#land-titles" variant="secondary">
-            Back to the idea
+          <LinkButton href={LAND_TITLES_PAGE_META.backHref} variant="secondary">
+            {PROJECT_MOCK_UI.backCta}
           </LinkButton>
         }
       />

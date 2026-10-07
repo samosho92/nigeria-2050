@@ -372,3 +372,12 @@ export function getSourceById(id: string): Source | undefined {
 export function getSourcesByIds(ids: string[]): Source[] {
   return ids.map((id) => getSourceById(id)).filter(Boolean) as Source[];
 }
+
+export const SOURCES_PAGE_META = {
+  seoTitle: "Source Library",
+  seoDescription: "Every cited source in one place for independent credibility-checking.",
+  eyebrow: "Credibility",
+  title: "Source Library",
+  description:
+    "Every quantitative claim on Nigeria2050 traces back here. Filter by sector or era, then click through to verify independently.",
+} as const;

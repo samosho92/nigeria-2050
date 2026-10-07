@@ -570,3 +570,13 @@ export function envelopeShare(naira: number): string {
   const pct = (naira / BUDGET_STANDARD.envelopeNaira.total) * 100;
   return `${pct.toFixed(1)}%`;
 }
+
+export const OPEN_BUDGETS_PAGE_META = {
+  seoTitle: "Open budgets and contracts (mock)",
+  seoDescription:
+    "A schematic portal for the 2026 Appropriation Act envelope and sample awards: who won, for what, at what price, the week they were signed.",
+  title: "Budgets and contracts in public, in time",
+  backHref: "/projects#open-budgets",
+  description: (jurisdictionCount: number, name: string, envelopeLabel: string) =>
+    `${jurisdictionCount} seed jurisdictions. ${name}: ${envelopeLabel} federal envelope, MDA tables, award rows a journalist in Jos can open. A schematic portal of sample contracts.`,
+} as const;

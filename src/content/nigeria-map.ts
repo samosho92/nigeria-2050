@@ -113,3 +113,17 @@ export const NIGERIA_MAP_CITIES: NigeriaMapCity[] = [
 ];
 
 export const NIGERIA_MAP_VIEWBOX = "0 0 400 330";
+
+export const NIGERIA_MAP_UI = {
+  title: "Nigeria, zone by zone",
+  badge: "3D map",
+  lead: "Hover or select a geopolitical zone. Outline and zones are traced from Nigeria's six-zone map, 36 states and the FCT, grouped as they are governed.",
+  ariaLabel: "Interactive map of Nigeria's six geopolitical zones",
+  svgTitle: "Map of Nigeria",
+  controlsHint: "Arrow keys move between zones",
+  tiltedHint: " · tilted 3D view",
+  flatHint: " · flat view",
+  statesLabel: (code: string, stateCount: number, includesFct: boolean) =>
+    `${code} · ${stateCount} states${includesFct ? " + FCT" : ""}`,
+} as const;
+

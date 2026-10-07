@@ -453,3 +453,13 @@ export function searchParcels(query: string, limit = 8): LandParcel[] {
 
   return scored.slice(0, limit).map((row) => row.parcel);
 }
+
+export const LAND_TITLES_PAGE_META = {
+  seoTitle: "Land title register (mock)",
+  seoDescription:
+    "A schematic Torrens-style folio: one record per parcel, mapped to a postal street zone, with governor’s consent on the same page.",
+  title: "Titles you can look up",
+  backHref: "/projects#land-titles",
+  description: (registryCount: number, name: string) =>
+    `${registryCount} seed registries. ${name}: one folio, a mapped parcel, a queryable layer, consent written here. A schematic register of sample folios.`,
+} as const;

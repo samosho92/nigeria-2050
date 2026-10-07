@@ -21,13 +21,13 @@ export function FaqPageContent() {
           ))}
         </div>
         <p className="mx-auto mt-8 max-w-4xl text-sm text-muted-foreground">
-          Need more detail? Visit{" "}
+          {FAQ_META.footerLead}{" "}
           <Link href="/methodology" className="text-accent transition hover:underline">
-            Methodology
+            {FAQ_META.footerMethodology}
           </Link>{" "}
-          and{" "}
+          {FAQ_META.footerAnd}{" "}
           <Link href="/sources" className="text-accent transition hover:underline">
-            Sources
+            {FAQ_META.footerSources}
           </Link>
           .
         </p>

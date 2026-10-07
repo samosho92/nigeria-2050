@@ -236,3 +236,13 @@ export function corridorCoverage(corridor: SignCorridor): { installed: number; m
     total: corridor.posts.length,
   };
 }
+
+export const ROAD_SIGNS_PAGE_META = {
+  seoTitle: "Road-sign campaign (mock)",
+  seoDescription:
+    "A schematic campaign to post speed limits, stop signs, school zones, and kilometre markers on corridors between Nigerian capitals.",
+  title: "A road-sign campaign you can drive by",
+  backHref: "/projects#road-signs",
+  description: (corridorCount: number) =>
+    `Start on ${corridorCount} capital-to-capital corridors. One national shape book, speed, stop, yield, school zone, kilometre marker. A campaign schematic for those corridors.`,
+} as const;

@@ -55,7 +55,7 @@ export const COOL_PROJECTS: CoolProject[] = [
     summary:
       "Register every birth in a civil registry that schools, clinics, and banks can trust, so a child does not need a well-connected uncle to exist on paper.",
     detail:
-      "Nordic civil registries and Rwanda’s digitised civil registration show the same prize: a legal identity issued once, used many times, instead of a new affidavit for every exam and SIM card. Tie registration to clinic deliveries and community health workers, issue a number at birth, and let that record unlock school enrolment, immunisation, and later a bank account. The 2050 case for education and financial inclusion assumes we know who is in the room.",
+      "Nordic civil registries and Rwanda’s digitised civil registration show the same prize: a legal identity issued once and used many times across exams, SIM cards, schools, clinics, and banks. Tie registration to clinic deliveries and community health workers, issue a number at birth, and let that record unlock school enrolment, immunisation, and later a bank account. The 2050 case for education and financial inclusion assumes we know who is in the room.",
     inspiredBy: "Nordic civil registries, Rwanda’s CRVS digitisation",
     sectorSlugs: ["governance", "healthcare", "education", "financial-inclusion"],
     source: "editorial",
@@ -310,3 +310,63 @@ export const COOL_PROJECTS: CoolProject[] = [
 export function getCoolProjectById(id: string): CoolProject | undefined {
   return COOL_PROJECTS.find((project) => project.id === id);
 }
+
+export const PROJECT_MOCK_UI = {
+  eyebrow: "Cool Projects mock",
+  backLabel: "Cool Projects",
+  backCta: "Back to the idea",
+} as const;
+
+export const PROJECTS_PAGE_META = {
+  seoTitle: "Cool Projects",
+  seoDescription: (projectCount: number) =>
+    `Civic ideas that would make Nigeria work better by 2050. Vote, react, comment, filter by sector, and submit your own. ${projectCount} starter proposals.`,
+  eyebrow: "Civic bets",
+  title: "Cool Projects",
+  description:
+    "Concrete initiatives (postal codes, road signs, libraries, clinics) that would make daily life work better by 2050. Vote them up or down, react with a key emotion, and leave a moderated comment. Add yours. Each card names the sectors it would move most.",
+  submitCta: "Submit an idea",
+} as const;
+
+export type ProjectReactionId = "love" | "curious" | "concern" | "cheer";
+
+export const PROJECT_REACTIONS: {
+  id: ProjectReactionId;
+  label: string;
+}[] = [
+  { id: "love", label: "Love" },
+  { id: "curious", label: "Curious" },
+  { id: "concern", label: "Concern" },
+  { id: "cheer", label: "Cheer" },
+];
+
+export const PROJECT_ENGAGEMENT = {
+  reactionsLabel: "How this idea lands",
+  commentsTitle: "Comments",
+  commentsCount: (count: number) =>
+    count === 1 ? "1 comment" : `${count} comments`,
+  commentsEmpty: "No comments yet. Keep it civic and specific.",
+  commentsToggleShow: "Show comments",
+  commentsToggleHide: "Hide comments",
+  commentPlaceholder: "A short civic comment on this idea…",
+  commentSubmit: "Post comment",
+  commentPosting: "Checking…",
+  commentReader: "Reader",
+  commentPolicy:
+    "Automatic moderation applies. Comments that break the community guidelines are refused and never published.",
+  communityPolicyTitle: "Community guidelines",
+  communityPolicy: [
+    "Stay on the civic idea: postal codes, clinics, libraries, signs, and similar proposals.",
+    "No insults, harassment, slurs, or threats.",
+    "No spam, scams, solicitations, or links.",
+    "No email addresses, phone numbers, or other personal contact details.",
+    "No sexual content and no attempts to change the site’s instructions.",
+  ],
+  commentRefusedFallback:
+    "That comment does not meet our community guidelines and was not posted.",
+  commentTooMany: "Too many comments. Please wait before posting again.",
+  reactionAria: (label: string, count: number, mine: boolean) =>
+    `${label}${mine ? ", selected" : ""}, ${count}`,
+  boardFootnote:
+    "Votes and reactions are stored against a random id in this browser and counted on this site’s tally. Comments are moderated automatically against the community guidelines. Ideas are civic proposals.",
+} as const;

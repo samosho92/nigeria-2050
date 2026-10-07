@@ -3,25 +3,25 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { RoadSignCampaign } from "@/components/projects/RoadSignCampaign";
-import { ROAD_SIGN_CORRIDORS } from "@/content/road-signs";
+import { ROAD_SIGN_CORRIDORS, ROAD_SIGNS_PAGE_META } from "@/content/road-signs";
+import { PROJECT_MOCK_UI } from "@/content/projects";
 
 export const metadata: Metadata = {
-  title: "Road-sign campaign (mock)",
-  description:
-    "A schematic campaign to post speed limits, stop signs, school zones, and kilometre markers on corridors between Nigerian capitals.",
+  title: ROAD_SIGNS_PAGE_META.seoTitle,
+  description: ROAD_SIGNS_PAGE_META.seoDescription,
 };
 
 export default function RoadSignsMockPage() {
   return (
     <>
       <PageHero
-        eyebrow="Cool Projects mock"
-        title="A road-sign campaign you can drive by"
-        description={`Start on ${ROAD_SIGN_CORRIDORS.length} capital-to-capital corridors. One national shape book, speed, stop, yield, school zone, kilometre marker. A campaign schematic for those corridors.`}
-        backLink={{ href: "/projects#road-signs", label: "Cool Projects" }}
+        eyebrow={PROJECT_MOCK_UI.eyebrow}
+        title={ROAD_SIGNS_PAGE_META.title}
+        description={ROAD_SIGNS_PAGE_META.description(ROAD_SIGN_CORRIDORS.length)}
+        backLink={{ href: ROAD_SIGNS_PAGE_META.backHref, label: PROJECT_MOCK_UI.backLabel }}
         actions={
-          <LinkButton href="/projects#road-signs" variant="secondary">
-            Back to the idea
+          <LinkButton href={ROAD_SIGNS_PAGE_META.backHref} variant="secondary">
+            {PROJECT_MOCK_UI.backCta}
           </LinkButton>
         }
       />

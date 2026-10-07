@@ -9,6 +9,7 @@ import { ProductionAnalytics } from "@/components/providers/ProductionAnalytics"
 import { CookieConsentBanner } from "@/components/legal/CookieConsentBanner";
 import { fontSans, fontSerif } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { BRAND } from "@/lib/brand";
 import { siteName, siteTagline, siteUrl } from "@/lib/site";
 import { CONTENT_STATS } from "@/lib/content-stats";
 import "./globals.css";
@@ -18,8 +19,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#041a10" },
+    { media: "(prefers-color-scheme: light)", color: BRAND.white },
+    { media: "(prefers-color-scheme: dark)", color: BRAND.green950 },
   ],
 };
 

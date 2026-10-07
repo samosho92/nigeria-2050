@@ -13,6 +13,7 @@ import { FadeIn } from "@/components/motion";
 import { getSectorQuiz } from "@/content/quizzes";
 import { QuizPanel } from "@/components/quizzes/QuizPanel";
 import { SCENARIO_UI_NOTE } from "@/content/methodology";
+import { SECTOR_DETAIL_UI } from "@/content/sectors";
 import { getSectorBySlug, getSourcesByIds, SECTORS } from "@/lib/content";
 
 const DataChart = dynamic(
@@ -35,7 +36,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: SectorPageProps): Promise<Metadata> {
   const { slug } = await params;
   const sector = getSectorBySlug(slug);
-  if (!sector) return { title: "Sector Not Found" };
+  if (!sector) return { title: SECTOR_DETAIL_UI.notFoundTitle };
   return { title: sector.title, description: sector.tagline };
 }
 
@@ -46,6 +47,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
   const sources = getSourcesByIds(sector.sourceIds);
   const sectorQuiz = getSectorQuiz(sector.slug);
+  const ui = SECTOR_DETAIL_UI;
 
   return (
     <div>
@@ -53,11 +55,9 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
       <Section variant="surface">
         <FadeIn>
-          <h2 className="mb-2 text-2xl font-bold">Sourced baseline</h2>
-          <p className="mb-6 max-w-2xl text-sm text-muted-foreground">
-            Figures below are from named datasets in the source panel on this page.
-          </p>
-          <DataChart data={sector.baseline} title="Where Nigeria stands today" />
+          <h2 className="mb-2 text-2xl font-bold">{ui.baselineTitle}</h2>
+          <p className="mb-6 max-w-2xl text-sm text-muted-foreground">{ui.baselineLead}</p>
+          <DataChart data={sector.baseline} title={ui.baselineChartTitle} />
         </FadeIn>
       </Section>
 
@@ -68,7 +68,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
       )}
 
       <Section>
-        <h2 className="mb-3 text-2xl font-bold">The Road to 2050</h2>
+        <h2 className="mb-3 text-2xl font-bold">{ui.roadTitle}</h2>
         <p className="mb-10 max-w-2xl text-sm text-muted-foreground">{SCENARIO_UI_NOTE}</p>
         <MilestoneTimeline projections={sector.projections} />
       </Section>
@@ -80,7 +80,7 @@ export default async function SectorPage({ params }: SectorPageProps) {
       </Section>
 
       <Section>
-        <h2 className="mb-6 text-2xl font-bold">Scenario Assumptions & Risks</h2>
+        <h2 className="mb-6 text-2xl font-bold">{ui.assumptionsTitle}</h2>
         <AssumptionsPanel assumptions={sector.assumptions} risks={sector.risks} />
       </Section>
 

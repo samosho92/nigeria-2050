@@ -17,6 +17,13 @@ type AnalyticsEvent =
   | { name: "correction_submit"; pageUrl: string }
   | { name: "map_region_select"; region: string }
   | { name: "project_vote"; projectId: string; vote: "up" | "down" | "none" }
+  | {
+      name: "project_react";
+      projectId: string;
+      reaction: "love" | "curious" | "concern" | "cheer" | "none";
+    }
+  | { name: "project_comment"; projectId: string }
+  | { name: "project_comment_refused"; projectId: string; reason: "policy" | "error" }
   | { name: "project_submit"; sectors: string }
   | { name: "pulse_spin"; pollId: string }
   | { name: "pulse_answer"; pollId: string }
@@ -87,6 +94,19 @@ function mirrorPlausible(event: AnalyticsEvent) {
       break;
     case "project_vote":
       window.plausible("Project Vote", { props: { projectId: event.projectId, vote: event.vote } });
+      break;
+    case "project_react":
+      window.plausible("Project React", {
+        props: { projectId: event.projectId, reaction: event.reaction },
+      });
+      break;
+    case "project_comment":
+      window.plausible("Project Comment", { props: { projectId: event.projectId } });
+      break;
+    case "project_comment_refused":
+      window.plausible("Project Comment Refused", {
+        props: { projectId: event.projectId, reason: event.reason },
+      });
       break;
     case "project_submit":
       window.plausible("Project Submit", { props: { sectors: event.sectors } });
@@ -191,6 +211,21 @@ function mirrorGa4(event: AnalyticsEvent) {
       break;
     case "project_vote":
       gaEvent("project_vote", { project_id: event.projectId, vote: event.vote });
+      break;
+    case "project_react":
+      gaEvent("project_react", {
+        project_id: event.projectId,
+        reaction: event.reaction,
+      });
+      break;
+    case "project_comment":
+      gaEvent("project_comment", { project_id: event.projectId });
+      break;
+    case "project_comment_refused":
+      gaEvent("project_comment_refused", {
+        project_id: event.projectId,
+        reason: event.reason,
+      });
       break;
     case "project_submit":
       gaEvent("project_submit", { sectors: event.sectors });

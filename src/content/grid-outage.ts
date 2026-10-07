@@ -493,3 +493,13 @@ export function plantUtilisation(plant: GridPlant): number {
   if (plant.capabilityMw === 0) return 0;
   return Math.round((plant.outputMw / plant.capabilityMw) * 100);
 }
+
+export const GRID_PAGE_META = {
+  seoTitle: "Grid outage map (mock)",
+  seoDescription:
+    "A schematic national hour: generated MW versus demand, fuel mix, plants, and DisCo feeders with restoration windows.",
+  title: "A grid that tells you when the light is coming",
+  backHref: "/projects#grid-outage-map",
+  description: (discoCount: number, name: string, snapshotLabel: string) =>
+    `${discoCount} DisCo seeds. ${name}: publish the hour, name the feeder, give a restoration window. ${snapshotLabel}. A frozen schematic hour with named feeders.`,
+} as const;

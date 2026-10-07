@@ -4,11 +4,17 @@ export interface FaqItem {
 }
 
 export const FAQ_META = {
+  seoTitle: "FAQ",
+  seoDescription: "Plain answers to common questions about Nigeria2050 and Street Pulse.",
   eyebrow: "Help",
   title: "Frequently asked questions",
   description:
     "Quick answers about how to use Nigeria2050, what the numbers mean, and how your responses are handled.",
-};
+  footerLead: "Need more detail? Visit",
+  footerMethodology: "Methodology",
+  footerAnd: "and",
+  footerSources: "Sources",
+} as const;
 
 export const FAQ_ITEMS: FaqItem[] = [
   {

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
-import { REVIEW_QUEUE, getPendingReviews } from "@/content/review-queue";
+import { REVIEW_PAGE_META, REVIEW_QUEUE, getPendingReviews } from "@/content/review-queue";
 
 export const metadata: Metadata = {
-  title: "Editorial Review Queue",
-  description: "Internal editorial review status for Nigeria2050 content.",
+  title: REVIEW_PAGE_META.seoTitle,
+  description: REVIEW_PAGE_META.seoDescription,
   robots: { index: false, follow: false },
 };
 
@@ -15,13 +15,13 @@ export default function EditorialReviewPage() {
   return (
     <>
       <PageHero
-        eyebrow="Internal"
-        title="Editorial Review Queue"
-        description="Human review pass for sensitive history, sector projections, and AI-generated art before publication."
+        eyebrow={REVIEW_PAGE_META.eyebrow}
+        title={REVIEW_PAGE_META.title}
+        description={REVIEW_PAGE_META.description}
       />
       <Container size="narrow" className="py-12 md:py-16">
         <p className="rounded-lg border border-border bg-muted p-4 text-sm text-muted-foreground">
-          {pending.length} item{pending.length === 1 ? "" : "s"} pending review.
+          {REVIEW_PAGE_META.pendingSummary(pending.length)}
         </p>
 
         <ul className="mt-10 space-y-4">

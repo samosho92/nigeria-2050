@@ -245,7 +245,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Teacher and legislator who founded the first Nigerian-owned secondary school in Calabar and pressed for universal primary education.",
     summary:
-      "Ikoku’s Aggrey Memorial College (1932) proved Africans could run secondary education without a mission board. In the Eastern House of Assembly he pushed teacher pay and primary-school expansion. His portrait on the ₦10 note is a rare honour for an educationist rather than a head of state.",
+      "Ikoku’s Aggrey Memorial College (1932) proved Africans could run secondary education without a mission board. In the Eastern House of Assembly he pushed teacher pay and primary-school expansion. His portrait on the ₦10 note is a rare honour for an educationist.",
     citation: {
       title: "Alvan Ikoku",
       publisher: "Encyclopaedia Britannica",
@@ -912,7 +912,7 @@ export const ICON_COHORT_EARLY: Draft[] = [
     achievement:
       "Head of state (1966–75) during the Civil War; afterwards announced a policy of Reconciliation, Rehabilitation, and Reconstruction.",
     summary:
-      "Gowon took power after the July 1966 counter-coup and prosecuted the war that kept Nigeria one country. The 3Rs slogan, the creation of 12 states, and the oil-boom public service are his record, alongside the war’s death toll, which remains disputed. Overthrown in 1975, he later became a public advocate of unity rather than a returning candidate.",
+      "Gowon took power after the July 1966 counter-coup and prosecuted the war that kept Nigeria one country. The 3Rs slogan, the creation of 12 states, and the oil-boom public service are his record, alongside the war’s death toll, which remains disputed. Overthrown in 1975, he later became a public advocate of unity.",
     citation: {
       title: "Yakubu Gowon",
       publisher: "Encyclopaedia Britannica",

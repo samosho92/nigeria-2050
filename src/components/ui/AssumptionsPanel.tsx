@@ -1,4 +1,5 @@
 import { IconAlertTriangle, IconCircleCheck } from "@tabler/icons-react";
+import { SECTOR_DETAIL_UI } from "@/content/sectors";
 
 interface AssumptionsPanelProps {
   assumptions: { title: string; detail: string }[];
@@ -6,16 +7,16 @@ interface AssumptionsPanelProps {
 }
 
 export function AssumptionsPanel({ assumptions, risks }: AssumptionsPanelProps) {
+  const ui = SECTOR_DETAIL_UI;
+
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <div className="rounded-xl border border-border bg-surface p-6 lg:p-8">
         <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-accent">
           <IconCircleCheck className="size-4" stroke={1.5} aria-hidden />
-          What Would Have to Be True
+          {ui.assumptionsHeading}
         </h3>
-        <p className="mb-6 text-sm text-muted-foreground">
-          Specific conditions the base-case 2050 projection depends on.
-        </p>
+        <p className="mb-6 text-sm text-muted-foreground">{ui.assumptionsLead}</p>
         <ul className="space-y-5">
           {assumptions.map((item) => (
             <li key={item.title} className="border-l-2 border-accent/30 pl-4">
@@ -28,12 +29,9 @@ export function AssumptionsPanel({ assumptions, risks }: AssumptionsPanelProps) 
       <div className="rounded-xl border border-border bg-surface p-6 lg:p-8">
         <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
           <IconAlertTriangle className="size-4" stroke={1.5} aria-hidden />
-          Risks to This Scenario
+          {ui.risksHeading}
         </h3>
-        <p className="mb-6 text-sm text-muted-foreground">
-          Known ways the base case could fail, reflected in the low end of scenario ranges
-          where applicable.
-        </p>
+        <p className="mb-6 text-sm text-muted-foreground">{ui.risksLead}</p>
         <ul className="space-y-5">
           {risks.map((item) => (
             <li key={item.title} className="border-l-2 border-border pl-4">

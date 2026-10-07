@@ -52,6 +52,55 @@ test.describe("critical paths", () => {
     await expect(page.getByRole("heading", { name: "Cool Projects" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /postal code/i })).toBeVisible();
     await expect(page.getByRole("link", { name: /open the mock/i })).toHaveCount(7);
+    await expect(page.getByRole("button", { name: /Love/i }).first()).toBeVisible();
+    await expect(page.getByRole("button", { name: /Show comments/i }).first()).toBeVisible();
+  });
+
+  test("cool projects reaction API records love", async ({ request }) => {
+    const response = await request.post("/api/projects/react", {
+      headers: { ...browserMutationHeaders },
+      data: {
+        clientId: crypto.randomUUID(),
+        projectId: "postal-codes",
+        reaction: "love",
+      },
+    });
+    expect(response.ok()).toBeTruthy();
+    const body = await response.json();
+    expect(body.ok).toBe(true);
+    expect(body.reaction).toBe("love");
+    expect(body.tally.love).toBeGreaterThanOrEqual(1);
+  });
+
+  test("cool projects comment API refuses abusive text", async ({ request }) => {
+    const response = await request.post("/api/projects/comment", {
+      headers: { ...browserMutationHeaders },
+      data: {
+        clientId: crypto.randomUUID(),
+        projectId: "postal-codes",
+        body: "This is fucking trash and you are a bitch",
+      },
+    });
+    expect(response.status()).toBe(422);
+    const body = await response.json();
+    expect(body.ok).toBe(false);
+    expect(body.refused).toBe(true);
+    expect(body.reason).toBe("abusive");
+  });
+
+  test("cool projects comment API accepts a civic note", async ({ request }) => {
+    const response = await request.post("/api/projects/comment", {
+      headers: { ...browserMutationHeaders },
+      data: {
+        clientId: crypto.randomUUID(),
+        projectId: "postal-codes",
+        body: "A street-level code would make ambulance dispatch much clearer in Lagos.",
+      },
+    });
+    expect(response.ok()).toBeTruthy();
+    const body = await response.json();
+    expect(body.ok).toBe(true);
+    expect(body.comment.body).toMatch(/ambulance/i);
   });
 
   test("postal code mock starts from capital cities", async ({ page }) => {

@@ -10,6 +10,7 @@ import { useMounted } from "@/hooks/useMounted";
 import {
   NIGERIA_MAP_CITIES,
   NIGERIA_MAP_REGIONS,
+  NIGERIA_MAP_UI,
   NIGERIA_MAP_VIEWBOX,
   type NigeriaMapRegion,
 } from "@/content/nigeria-map";
@@ -29,9 +30,9 @@ function NigeriaMapSvg({
       viewBox={NIGERIA_MAP_VIEWBOX}
       className="h-full w-full overflow-visible"
       role="img"
-      aria-label="Interactive map of Nigeria's six geopolitical zones"
+      aria-label={NIGERIA_MAP_UI.ariaLabel}
     >
-      <title>Map of Nigeria</title>
+      <title>{NIGERIA_MAP_UI.svgTitle}</title>
       <ellipse
         cx="200"
         cy="322"
@@ -123,8 +124,11 @@ function RegionDetail({ region }: { region: NigeriaMapRegion }) {
   return (
     <div className="flex h-full flex-col rounded-xl border border-border bg-surface p-5 md:p-6">
       <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-accent">
-        {region.code} · {region.states.filter((state) => state !== "FCT").length} states
-        {region.states.includes("FCT") ? " + FCT" : ""}
+        {NIGERIA_MAP_UI.statesLabel(
+          region.code,
+          region.states.filter((state) => state !== "FCT").length,
+          region.states.includes("FCT"),
+        )}
       </p>
       <h3 className="mt-2 font-serif text-2xl font-bold">{region.label}</h3>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{region.summary}</p>
@@ -182,12 +186,11 @@ export function NigeriaMapBeta() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <div className="flex flex-wrap items-center gap-3">
-            <h2 className="text-2xl font-bold md:text-3xl">Nigeria, zone by zone</h2>
-            <Badge variant="accent">3D map</Badge>
+            <h2 className="text-2xl font-bold md:text-3xl">{NIGERIA_MAP_UI.title}</h2>
+            <Badge variant="accent">{NIGERIA_MAP_UI.badge}</Badge>
           </div>
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground md:text-base">
-            Hover or select a geopolitical zone. Outline and zones are traced from Nigeria&apos;s
-            six-zone map, 36 states and the FCT, grouped as they are governed.
+            {NIGERIA_MAP_UI.lead}
           </p>
         </div>
       </div>
@@ -212,8 +215,8 @@ export function NigeriaMapBeta() {
             </div>
           </div>
           <p className="mt-4 text-center text-xs text-muted-foreground">
-            Arrow keys move between zones
-            {mounted ? (tilt ? " · tilted 3D view" : " · flat view") : null}
+            {NIGERIA_MAP_UI.controlsHint}
+            {mounted ? (tilt ? NIGERIA_MAP_UI.tiltedHint : NIGERIA_MAP_UI.flatHint) : null}
           </p>
         </div>
 

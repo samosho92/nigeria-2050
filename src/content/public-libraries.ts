@@ -577,3 +577,13 @@ export function holdingsFor(titleId: string): { title: CatalogueTitle; systems: 
       .filter((system): system is LibrarySystem => Boolean(system)),
   };
 }
+
+export const LIBRARIES_PAGE_META = {
+  seoTitle: "Public library floor (mock)",
+  seoDescription:
+    "A schematic campaign for a public library within 100 km of every community, then denser in cities, with a minimum kit and a national catalogue.",
+  title: "A public library within 100 km, then denser",
+  backHref: "/projects#public-libraries",
+  description: (systemCount: number, ruralFloorKm: number) =>
+    `${systemCount} seed systems. Rural floor ${ruralFloorKm} km, then a branch you can walk to, with children’s books, seats, toilets, power, a librarian, and wifi. A coverage schematic for how that floor could work.`,
+} as const;
