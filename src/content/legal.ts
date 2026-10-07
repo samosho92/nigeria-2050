@@ -55,7 +55,7 @@ export const PRIVACY_POLICY: LegalDocument = {
         "Technical and usage data needed to deliver pages securely (for example request metadata handled by our hosting and delivery providers).",
         "Optional analytics events after you consent (for example page views and high-level feature use). These events do not include your name or email.",
         "Preferences stored on your device so the site remembers settings you choose, such as theme, data-saver, analytics consent, and profile bands used by interactive tools.",
-        "Content you submit through interactive tools, including poll answers, chat questions, corrections, and project ideas. Poll answers use anonymous bands and a random browser identifier. We do not ask for a name, password, or precise location on those tools.",
+        "Content you submit through interactive tools, including poll answers, chat questions, corrections, reactions, and comments. Poll answers use anonymous bands and a random browser identifier. We do not ask for a name, password, or precise location on those tools.",
         "Information you choose to send us by email or form, such as a page link, a correction, or a contact address. Do not send passwords, payment details, or other sensitive personal data.",
       ],
     },

@@ -88,11 +88,28 @@ test.describe("critical paths", () => {
     expect(body.reason).toBe("abusive");
   });
 
-  test("cool projects comment API accepts a civic note", async ({ request }) => {
+  test("cool projects comment API refuses common swear words", async ({ request }) => {
     const response = await request.post("/api/projects/comment", {
       headers: { ...browserMutationHeaders },
       data: {
         clientId: crypto.randomUUID(),
+        projectId: "postal-codes",
+        body: "This shit idea will never help rural clinics.",
+      },
+    });
+    expect(response.status()).toBe(422);
+    const body = await response.json();
+    expect(body.ok).toBe(false);
+    expect(body.refused).toBe(true);
+    expect(body.reason).toBe("abusive");
+  });
+
+  test("cool projects comment API accepts a civic note", async ({ request }) => {
+    const clientId = crypto.randomUUID();
+    const response = await request.post("/api/projects/comment", {
+      headers: { ...browserMutationHeaders },
+      data: {
+        clientId,
         projectId: "postal-codes",
         body: "A street-level code would make ambulance dispatch much clearer in Lagos.",
       },
@@ -101,6 +118,22 @@ test.describe("critical paths", () => {
     const body = await response.json();
     expect(body.ok).toBe(true);
     expect(body.comment.body).toMatch(/ambulance/i);
+    expect(body.comment.mine).toBe(true);
+
+    const deleted = await request.delete("/api/projects/comment", {
+      headers: { ...browserMutationHeaders },
+      data: {
+        clientId,
+        projectId: "postal-codes",
+        commentId: body.comment.id,
+      },
+    });
+    expect(deleted.ok()).toBeTruthy();
+    const deletedBody = await deleted.json();
+    expect(deletedBody.ok).toBe(true);
+    expect(
+      (deletedBody.comments as { id: string }[]).some((item) => item.id === body.comment.id),
+    ).toBe(false);
   });
 
   test("postal code mock starts from capital cities", async ({ page }) => {

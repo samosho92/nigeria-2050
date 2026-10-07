@@ -27,6 +27,8 @@ export interface ProjectComment {
   id: string;
   body: string;
   recordedAt: string;
+  /** True when this browser’s client id authored the comment. Never exposes the id. */
+  mine?: boolean;
 }
 
 export const EMPTY_REACTION_TALLY: ProjectReactionTally = {

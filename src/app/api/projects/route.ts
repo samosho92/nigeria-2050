@@ -1,4 +1,5 @@
 import { COOL_PROJECTS } from "@/content/projects";
+import { isValidClientId } from "@/lib/projects";
 import {
   getCommunityProjects,
   getProjectCommentsMap,
@@ -16,10 +17,13 @@ export async function GET(request: Request) {
     return jsonError("Too many requests", 429);
   }
 
+  const clientParam = new URL(request.url).searchParams.get("clientId") ?? "";
+  const viewerClientId = isValidClientId(clientParam) ? clientParam : undefined;
+
   const [tallies, reactions, comments, community] = await Promise.all([
     getProjectTallies(),
     getProjectReactionTallies(),
-    getProjectCommentsMap(),
+    getProjectCommentsMap(viewerClientId),
     getCommunityProjects(),
   ]);
   const safeCommunity = community.map(sanitizeStoredProject).filter(Boolean).slice(0, 50);

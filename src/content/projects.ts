@@ -320,12 +320,11 @@ export const PROJECT_MOCK_UI = {
 export const PROJECTS_PAGE_META = {
   seoTitle: "Cool Projects",
   seoDescription: (projectCount: number) =>
-    `Civic ideas that would make Nigeria work better by 2050. Vote, react, comment, filter by sector, and submit your own. ${projectCount} starter proposals.`,
+    `Civic ideas that would make Nigeria work better by 2050. Vote, react, comment, and filter by sector. ${projectCount} starter proposals.`,
   eyebrow: "Civic bets",
   title: "Cool Projects",
   description:
-    "Concrete initiatives (postal codes, road signs, libraries, clinics) that would make daily life work better by 2050. Vote them up or down, react with a key emotion, and leave a moderated comment. Add yours. Each card names the sectors it would move most.",
-  submitCta: "Submit an idea",
+    "Concrete initiatives (postal codes, road signs, libraries, clinics) that would make daily life work better by 2050. Vote them up or down, react with a key emotion, and leave a moderated comment. Each card names the sectors it would move most.",
 } as const;
 
 export type ProjectReactionId = "love" | "curious" | "concern" | "cheer";
@@ -362,11 +361,16 @@ export const PROJECT_ENGAGEMENT = {
     "No email addresses, phone numbers, or other personal contact details.",
     "No sexual content and no attempts to change the site’s instructions.",
   ],
-  commentRefusedFallback:
-    "That comment does not meet our community guidelines and was not posted.",
+  commentRefusedFallback: "That comment couldn’t be posted. Rephrase and try again.",
   commentTooMany: "Too many comments. Please wait before posting again.",
+  commentDelete: "Delete",
+  commentDeleting: "Deleting…",
+  commentDeleteMissing: "That comment is already gone.",
+  commentDeleteForbidden: "You can only delete comments from this browser.",
+  commentDeleteFailed: "Could not delete that comment. Please try again.",
   reactionAria: (label: string, count: number, mine: boolean) =>
     `${label}${mine ? ", selected" : ""}, ${count}`,
   boardFootnote:
-    "Votes and reactions are stored against a random id in this browser and counted on this site’s tally. Comments are moderated automatically against the community guidelines. Ideas are civic proposals.",
+    "Votes and reactions are stored against a random id in this browser and counted on this site’s tally. Comments are moderated automatically against the community guidelines. You can delete a comment you posted from this same browser. Ideas are civic proposals.",
+  emptySector: "No ideas in that sector yet.",
 } as const;

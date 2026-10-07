@@ -58,7 +58,7 @@ const searchItems: SearchResult[] = [
     id: "projects-index",
     type: "project" as const,
     title: "Cool Projects",
-    description: `${CONTENT_STATS.projectCount} civic ideas to make Nigeria work better by 2050. Vote and submit.`,
+    description: `${CONTENT_STATS.projectCount} civic ideas to make Nigeria work better by 2050. Vote, react, and comment.`,
     href: "/projects",
   },
   {

@@ -29,6 +29,7 @@ interface ProjectCardProps {
   onReact: (reaction: ProjectReactionId) => void;
   comments: ProjectComment[];
   onComment: (body: string) => Promise<{ ok: boolean; message?: string }>;
+  onDeleteComment?: (commentId: string) => Promise<{ ok: boolean; message?: string }>;
   disabled?: boolean;
 }
 
@@ -43,6 +44,7 @@ export function ProjectCard({
   onReact,
   comments,
   onComment,
+  onDeleteComment,
   disabled,
 }: ProjectCardProps) {
   const [primary, ...rest] = project.sectorSlugs;
@@ -109,6 +111,7 @@ export function ProjectCard({
             projectId={project.id}
             comments={comments}
             onSubmit={onComment}
+            onDelete={onDeleteComment}
             disabled={disabled}
           />
         </div>

@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Parked for a later release. Cool Projects no longer mounts this form;
+ * POST /api/projects/submit returns 503 until submissions reopen.
+ */
+
 import { useState } from "react";
 import { IconSend } from "@tabler/icons-react";
 import { Button } from "@/components/ui/Button";

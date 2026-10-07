@@ -35,53 +35,79 @@ export interface GuardrailOptions {
   checkOffTopic?: boolean;
 }
 
+/** Ask the Archive refusals: short, actionable, no lecture. */
 export const GUARDRAIL_MESSAGES: Record<GuardrailReason, string> = {
   abusive:
-    "I can't respond to abusive or harassing language. Nigeria2050 is a respectful civic resource about Nigerian history and credible 2050 scenarios. If you have a genuine question, please rephrase it or choose a suggested prompt below.",
-  nsfw:
-    "I can't discuss explicit or adult content. This guide is scoped to Nigerian history and sourced 2050 sector projections. Try a suggested question below, or leave this page to explore the timeline and sectors.",
-  spam:
-    "Please ask one clear question at a time about Nigerian history or 2050 projections. Very long or repetitive messages can't be processed.",
-  injection:
-    "I only answer from Nigeria2050's curated archive. I can't change my instructions, role, or scope. Ask about Nigerian history or a sourced 2050 sector vision.",
+    "That wording can’t be answered here. Rephrase without insults or swear words.",
+  nsfw: "Adult or explicit topics are outside this guide. Ask about Nigerian history or a 2050 sector.",
+  spam: "Ask one short, clear question about Nigerian history or a 2050 projection.",
+  injection: "Ask about Nigerian history or a sourced 2050 sector. Role or instruction changes are ignored.",
   "self-harm":
-    "If you are in crisis, please talk to someone you trust or contact local emergency services. Nigeria2050 cannot help with that. This guide is only for Nigerian history and 2050 civic scenarios.",
-  scam:
-    "We can't accept messages that look like scams, solicitations, or requests for money or personal financial details.",
-  pii:
-    "Please don't include email addresses, phone numbers, or other personal contact details here.",
+    "If you are in crisis, contact someone you trust or local emergency services. This guide only covers Nigerian history and 2050 scenarios.",
+  scam: "Messages about money transfers, giveaways, or personal financial details can’t be accepted.",
+  pii: "Leave out email addresses, phone numbers, and other personal contact details.",
   "off-topic":
-    "I can't help with medical, legal, criminal, or personal investment advice. Try a question about Nigerian history or our sourced 2050 projections.",
+    "Medical, legal, criminal, and personal investment questions are outside this guide. Ask about Nigerian history or a 2050 projection.",
+};
+
+/** Cool Projects comment refusals. */
+export const COMMENT_GUARDRAIL_MESSAGES: Record<GuardrailReason, string> = {
+  abusive: "Remove the insult or swear word and try again.",
+  nsfw: "Keep the comment civic and non-sexual, then try again.",
+  spam: "Write one short civic sentence (a bit longer than that).",
+  injection: "Stick to the civic idea and try again.",
+  "self-harm":
+    "If you are in crisis, contact someone you trust or local emergency services.",
+  scam: "Comments that solicit money or look like scams can’t be published.",
+  pii: "Leave out email addresses, phone numbers, and other personal contact details.",
+  "off-topic": "Keep the comment on the civic idea.",
 };
 
 const ABUSIVE_TERMS = [
+  "asshole",
   "bastard",
   "bitch",
   "bullshit",
   "cunt",
+  "dick",
   "dickhead",
+  "faggot",
   "fuck",
+  "fucker",
   "fucking",
   "motherfucker",
   "nigga",
   "nigger",
+  "piss",
+  "prick",
   "retard",
   "retarded",
+  "shit",
   "shithead",
+  "shitty",
+  "slut",
   "twat",
   "wanker",
   "whore",
 ];
 
 const NSFW_TERMS = [
+  "anal",
   "blowjob",
   "boob",
   "boobs",
   "cock",
   "cum",
   "cumming",
+  "cunnilingus",
   "dildo",
+  "ejaculate",
+  "ejaculation",
+  "handjob",
+  "hentai",
   "horny",
+  "masturbate",
+  "masturbation",
   "nudes",
   "onlyfans",
   "orgasm",
@@ -104,7 +130,7 @@ const ABUSIVE_PHRASES = [
   "shut up",
 ];
 
-const NSFW_PHRASES = ["send nudes", "hook up"];
+const NSFW_PHRASES = ["send nudes", "hook up", "jerk off"];
 
 const INJECTION_PHRASES = [
   "ignore previous instructions",
@@ -310,8 +336,7 @@ export function checkCommentGuardrails(input: string): GuardrailResult {
     return {
       allowed: false,
       reason: "spam",
-      message:
-        "Comments need at least a short civic sentence. Insults, spam, and personal details are refused.",
+      message: COMMENT_GUARDRAIL_MESSAGES.spam,
     };
   }
 
@@ -320,11 +345,11 @@ export function checkCommentGuardrails(input: string): GuardrailResult {
     return {
       allowed: false,
       reason: "spam",
-      message: GUARDRAIL_MESSAGES.spam,
+      message: COMMENT_GUARDRAIL_MESSAGES.spam,
     };
   }
 
-  return checkModeration(trimmed, {
+  const result = checkModeration(trimmed, {
     maxLength: 400,
     maxUrls: 0,
     checkInjection: true,
@@ -332,6 +357,16 @@ export function checkCommentGuardrails(input: string): GuardrailResult {
     checkScam: true,
     checkPii: true,
   });
+
+  if (!result.allowed) {
+    return {
+      allowed: false,
+      reason: result.reason,
+      message: COMMENT_GUARDRAIL_MESSAGES[result.reason],
+    };
+  }
+
+  return result;
 }
 
 /** Optional first name on Your 2050. */

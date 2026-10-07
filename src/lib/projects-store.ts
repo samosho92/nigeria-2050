@@ -83,11 +83,12 @@ export function tallyFromReactions(
   return tally;
 }
 
-function toPublicComment(comment: StoredComment): ProjectComment {
+function toPublicComment(comment: StoredComment, viewerClientId?: string): ProjectComment {
   return {
     id: comment.id,
     body: comment.body,
     recordedAt: comment.recordedAt,
+    ...(viewerClientId && comment.clientId === viewerClientId ? { mine: true } : {}),
   };
 }
 
@@ -110,8 +111,12 @@ export async function getProjectReactionTallies(): Promise<
   );
 }
 
-export async function getProjectCommentsMap(): Promise<Record<string, ProjectComment[]>> {
+export async function getProjectCommentsMap(
+  viewerClientId?: string,
+): Promise<Record<string, ProjectComment[]>> {
   const store = await readStore();
+  const viewer =
+    viewerClientId && isValidClientId(viewerClientId) ? viewerClientId : undefined;
   return Object.fromEntries(
     Object.entries(store.comments).map(([id, comments]) => [
       id,
@@ -119,7 +124,7 @@ export async function getProjectCommentsMap(): Promise<Record<string, ProjectCom
         .slice()
         .sort((a, b) => b.recordedAt.localeCompare(a.recordedAt))
         .slice(0, MAX_COMMENTS_RETURNED)
-        .map(toPublicComment),
+        .map((comment) => toPublicComment(comment, viewer)),
     ]),
   );
 }
@@ -236,7 +241,44 @@ export async function addProjectComment(
 
   store.comments[projectId] = [comment, ...existing].slice(0, MAX_COMMENTS_PER_PROJECT);
   await writeStore(store);
-  return toPublicComment(comment);
+  return toPublicComment(comment, clientId);
+}
+
+export async function deleteProjectComment(
+  clientId: string,
+  projectId: string,
+  commentId: string,
+): Promise<ProjectComment[]> {
+  if (!isValidClientId(clientId) || !isValidProjectId(projectId)) {
+    throw new Error("Invalid id");
+  }
+  if (!/^[0-9a-f-]{36}$/i.test(commentId)) {
+    throw new Error("Invalid comment");
+  }
+
+  const store = await readStore();
+  const existing = store.comments[projectId] ?? [];
+  const target = existing.find((comment) => comment.id === commentId);
+  if (!target) {
+    throw new Error("Missing comment");
+  }
+  if (target.clientId !== clientId) {
+    throw new Error("Not owner");
+  }
+
+  const remaining = existing.filter((comment) => comment.id !== commentId);
+  if (remaining.length === 0) {
+    delete store.comments[projectId];
+  } else {
+    store.comments[projectId] = remaining;
+  }
+  await writeStore(store);
+
+  return remaining
+    .slice()
+    .sort((a, b) => b.recordedAt.localeCompare(a.recordedAt))
+    .slice(0, MAX_COMMENTS_RETURNED)
+    .map((comment) => toPublicComment(comment, clientId));
 }
 
 export async function addCommunityProject(project: CoolProject): Promise<CoolProject> {

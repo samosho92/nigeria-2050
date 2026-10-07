@@ -40,7 +40,7 @@ export const HOME_SECTIONS = {
   allSectorsTitle: "All Sector Visions",
   projectsTitle: "Cool Projects",
   projectsBody:
-    "Vote on civic ideas, postal codes, road signs, libraries, and submit the initiative you think Nigeria should build by 2050.",
+    "Vote on civic ideas, postal codes, road signs, and libraries that would make daily life work better by 2050.",
   projectsCta: "Rank the ideas",
   askTitle: "Ask the Archive",
   askBody:

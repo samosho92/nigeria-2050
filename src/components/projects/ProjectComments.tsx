@@ -10,6 +10,7 @@ interface ProjectCommentsProps {
   projectId: string;
   comments: ProjectComment[];
   onSubmit: (body: string) => Promise<{ ok: boolean; message?: string }>;
+  onDelete?: (commentId: string) => Promise<{ ok: boolean; message?: string }>;
   disabled?: boolean;
 }
 
@@ -30,12 +31,14 @@ export function ProjectComments({
   projectId,
   comments,
   onSubmit,
+  onDelete,
   disabled,
 }: ProjectCommentsProps) {
   const [open, setOpen] = useState(false);
   const [body, setBody] = useState("");
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
+  const [deletingId, setDeletingId] = useState("");
   const copy = PROJECT_ENGAGEMENT;
 
   const handleSubmit = async (event: FormEvent) => {
@@ -51,6 +54,17 @@ export function ProjectComments({
     }
     setBody("");
     setOpen(true);
+  };
+
+  const handleDelete = async (commentId: string) => {
+    if (!onDelete || disabled || deletingId) return;
+    setDeletingId(commentId);
+    setError("");
+    const result = await onDelete(commentId);
+    setDeletingId("");
+    if (!result.ok) {
+      setError(result.message || copy.commentDeleteFailed);
+    }
   };
 
   return (
@@ -83,9 +97,21 @@ export function ProjectComments({
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <p className="text-xs font-semibold text-foreground">{copy.commentReader}</p>
-                    <p className="text-[0.6875rem] text-muted-foreground">
-                      {formatCommentTime(comment.recordedAt)}
-                    </p>
+                    <div className="flex items-center gap-2">
+                      <p className="text-[0.6875rem] text-muted-foreground">
+                        {formatCommentTime(comment.recordedAt)}
+                      </p>
+                      {comment.mine && onDelete ? (
+                        <button
+                          type="button"
+                          onClick={() => handleDelete(comment.id)}
+                          disabled={disabled || deletingId === comment.id}
+                          className="text-[0.6875rem] font-medium text-muted-foreground hover:text-sign-stop hover:underline disabled:opacity-50"
+                        >
+                          {deletingId === comment.id ? copy.commentDeleting : copy.commentDelete}
+                        </button>
+                      ) : null}
+                    </div>
                   </div>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                     {comment.body}

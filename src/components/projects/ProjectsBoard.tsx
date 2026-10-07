@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { FadeIn } from "@/components/motion";
 import { ProjectCard } from "@/components/projects/ProjectCard";
-import { ProjectSubmitForm } from "@/components/projects/ProjectSubmitForm";
 import { PROJECT_ENGAGEMENT } from "@/content/projects";
 import { useMounted } from "@/hooks/useMounted";
 import { trackEvent } from "@/lib/analytics";
@@ -86,7 +85,7 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
     setMyReactions(validReactions);
     setCommunity(readJson<CoolProject[]>(PROJECT_SUBMISSIONS_KEY, []));
 
-    fetch("/api/projects")
+    fetch(`/api/projects?clientId=${encodeURIComponent(id)}`)
       .then((response) => response.json())
       .then(
         (data: {
@@ -127,15 +126,6 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
     setMyReactions(next);
     try {
       localStorage.setItem(PROJECT_REACTIONS_KEY, JSON.stringify(next));
-    } catch {
-      // ignore quota
-    }
-  };
-
-  const persistCommunity = (next: CoolProject[]) => {
-    setCommunity(next);
-    try {
-      localStorage.setItem(PROJECT_SUBMISSIONS_KEY, JSON.stringify(next.slice(0, 50)));
     } catch {
       // ignore quota
     }
@@ -239,9 +229,37 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
     }
   };
 
-  const handleCreated = (project: CoolProject) => {
-    persistCommunity([project, ...community.filter((item) => item.id !== project.id)]);
-    trackEvent({ name: "project_submit", sectors: project.sectorSlugs.join(",") });
+  const deleteComment = async (
+    projectId: string,
+    commentId: string,
+  ): Promise<{ ok: boolean; message?: string }> => {
+    try {
+      const response = await fetch("/api/projects/comment", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ clientId, projectId, commentId }),
+      });
+      const data = (await response.json()) as {
+        ok?: boolean;
+        message?: string;
+        comments?: ProjectComment[];
+      };
+
+      if (!response.ok || !data.ok) {
+        return {
+          ok: false,
+          message: data.message || PROJECT_ENGAGEMENT.commentDeleteFailed,
+        };
+      }
+
+      setCommentsByProject((current) => ({
+        ...current,
+        [projectId]: data.comments ?? [],
+      }));
+      return { ok: true };
+    } catch {
+      return { ok: false, message: PROJECT_ENGAGEMENT.commentDeleteFailed };
+    }
   };
 
   const visible = useMemo(() => {
@@ -304,6 +322,7 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
                 onReact={(reaction) => react(project.id, reaction)}
                 comments={commentsByProject[project.id] ?? []}
                 onComment={(body) => comment(project.id, body)}
+                onDeleteComment={(commentId) => deleteComment(project.id, commentId)}
                 disabled={!clientId}
               />
             </FadeIn>
@@ -312,12 +331,10 @@ export function ProjectsBoard({ editorial, sectorTitles }: ProjectsBoardProps) {
       </ul>
 
       {visible.length === 0 ? (
-        <p className="text-center text-muted-foreground">No ideas in that sector yet. Submit one below.</p>
+        <p className="text-center text-muted-foreground">{PROJECT_ENGAGEMENT.emptySector}</p>
       ) : null}
 
       <p className="text-xs text-muted-foreground">{PROJECT_ENGAGEMENT.boardFootnote}</p>
-
-      <ProjectSubmitForm sectorTitles={sectorTitles} onCreated={handleCreated} />
     </div>
   );
 }
