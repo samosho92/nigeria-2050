@@ -510,7 +510,7 @@ export const ICON_COHORT_LATER: Draft[] = [
     achievement:
       "Actor (Violated, The CEO) and later Delta State commissioner for culture; an Africa Movie Academy Award best-actor winner who helped professionalise Nollywood leads.",
     summary:
-      "RMD came from television drama into the video boom as a romantic and corporate lead, then into state culture policy. The AMAA and the later streaming titles are the checkable craft record. He is not a sitting federal officeholder.",
+      "RMD came from television drama into the video boom as a romantic and corporate lead, then into state culture policy. The AMAA and the later streaming titles are the checkable craft record. A former state culture official.",
     citation: {
       title: "Richard Mofe-Damijo",
       publisher: "Africa Movie Academy Awards",

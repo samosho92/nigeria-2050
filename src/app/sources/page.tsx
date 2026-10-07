@@ -15,7 +15,7 @@ export default function SourcesPage() {
       <PageHero
         eyebrow="Credibility"
         title="Source Library"
-        description="Every quantitative claim on Naija2050 traces back here. Filter by sector or era, then click through to verify independently."
+        description="Every quantitative claim on Nigeria2050 traces back here. Filter by sector or era, then click through to verify independently."
       />
       <Container className="py-12 md:py-16">
         <SourceLibrary sources={SOURCES} />

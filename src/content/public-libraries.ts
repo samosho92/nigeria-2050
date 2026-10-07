@@ -376,7 +376,7 @@ export const LIBRARY_SYSTEMS: LibrarySystem[] = [
         kind: "urban",
         place: "Kano–Maiduguri dual",
         kmFromCentre: 11,
-        note: "Not a walk. The city still has one real branch.",
+        note: "Still a ride. The city still has one real branch.",
         kit: kit({ children: "missing", seats: "missing", wifi: "missing" }),
       },
       {

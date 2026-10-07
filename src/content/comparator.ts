@@ -1,55 +1,78 @@
 import type { ComparatorMetric } from "@/types/content";
 
+/**
+ * Headline Now → 2050 metrics.
+ * Baselines prefer Tier-1 series (UIS, NERC, WDI, GSMA, UN WPP).
+ * 2050 base cases are editorial mid scenarios between multilateral projections
+ * and national ambition (Agenda 2050 / ETP); low/high bounds are required where
+ * no official 2050 series exists.
+ */
 export const COMPARATOR_METRICS: ComparatorMetric[] = [
   {
     id: "gdp-per-capita",
     label: "GDP per Capita",
     unit: "USD",
-    current: 2200,
+    /** Same WDI NY.GDP.PCAP.CD vintage as the G7 benchmark row (2022). */
+    current: 2162,
     projected2050: 12500,
     projected2050Low: 8000,
-    projected2050High: 18000,
-    sourceId: "world-bank-nigeria-overview",
+    /** Nigeria Agenda 2050 aspirational end-period income. */
+    projected2050High: 33300,
+    sourceId: "world-bank-gdp-current-usd",
   },
   {
     id: "literacy-rate",
     label: "Adult Literacy Rate",
     unit: "%",
-    current: 62,
+    current: 70.4,
     projected2050: 94,
+    projected2050Low: 88,
+    projected2050High: 97,
     sourceId: "unesco-literacy-nigeria",
   },
   {
     id: "power-capacity",
     label: "Installed Power Capacity",
     unit: "GW",
-    current: 13,
+    current: 13.6,
+    /** Mid path between IEA-style delivery build-out and ETP-scale ambition. */
     projected2050: 85,
-    sourceId: "iea-nigeria-energy",
+    projected2050Low: 55,
+    /** Energy Transition Plan solar-class ambition by 2050 (~209 GW solar). */
+    projected2050High: 210,
+    sourceId: "nerc-quarterly",
   },
   {
     id: "internet-penetration",
-    label: "Internet Penetration",
+    label: "Regular Mobile Internet Use",
     unit: "%",
-    current: 55,
-    projected2050: 98,
+    current: 29,
+    projected2050: 85,
+    projected2050Low: 70,
+    projected2050High: 95,
     sourceId: "gsma-nigeria-digital",
   },
   {
     id: "manufacturing-gdp",
     label: "Manufacturing Share of GDP",
     unit: "%",
-    current: 9,
+    /** Same WDI NV.IND.MANF.ZS vintage as the G7 benchmark row (2022). */
+    current: 8.9,
     projected2050: 22,
-    sourceId: "afdb-industrialization",
+    projected2050Low: 15,
+    projected2050High: 28,
+    sourceId: "unido-manufacturing",
   },
   {
     id: "tertiary-enrollment",
     label: "Tertiary Enrollment Rate",
     unit: "%",
-    current: 12,
+    /** Latest solid UIS/WDI observation for Nigeria (series is sparse after 2011). */
+    current: 10.2,
     projected2050: 45,
-    sourceId: "undp-hdi-nigeria",
+    projected2050Low: 32,
+    projected2050High: 55,
+    sourceId: "unesco-tertiary-enrollment",
   },
   {
     id: "renewable-energy",
@@ -57,15 +80,22 @@ export const COMPARATOR_METRICS: ComparatorMetric[] = [
     unit: "%",
     current: 18,
     projected2050: 65,
+    projected2050Low: 50,
+    /** Nigeria ETP renewable share by 2050 (excluding hydrogen). */
+    projected2050High: 82,
     sourceId: "iea-nigeria-energy",
   },
   {
     id: "population",
     label: "Population",
     unit: "M",
-    current: 230,
-    projected2050: 400,
-    sourceId: "npc-population-projection",
+    current: 238,
+    /** UN WPP 2024 medium variant (~359.2M). */
+    projected2050: 359,
+    projected2050Low: 340,
+    /** National high framing (NPC / Agenda / older federal materials). */
+    projected2050High: 400,
+    sourceId: "un-wpp-2024",
   },
   {
     id: "logistics-performance",

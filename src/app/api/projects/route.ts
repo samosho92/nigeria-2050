@@ -1,12 +1,12 @@
 import { COOL_PROJECTS } from "@/content/projects";
 import { getCommunityProjects, getProjectTallies, sanitizeStoredProject } from "@/lib/projects-store";
-import { getClientIp, jsonError, rateLimit } from "@/lib/security";
+import { getClientIp, jsonError, rateLimitDurable } from "@/lib/security";
 
 export const runtime = "nodejs";
 
 export async function GET(request: Request) {
   const ip = getClientIp(request);
-  if (!rateLimit(`projects-get:${ip}`, 120, 60_000)) {
+  if (!(await rateLimitDurable(`projects-get:${ip}`, 60, 60_000))) {
     return jsonError("Too many requests", 429);
   }
 

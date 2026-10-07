@@ -7,18 +7,18 @@ import {
   G7_BENCHMARK_METRICS,
   G7_COUNTRY_CODES,
   G7_COUNTRY_LABELS,
-  formatBenchmarkValue,
-  formatGapLabel,
   g7GapMultiplier,
   getBenchmarkYearRange,
   getG7Average,
   getG7Leader,
   getG7SectorSlugs,
 } from "@/content/g7-benchmark";
+import { G7_EXPLORER_META } from "@/content/compare-meta";
 import { SECTORS } from "@/content/sectors";
 import type { G7BenchmarkMetric } from "@/types/content";
 import { SourceTooltip } from "@/components/ui/SourceTooltip";
 import { trackEvent } from "@/lib/analytics";
+import { formatBenchmarkValue, formatGapLabel } from "@/lib/g7-format";
 import { cn } from "@/lib/utils";
 
 const SECTOR_LABELS: Record<string, string> = Object.fromEntries(
@@ -67,9 +67,9 @@ function G7CountryBreakdown({ metric }: { metric: G7BenchmarkMetric }) {
   return (
     <div className="mt-6 overflow-hidden rounded-lg border border-border">
       <div className="grid grid-cols-[1fr_auto_1fr] gap-x-4 border-b border-border bg-muted/50 px-4 py-2 text-[0.6875rem] font-semibold uppercase tracking-wider text-muted-foreground">
-        <span>Country</span>
-        <span className="text-right">Value ({metric.referenceYear})</span>
-        <span className="sr-only">Bar</span>
+        <span>{G7_EXPLORER_META.countryColumn}</span>
+        <span className="text-right">{G7_EXPLORER_META.valueColumn(metric.referenceYear)}</span>
+        <span className="sr-only">{G7_EXPLORER_META.barColumnAria}</span>
       </div>
       <ul className="divide-y divide-border">
         {rows.map((row) => {
@@ -95,11 +95,13 @@ function G7CountryBreakdown({ metric }: { metric: G7BenchmarkMetric }) {
                 {row.label}
                 {row.isNigeria && (
                   <span className="ml-2 text-xs font-normal text-muted-foreground">
-                    (baseline)
+                    {G7_EXPLORER_META.baselineTag}
                   </span>
                 )}
                 {isLeader && (
-                  <span className="ml-2 text-xs font-normal text-accent">G7 best</span>
+                  <span className="ml-2 text-xs font-normal text-accent">
+                    {G7_EXPLORER_META.g7BestTag}
+                  </span>
                 )}
               </span>
               <span className="tabular-nums text-right font-semibold">
@@ -169,8 +171,8 @@ function GapBar({ metric }: { metric: G7BenchmarkMetric }) {
             isGlaring ? "bg-accent text-accent-foreground" : "bg-muted text-muted-foreground",
           )}
         >
-          {metric.higherIsBetter ? "G7 avg leads" : "Nigeria worse"} by{" "}
-          {formatGapLabel(multiplier)}
+          {metric.higherIsBetter ? G7_EXPLORER_META.gapLeads : G7_EXPLORER_META.gapWorse}{" "}
+          {G7_EXPLORER_META.gapBy} {formatGapLabel(multiplier)}
         </div>
       </div>
 
@@ -178,7 +180,7 @@ function GapBar({ metric }: { metric: G7BenchmarkMetric }) {
         <div>
           <div className="mb-1.5 flex justify-between text-xs">
             <span className="font-medium text-foreground">
-              Nigeria · {metric.referenceYear}
+              {G7_EXPLORER_META.nigeriaYear(metric.referenceYear)}
             </span>
             <span className="tabular-nums text-muted-foreground">
               {formatBenchmarkValue(metric.nigeria, metric.unit)}
@@ -195,7 +197,7 @@ function GapBar({ metric }: { metric: G7BenchmarkMetric }) {
         <div>
           <div className="mb-1.5 flex justify-between text-xs">
             <span className="font-medium text-accent">
-              G7 average · {metric.referenceYear}
+              {G7_EXPLORER_META.g7AverageYear(metric.referenceYear)}
             </span>
             <span className="tabular-nums text-accent">
               {formatBenchmarkValue(g7Average, metric.unit)}
@@ -213,13 +215,16 @@ function GapBar({ metric }: { metric: G7BenchmarkMetric }) {
           <div>
             <div className="mb-1.5 flex justify-between text-xs">
               <span className="font-medium text-muted-foreground">
-                Nigeria 2050 scenario (not a sourced year)
+                {G7_EXPLORER_META.scenarioLabel}
               </span>
               <span className="tabular-nums text-muted-foreground">
                 {formatBenchmarkValue(metric.nigeria2050, metric.unit)}
                 {metric.higherIsBetter && metric.nigeria2050 < g7Average && (
-                  <span className="ml-1 text-accent">, still {formatGapLabel(g7Average / metric.nigeria2050)} behind G7{" "}
-                    {metric.referenceYear} avg
+                  <span className="ml-1 text-accent">
+                    {G7_EXPLORER_META.stillBehind(
+                      formatGapLabel(g7Average / metric.nigeria2050),
+                      metric.referenceYear,
+                    )}
                   </span>
                 )}
               </span>
@@ -267,31 +272,28 @@ export function G7GapExplorer() {
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              The distance to close
+              {G7_EXPLORER_META.distanceEyebrow}
             </p>
             <p className="mt-2 text-3xl font-bold tabular-nums md:text-4xl">
               {formatGapLabel(avgGap)}{" "}
               <span className="text-lg font-normal text-muted-foreground md:text-xl">
-                average gap vs G7
+                {G7_EXPLORER_META.averageGapSuffix}
               </span>
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-              {G7_BENCHMARK_METRICS.length} indicators, each uses the{" "}
-              <strong className="text-foreground">same definition and reference year</strong> for
-              Nigeria and all seven G7 members ({yearRange.earliest}–{yearRange.latest} depending
-              on dataset). Hover the{" "}
-              <IconInfoCircle className="inline size-3.5 align-text-bottom" stroke={1.5} /> icon
-              on any metric for the exact source series.
+              {G7_EXPLORER_META.indicatorsLead(
+                G7_BENCHMARK_METRICS.length,
+                yearRange.earliest,
+                yearRange.latest,
+              )}
             </p>
           </div>
         </div>
       </div>
 
       <section>
-        <h2 className="text-lg font-bold md:text-xl">Widest gaps today</h2>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Same-indicator, same-year comparisons only, sorted by distance from G7 average.
-        </p>
+        <h2 className="text-lg font-bold md:text-xl">{G7_EXPLORER_META.widestTitle}</h2>
+        <p className="mt-1 text-sm text-muted-foreground">{G7_EXPLORER_META.widestLead}</p>
         <div className="mt-6 grid gap-4 lg:grid-cols-3">
           {topGaps.map((metric, i) => {
             const g7Average = getG7Average(metric);
@@ -310,11 +312,13 @@ export function G7GapExplorer() {
                     {metric.label} · {metric.referenceYear}
                   </p>
                   <p className="mt-3 text-3xl font-bold tabular-nums">
-                    {formatGapLabel(g7GapMultiplier(metric))} gap
+                    {G7_EXPLORER_META.gapCard(formatGapLabel(g7GapMultiplier(metric)))}
                   </p>
                   <p className="mt-2 text-sm opacity-90">
-                    Nigeria: {formatBenchmarkValue(metric.nigeria, metric.unit)} · G7 avg:{" "}
-                    {formatBenchmarkValue(g7Average, metric.unit)}
+                    {G7_EXPLORER_META.nigeriaVsAvg(
+                      formatBenchmarkValue(metric.nigeria, metric.unit),
+                      formatBenchmarkValue(g7Average, metric.unit),
+                    )}
                   </p>
                 </div>
               </SourceTooltip>
@@ -324,10 +328,10 @@ export function G7GapExplorer() {
       </section>
 
       <section>
-        <h2 className="text-lg font-bold md:text-xl">By sector</h2>
+        <h2 className="text-lg font-bold md:text-xl">{G7_EXPLORER_META.bySectorTitle}</h2>
         <div
           role="tablist"
-          aria-label="Filter by sector"
+          aria-label={G7_EXPLORER_META.sectorFilterAria}
           className="mt-4 flex flex-wrap gap-2"
         >
           {sectorSlugs.map((slug) => (
@@ -362,7 +366,7 @@ export function G7GapExplorer() {
           href={`/sectors/${activeSector}`}
           className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition hover:underline"
         >
-          See Nigeria&apos;s 2050 path for {SECTOR_LABELS[activeSector]}
+          {G7_EXPLORER_META.sectorPathCta(SECTOR_LABELS[activeSector] ?? activeSector)}
           <IconArrowRight className="size-4" stroke={1.5} aria-hidden />
         </Link>
       </section>

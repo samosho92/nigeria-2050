@@ -135,7 +135,7 @@ export const PHASE2_SECTORS: Sector[] = [
           "An oil revenue shock or debt crisis that caps federal spending below 4% of GDP on health would delay UHC enrollment and keep out-of-pocket costs punitive for most families.",
       },
     ],
-    sourceIds: ["who-nigeria-health", "world-bank-financial-inclusion"],
+    sourceIds: ["who-nigeria-health", "who-health-workforce", "un-wpp-2024"],
   },
   {
     slug: "agriculture",
@@ -407,7 +407,7 @@ export const PHASE2_SECTORS: Sector[] = [
           "Focus on music and film alone would leave half the creative GDP potential unrealized if fashion manufacturing and game development lack capital and IP frameworks.",
       },
     ],
-    sourceIds: ["unesco-creative-economy", "nollywood-industry-report"],
+    sourceIds: ["unesco-creative-economy", "nollywood-industry-report", "wipo-ip-stats"],
   },
   {
     slug: "manufacturing",
@@ -543,7 +543,13 @@ export const PHASE2_SECTORS: Sector[] = [
           "Without skills investment, labor productivity stays at one-third of Malaysian levels, limiting export competitiveness even with cheap wages.",
       },
     ],
-    sourceIds: ["unido-manufacturing", "afdb-agriculture", "world-bank-financial-inclusion"],
+    sourceIds: [
+      "unido-manufacturing",
+      "afdb-industrialization",
+      "nbs-gdp-report-2024",
+      "nerc-quarterly",
+      "agenda-2050-npc",
+    ],
   },
   {
     slug: "financial-inclusion",
@@ -679,7 +685,7 @@ export const PHASE2_SECTORS: Sector[] = [
           "Naira instability could push middle-class savings into crypto or foreign accounts, starving domestic banks of deposit base for SME lending.",
       },
     ],
-    sourceIds: ["world-bank-financial-inclusion", "cbn-financial-access"],
+    sourceIds: ["world-bank-financial-inclusion", "cbn-financial-access", "nbs-nlfs-2024", "ilo-employment-stats"],
   },
   {
     slug: "transportation",
@@ -722,7 +728,7 @@ export const PHASE2_SECTORS: Sector[] = [
       },
       {
         year: 2050,
-        headline: "A Logistics Country, Not a Queue",
+        headline: "A Logistics Country",
         narrative:
           "Nigeria's logistics score approaches today's Italy (LPI 3.7 in 2023). Coastal shipping and rail move bulk cargo; trucks handle last mile. Lagos, Abuja, and Kano have functioning urban rail. The colonial extractive map (rails to the sea) is finally reversed.",
         metrics: {
@@ -900,12 +906,12 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         title: "Population and density are the demand engine",
         detail:
-          "NPC's published path toward ~400 million people by 2050, on ~924,000 km² of land, implies national density rising from 250 per km² (WDI 2023) to about 430. Nigeria is already as dense as Germany. Housing stress concentrates where people actually move. Lagos, Kano, Ibadan, Abuja, Onitsha, Port Harcourt, so prices and rents rise fastest in those agglomerations.",
+          "UN WPP 2024 medium puts Nigeria near 359 million by 2050; national high framing near 400 million remains an upper case. On ~924,000 km² of land, the medium path implies national density rising from about 250 per km² (WDI 2023) toward ~390, or about 430 under the high case. Housing stress concentrates where people actually move: Lagos, Kano, Ibadan, Abuja, Onitsha, Port Harcourt.",
       },
       {
         title: "Urbanization still has a long way to run",
         detail:
-          "WDI 2023: 62% urban versus ~80% in most G7 members. As the urban share rises toward a 70% 2050 scenario, more households compete for titled plots in the same cities. Without supply, density becomes overcrowding and slum growth.",
+          "WDI 2023: about 54–62% urban depending on series vintage, versus ~80% in most G7 members. UN urbanization pathways put urban share near 62% by 2050; national briefs often cite ~70%. Without titled supply, rising urban share becomes overcrowding and slum growth.",
       },
       {
         title: "Informal urban housing is the measured gap",
@@ -968,6 +974,8 @@ export const PHASE2_SECTORS: Sector[] = [
     sourceIds: [
       "world-bank-g7-indicators",
       "cahf-nigeria-housing",
+      "un-wpp-2024",
+      "un-world-urbanization-prospects",
       "npc-population-projection",
       "world-bank-doing-business",
       "world-bank-nigeria-overview",
@@ -1054,7 +1062,7 @@ export const PHASE2_SECTORS: Sector[] = [
       {
         title: "Receipts have a WDI year",
         detail:
-          "WDI ST.INT.RCPT.CD: Nigeria earned $1.471 billion in international tourism receipts in 2019 ($1.977 billion in 2018; $321 million in 2020). The 2050 base case ($12 billion, current dollars, undated for inflation) assumes visas, airlift, and park product recover from that pre-pandemic book, then grow. It is a scenario.",
+          "WDI ST.INT.RCPT.CD: Nigeria earned $1.471 billion in international tourism receipts in 2019 ($1.977 billion in 2018; $321 million in 2020). The 2050 base case ($12 billion, current dollars, undated for inflation) assumes visas, airlift, and park product recover from that pre-pandemic book, then grow under stated assumptions.",
       },
       {
         title: "UNESCO stock is two properties",

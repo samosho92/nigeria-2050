@@ -109,7 +109,7 @@ export function MethodologyPageContent() {
     <>
       <PageHero
         eyebrow="Editorial policy"
-        title="How Naija2050 works"
+        title="How Nigeria2050 works"
         description="Sourcing rules, projection methodology, G7 benchmark standards, AI guardrails, and how we handle corrections. Written for skeptics first."
       >
         <p className="mt-2 text-xs text-muted-foreground">

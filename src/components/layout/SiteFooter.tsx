@@ -8,7 +8,6 @@ import {
   IconFileText,
   IconMessageChatbot,
   IconScale,
-  IconSparkles,
   IconTimeline,
   IconUsers,
   IconBulb,
@@ -17,12 +16,12 @@ import {
 import type { TablerIcon } from "@tabler/icons-react";
 import { Container } from "@/components/ui/Container";
 import { CookieSettingsButton } from "@/components/legal/CookieSettingsButton";
+import { siteName } from "@/lib/site";
 
 const EXPLORE_LINKS: { href: string; label: string; icon: TablerIcon }[] = [
   { href: "/timeline", label: "Timeline", icon: IconTimeline },
   { href: "/icons", label: "Icons", icon: IconUsers },
   { href: "/sectors", label: "Sectors", icon: IconChartBar },
-  { href: "/your-2050", label: "Your 2050", icon: IconSparkles },
   { href: "/projects", label: "Cool Projects", icon: IconBulb },
   { href: "/pulse", label: "Street Pulse", icon: IconWheel },
   { href: "/compare", label: "Now vs. 2050", icon: IconArrowsLeftRight },
@@ -71,7 +70,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-surface px-6 py-12 lg:px-8">
       <Container className="flex flex-col gap-10 md:flex-row md:justify-between">
         <div>
-          <p className="font-bold">Naija2050</p>
+          <p className="font-bold">{siteName}</p>
           <p className="mt-2 max-w-sm text-sm text-muted-foreground">
             Independent, non-partisan, source-transparent civic media about
             Nigeria&apos;s story and trajectory.
@@ -85,7 +84,7 @@ export function SiteFooter() {
       <Container className="mt-8 flex flex-col gap-3 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <p>
           <span suppressHydrationWarning>
-            © {new Date().getFullYear()} Naija2050.
+            © {new Date().getFullYear()} {siteName}.
           </span>{" "}
           Optimistic, with stated assumptions. Every projection is a scenario.
         </p>

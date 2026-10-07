@@ -2,8 +2,8 @@
 
 export type AnalyticsConsent = "accepted" | "declined";
 
-export const ANALYTICS_CONSENT_KEY = "naija2050-analytics-consent";
-const CONSENT_EVENT = "naija2050:consent-change";
+export const ANALYTICS_CONSENT_KEY = "nigeria2050-analytics-consent";
+const CONSENT_EVENT = "nigeria2050:consent-change";
 
 function readConsent(): AnalyticsConsent | null {
   if (typeof window === "undefined") return null;
@@ -35,5 +35,5 @@ export function onAnalyticsConsentChange(handler: () => void): () => void {
 
 export function openConsentPreferences() {
   if (typeof window === "undefined") return;
-  window.dispatchEvent(new CustomEvent("naija2050:consent-open"));
+  window.dispatchEvent(new CustomEvent("nigeria2050:consent-open"));
 }

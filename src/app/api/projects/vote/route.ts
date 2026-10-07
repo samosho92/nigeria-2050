@@ -3,9 +3,9 @@ import { getCommunityProjects, setClientVote } from "@/lib/projects-store";
 import { isValidClientId, isValidProjectId, type ProjectVote } from "@/lib/projects";
 import {
   getClientIp,
-  isTrustedBrowserRequest,
+  isBrowserMutationRequest,
   jsonError,
-  rateLimit,
+  rateLimitDurable,
   readJsonBody,
 } from "@/lib/security";
 
@@ -18,12 +18,12 @@ interface VoteBody {
 }
 
 export async function POST(request: Request) {
-  if (!isTrustedBrowserRequest(request)) {
+  if (!isBrowserMutationRequest(request)) {
     return jsonError("Forbidden", 403);
   }
 
   const ip = getClientIp(request);
-  if (!rateLimit(`projects-vote:${ip}`, 60, 60_000)) {
+  if (!(await rateLimitDurable(`projects-vote:${ip}`, 60, 60_000))) {
     return jsonError("Too many votes", 429);
   }
 

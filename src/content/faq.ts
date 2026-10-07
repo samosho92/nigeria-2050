@@ -7,14 +7,14 @@ export const FAQ_META = {
   eyebrow: "Help",
   title: "Frequently asked questions",
   description:
-    "Quick answers about how to use Naija2050, what the numbers mean, and how your responses are handled.",
+    "Quick answers about how to use Nigeria2050, what the numbers mean, and how your responses are handled.",
 };
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    question: "What is Naija2050?",
+    question: "What is Nigeria2050?",
     answer:
-      "Naija2050 is a public learning site about Nigeria's past and possible futures. It combines history, sector pages, and interactive tools so people can explore ideas to 2050.",
+      "Nigeria2050 is a public learning site about Nigeria's past and possible futures. It combines history, sector pages, and interactive tools so people can explore ideas to 2050.",
   },
   {
     question: "Are these predictions guaranteed to happen?",

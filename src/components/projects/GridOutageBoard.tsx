@@ -19,7 +19,6 @@ import {
   discoCityName,
   discoSeedIds,
   feederCounts,
-  formatMw,
   fuelShare,
   getDisco,
   plantUtilisation,
@@ -28,6 +27,7 @@ import {
   type FeederStatus,
   type GridFeeder,
 } from "@/content/grid-outage";
+import { formatMw } from "@/lib/grid-format";
 import { cn } from "@/lib/utils";
 
 const DEFAULT_DISCO = "abuja";
@@ -297,7 +297,7 @@ export function GridOutageBoard() {
               </p>
               <h3 className="mt-1 font-serif text-2xl font-bold tracking-tight">{capital.capital}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Not a seed DisCo on this mock. The same gate still applies: named feeders, timestamps,
+                Outside the seed DisCos on this mock. The same gate still applies: named feeders, timestamps,
                 a window when the circuit is off. Until then the hour is unpublished here.
               </p>
             </Card>

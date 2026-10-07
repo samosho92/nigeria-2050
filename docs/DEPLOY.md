@@ -1,4 +1,4 @@
-# Deploying Naija2050
+# Deploying Nigeria2050
 
 ## Prerequisites
 
@@ -11,10 +11,10 @@ Set the following in your Vercel project settings under **Settings > Environment
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Yes | Production URL without trailing slash (e.g. `https://naija2050.org`) |
+| `NEXT_PUBLIC_SITE_URL` | Yes | Production URL without trailing slash (e.g. `https://nigeria2050.com`) |
 | `UPSTASH_REDIS_REST_URL` | Yes | Upstash Redis REST endpoint |
 | `UPSTASH_REDIS_REST_TOKEN` | Yes | Upstash Redis REST token |
-| `POLLS_EXPORT_SECRET` | Recommended | Secret used to hash respondent IDs in CSV exports |
+| `POLLS_EXPORT_SECRET` | Recommended | ≥32-char secret for ballot field hashing and Bearer-only CSV/JSON export (`Authorization: Bearer …`). Do not put it in query strings. Set before launch and do not rotate without a ballot migration. |
 | `POLLS_WEBHOOK_URL` | Optional | Webhook URL called on each new ballot (Slack, Zapier, etc.) |
 | `CORRECTIONS_WEBHOOK_URL` | Optional | Webhook for correction form submissions |
 | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Optional | Domain for Plausible analytics (loads after consent) |
@@ -27,7 +27,7 @@ Both providers are optional and consent-gated. Scripts load only after a visitor
 ### Plausible
 
 1. Create a site at [plausible.io](https://plausible.io).
-2. Set `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` to your production domain (e.g. `naija2050.org`).
+2. Set `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` to your production domain (e.g. `nigeria2050.com`).
 
 ### Google Analytics 4
 

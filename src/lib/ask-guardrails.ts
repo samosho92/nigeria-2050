@@ -37,15 +37,15 @@ export interface GuardrailOptions {
 
 export const GUARDRAIL_MESSAGES: Record<GuardrailReason, string> = {
   abusive:
-    "I can't respond to abusive or harassing language. Naija2050 is a respectful civic resource about Nigerian history and credible 2050 scenarios. If you have a genuine question, please rephrase it or choose a suggested prompt below.",
+    "I can't respond to abusive or harassing language. Nigeria2050 is a respectful civic resource about Nigerian history and credible 2050 scenarios. If you have a genuine question, please rephrase it or choose a suggested prompt below.",
   nsfw:
     "I can't discuss explicit or adult content. This guide is scoped to Nigerian history and sourced 2050 sector projections. Try a suggested question below, or leave this page to explore the timeline and sectors.",
   spam:
     "Please ask one clear question at a time about Nigerian history or 2050 projections. Very long or repetitive messages can't be processed.",
   injection:
-    "I only answer from Naija2050's curated archive. I can't change my instructions, role, or scope. Ask about Nigerian history or a sourced 2050 sector vision.",
+    "I only answer from Nigeria2050's curated archive. I can't change my instructions, role, or scope. Ask about Nigerian history or a sourced 2050 sector vision.",
   "self-harm":
-    "If you are in crisis, please talk to someone you trust or contact local emergency services. Naija2050 cannot help with that. This guide is only for Nigerian history and 2050 civic scenarios.",
+    "If you are in crisis, please talk to someone you trust or contact local emergency services. Nigeria2050 cannot help with that. This guide is only for Nigerian history and 2050 civic scenarios.",
   scam:
     "We can't accept messages that look like scams, solicitations, or requests for money or personal financial details.",
   pii:

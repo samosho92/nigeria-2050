@@ -708,13 +708,7 @@ export function streetZonesFor(city: PostalCapital, band: PostalBand): PostalStr
   return override?.periurban ?? defaultPeriStreets(city);
 }
 
-export function formatPostalCode(plate: string, place: PostalPlace): string {
-  return `${plate}-${place.band}${place.district}-${place.unit}`;
-}
-
-export function formatStreetCode(plate: string, band: PostalBand, district: string, unit: string): string {
-  return `${plate}-${band}${district}-${unit}`;
-}
+export { formatPostalCode, formatStreetCode } from "@/lib/postal-format";
 
 export function getPostalCapital(id: string): PostalCapital | undefined {
   return POSTAL_CAPITALS.find((city) => city.id === id);

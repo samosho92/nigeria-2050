@@ -4,10 +4,10 @@ import { addCommunityProject } from "@/lib/projects-store";
 import { isValidProjectId, stripProjectText } from "@/lib/projects";
 import {
   getClientIp,
+  isBrowserMutationRequest,
   isSafeWebhookUrl,
-  isTrustedBrowserRequest,
   jsonError,
-  rateLimit,
+  rateLimitDurable,
   readJsonBody,
 } from "@/lib/security";
 import type { CoolProject } from "@/types/content";
@@ -34,12 +34,12 @@ function slugify(title: string): string {
 }
 
 export async function POST(request: Request) {
-  if (!isTrustedBrowserRequest(request)) {
+  if (!isBrowserMutationRequest(request)) {
     return jsonError("Forbidden", 403);
   }
 
   const ip = getClientIp(request);
-  if (!rateLimit(`projects-submit:${ip}`, 5, 10 * 60_000)) {
+  if (!(await rateLimitDurable(`projects-submit:${ip}`, 5, 10 * 60_000))) {
     return jsonError("Too many submissions. Please wait before adding another idea.", 429);
   }
 

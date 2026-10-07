@@ -13,7 +13,7 @@ const EMPTY: Store = { votes: {}, submissions: [] };
 
 function storeFile(): string {
   if (process.env.VERCEL) {
-    return path.join(tmpdir(), "naija2050-projects.json");
+    return path.join(tmpdir(), "nigeria2050-projects.json");
   }
   return path.join(process.cwd(), "data", "projects-runtime.json");
 }

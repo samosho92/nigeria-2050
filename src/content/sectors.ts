@@ -10,14 +10,15 @@ export const SECTORS: Sector[] = [
       "Africa's largest economy by output, diversified, industrialized, and no longer hostage to oil prices.",
     baseline: {
       gdp: "$450B",
-      gdpPerCapita: "$2,200",
+      /** Same WDI NY.GDP.PCAP.CD / NV.IND.MANF.ZS vintage as comparator + G7 rows. */
+      gdpPerCapita: "$2,162",
       oilShareOfExports: "85%",
-      manufacturingShare: "9%",
-      informalEconomyShare: "~58%",
+      manufacturingShare: "8.9%",
+      informalEmploymentShare: "~93%",
     },
     scenarioRanges: [
-      { label: "GDP per capita (2050)", unit: "USD", low: 8000, base: 12500, high: 18000 },
-      { label: "Total GDP (2050)", unit: "USD T", low: "2.8", base: "4.2", high: "5.5" },
+      { label: "GDP per capita (2050)", unit: "USD", low: 8000, base: 12500, high: 33300 },
+      { label: "Total GDP (2050)", unit: "USD T", low: "2.8", base: "4.2", high: "11.7" },
     ],
     reviewStatus: "pending-review",
     projections: [
@@ -69,7 +70,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Population & labor force",
         detail:
-          "NPC medium-variant population projection: ~230M (2024) → ~280M (2030) → ~340M (2040) → ~400M (2050). The working-age share stays above 60%; at least 3M net new formal jobs created annually from 2030 onward.",
+          "UN WPP 2024 medium path: ~238M (2025) → ~262M (2030) → ~313M (2040) → ~359M (2050). National high framing near 400M remains an upper case. The working-age share stays above 60%; at least 3M net new formal jobs created annually from 2030 onward.",
       },
       {
         title: "Oil dependency unwind",
@@ -89,7 +90,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Informal economy formalization",
         detail:
-          "Over 50% of informal activity is registered by 2045 through NIN-linked accounts, digital payments (CBN instant payment rails), and simplified SME tax thresholds, raising the taxable base without mass enforcement shocks.",
+          "NBS NLFS reports informal employment near 93% of employed persons (2024). Over half of that activity is registered by 2045 through NIN-linked accounts, digital payments (CBN instant payment rails), and simplified SME tax thresholds, raising the taxable base without mass enforcement shocks.",
       },
       {
         title: "Capital inflows",
@@ -136,10 +137,15 @@ export const SECTORS: Sector[] = [
     ],
     sourceIds: [
       "world-bank-nigeria-overview",
+      "world-bank-gdp-current-usd",
       "nbs-gdp-report-2024",
+      "nbs-nlfs-2024",
+      "ilo-employment-stats",
+      "world-bank-ndu-2025",
       "mckinsey-nigeria-2050",
       "pwc-nigeria-2050",
       "agenda-2050-npc",
+      "un-wpp-2024",
     ],
   },
   {
@@ -152,11 +158,12 @@ export const SECTORS: Sector[] = [
       techHubRank: "#1 in Africa",
       startupFunding2024: "$1.2B",
       developers: "120,000+",
-      internetPenetration: "55%",
+      regularMobileInternetUse: "29%",
+      individualsUsingInternet: "55%",
       fintechUsers: "70M+",
     },
     scenarioRanges: [
-      { label: "Internet penetration (2050)", unit: "%", low: 92, base: 98, high: 99 },
+      { label: "Regular mobile internet use (2050)", unit: "%", low: 70, base: 85, high: 95 },
       { label: "Tech contribution to GDP (2050)", unit: "%", low: 12, base: 18, high: 24 },
     ],
     reviewStatus: "reviewed",
@@ -166,21 +173,21 @@ export const SECTORS: Sector[] = [
         headline: "The Infrastructure Catch-Up",
         narrative:
           "5G covers all state capitals. Data costs drop 60%. Nigeria produces 50,000 new software engineers annually. Three more unicorns emerge in health-tech and climate-tech.",
-        metrics: { internetPenetration: "78%", developers: "350,000", startupFunding: "$3.5B" },
+        metrics: { regularMobileInternetUse: "55%", developers: "350,000", startupFunding: "$3.5B" },
       },
       {
         year: 2040,
         headline: "Export Engine",
         narrative:
           "Nigerian SaaS companies serve global markets. Remote work reverses brain drain, diaspora engineers build from Lagos, London, and Toronto simultaneously. AI training data and compute hubs established.",
-        metrics: { internetPenetration: "92%", developers: "800,000", techExportRevenue: "$45B" },
+        metrics: { regularMobileInternetUse: "75%", developers: "800,000", techExportRevenue: "$45B" },
       },
       {
         year: 2050,
         headline: "Global Tech Powerhouse",
         narrative:
           "Nigeria ranks in the global top 10 for developer talent. Digital public infrastructure (identity, payments, health records) is world-class. Technology contributes 18% of GDP, more than oil.",
-        metrics: { internetPenetration: "98%", developers: "2M+", techContributionToGdp: "18%" },
+        metrics: { regularMobileInternetUse: "85%", developers: "2M+", techContributionToGdp: "18%" },
       },
     ],
     historicalWaypoints: [
@@ -204,7 +211,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Connectivity expansion",
         detail:
-          "Internet penetration rises from ~55% (2024) to 78% (2030), 92% (2040), and 98% (2050) via 4G/5G rollout, fiber backhaul in state capitals, and satellite coverage for rural gaps, aligned with GSMA Africa connectivity forecasts.",
+          "GSMA reports about 29% of Nigerians regularly use mobile internet (2024), while ITU/WDI individuals-using-the-internet is near 55%. Regular use rises toward 55% (2030), 75% (2040), and 85% (2050) via 4G/5G rollout, fiber backhaul in state capitals, affordable handsets, and skills programs that close the usage gap.",
       },
       {
         title: "Affordable data",
@@ -269,7 +276,12 @@ export const SECTORS: Sector[] = [
           "Large-scale breaches of BVN/NIN or payment rails would erode adoption of digital public infrastructure, a single major incident could set adoption back 3–5 years.",
       },
     ],
-    sourceIds: ["gsma-nigeria-digital", "mckinsey-nigeria-2050", "world-bank-nigeria-overview"],
+    sourceIds: [
+      "gsma-nigeria-digital",
+      "itu-digital-indicators",
+      "mckinsey-nigeria-2050",
+      "world-bank-nigeria-overview",
+    ],
   },
   {
     slug: "governance",
@@ -395,6 +407,8 @@ export const SECTORS: Sector[] = [
     sourceIds: [
       "transparency-corruption-index",
       "heritage-economic-freedom",
+      "idea-election-turnout",
+      "international-budget-partnership",
       "agenda-2050-npc",
       "cbo-nigeria-history",
     ],
@@ -406,9 +420,9 @@ export const SECTORS: Sector[] = [
     headline2050:
       "400 million minds, the world's largest young workforce, educated at home and building at home.",
     baseline: {
-      literacyRate: "62%",
+      literacyRate: "70.4%",
       outOfSchoolChildren: "20M",
-      tertiaryEnrollment: "12%",
+      tertiaryEnrollment: "10.2%",
       doctorsPer1000: "0.4",
       annualGraduates: "600,000",
     },
@@ -471,12 +485,12 @@ export const SECTORS: Sector[] = [
       {
         title: "Literacy trajectory",
         detail:
-          "Adult literacy rises from 62% → 82% (2030) → 90% (2040) → 94% (2050) through primary completion rates above 85% and adult literacy programs in local languages.",
+          "Adult literacy rises from 70.4% (UIS 2024) → 82% (2030) → 90% (2040) → 94% (2050) through primary completion rates above 85% and adult literacy programs in local languages.",
       },
       {
         title: "Tertiary expansion with quality",
         detail:
-          "Gross tertiary enrollment rises from 12% to 22% (2030), 35% (2040), and 45% (2050), adding ~500 accredited programs with accreditation audits every 5 years to prevent credential inflation.",
+          "Gross tertiary enrollment rises from a sparse UIS baseline near 10% to 22% (2030), 35% (2040), and 45% (2050), adding ~500 accredited programs with accreditation audits every 5 years to prevent credential inflation.",
       },
       {
         title: "Teacher workforce",
@@ -526,7 +540,15 @@ export const SECTORS: Sector[] = [
           "Continued departure of trained teachers and professors to UK/Canada/Gulf would require 2× training pipeline throughput to hit workforce targets.",
       },
     ],
-    sourceIds: ["unesco-literacy-nigeria", "undp-hdi-nigeria", "npc-population-projection"],
+    sourceIds: [
+      "unesco-literacy-nigeria",
+      "unesco-tertiary-enrollment",
+      "unesco-education-spending",
+      "undp-hdi-nigeria",
+      "un-wpp-2024",
+      "npc-population-projection",
+      "who-health-workforce",
+    ],
   },
   {
     slug: "energy",
@@ -535,15 +557,16 @@ export const SECTORS: Sector[] = [
     headline2050:
       "24/7 power for 400 million, a grid rebuilt on gas, solar, and the political will that finally arrived.",
     baseline: {
-      installedCapacity: "13 GW",
-      actualDelivery: "~4 GW",
+      installedCapacity: "13.6 GW",
+      availableCapacity: "~5.4 GW",
       gridAccess: "62%",
       renewableShare: "18%",
       perCapitaConsumption: "150 kWh/yr",
     },
     scenarioRanges: [
-      { label: "Grid delivery (2050)", unit: "GW", low: 55, base: 85, high: 110 },
-      { label: "Renewable share (2050)", unit: "%", low: 50, base: 65, high: 78 },
+      { label: "Installed capacity (2050)", unit: "GW", low: 55, base: 85, high: 210 },
+      { label: "Grid delivery (2050)", unit: "GW", low: 40, base: 85, high: 110 },
+      { label: "Renewable share (2050)", unit: "%", low: 50, base: 65, high: 82 },
     ],
     reviewStatus: "reviewed",
     projections: [
@@ -565,8 +588,13 @@ export const SECTORS: Sector[] = [
         year: 2050,
         headline: "Energy Abundance",
         narrative:
-          "85 GW installed, enough for industrialization. Per-capita consumption approaches middle-income norms. Nigeria exports power to neighbors. Cities run on smart grids.",
-        metrics: { gridDelivery: "85 GW", renewableShare: "65%", perCapitaConsumption: "2,400 kWh" },
+          "Base-case delivery near 85 GW supports industrialization. The Energy Transition Plan high case points to a much larger solar-led fleet. Per-capita consumption approaches middle-income norms. Nigeria exports power to neighbors. Cities run on smart grids.",
+        metrics: {
+          gridDelivery: "85 GW",
+          installedCapacity: "85–210 GW",
+          renewableShare: "65%",
+          perCapitaConsumption: "2,400 kWh",
+        },
       },
     ],
     historicalWaypoints: [
@@ -590,7 +618,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Generation capacity build-out",
         detail:
-          "Installed capacity rises from 13 GW to 25 GW (2030), 60 GW (2040), and 110 GW (2050); grid-delivered power reaches 12 GW → 45 GW → 85 GW as transmission bottlenecks are cleared, the gap between installed and delivered closes from ~70% loss to under 25%.",
+          "NERC reports about 13.6 GW of grid-connected installed capacity with roughly 5.3–5.4 GW average available (2024–25). The base case lifts delivered power to 12 GW (2030), 45 GW (2040), and 85 GW (2050) as transmission bottlenecks clear. The ETP high case implies a solar-led fleet above 200 GW nameplate by mid-century.",
       },
       {
         title: "Gas baseload supply",
@@ -600,7 +628,7 @@ export const SECTORS: Sector[] = [
       {
         title: "Renewable acceleration",
         detail:
-          "Solar and hydro grow from 18% to 30% (2030), 52% (2040), and 65% (2050) of generation, requiring $3B+ annual renewable investment from 2028 and clear PPA frameworks for private developers.",
+          "Solar and hydro grow from 18% to 30% (2030), 52% (2040), and 65% (2050) of generation in the base case, with the ETP high case near 82% renewables by 2050 (excluding hydrogen). That path needs clear PPAs and multi-billion-dollar annual renewable investment from 2028.",
       },
       {
         title: "Distribution reform",
@@ -650,7 +678,16 @@ export const SECTORS: Sector[] = [
           "Lagos and Kano expanding without transit and grid planning would leave 80M+ in underserved informal settlements regardless of national GW totals.",
       },
     ],
-    sourceIds: ["iea-nigeria-energy", "agenda-2050-npc", "world-bank-nigeria-overview"],
+    sourceIds: [
+      "nerc-quarterly",
+      "nigeria-etp",
+      "iea-nigeria-energy",
+      "irena-nigeria-energy",
+      "world-bank-electricity-access",
+      "agenda-2050-npc",
+      "world-bank-nigeria-overview",
+      "world-bank-ndu-2025",
+    ],
   },
   {
     slug: "security",
@@ -784,7 +821,14 @@ export const SECTORS: Sector[] = [
           "2027, 2031, and subsequent election cycles pose spike risks; failure to professionalize security forces during transitions could reset decade-long trend lines in a single year.",
       },
     ],
-    sourceIds: ["sipri-security-africa", "undp-hdi-nigeria", "world-bank-nigeria-overview"],
+    sourceIds: [
+      "sipri-security-africa",
+      "global-peace-index",
+      "unodc-crime-stats",
+      "ucdp-conflict-data",
+      "undp-hdi-nigeria",
+      "world-bank-nigeria-overview",
+    ],
   },
   ...PHASE2_SECTORS,
 ];

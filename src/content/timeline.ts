@@ -166,7 +166,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     dateRange: "1967–1970",
     summary: "Biafra declares independence. Three years of war, blockade, and humanitarian crisis.",
     content:
-      "In May 1967, Colonel Odumegwu Ojukwu declared the Republic of Biafra in Nigeria's southeast, citing Igbo safety and self-determination. Federal forces blockaded Biafra; famine killed an estimated 1–3 million people, many children. The war ended in January 1970 with federal victory and a 'no victor, no vanquished' policy. Naija2050 presents this history with gravity: multiple credible sources, acknowledgment of human cost, and no adoption of a single partisan narrative.",
+      "In May 1967, Colonel Odumegwu Ojukwu declared the Republic of Biafra in Nigeria's southeast, citing Igbo safety and self-determination. Federal forces blockaded Biafra; famine killed an estimated 1–3 million people, many children. The war ended in January 1970 with federal victory and a 'no victor, no vanquished' policy. Nigeria2050 presents this history with gravity: multiple credible sources, acknowledgment of human cost, and no adoption of a single partisan narrative.",
     relatedSectorSlugs: ["security", "governance"],
     sourceIds: ["cbo-nigeria-history", "sipri-security-africa"],
     artDirection: "conflict",
@@ -263,7 +263,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     dateRange: "2022",
     summary: "The government's own long-range plan, top-20 economy, $4T GDP.",
     content:
-      "The National Planning Commission published Agenda 2050, targeting a $4.5 trillion economy and top-20 global ranking by 2050. The plan assumes 7%+ sustained growth, massive infrastructure investment, and human capital development. Naija2050 treats this as one input among many and stress-tests its assumptions against World Bank, McKinsey, and PwC scenarios, which range from optimistic to cautious.",
+      "The National Planning Commission published Agenda 2050, targeting a $4.5 trillion economy and top-20 global ranking by 2050. The plan assumes 7%+ sustained growth, massive infrastructure investment, and human capital development. Nigeria2050 treats this as one input among many and stress-tests its assumptions against World Bank, McKinsey, and PwC scenarios, which range from optimistic to cautious.",
     relatedSectorSlugs: ["economy", "energy", "education", "governance", "transportation", "real-estate", "tourism"],
     sourceIds: ["agenda-2050-npc", "mckinsey-nigeria-2050", "pwc-nigeria-2050"],
     artDirection: "reform",

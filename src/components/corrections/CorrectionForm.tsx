@@ -8,7 +8,7 @@ import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/Button";
 import type { CorrectionSubmission } from "@/types/content";
 
-const STORAGE_KEY = "naija2050-corrections";
+const STORAGE_KEY = "nigeria2050-corrections";
 
 interface CorrectionFormProps {
   defaultPageUrl?: string;
@@ -95,7 +95,7 @@ export function CorrectionForm({ defaultPageUrl = "" }: CorrectionFormProps) {
           required
           value={pageUrl}
           onChange={(e) => setPageUrl(e.target.value)}
-          placeholder="https://naija2050.org/sectors/economy"
+          placeholder="https://nigeria2050.com/sectors/economy"
           className="mt-1 w-full rounded-lg border border-border bg-background px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-ring"
         />
       </div>

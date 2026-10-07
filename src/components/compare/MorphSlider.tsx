@@ -6,8 +6,9 @@ import type { ComparatorMetric } from "@/types/content";
 import { AnimatedCounter } from "@/components/motion";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
-import { comparatorCounterProps, formatComparatorValue } from "@/lib/comparator-format";
+import { COMPARE_EXPLORER_META } from "@/content/compare-meta";
 import { SCENARIO_UI_NOTE } from "@/content/methodology";
+import { comparatorCounterProps, formatComparatorValue } from "@/lib/comparator-format";
 
 interface MorphSliderProps {
   metrics: ComparatorMetric[];
@@ -92,7 +93,9 @@ export function MorphSlider({
           </svg>
           <div className="absolute inset-0 flex items-center justify-center gap-6 px-6 lg:gap-8">
             <div className="text-center">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">Now</p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                {COMPARE_EXPLORER_META.morphNow}
+              </p>
               <p className="text-2xl font-bold lg:text-4xl">
                 {formatComparatorValue(metric.current, metric.unit)}
               </p>
@@ -100,14 +103,17 @@ export function MorphSlider({
             <IconArrowRight className="size-8 text-accent opacity-60" stroke={1.5} aria-hidden />
             <div className="text-center">
               <p className="text-xs uppercase tracking-widest text-accent">
-                2050{showAdjusted ? " with projects" : " scenario"}
+                {showAdjusted
+                  ? COMPARE_EXPLORER_META.morph2050WithProjects
+                  : COMPARE_EXPLORER_META.morph2050Scenario}
               </p>
               <p className="text-2xl font-bold text-accent lg:text-4xl">
                 {formatComparatorValue(target2050, metric.unit)}
               </p>
               {showAdjusted && (
                 <p className="mt-1 text-xs text-muted-foreground line-through">
-                  Base: {formatComparatorValue(base2050, metric.unit)}
+                  {COMPARE_EXPLORER_META.morphBasePrefix}{" "}
+                  {formatComparatorValue(base2050, metric.unit)}
                 </p>
               )}
             </div>
@@ -116,16 +122,16 @@ export function MorphSlider({
 
         <div className="border-t border-border bg-card p-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Drag to morph, {metric.label} at{" "}
-            <span className="font-bold text-foreground">
-              {Math.round(2024 + (2050 - 2024) * (position / 100))}
-            </span>
+            {COMPARE_EXPLORER_META.morphDragLead(
+              metric.label,
+              Math.round(2024 + (2050 - 2024) * (position / 100)),
+            )}
             {selectedLeverCount > 0 && (
-              <span className="block mt-1 text-xs font-medium text-accent">
-                {selectedLeverCount} project{selectedLeverCount === 1 ? "" : "s"} selected
+              <span className="mt-1 block text-xs font-medium text-accent">
+                {COMPARE_EXPLORER_META.morphProjectsSelected(selectedLeverCount)}
               </span>
             )}
-            <span className="block mt-1 text-xs font-normal">{SCENARIO_UI_NOTE}</span>
+            <span className="mt-1 block text-xs font-normal">{SCENARIO_UI_NOTE}</span>
           </p>
           <p className="mt-2 text-3xl font-bold text-accent">
             {showAdjusted ? (
@@ -162,7 +168,7 @@ export function MorphSlider({
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={Math.round(position)}
-            aria-label={`Morph slider for ${metric.label}`}
+            aria-label={COMPARE_EXPLORER_META.morphAria(metric.label)}
           >
             <div
               className="absolute inset-y-0 left-0 rounded-full bg-accent transition-[width] duration-75"
@@ -174,8 +180,8 @@ export function MorphSlider({
             />
           </div>
           <div className="mt-2 flex justify-between text-xs text-muted-foreground">
-            <span>Nigeria now (sourced)</span>
-            <span>2050 with your picks</span>
+            <span>{COMPARE_EXPLORER_META.morphTrackNow}</span>
+            <span>{COMPARE_EXPLORER_META.morphTrack2050}</span>
           </div>
         </div>
       </div>

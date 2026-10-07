@@ -4,13 +4,14 @@ import {
   IconBuildingSkyscraper,
   IconBulb,
   IconMessageChatbot,
-  IconSparkles,
   IconTimeline,
   IconWheel,
 } from "@tabler/icons-react";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeIconsTeaser } from "@/components/home/HomeIconsTeaser";
+import { IndependenceDayCommemorative } from "@/components/home/IndependenceDayCommemorative";
 import { NigeriaMapBeta } from "@/components/explore/NigeriaMapBeta";
+import { isIndependenceDaySeasonActive } from "@/lib/independence-day";
 import {
   Card,
   CardDescription,
@@ -22,13 +23,22 @@ import { LinkButton } from "@/components/ui/LinkButton";
 import { MotifDivider } from "@/components/ui/MotifDivider";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/motion";
+import { PULSE_META, PULSE_POLLS, PULSE_SESSION_SIZE } from "@/content/polls";
 import { SECTORS } from "@/lib/constants/sectors";
 import { CONTENT_STATS } from "@/lib/content-stats";
 
 export default function HomePage() {
+  const showIndependenceDay = isIndependenceDaySeasonActive();
+
   return (
     <div className="relative overflow-hidden">
       <HomeHero />
+
+      {showIndependenceDay ? (
+        <Section className="py-10 lg:py-12">
+          <IndependenceDayCommemorative />
+        </Section>
+      ) : null}
 
       <Section>
         <FadeIn>
@@ -119,20 +129,7 @@ export default function HomePage() {
 
       <Section variant="muted">
         <FadeIn>
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">
-              <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/15">
-                <IconSparkles className="size-7 text-accent" stroke={1.5} aria-hidden />
-              </div>
-              <h2 className="text-xl font-bold">Your Nigeria 2050</h2>
-              <p className="text-muted-foreground">
-                Pick sectors and generate a grounded day-in-2050 vignette from our sourced
-                projections. Shareable and clearly AI-labeled.
-              </p>
-              <LinkButton href="/your-2050" variant="primary" className="mt-auto w-fit">
-                Build your vignette
-              </LinkButton>
-            </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">
               <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/15">
                 <IconBulb className="size-7 text-accent" stroke={1.5} aria-hidden />
@@ -142,7 +139,7 @@ export default function HomePage() {
                 Vote on civic ideas, postal codes, road signs, libraries, and submit the
                 initiative you think Nigeria should build by 2050.
               </p>
-              <LinkButton href="/projects" variant="secondary" className="mt-auto w-fit">
+              <LinkButton href="/projects" variant="primary" className="mt-auto w-fit">
                 Rank the ideas
               </LinkButton>
             </div>
@@ -150,14 +147,12 @@ export default function HomePage() {
               <div className="flex size-14 items-center justify-center rounded-2xl bg-accent/15">
                 <IconWheel className="size-7 text-accent" stroke={1.5} aria-hidden />
               </div>
-              <h2 className="text-xl font-bold">Street Pulse</h2>
+              <h2 className="text-xl font-bold">{PULSE_META.homeTeaserTitle}</h2>
               <p className="text-muted-foreground">
-                Spin a wheel, answer eight questions in a round (pay, commute, meals, how
-                people buy), then see those charts. Refresh for a new round. A live sample
-                for teams marketing in Nigeria.
+                {PULSE_META.homeTeaserBody(PULSE_SESSION_SIZE, PULSE_POLLS.length)}
               </p>
               <LinkButton href="/pulse" variant="secondary" className="mt-auto w-fit">
-                Spin a poll
+                {PULSE_META.homeTeaserCta}
               </LinkButton>
             </div>
             <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">

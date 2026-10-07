@@ -1,4 +1,4 @@
-# Naija2050
+# Nigeria2050
 
 **Where Nigeria's History Meets Its Future**
 

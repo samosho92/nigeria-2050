@@ -7,8 +7,8 @@ import {
   isPulseZone,
 } from "@/content/polls";
 
-export const POLL_CLIENT_KEY = "naija2050-poll-client";
-export const POLL_PROFILE_KEY = "naija2050-poll-profile";
+export const POLL_CLIENT_KEY = "nigeria2050-poll-client";
+export const POLL_PROFILE_KEY = "nigeria2050-poll-profile";
 
 export interface PulseProfile {
   age: string;

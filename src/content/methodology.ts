@@ -1,5 +1,8 @@
+import { COMPARATOR_METRICS } from "@/content/comparator";
+import { SECTORS } from "@/content/sectors";
+
 export const METHODOLOGY_META = {
-  lastUpdated: "August 18, 2026",
+  lastUpdated: "October 4, 2026",
 };
 
 export interface MethodologyLink {
@@ -24,14 +27,33 @@ export const METHODOLOGY_PRINCIPLES = [
 
 /** Shown on sector milestones, scenario ranges, and the Now vs. 2050 slider. */
 export const SCENARIO_UI_NOTE =
-  "2030–2050 figures are base-case scenarios with stated assumptions.";
+  "2030–2050 figures are base-case scenarios with stated assumptions. Low/high bounds sit between multilateral projections and national ambition documents.";
+
+function comparatorById(id: string) {
+  const metric = COMPARATOR_METRICS.find((row) => row.id === id);
+  if (!metric) throw new Error(`Missing comparator metric: ${id}`);
+  return metric;
+}
+
+function projectionExamples(): string {
+  const population = comparatorById("population");
+  const literacy = comparatorById("literacy-rate");
+  const internet = comparatorById("internet-penetration");
+  const power = comparatorById("power-capacity");
+  const energy = SECTORS.find((sector) => sector.slug === "energy");
+  const available = energy?.baseline.availableCapacity ?? "~5.4 GW";
+  return `Examples from the comparator and energy baseline: population base ~${population.projected2050}M (UN WPP 2024 medium) with high near ${population.projected2050High}M; literacy baseline ${literacy.current}% (UIS 2024); regular mobile internet use ~${internet.current}% (GSMA); installed power ~${power.current} GW with ${available} available (NERC).`;
+}
+
+function comparatorMetricList(): string {
+  return COMPARATOR_METRICS.map((metric) => metric.label).join(", ");
+}
 
 export const METHODOLOGY_SECTIONS: MethodologySection[] = [
   {
     id: "positioning",
-    title: "What Naija2050 Is",
-    summary:
-      "Independent civic media.",
+    title: "What Nigeria2050 Is",
+    summary: "Independent civic media.",
     points: [
       "Two co-equal pillars at launch: interactive history and sourced 2050 sector visions, fused by bidirectional cross-links.",
       "Written for diaspora Nigerians, curious outsiders, young Nigerians, educators, and policy-adjacent professionals.",
@@ -45,7 +67,8 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     summary: "Every quantitative claim must be checkable against a named source.",
     points: [
       "All cited sources live in the public Source Library with publisher, year, and URL where available.",
-      "We prioritize primary and multilateral data: World Bank WDI, NBS, UNESCO UIS, IEA, UNDP, Transparency International, and peer-reviewed academic work.",
+      "We prioritize primary and multilateral data: World Bank WDI, UN WPP, NBS, UNESCO UIS, NERC, IEA, GSMA, WHO, UNDP, Transparency International, and peer-reviewed academic work.",
+      "Baselines prefer series with codes (for example UIS SE.ADT.LITR.ZS, NERC installed capacity, UN WPP medium).",
       "Narrative copy that cannot be tied to a specific source is labeled as editorial synthesis.",
       "Sector and era tags on each source show where it is used across the site.",
     ],
@@ -58,9 +81,9 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
       "Sector visions are scenarios, structured narratives built on baselines, milestones, and explicit assumptions.",
     points: [
       "Each sector page shows a sourced current baseline, then milestone narratives for 2030 / 2040 / 2050 labeled as scenarios.",
-      "Where underlying reports support it, we show low / base / high scenario ranges. The base case is the headline path.",
-      "Projections synthesize McKinsey, PwC, NPC Agenda 2050, World Bank, and sector-specific sources, always cited on the page.",
-      "2050 numbers are internally consistent within a sector (assumptions → milestones → ranges). Naija2050 does not run econometric models.",
+      "Headline comparator metrics carry low / base / high 2050 bounds. Base cases sit between multilateral projections (UN WPP, IEA, PwC) and national ambition (Agenda 2050, Energy Transition Plan).",
+      projectionExamples(),
+      "2050 numbers are internally consistent within a sector (assumptions → milestones → ranges). Nigeria2050 does not run econometric models.",
       "Cross-sector dependencies are stated explicitly (e.g. economic industrialization assumes energy delivery targets).",
     ],
     links: [{ href: "/sectors/economy", label: "Example sector page" }],
@@ -83,9 +106,9 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     title: "Now vs. 2050 Comparator",
     summary: "The morph slider interpolates between sourced baseline and base-case 2050 values.",
     points: [
-      "Ten headline metrics with named sources. GDP per capita, literacy, power, internet, logistics, urban slum share, and others.",
-      "The slider interpolates between a sourced baseline and a labeled 2050 scenario for illustration.",
-      "Low and high 2050 bounds are shown on sector pages where scenario ranges exist.",
+      `${COMPARATOR_METRICS.length} headline metrics with named sources: ${comparatorMetricList()}.`,
+      "The slider interpolates between a sourced baseline and a labeled 2050 base-case scenario for illustration.",
+      "Low and high 2050 bounds are published on the comparator where no single official 2050 series exists, and on sector pages via scenario ranges.",
     ],
     links: [{ href: "/compare", label: "Now vs. 2050" }],
   },
@@ -110,7 +133,7 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
     title: "AI & Interactive Tools",
     summary: "AI features are scoped, labeled, and grounded in our curated content store.",
     points: [
-      "Ask the Archive retrieves answers only from Naija2050’s own timeline, sector, glossary, icons, and source content. Questions are rate-limited on the server. They are not stored as transcripts and are not sent to third-party AI providers. Out-of-scope, abusive, explicit, self-harm, scam, and prompt-injection messages are declined before retrieval.",
+      "Ask the Archive retrieves answers only from Nigeria2050’s own timeline, sector, glossary, icons, and source content. Questions are rate-limited on the server. They are not stored as transcripts and are not sent to third-party AI providers. Out-of-scope, abusive, explicit, self-harm, scam, and prompt-injection messages are declined before retrieval.",
       "Out-of-scope questions are declined rather than hallucinated; answers include links back to source pages.",
       "All AI-assisted UI is labeled. Era portal art uses abstract CSS placeholders for settings only, with no depictions of real historical figures.",
       "AI-generated media promoted into the permanent library requires human editorial review before publication.",
@@ -142,10 +165,10 @@ export const METHODOLOGY_SECTIONS: MethodologySection[] = [
 ];
 
 export const METHODOLOGY_NON_GOALS = [
-  "Not a government relations or tourism-board product",
-  "Not a current-events or breaking-news site",
-  "Not an argument that Nigeria's problems don't exist",
-  "Not paywalled civic content, core material stays public",
+  "Independent civic media.",
+  "A long-horizon archive of history and 2050 scenarios.",
+  "Honest about present-day problems on the way to the optimistic case.",
+  "Core material stays public.",
 ];
 
-export const CORRECTIONS_EMAIL = "corrections@naija2050.org";
+export const CORRECTIONS_EMAIL = "corrections@nigeria2050.com";

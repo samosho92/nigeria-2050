@@ -14,106 +14,128 @@ export interface LegalDocument {
   sections: LegalSection[];
 }
 
-export const LEGAL_CONTACT_EMAIL = "corrections@naija2050.org";
+export const LEGAL_CONTACT_EMAIL = "corrections@nigeria2050.com";
+
+/** Cookie / analytics consent banner and preference reopen. */
+export const COOKIE_CONSENT_COPY = {
+  title: "Help us see what is useful",
+  body: "Anonymous page analytics show which timeline eras, sectors, and tools people open. That guides what we build next. No ads and no personal profile. You can change this anytime.",
+  accept: "Allow analytics",
+  decline: "Not now",
+  privacy: "Privacy policy",
+  preferencesTitle: "Analytics preference",
+  preferencesBody:
+    "Anonymous page analytics help us improve Nigeria2050. No ads and no personal profile. Pick a choice below, or leave it as it is.",
+  keepCurrent: "Keep current choice",
+} as const;
 
 export const PRIVACY_POLICY: LegalDocument = {
   slug: "privacy",
   title: "Privacy Policy",
   eyebrow: "Legal",
   description:
-    "How Naija2050 handles data when you browse the site, use interactive tools, or contact us.",
-  lastUpdated: "August 19, 2026",
+    "How Nigeria2050 handles information when you use the site.",
+  lastUpdated: "October 4, 2026",
   sections: [
     {
       id: "overview",
       title: "Overview",
       paragraphs: [
-        "Naija2050 is independent civic media. We do not sell personal data, run targeted advertising, or require an account to read the site.",
-        "This policy describes what limited information we may collect, why we collect it, and the choices available to you.",
+        "Nigeria2050 is independent civic media. You can read the site without creating an account. We do not sell personal information or use the site for targeted advertising.",
+        "This policy explains what information we may process, why we process it, and the choices you have.",
       ],
     },
     {
       id: "what-we-collect",
-      title: "Information we collect",
+      title: "Information we process",
       paragraphs: [
-        "Most use of Naija2050 does not involve submitting personal information. Depending on how you interact with the site, we may process:",
+        "Depending on how you use the site, we may process:",
       ],
       bullets: [
-        "Anonymous usage events (page views, cross-pillar navigation, comparator interactions, Street Pulse spin and answer events that name only the poll id) when analytics is enabled in production.",
-        "Browser-local preferences you set on your device, such as theme, data-saver mode, a Street Pulse profile (age band, gender, zone), and a short rolling log of anonymous analytics events stored in localStorage.",
-        "Questions you type into Ask the Archive. They are sent to our server for retrieval against curated site content, rate-limited, and not stored as chat transcripts. Blocked or abusive prompts are declined and are not persisted.",
-        "Street Pulse ballots: a random browser UUID, the poll and option you pick, plus the age band, gender, and geopolitical zone you chose. Country is read from the request at the edge and is not stored on the ballot. We do not ask for a name, email, or GPS coordinates. Salary and spend answers are stored as bands.",
-        "Information you choose to send by email or through the corrections and project-idea forms (for example a page URL, a claim, an optional email address, or a civic proposal). Do not include passwords, bank details, or other sensitive personal data.",
+        "Technical and usage data needed to deliver pages securely (for example request metadata handled by our hosting and delivery providers).",
+        "Optional analytics events after you consent (for example page views and high-level feature use). These events do not include your name or email.",
+        "Preferences stored on your device so the site remembers settings you choose, such as theme, data-saver, analytics consent, and profile bands used by interactive tools.",
+        "Content you submit through interactive tools, including poll answers, chat questions, corrections, and project ideas. Poll answers use anonymous bands and a random browser identifier. We do not ask for a name, password, or precise location on those tools.",
+        "Information you choose to send us by email or form, such as a page link, a correction, or a contact address. Do not send passwords, payment details, or other sensitive personal data.",
+      ],
+    },
+    {
+      id: "how-we-use",
+      title: "How we use information",
+      paragraphs: [
+        "We use information to operate and improve the site, keep interactive features working, understand aggregate usage, respond to messages you send, and support editorial quality.",
+        "Poll answers and similar submissions may be shown in aggregate on the site and used for research summaries. We may share or license aggregated, non-identifying results. We do not sell individual identifiable records.",
       ],
     },
     {
       id: "analytics",
-      title: "Analytics",
+      title: "Analytics and consent",
       paragraphs: [
-        "We ask for your consent before enabling optional analytics. If you accept, we may send privacy-oriented usage data to Plausible and Google Analytics 4 (GA4) when those services are configured in production.",
-        "If you decline, optional analytics stays off. Core site functions still work.",
-        "When analytics is enabled, we record lightweight, anonymous interaction events (page views, cross-pillar navigation, comparator use, Ask the Archive queries, Street Pulse spin and answer events that name only the poll id, search selections, and preference toggles). These events do not include your name, email, or precise location.",
-        "You can change your choice anytime through Cookie settings in the footer. Clearing site data in your browser removes locally stored preferences, Street Pulse profile, consent choice, and analytics summaries.",
+        "Optional analytics runs only after you accept. If you decline, the site still works without those analytics tools.",
+        "When analytics is on, we may use first-party analytics services configured for production. You can change your choice anytime through Cookie settings in the footer.",
       ],
     },
     {
-      id: "street-pulse",
-      title: "Street Pulse",
+      id: "interactive-tools",
+      title: "Interactive tools",
       paragraphs: [
-        "Street Pulse is an anonymous poll for people 18 or older answering from Nigeria. We check country from the network address used to reach the site. We do not store that country on the ballot. We store one answer per poll per browser UUID, with the age band, gender, and zone you select. Results for a poll are shown to you only after you answer it.",
-        "In production, ballots are stored in a managed data store. In local development, ballots use a local file for testing. Each row records the question, the band you picked, age, gender, zone, and a timestamp. We may forward a copy of a new ballot to an optional research webhook (Make, a Google Sheet, or similar). That copy uses a short hash instead of the browser UUID. Operators may export the same rows with a secret token.",
-        "If enough people answer, Naija2050 may license aggregate tables and crosstabs (for example pay band by zone) to organizations studying Nigerian consumer behavior. We do not sell a row that identifies a person. Crosstabs on the public page require at least five answers in that cell.",
+        "Some tools have eligibility rules shown on the tool itself (for example age or location). Where a tool records answers, we store only what is needed for that feature, usually as ranges or categories rather than free-text personal details.",
+        "Chat and similar guides retrieve answers from our curated site content. Requests are rate-limited. We do not send those questions to third-party AI providers, and we do not keep chat transcripts as a personal profile.",
       ],
     },
     {
       id: "cookies",
       title: "Cookies and local storage",
       paragraphs: [
-        "Naija2050 uses browser local storage for functional preferences such as theme, data-saver, Street Pulse profile, and your analytics consent choice.",
-        "Optional analytics only runs after consent. You can accept, decline, or reopen cookie settings from the site footer.",
-        "If Plausible analytics is enabled, Plausible may set a first-party cookie or use local storage consistent with its documentation.",
-        "If GA4 is enabled, Google may set first-party cookies consistent with Google's documentation. We configure GA4 with anonymized IP and without ad personalization.",
+        "We use local storage and, where needed, cookies for essential site function and for preferences you set.",
+        "Optional analytics cookies or storage run only after consent. Clearing site data in your browser removes locally stored preferences and consent choices.",
       ],
     },
     {
       id: "third-parties",
-      title: "Third-party services",
+      title: "Sharing and third parties",
       paragraphs: [
-        "The site links to external sources cited in our Source Library. Those sites have their own privacy practices.",
-        "Hosting and delivery may be provided by infrastructure vendors (for example, Vercel). They process technical request data needed to serve the site securely.",
-        "Ask the Archive runs a scoped retrieval pass on our servers against content shipped with the site. Questions stay on our servers; we do not send them to third-party AI providers. We rate-limit requests and do not persist question text.",
+        "We use service providers to host, deliver, store, and (with consent) measure the site. They process data only as needed to provide those services.",
+        "Links to external sources lead to other sites with their own privacy practices.",
+        "We may disclose information if required by law, or to protect the security and integrity of the site.",
       ],
     },
     {
       id: "retention",
       title: "Retention",
       paragraphs: [
-        "Local browser data persists until you clear it. Street Pulse ballots are retained on the server until the host file is rotated or deleted. Email correspondence is retained only as long as needed to investigate corrections, respond to you, and maintain an editorial record of updates.",
-        "Aggregate analytics, if enabled, is retained according to our analytics provider's settings.",
+        "We keep information only as long as needed for the purposes above, including operating interactive features, answering messages, and meeting legal obligations.",
+        "Data stored in your browser remains until you clear it. Analytics retention follows the settings of the analytics services we use.",
       ],
     },
     {
       id: "rights",
       title: "Your choices and rights",
       paragraphs: [
-        "You may browse without creating an account. You can disable non-essential client storage by clearing site data in your browser settings.",
-        "You can change analytics consent at any time through Cookie settings in the footer.",
-        "Depending on where you live, you may have rights to access, correct, or delete personal information we hold about you. Because we collect very little identifiable data, many requests may simply confirm that we do not maintain a profile for you.",
-        "To exercise privacy rights or ask a question about this policy, contact us at the email below.",
+        "You may browse without an account. You can withdraw analytics consent in Cookie settings and clear site data in your browser.",
+        "Depending on where you live, you may have rights to access, correct, delete, or restrict processing of personal information we hold about you, or to object to certain processing.",
+        "Because we collect little identifiable data, many requests will confirm that we do not maintain a personal profile for you. Contact us at the email below to make a request.",
       ],
     },
     {
       id: "children",
       title: "Children",
       paragraphs: [
-        "Naija2050 is a public educational resource intended for a general audience. We do not knowingly collect personal information from children under 13. Street Pulse is limited to people 18 or older answering from Nigeria. If you believe a child has provided us personal information, contact us and we will delete it.",
+        "The site is intended for a general audience. We do not knowingly collect personal information from children under 13. Some interactive features are limited to adults; those limits are stated on the relevant pages. Contact us if you believe a child has submitted personal information, and we will delete it.",
+      ],
+    },
+    {
+      id: "international",
+      title: "Where information is processed",
+      paragraphs: [
+        "The site and its service providers may process information in countries other than where you live. Where we do so, we take steps appropriate to the nature of the data and the services involved.",
       ],
     },
     {
       id: "changes",
       title: "Changes to this policy",
       paragraphs: [
-        "We may update this Privacy Policy when our practices change. The “Last updated” date at the top of this page will change when we do. Material changes will be reflected on this page.",
+        "We may update this Privacy Policy when our practices change. The “Last updated” date on this page will change when we do. Continued use of the site after an update means you have seen the revised policy.",
       ],
     },
     {
@@ -131,14 +153,14 @@ export const TERMS_OF_USE: LegalDocument = {
   title: "Terms of Use",
   eyebrow: "Legal",
   description:
-    "Rules for using Naija2050, our editorial content, interactive tools, and projections.",
+    "Rules for using Nigeria2050, our editorial content, interactive tools, and projections.",
   lastUpdated: "August 19, 2026",
   sections: [
     {
       id: "acceptance",
       title: "Acceptance",
       paragraphs: [
-        "By accessing or using Naija2050 (the “Site”), you agree to these Terms of Use. If you do not agree, do not use the Site.",
+        "By accessing or using Nigeria2050 (the “Site”), you agree to these Terms of Use. If you do not agree, do not use the Site.",
         "We may update these terms from time to time. Continued use after the “Last updated” date changes constitutes acceptance of the revised terms.",
       ],
     },
@@ -146,7 +168,7 @@ export const TERMS_OF_USE: LegalDocument = {
       id: "about",
       title: "What the Site provides",
       paragraphs: [
-        "Naija2050 publishes interactive history, sourced sector scenarios to 2050, comparators, and educational tools. It is independent civic media.",
+        "Nigeria2050 publishes interactive history, sourced sector scenarios to 2050, comparators, and educational tools. It is independent civic media.",
         "2050 figures are scenarios built on stated assumptions and cited sources. They are not guarantees, forecasts offered for trading purposes, or professional advice.",
       ],
     },
@@ -169,14 +191,14 @@ export const TERMS_OF_USE: LegalDocument = {
         "Attempt to bypass security, probe systems, or inject malicious code.",
         "Misrepresent Site content as official government policy, guaranteed economic outcomes, or personalized professional advice.",
         "Use Ask the Archive, Street Pulse, or other tools to generate harassment, spam, or unlawful content.",
-        "Remove source attributions or imply endorsement by Naija2050 where none exists.",
+        "Remove source attributions or imply endorsement by Nigeria2050 where none exists.",
       ],
     },
     {
       id: "ai-tools",
       title: "Ask the Archive and AI-labeled features",
       paragraphs: [
-        "Ask the Archive retrieves answers from Naija2050's curated content store on the server. It may decline out-of-scope, abusive, unsafe, or injection-style questions rather than speculate. Requests are rate-limited.",
+        "Ask the Archive retrieves answers from Nigeria2050's curated content store on the server. It may decline out-of-scope, abusive, unsafe, or injection-style questions rather than speculate. Requests are rate-limited.",
         "AI-assisted responses and labels are for exploration. Follow the source links before relying on an answer. ",
         "Do not treat AI-generated summaries as a substitute for professional, legal, financial, or medical advice.",
       ],
@@ -185,7 +207,7 @@ export const TERMS_OF_USE: LegalDocument = {
       id: "street-pulse",
       title: "Street Pulse",
       paragraphs: [
-        "Street Pulse is for people 18 or older answering from Nigeria. Answers are anonymous bands. By submitting a ballot you grant Naija2050 a license to use it in aggregate research, public charts, and licensed reports. You may skip a demographic field labeled Prefer not to say.",
+        "Street Pulse is for people 18 or older answering from Nigeria. Answers are anonymous bands. By submitting a ballot you grant Nigeria2050 a license to use it in aggregate research, public charts, and licensed reports. You may skip a demographic field labeled Prefer not to say.",
         "The sample is whoever uses this site. Live n is shown. Treat small counts as a weak signal.",
       ],
     },
@@ -193,7 +215,7 @@ export const TERMS_OF_USE: LegalDocument = {
       id: "intellectual-property",
       title: "Intellectual property",
       paragraphs: [
-        "Site design, editorial structure, original text, data visualizations, and branding are owned by Naija2050 or its licensors unless otherwise noted.",
+        "Site design, editorial structure, original text, data visualizations, and branding are owned by Nigeria2050 or its licensors unless otherwise noted.",
         "Cited third-party data remains subject to the terms of the original publishers. Source links are provided so you can verify rights and reuse conditions at the origin.",
         "Limited quotation with attribution and link-back is welcome for commentary, education, and journalism. Commercial republication of substantial portions requires prior written permission.",
       ],
@@ -204,14 +226,14 @@ export const TERMS_OF_USE: LegalDocument = {
       paragraphs: [
         'The Site is provided "as is" and "as available." We strive for accuracy and source transparency but do not warrant that content is complete, current, or error-free.',
         "Historical topics, including contested periods, are presented with editorial care yet may not reflect every perspective. Projections depend on assumptions that may not materialize.",
-        "To the fullest extent permitted by law, Naija2050 disclaims liability for decisions you make based on Site content.",
+        "To the fullest extent permitted by law, Nigeria2050 disclaims liability for decisions you make based on Site content.",
       ],
     },
     {
       id: "liability",
       title: "Limitation of liability",
       paragraphs: [
-        "Naija2050 and its contributors will not be liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the Site.",
+        "Nigeria2050 and its contributors will not be liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the Site.",
         "Where liability cannot be excluded, it is limited to the amount you paid to use the Site (which is zero for public access).",
       ],
     },
@@ -226,7 +248,7 @@ export const TERMS_OF_USE: LegalDocument = {
       id: "governing-law",
       title: "Governing law",
       paragraphs: [
-        "These terms are governed by the laws applicable to the operator of Naija2050, without regard to conflict-of-law rules. Disputes should first be raised via the contact email above.",
+        "These terms are governed by the laws applicable to the operator of Nigeria2050, without regard to conflict-of-law rules. Disputes should first be raised via the contact email above.",
       ],
     },
     {

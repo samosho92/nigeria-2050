@@ -117,7 +117,7 @@ export const PULSE_POLLS: PulsePoll[] = [
     id: "pay-stretch",
     category: "pay",
     question: "When in the month does the money usually run tight?",
-    hint: "A typical month, not a one-off shock.",
+    hint: "Think of a typical month.",
     options: [
       { id: "lasts", label: "It lasts the month" },
       { id: "last-week", label: "Tight in the last week" },
@@ -221,7 +221,7 @@ export const PULSE_POLLS: PulsePoll[] = [
     id: "meals-protein",
     category: "meals",
     question: "What was the main protein in yesterday's main meal?",
-    hint: "The one on the plate, not the snack.",
+    hint: "The main protein on the plate.",
     options: [
       { id: "fish", label: "Fish" },
       { id: "chicken", label: "Chicken" },
@@ -338,7 +338,7 @@ export const PULSE_POLLS: PulsePoll[] = [
     id: "data-spend",
     category: "data",
     question: "What do you spend on mobile data and airtime in a typical month?",
-    hint: "Your lines, not the whole household unless you buy for everyone.",
+    hint: "Your own lines, unless you buy for the whole household.",
     options: [
       { id: "under-3k", label: "Under ₦3,000" },
       { id: "3-8k", label: "₦3,000–₦7,999" },
@@ -453,7 +453,7 @@ export const PULSE_POLLS: PulsePoll[] = [
     id: "basket-where",
     category: "basket",
     question: "Where did you buy most of the household food last week?",
-    hint: "By naira spent, not by number of visits.",
+    hint: "Count by naira spent.",
     options: [
       { id: "market", label: "Open market" },
       { id: "kiosk", label: "Neighbourhood shop or kiosk" },
@@ -489,24 +489,115 @@ export const PULSE_POLLS: PulsePoll[] = [
   },
 ];
 
+export const PULSE_SESSION_SIZE = 8;
+
 export const PULSE_META = {
   title: "How Nigeria actually lives",
   eyebrow: "Street Pulse",
   name: "Street Pulse",
-  description:
-    "Eight questions per round, drawn from a larger pool. Spin, answer, then see how other readers in Nigeria answered. Refresh the page for a new round. Age band, gender, and zone travel with the ballot.",
+  description: `${PULSE_SESSION_SIZE} questions per round from a pool of ${PULSE_POLLS.length}. Spin, answer, unlock that chart. The rest stay locked until you do. Age band, gender, and zone travel with the ballot.`,
+  asideEyebrow: "Charts stay locked",
+  asideBody: (sessionSize: number, poolSize: number, categoryCount: number) =>
+    `${sessionSize} questions this round. Answer one, unlock that chart. ${poolSize} in the pool across ${categoryCount} categories. Live n from Nigeria.`,
+  homeTeaserTitle: "Street Pulse",
+  homeTeaserBody: (sessionSize: number, poolSize: number) =>
+    `Spin, answer, unlock the chart. ${sessionSize} questions per round from a pool of ${poolSize}. Charts stay locked until you vote. Live tallies from readers in Nigeria.`,
+  homeTeaserCta: "Spin a poll",
+  profileEyebrow: "30 seconds, then the charts",
+  profileTitle: "Before the wheel",
   profileLead:
-    "Three bands, then the wheel. We keep answers in ranges. You must be 18 or older, and answering from Nigeria.",
+    "Three short screening questions, then the wheel. Answers stay in ranges. You must be 18 or older, and answering from Nigeria.",
+  profileBenefits: [
+    "Unlock a live chart after each answer",
+    "See how other readers in Nigeria answered",
+    `${PULSE_SESSION_SIZE} questions this round, more waiting in the pool`,
+  ],
+  profileStep: (current: number, total: number) => `Step ${current} of ${total}`,
+  profileContinue: "Continue",
+  profileBack: "Back",
+  profileStart: "Start screening",
+  adultTitle: "Age check",
+  adultConfirm: (minAge: number) => `I am ${minAge} or older`,
+  adultLead: "Confirm you are old enough to take part.",
+  ageLegend: "Age band",
+  ageLead: "Pick the band that matches your age.",
+  genderLegend: "Gender",
+  genderLead: "How do you describe your gender?",
+  zoneLegend: "Where you live",
+  zoneLead: "Which zone best describes where you live?",
+  unlockWheel: "Unlock the wheel",
+  profileZoneIncomplete: "Pick a zone to open the round.",
+  idleEyebrow: "Locked until you answer",
+  idleTitle: "Draw a question",
+  idleLead: "Spin to land on a locked question. The chart opens the moment you answer.",
+  idleWaiting: (open: number, total: number) =>
+    `${open} of ${total} still waiting in this round.`,
+  spinWheel: "Spin the wheel",
+  spinning: "Spinning…",
+  claimCategory: "Or claim a category",
+  claimCategoryToggle: "Pick a topic instead",
+  claimCategoryHide: "Hide topics",
+  stillLockedRound: (n: number) => `${n} still locked this round`,
+  revealChoices: "See the choices",
+  answerCtaHint: "Your answer unlocks the live tally for this question.",
+  chartLocked: "Chart locked",
+  chartUnlocked: "Unlocked",
+  spinNextLabel: "Spin the next question",
+  remainingLeft: (n: number) => ` · ${n} left`,
+  shareLabel: "Share Street Pulse",
+  shareCopied: "Link copied",
+  shareText:
+    "I am answering Street Pulse on Nigeria2050: how Nigeria actually lives. Join from Nigeria and unlock the charts.",
+  poolCompleteEyebrow: "Pool complete",
+  poolCompleteTitle: "You unlocked the full pool",
+  poolCompleteLead:
+    "Every chart in the pool is open on this browser. Share the page so the tallies keep moving.",
+  roundCompleteEyebrow: "Round complete",
+  roundCompleteTitle: (n: number) => `${n} charts unlocked this round`,
+  roundCompleteLead: "You unlocked this round. The next draw pulls from questions you have not answered yet.",
+  stillLockedPool: (n: number) => `${n} still locked in the pool.`,
+  drawAnother: (n: number) => `Draw another ${n}`,
+  resultsTitle: "What others answered",
+  resultsLead: (unlocked: number, pool: number) =>
+    `${unlocked} of ${pool} charts unlocked on this browser.`,
+  resultsShow: (n: number) => `Show ${n} unlocked chart${n === 1 ? "" : "s"}`,
+  resultsHide: "Hide unlocked charts",
+  noChartsYet: "No charts yet. Answer once and the live tally for that question opens here.",
+  progressTitle: "Your unlock progress",
+  progressRound: (answered: number, roundSize: number) =>
+    `${answered} of ${roundSize} this round`,
+  progressLocked: (n: number) => `${n} locked`,
+  progressPool: (unlocked: number, pool: number) => `${unlocked} / ${pool} in the pool`,
+  progressWaiting: (n: number) => ` · ${n} waiting`,
+  progressShowDetails: "Show progress details",
+  progressHideDetails: "Hide progress details",
+  meterRound: "This round",
+  meterPool: "Full pool",
+  liveFrom: (n: number) =>
+    `Live from ${n} ${n === 1 ? "reader" : "readers"} on this question.`,
+  leadingAnswer: "Leading answer:",
+  includesYourPick: " · includes your pick",
+  youLabel: "You",
+  byZone: "By zone (5 or more answers)",
+  byZoneShow: "Show answers by zone",
+  noLead: "No lead",
+  wheelCenter: "Pulse",
   outsideTitle: "Street Pulse takes answers from Nigeria",
   outsideLead:
     "These questions are about daily life here: pay, power, the commute, the market. The tables describe people answering from inside the country.",
   outsideHint:
     "You can still read the sectors, the timeline, and Cool Projects. If you are in Nigeria, turn off a VPN or private relay and refresh.",
+  outsideLinks: [
+    { href: "/sectors", label: "Sector visions" },
+    { href: "/timeline", label: "Timeline" },
+    { href: "/projects", label: "Cool Projects" },
+  ],
   outsideApiMessage: "Street Pulse only records answers from Nigeria.",
-  researchNote:
-    "Answers are anonymous. Naija2050 does not sell your personal information.",
+  saveError: "Could not save that answer. Try again.",
   emptyChart: "You are the first on this question. Share the page and come back for a crowd.",
   smallChart: "Treat a small n as a signal. The bars are live votes from this site.",
+  unlockedResultsAria: "Unlocked results",
+  categoryStatusAria: "Category unlock status",
 };
 
 export function getPulseCategory(id: string): PulseCategory | undefined {
@@ -531,8 +622,6 @@ export function unansweredPulsePolls(
     return true;
   });
 }
-
-export const PULSE_SESSION_SIZE = 8;
 
 function shuffle<T>(items: T[]): T[] {
   const next = [...items];

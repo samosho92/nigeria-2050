@@ -1,5 +1,5 @@
 ---
-description: React and Next.js component patterns for Naija2050
+description: React and Next.js component patterns for Nigeria2050
 globs: src/**/*.{tsx,ts}
 alwaysApply: false
 ---

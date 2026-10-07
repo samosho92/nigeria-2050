@@ -5,10 +5,11 @@ import { getClientPulseState, recordPulseAnswer } from "@/lib/polls-store";
 import { isValidClientId } from "@/lib/projects";
 import {
   getClientIp,
+  isBrowserMutationRequest,
   isSafeWebhookUrl,
   isTrustedBrowserRequest,
   jsonError,
-  rateLimit,
+  rateLimitDurable,
   readJsonBody,
 } from "@/lib/security";
 
@@ -23,22 +24,32 @@ interface AnswerBody {
   zone?: unknown;
 }
 
+function emptyPulsePayload(eligible: boolean) {
+  return {
+    ok: true as const,
+    eligible,
+    pollCount: PULSE_POLLS.length,
+    voted: {},
+    tallies: {},
+  };
+}
+
 export async function GET(request: Request) {
   const ip = getClientIp(request);
-  if (!rateLimit(`polls-get:${ip}`, 120, 60_000)) {
+  if (!(await rateLimitDurable(`polls-get:${ip}`, 60, 60_000))) {
     return jsonError("Too many requests", 429);
   }
 
   const eligible = isNigeriaPulseRequest(request);
   const clientId = new URL(request.url).searchParams.get("clientId")?.trim() ?? "";
-  if (!isValidClientId(clientId)) {
-    return Response.json({
-      ok: true,
-      eligible,
-      pollCount: PULSE_POLLS.length,
-      voted: {},
-      tallies: {},
-    });
+
+  // Vote state and tallies stay behind same-origin browser checks.
+  if (!isTrustedBrowserRequest(request) || !isValidClientId(clientId)) {
+    return Response.json(emptyPulsePayload(eligible));
+  }
+
+  if (!(await rateLimitDurable(`polls-get-client:${clientId}`, 30, 60_000))) {
+    return jsonError("Too many requests", 429);
   }
 
   const state = eligible
@@ -48,12 +59,15 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  if (!isTrustedBrowserRequest(request)) {
+  if (!isBrowserMutationRequest(request)) {
     return jsonError("Forbidden", 403);
   }
 
   const ip = getClientIp(request);
-  if (!rateLimit(`polls-answer:${ip}`, 40, 60_000)) {
+  if (!(await rateLimitDurable(`polls-burst:${ip}`, 4, 10_000))) {
+    return jsonError("Too many answers", 429);
+  }
+  if (!(await rateLimitDurable(`polls-answer:${ip}`, 20, 60_000))) {
     return jsonError("Too many answers", 429);
   }
 
@@ -75,6 +89,10 @@ export async function POST(request: Request) {
 
   if (!isValidClientId(clientId) || !isPulseProfile(profile)) {
     return jsonError("Invalid profile", 400);
+  }
+
+  if (!(await rateLimitDurable(`polls-answer-client:${clientId}`, 24, 60 * 60_000))) {
+    return jsonError("Too many answers", 429);
   }
 
   try {

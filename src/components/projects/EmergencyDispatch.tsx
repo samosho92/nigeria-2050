@@ -26,7 +26,6 @@ import {
   UNIT_STATUS_LABEL,
   clusterCityName,
   dispatchSeedIds,
-  formatBeatClock,
   getDispatchCluster,
   incidentsForCluster,
   languageLabel,
@@ -39,6 +38,7 @@ import {
   type Speaker,
   type UnitStatus,
 } from "@/content/emergency-112";
+import { formatBeatClock } from "@/lib/emergency-format";
 import { cn } from "@/lib/utils";
 
 const DEFAULT_CLUSTER = "abuja";
@@ -254,9 +254,9 @@ export function EmergencyDispatch() {
               </p>
               <h3 className="mt-1 font-serif text-2xl font-bold tracking-tight">{capital.capital}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Not a seed cluster. The same gate still applies: night call-takers, a dispatcher, radio
-                ACK, urban postal codes loaded. Until then 112 stays unpublished here, a voicemail
-                number is worse than none.
+                Outside the seed clusters. The same gate still applies: night call-takers, a
+                dispatcher, radio ACK, urban postal codes loaded. Until then 112 stays unpublished
+                here; a voicemail number is worse than none.
               </p>
             </Card>
           )}

@@ -1,9 +1,9 @@
 import { answerArchiveQuestion } from "@/lib/ask-archive";
 import {
   getClientIp,
-  isTrustedBrowserRequest,
+  isBrowserMutationRequest,
   jsonError,
-  rateLimit,
+  rateLimitDurable,
   readJsonBody,
 } from "@/lib/security";
 
@@ -14,12 +14,12 @@ interface AskBody {
 }
 
 export async function POST(request: Request) {
-  if (!isTrustedBrowserRequest(request)) {
+  if (!isBrowserMutationRequest(request)) {
     return jsonError("Forbidden", 403);
   }
 
   const ip = getClientIp(request);
-  if (!rateLimit(`ask:${ip}`, 20, 60_000)) {
+  if (!(await rateLimitDurable(`ask:${ip}`, 20, 60_000))) {
     return jsonError("Too many questions. Please wait a moment.", 429);
   }
 

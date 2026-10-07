@@ -1,5 +1,6 @@
 "use client";
 
+import { PULSE_META } from "@/content/polls";
 import { cn } from "@/lib/utils";
 
 export interface WheelSlice {
@@ -55,7 +56,7 @@ export function PollWheel({ slices, rotation, spinning, animate, onSpin, disable
             />
           ))}
           <div className="absolute inset-[34%] flex items-center justify-center rounded-full border border-border bg-card text-[0.65rem] font-semibold uppercase tracking-widest text-muted-foreground">
-            Pulse
+            {PULSE_META.wheelCenter}
           </div>
         </div>
       </div>
@@ -69,7 +70,7 @@ export function PollWheel({ slices, rotation, spinning, animate, onSpin, disable
           "disabled:pointer-events-none disabled:opacity-50",
         )}
       >
-        {spinning ? "Spinning…" : "Spin the wheel"}
+        {spinning ? PULSE_META.spinning : PULSE_META.spinWheel}
       </button>
     </div>
   );

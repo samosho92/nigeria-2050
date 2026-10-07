@@ -254,7 +254,7 @@ export function buildVignetteShareText(
     "",
     body,
     "",
-    `A fiction grounded in sourced Naija2050 projections.`,
+    `A fiction grounded in sourced Nigeria2050 projections.`,
     url,
   ].join("\n");
 }

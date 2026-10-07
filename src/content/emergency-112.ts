@@ -168,7 +168,7 @@ export const AGENCY_PROTOCOL: Record<
       "Can the caller stay in a safer place?",
       "Confirm the code. Weapons: yes or no, no further detail on the open line unless the unit asks.",
     ],
-    never: "The call-taker is not an investigator. Get the unit moving; take a statement later.",
+    never: "The call-taker gets the unit moving. Take a statement later.",
   },
 };
 
@@ -918,8 +918,4 @@ export function reportFor(clusterId: string): ClusterReport | undefined {
   return CLUSTER_REPORTS.find((row) => row.clusterId === clusterId);
 }
 
-export function formatBeatClock(seconds: number): string {
-  const m = Math.floor(seconds / 60);
-  const s = seconds % 60;
-  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-}
+export { formatBeatClock } from "@/lib/emergency-format";

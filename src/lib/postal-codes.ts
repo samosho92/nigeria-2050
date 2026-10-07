@@ -1,7 +1,5 @@
 import {
   POSTAL_CAPITALS,
-  formatPostalCode,
-  formatStreetCode,
   streetZonesFor,
   type PostalBand,
   type PostalCapital,
@@ -9,6 +7,7 @@ import {
   type PostalStreetZone,
 } from "@/content/postal-code-engine";
 import { NIGERIA_MAP_REGIONS } from "@/content/nigeria-map";
+import { formatPostalCode, formatStreetCode } from "@/lib/postal-format";
 
 export interface PostalLookupHit {
   id: string;

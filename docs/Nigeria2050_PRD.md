@@ -1,5 +1,5 @@
 # Product Requirements Document
-## Working Title: **Naija2050** — "Where Nigeria's History Meets Its Future"
+## Working Title: **Nigeria2050** — "Where Nigeria's History Meets Its Future"
 
 **Author:** Samuel Osho
 **Status:** Draft v2 (product spec) · implementation tracked in [BUILD_PLAN.md](./BUILD_PLAN.md)
@@ -11,7 +11,7 @@
 
 ## 1. Executive Summary
 
-Naija2050 is a public web app built on two co-equal MVP pillars — not a vision product with history bolted on, but a single product where neither pillar ships without the other:
+Nigeria2050 is a public web app built on two co-equal MVP pillars — not a vision product with history bolted on, but a single product where neither pillar ships without the other:
 
 1. **Reimagines Nigeria's key sectors by 2050** — economy, governance, security, education, energy, and technology — through credible, data-grounded, optimistic scenario projections.
 2. **Makes Nigeria's history legible to people who don't know it** — pre-colonial kingdoms, colonial rule, independence, the civil war, military rule, the return to democracy, and the reform era — as a fully interactive, richly designed experience, not a reference appendix.
@@ -26,13 +26,13 @@ The core bet: optimism about Nigeria's future is more persuasive, not less, when
 - **For Nigerians themselves, especially younger ones:** History is inconsistently taught, politically contested, and rarely presented with production quality that makes people want to engage with it. Meanwhile, positive long-range thinking about the country's trajectory is crowded out by (legitimate) day-to-day frustration with governance and services.
 - **For policy-interested and investor audiences:** Long-range sector projections about Nigeria exist (McKinsey, PwC, World Bank, NBS, Nigeria's own Agenda 2050 / National Development Plan) but are scattered across PDFs, paywalled reports, and dense documents not built for public consumption.
 
-Naija2050 sits at the intersection of civic education, nation-branding, and public data storytelling — a space no single Nigerian or diaspora product currently occupies well.
+Nigeria2050 sits at the intersection of civic education, nation-branding, and public data storytelling — a space no single Nigerian or diaspora product currently occupies well.
 
 ---
 
 ## 3. Vision & Product Principles
 
-**Vision statement:** By 2050, when someone anywhere in the world wants to understand Nigeria's story and trajectory, Naija2050 is the first credible, visually compelling place they go.
+**Vision statement:** By 2050, when someone anywhere in the world wants to understand Nigeria's story and trajectory, Nigeria2050 is the first credible, visually compelling place they go.
 
 **Product principles:**
 
@@ -177,16 +177,16 @@ Text-to-speech narration of timeline eras and sector pages, enabling an audio-fi
 ## 11. Competition & Market Positioning
 
 ### 11.1 Direct/adjacent competitors
-| Category | Examples | Gap Naija2050 fills |
+| Category | Examples | Gap Nigeria2050 fills |
 |---|---|---|
-| **Country-branding/vision sites** | Rwanda's "Vision 2050" government site, UAE's "Centennial 2071" | These are official-government products by design — Naija2050's non-partisan positioning and independent editorial voice is the differentiator, at some cost to official endorsement/reach |
+| **Country-branding/vision sites** | Rwanda's "Vision 2050" government site, UAE's "Centennial 2071" | These are official-government products by design — Nigeria2050's non-partisan positioning and independent editorial voice is the differentiator, at some cost to official endorsement/reach |
 | **General reference** | Wikipedia, Britannica | Comprehensive but not narrative, not designed for an emotional/visual "vision" experience, no future-scenario layer at all |
 | **Data storytelling sites** | Our World in Data, Visual Capitalist | Excellent data-viz craft but no Nigeria-specific narrative depth, no historical timeline integration |
 | **Nigerian government planning documents** | National Development Plan / Agenda 2050 documents (NBS, National Planning Commission) | Source material, not a public-facing product — dense PDFs, not built for a general or diaspora audience |
 | **Education platforms** | Diaspora-focused history/culture apps, individual YouTube/TikTok history creators | Often high-quality but fragmented, inconsistent sourcing, no unified sector-vision component |
 
 ### 11.2 Positioning statement
-*Naija2050 is the independent, design-forward, source-transparent home for Nigeria's story and its credible long-range future — occupying the space between dry government planning documents and fragmented social content, with neither's weaknesses.*
+*Nigeria2050 is the independent, design-forward, source-transparent home for Nigeria's story and its credible long-range future — occupying the space between dry government planning documents and fragmented social content, with neither's weaknesses.*
 
 ### 11.3 Competitive moats
 - The **bidirectional history↔vision linking mechanism** (Section 6) is not something existing reference or government sites do — it's a genuine product differentiator, not just a content differentiator.
@@ -204,7 +204,7 @@ Multiple non-mutually-exclusive paths, sequenced by how much they compromise the
 | **Grants / philanthropic & institutional funding** | Foundations, diaspora-investment-focused funds, education-mission funders (e.g., organizations funding African civic education or diaspora engagement) | Low — aligns with mission, no editorial conflict if funders have no content control |
 | **B2B/B2institution licensing** | License the platform or content library (white-labeled or co-branded) to schools, diaspora orgs, universities, or NGOs for curriculum use | Low — content stays independent; licensing is for access/embedding, not editorial input |
 | **API / data licensing** | License the structured sector-data and sourcing layer to researchers, journalists, or other civic-tech products via an API | Low — monetizes the underlying data infrastructure, not the narrative voice |
-| **Premium/supporter tier** | A "friends of Naija2050" membership for individuals (early access to new sectors, ad-free, downloadable reports/data packs) — consumer-donation model similar to public-media membership | Low–Medium — needs to be framed as public-media-style support, not paywalling core civic content |
+| **Premium/supporter tier** | A "friends of Nigeria2050" membership for individuals (early access to new sectors, ad-free, downloadable reports/data packs) — consumer-donation model similar to public-media membership | Low–Medium — needs to be framed as public-media-style support, not paywalling core civic content |
 | **Sponsorships (tightly scoped)** | Brand or institutional sponsorship of specific non-editorial elements (e.g., "the Diaspora Investment data page, presented in partnership with X") with a strict firewall from editorial content | Medium — requires a clear, publicly stated editorial-independence policy to avoid perception risk |
 | **Merchandise / cultural products** | Prints of the era-portal illustrated art, a "Nigeria 2050" print/coffee-table book compiling the sector visions | Low — low-risk, brand-building, doesn't touch editorial trust |
 | **White-label the model to other countries** | The "History + Vision" product pattern is not Nigeria-specific — once proven, the platform/format itself could be licensed or adapted for other countries' diasporas (long-horizon opportunity) | Low — a platform-business model rather than a content-trust risk |
@@ -278,7 +278,7 @@ Recommendation: a visible, dated **editorial methodology page** plus a feedback/
 
 ## 18. Open Questions
 
-1. Final name/brand — "Naija2050" is a placeholder; worth testing how a few options read to both Nigerian and non-Nigerian audiences.
+1. Final name/brand — "Nigeria2050" is a placeholder; worth testing how a few options read to both Nigerian and non-Nigerian audiences.
 2. Resourcing plan for subject-matter review (historian, economist) before launch — self-sourced network, paid consultation, or academic partnership?
 3. Primary distribution channel at launch — diaspora social/community channels, education partnerships, or press/PR push? Affects which sector pages and which AI feature to polish first.
 4. How much of the 3D/WebGL centerpiece (Section 8.2) is realistic for MVP given one-person build bandwidth — worth prototyping early to test feasibility before committing it to the MVP list.

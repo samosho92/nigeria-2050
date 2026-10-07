@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { IconExternalLink } from "@tabler/icons-react";
 import type { ComparatorMetric } from "@/types/content";
 import { MorphSlider } from "@/components/compare/MorphSlider";
+import { COMPARE_EXPLORER_META } from "@/content/compare-meta";
 import { COMPARATOR_LEVER_META, COMPARATOR_LEVERS, getLeversForMetric } from "@/content/comparator-levers";
 import { getCoolProjectById } from "@/content/projects";
 import { SCENARIO_UI_NOTE } from "@/content/methodology";
@@ -39,10 +40,9 @@ function TrajectoryChart({
 
   return (
     <div className="rounded-xl border border-border bg-card p-5">
-      <p className="text-sm font-semibold text-foreground">Trajectory to 2050</p>
+      <p className="text-sm font-semibold text-foreground">{COMPARE_EXPLORER_META.trajectoryTitle}</p>
       <p className="mt-1 text-xs text-muted-foreground">
-        Grey bars show the base scenario path. Green bars add your selected projects.{" "}
-        {SCENARIO_UI_NOTE}
+        {COMPARE_EXPLORER_META.trajectoryLead} {SCENARIO_UI_NOTE}
       </p>
       <div className="mt-6 grid gap-4 sm:grid-cols-4">
         {TRAJECTORY_YEARS.map((year) => {
@@ -62,7 +62,9 @@ function TrajectoryChart({
                       height: `${Math.max(24, (baseline.value / Math.max(baseline.value, adjusted.value)) * 96)}px`,
                     }}
                   />
-                  <span className="text-[10px] text-muted-foreground">Base</span>
+                  <span className="text-[10px] text-muted-foreground">
+                    {COMPARE_EXPLORER_META.trajectoryBase}
+                  </span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
                   <div
@@ -74,7 +76,7 @@ function TrajectoryChart({
                       height: `${Math.max(24, (adjusted.value / Math.max(baseline.value, adjusted.value)) * 96)}px`,
                     }}
                   />
-                  <span className="text-[10px] text-accent">Your pick</span>
+                  <span className="text-[10px] text-accent">{COMPARE_EXPLORER_META.trajectoryPick}</span>
                 </div>
               </div>
               <p className="text-xs font-semibold text-foreground">{year}</p>
@@ -144,7 +146,7 @@ function LeverCard({
             href={href}
             className="inline-flex items-center gap-0.5 text-xs font-medium text-accent hover:underline"
           >
-            View on Cool Projects
+            {COMPARE_EXPLORER_META.viewOnProjects}
             <IconExternalLink className="size-3" stroke={1.5} aria-hidden />
           </Link>
         </div>
@@ -212,11 +214,11 @@ export function Compare2050Explorer({ metrics }: Compare2050ExplorerProps) {
 
         <div className="rounded-xl border border-border bg-surface p-4 sm:p-5">
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            {metric.label} · 2050 preview
+            {COMPARE_EXPLORER_META.previewLabel(metric.label)}
           </p>
           <div className="mt-3 flex flex-wrap items-end gap-4">
             <div>
-              <p className="text-xs text-muted-foreground">Base scenario</p>
+              <p className="text-xs text-muted-foreground">{COMPARE_EXPLORER_META.baseScenario}</p>
               <p className="text-2xl font-bold text-foreground">
                 {formatComparatorValue(baseline2050, metric.unit)}
               </p>
@@ -225,44 +227,43 @@ export function Compare2050Explorer({ metrics }: Compare2050ExplorerProps) {
               →
             </div>
             <div>
-              <p className="text-xs text-accent">With your picks</p>
+              <p className="text-xs text-accent">{COMPARE_EXPLORER_META.withPicks}</p>
               <p className="text-2xl font-bold text-accent">
                 {formatComparatorValue(adjusted2050, metric.unit)}
               </p>
             </div>
           </div>
           {selected.length === 0 && (
-            <p className="mt-3 text-sm text-muted-foreground">
-              Select one or more projects below to see the 2050 number move.
-            </p>
+            <p className="mt-3 text-sm text-muted-foreground">{COMPARE_EXPLORER_META.selectProjects}</p>
           )}
           {selected.length > 0 && !hasDelta && (
-            <p className="mt-3 text-sm text-amber-700 dark:text-amber-300">
-              Your current selections do not move {metric.label}. Try the projects listed below for
-              this metric, or switch to another metric tab.
+            <p className="mt-3 text-sm text-foreground">
+              {COMPARE_EXPLORER_META.noDelta(metric.label)}
             </p>
           )}
           {hasDelta && (
             <p className="mt-3 text-sm text-foreground">
-              {activeSelections.length} project{activeSelections.length === 1 ? "" : "s"} shift this
-              metric{" "}
               {higher
-                ? `${formatComparatorValue(delta, metric.unit)} above`
-                : `${formatComparatorValue(Math.abs(delta), metric.unit)} below`}{" "}
-              the base scenario.
+                ? COMPARE_EXPLORER_META.shiftAbove(
+                    activeSelections.length,
+                    formatComparatorValue(delta, metric.unit),
+                  )
+                : COMPARE_EXPLORER_META.shiftBelow(
+                    activeSelections.length,
+                    formatComparatorValue(Math.abs(delta), metric.unit),
+                  )}
             </p>
           )}
           {inactiveSelections.length > 0 && (
             <p className="mt-2 text-xs text-muted-foreground">
-              {inactiveSelections.length} selected project
-              {inactiveSelections.length === 1 ? "" : "s"} affect other metrics only.
+              {COMPARE_EXPLORER_META.otherMetricsOnly(inactiveSelections.length)}
             </p>
           )}
         </div>
 
         <div className="space-y-3">
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Moves the needle on {metric.label}
+            {COMPARE_EXPLORER_META.movesNeedle(metric.label)}
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
             {relevantLevers.map((lever) => {
@@ -287,7 +288,7 @@ export function Compare2050Explorer({ metrics }: Compare2050ExplorerProps) {
         {otherLevers.length > 0 && (
           <details className="group">
             <summary className="cursor-pointer text-sm font-medium text-accent hover:underline">
-              Other projects and policies ({otherLevers.length})
+              {COMPARE_EXPLORER_META.otherProjects(otherLevers.length)}
             </summary>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {otherLevers.map((lever) => {
@@ -312,7 +313,7 @@ export function Compare2050Explorer({ metrics }: Compare2050ExplorerProps) {
 
         <p className="text-center text-xs text-muted-foreground">
           <Link href="/projects" className="font-medium text-accent hover:underline">
-            Browse all Cool Projects
+            {COMPARE_EXPLORER_META.browseProjects}
           </Link>
         </p>
       </section>

@@ -20,6 +20,11 @@ type AnalyticsEvent =
   | { name: "project_submit"; sectors: string }
   | { name: "pulse_spin"; pollId: string }
   | { name: "pulse_answer"; pollId: string }
+  | { name: "pulse_profile_unlock" }
+  | { name: "pulse_round_complete"; answered: number }
+  | { name: "pulse_pool_complete" }
+  | { name: "pulse_share"; context: "result" | "empty" | "round" | "pool" }
+  | { name: "pulse_geo_blocked" }
   | { name: "consent_choice"; choice: "accepted" | "declined" }
   | { name: "consent_preferences_open" }
   | { name: "search_open"; method: "button" | "shortcut" }
@@ -28,9 +33,10 @@ type AnalyticsEvent =
   | { name: "theme_toggle"; theme: "light" | "dark" }
   | { name: "ask_suggested_click"; question: string }
   | { name: "compare_lever_toggle"; leverId: string; enabled: boolean }
+  | { name: "independence_day_cta"; destination: string }
   | { name: "page_view"; path: string };
 
-const STORAGE_KEY = "naija2050-analytics";
+const STORAGE_KEY = "nigeria2050-analytics";
 
 declare global {
   interface Window {
@@ -91,6 +97,21 @@ function mirrorPlausible(event: AnalyticsEvent) {
     case "pulse_answer":
       window.plausible("Pulse Answer", { props: { pollId: event.pollId } });
       break;
+    case "pulse_profile_unlock":
+      window.plausible("Pulse Profile Unlock");
+      break;
+    case "pulse_round_complete":
+      window.plausible("Pulse Round Complete", { props: { answered: event.answered } });
+      break;
+    case "pulse_pool_complete":
+      window.plausible("Pulse Pool Complete");
+      break;
+    case "pulse_share":
+      window.plausible("Pulse Share", { props: { context: event.context } });
+      break;
+    case "pulse_geo_blocked":
+      window.plausible("Pulse Geo Blocked");
+      break;
     case "consent_choice":
       window.plausible("Consent Choice", { props: { choice: event.choice } });
       break;
@@ -118,6 +139,9 @@ function mirrorPlausible(event: AnalyticsEvent) {
       window.plausible("Compare Lever Toggle", {
         props: { leverId: event.leverId, enabled: event.enabled },
       });
+      break;
+    case "independence_day_cta":
+      window.plausible("Independence Day CTA", { props: { destination: event.destination } });
       break;
     case "page_view":
       window.plausible("pageview");
@@ -177,6 +201,21 @@ function mirrorGa4(event: AnalyticsEvent) {
     case "pulse_answer":
       gaEvent("pulse_answer", { poll_id: event.pollId });
       break;
+    case "pulse_profile_unlock":
+      gaEvent("pulse_profile_unlock");
+      break;
+    case "pulse_round_complete":
+      gaEvent("pulse_round_complete", { answered: event.answered });
+      break;
+    case "pulse_pool_complete":
+      gaEvent("pulse_pool_complete");
+      break;
+    case "pulse_share":
+      gaEvent("pulse_share", { context: event.context });
+      break;
+    case "pulse_geo_blocked":
+      gaEvent("pulse_geo_blocked");
+      break;
     case "consent_choice":
       gaEvent("consent_choice", { choice: event.choice });
       break;
@@ -201,6 +240,9 @@ function mirrorGa4(event: AnalyticsEvent) {
     case "compare_lever_toggle":
       gaEvent("compare_lever_toggle", { lever_id: event.leverId, enabled: event.enabled });
       break;
+    case "independence_day_cta":
+      gaEvent("independence_day_cta", { destination: event.destination });
+      break;
     case "page_view":
       gaPageView(event.path);
       break;
@@ -213,7 +255,7 @@ export function trackEvent(event: AnalyticsEvent) {
 
   const payload = { ...event, ts: Date.now() };
 
-  window.dispatchEvent(new CustomEvent("naija2050:analytics", { detail: payload }));
+  window.dispatchEvent(new CustomEvent("nigeria2050:analytics", { detail: payload }));
   mirrorPlausible(event);
   mirrorGa4(event);
 
@@ -226,7 +268,7 @@ export function trackEvent(event: AnalyticsEvent) {
   }
 
   if (process.env.NODE_ENV === "development") {
-    console.debug("[naija2050 analytics]", event);
+    console.debug("[nigeria2050 analytics]", event);
   }
 }
 

@@ -142,7 +142,7 @@ const searchItems: SearchResult[] = [
     id: "faq",
     type: "sector" as const,
     title: "FAQ",
-    description: "Plain answers to common questions about using Naija2050 and Street Pulse",
+    description: "Plain answers to common questions about using Nigeria2050 and Street Pulse",
     href: "/faq",
   },
 ];

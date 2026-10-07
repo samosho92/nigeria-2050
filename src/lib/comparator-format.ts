@@ -1,7 +1,15 @@
 import type { ComparatorMetric } from "@/types/content";
 
+function formatComparatorNumber(value: number): string {
+  if (Number.isInteger(value)) return value.toLocaleString();
+  return value.toLocaleString(undefined, {
+    maximumFractionDigits: 1,
+    minimumFractionDigits: 0,
+  });
+}
+
 export function formatComparatorValue(value: number, unit: string): string {
-  const formatted = value.toLocaleString();
+  const formatted = formatComparatorNumber(value);
   if (unit === "USD") return `$${formatted}`;
   if (unit === "USD bn") return `$${formatted}bn`;
   if (unit === "M") return `${formatted}M`;

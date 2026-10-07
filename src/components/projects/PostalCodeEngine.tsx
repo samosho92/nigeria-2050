@@ -16,14 +16,13 @@ import {
   POSTAL_BANDS,
   POSTAL_CAPITALS,
   POSTAL_CODE_SCHEME,
-  formatPostalCode,
-  formatStreetCode,
   getPostalCapital,
   streetZonesFor,
   type PostalBand,
   type PostalStreetZone,
 } from "@/content/postal-code-engine";
 import { capitalsByZone, searchPostalIndex, transectFor } from "@/lib/postal-codes";
+import { formatPostalCode, formatStreetCode } from "@/lib/postal-format";
 import { cn } from "@/lib/utils";
 
 const BAND_ICON = {

@@ -3,10 +3,10 @@ import { checkSubmissionGuardrails, sanitizePlainText } from "@/lib/ask-guardrai
 import {
   getClientIp,
   isAllowedPageUrl,
+  isBrowserMutationRequest,
   isSafeWebhookUrl,
-  isTrustedBrowserRequest,
   jsonError,
-  rateLimit,
+  rateLimitDurable,
   readJsonBody,
 } from "@/lib/security";
 
@@ -20,12 +20,12 @@ interface CorrectionBody {
 }
 
 export async function POST(request: Request) {
-  if (!isTrustedBrowserRequest(request)) {
+  if (!isBrowserMutationRequest(request)) {
     return jsonError("Forbidden", 403);
   }
 
   const ip = getClientIp(request);
-  if (!rateLimit(`corrections:${ip}`, 5, 10 * 60_000)) {
+  if (!(await rateLimitDurable(`corrections:${ip}`, 5, 10 * 60_000))) {
     return jsonError("Too many submissions. Please try later or email corrections.", 429);
   }
 
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
   }
 
   if (!isAllowedPageUrl(pageUrl)) {
-    return jsonError("Page URL must be a Naija2050 address", 400);
+    return jsonError("Page URL must be a Nigeria2050 address", 400);
   }
 
   if (claim.length < 12 || counterSource.length < 12) {

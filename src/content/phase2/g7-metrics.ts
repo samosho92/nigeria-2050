@@ -129,7 +129,7 @@ export const PHASE2_G7_METRICS: G7BenchmarkMetric[] = [
     sourceId: "world-bank-lpi",
     sourceSeries: "World Bank · LPI 2023 overall score",
     context:
-      "Transcribed from the 2023 LPI global table (Nigeria rank 88). The 2050 figure is a Naija2050 scenario.",
+      "Transcribed from the 2023 LPI global table (Nigeria rank 88). The 2050 figure is a Nigeria2050 scenario.",
   },
   {
     id: "air-passengers-per-1000",

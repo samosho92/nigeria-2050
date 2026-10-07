@@ -7,7 +7,7 @@ import { GLOSSARY } from "@/content/glossary";
 
 export const metadata: Metadata = {
   title: "Glossary",
-  description: `${GLOSSARY.length} plain-language definitions for terms used across Naija2050. Searchable.`,
+  description: `${GLOSSARY.length} plain-language definitions for terms used across Nigeria2050. Searchable.`,
 };
 
 export default function GlossaryPage() {

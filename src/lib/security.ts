@@ -1,4 +1,5 @@
 import { createHash, timingSafeEqual } from "node:crypto";
+import { Redis } from "@upstash/redis";
 import { siteUrl } from "@/lib/site";
 
 const buckets = new Map<string, { count: number; resetAt: number }>();
@@ -16,7 +17,7 @@ export function getClientIp(request: Request): string {
   return ip.slice(0, 64);
 }
 
-/** Returns true when the request is allowed to proceed. */
+/** Returns true when the request is allowed to proceed. In-memory; per-instance only. */
 export function rateLimit(key: string, limit: number, windowMs: number): boolean {
   const now = Date.now();
   pruneBuckets(now);
@@ -30,20 +31,50 @@ export function rateLimit(key: string, limit: number, windowMs: number): boolean
   return true;
 }
 
+function redisRateLimitAvailable(): boolean {
+  return !!(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
+}
+
+/**
+ * Cross-instance rate limit when Upstash is configured; otherwise in-memory.
+ * Prefer this on public write and scrape-sensitive read routes.
+ */
+export async function rateLimitDurable(
+  key: string,
+  limit: number,
+  windowMs: number,
+): Promise<boolean> {
+  if (!redisRateLimitAvailable()) {
+    return rateLimit(key, limit, windowMs);
+  }
+
+  try {
+    const redis = Redis.fromEnv();
+    const windowId = Math.floor(Date.now() / windowMs);
+    const bucketKey = `rl:${key}:${windowId}`;
+    const count = await redis.incr(bucketKey);
+    if (count === 1) {
+      await redis.pexpire(bucketKey, windowMs + 1_000);
+    }
+    return count <= limit;
+  } catch {
+    return rateLimit(key, limit, windowMs);
+  }
+}
+
 function allowedOrigins(): Set<string> {
   const origins = new Set<string>(["http://localhost:3500", "http://127.0.0.1:3500"]);
   try {
     origins.add(new URL(siteUrl).origin);
   } catch {
-    origins.add("https://naija2050.org");
+    origins.add("https://nigeria2050.com");
   }
   const vercel = process.env.VERCEL_URL;
   if (vercel) origins.add(`https://${vercel.replace(/^https?:\/\//, "")}`);
   return origins;
 }
 
-export function isTrustedBrowserRequest(request: Request): boolean {
-  if (process.env.NODE_ENV !== "production") return true;
+function originAllowed(request: Request): boolean {
   const allowed = allowedOrigins();
   const origin = request.headers.get("origin");
   if (origin) return allowed.has(origin);
@@ -54,6 +85,27 @@ export function isTrustedBrowserRequest(request: Request): boolean {
   } catch {
     return false;
   }
+}
+
+/** Same-site browser navigation or fetch with a matching Origin/Referer. */
+export function isTrustedBrowserRequest(request: Request): boolean {
+  if (process.env.NODE_ENV !== "production") return true;
+  const site = (request.headers.get("sec-fetch-site") ?? "").toLowerCase();
+  if (site === "cross-site") return false;
+  return originAllowed(request);
+}
+
+/**
+ * Mutating API calls from the site itself.
+ * Requires Sec-Fetch-Site so forged Origin alone is not enough in production.
+ */
+export function isBrowserMutationRequest(request: Request): boolean {
+  if (!isTrustedBrowserRequest(request)) return false;
+  if (process.env.NODE_ENV !== "production") return true;
+  const site = (request.headers.get("sec-fetch-site") ?? "").toLowerCase();
+  if (site !== "same-origin" && site !== "same-site") return false;
+  const mode = (request.headers.get("sec-fetch-mode") ?? "").toLowerCase();
+  return mode === "" || mode === "cors" || mode === "same-origin";
 }
 
 function isPrivateHostname(hostname: string): boolean {
@@ -86,7 +138,7 @@ export function isAllowedPageUrl(value: string): boolean {
     try {
       allowedHosts.add(new URL(siteUrl).hostname);
     } catch {
-      allowedHosts.add("naija2050.org");
+      allowedHosts.add("nigeria2050.com");
     }
     return allowedHosts.has(parsed.hostname);
   } catch {
@@ -135,4 +187,14 @@ export function secretsMatch(provided: string, expected: string): boolean {
 export function hashWithSecret(value: string, secret: string): string {
   if (!secret) return "";
   return createHash("sha256").update(`${secret}:${value}`).digest("hex").slice(0, 16);
+}
+
+/** Stable Redis hash field for a Pulse client id (not reversible to the UUID). */
+export function ballotStorageField(clientId: string): string {
+  const salt =
+    process.env.POLLS_EXPORT_SECRET ||
+    process.env.UPSTASH_REDIS_REST_TOKEN ||
+    "n2050-ballot-v1";
+  const digest = createHash("sha256").update(`${salt}:${clientId}`).digest("hex").slice(0, 32);
+  return `b:${digest}`;
 }

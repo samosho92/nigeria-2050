@@ -4,8 +4,7 @@ import { PRIVACY_POLICY } from "@/content/legal";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description:
-    "How Naija2050 handles analytics, local storage, Ask the Archive, and contact data.",
+  description: "How Nigeria2050 handles information when you use the site.",
 };
 
 export default function PrivacyPage() {

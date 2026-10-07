@@ -1,8 +1,8 @@
 {
-  "name": "naija2050",
+  "name": "nigeria-2050",
   "version": "0.1.0",
   "private": true,
-  "description": "Naija2050 - Where Nigeria's History Meets Its Future",
+  "description": "Nigeria2050 - Where Nigeria's History Meets Its Future",
   "scripts": {
     "dev": "next dev --turbopack -p 3500",
     "dev:webpack": "next dev -p 3500",

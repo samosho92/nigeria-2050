@@ -446,9 +446,7 @@ export const DISCO_CLUSTERS: DiscoCluster[] = [
   },
 ];
 
-export function formatMw(mw: number): string {
-  return `${mw.toLocaleString("en-NG")} MW`;
-}
+export { formatMw } from "@/lib/grid-format";
 
 export function fuelShare(slice: FuelSlice): number {
   const total = GRID_FUEL.reduce((sum, item) => sum + item.mw, 0);

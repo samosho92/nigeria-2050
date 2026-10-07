@@ -31,7 +31,6 @@ export function HomeHero() {
 
   return (
     <PageHero
-      eyebrow="Independent civic media"
       title={
         <>
           <span className="block font-serif text-[clamp(3.15rem,14vw,6.35rem)] font-bold leading-[0.86] tracking-tight text-accent">

@@ -4,7 +4,7 @@ import path from "node:path";
 import { PULSE_POLLS, PULSE_ZONES, getPulsePoll } from "@/content/polls";
 import { isValidPulseBallot, unlockedPulseTallies, type PulsePollTally, type PulseProfile, type PulseSplitRow } from "@/lib/polls";
 import { isValidClientId } from "@/lib/projects";
-import { hashWithSecret } from "@/lib/security";
+import { ballotStorageField, hashWithSecret } from "@/lib/security";
 
 interface Ballot {
   optionId: string;
@@ -12,7 +12,11 @@ interface Ballot {
   gender: string;
   zone: string;
   recordedAt?: string;
+  respondentHash?: string;
 }
+
+const CLIENT_ID_FIELD =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 export interface PulseBallotRow {
   recordedAt: string;
@@ -30,7 +34,7 @@ export interface PulseBallotRow {
 const MIN_SPLIT_N = 5;
 const MAX_BALLOTS_PER_POLL = 8_000;
 
-function useRedis(): boolean {
+function redisStoreEnabled(): boolean {
   const hasCredentials = !!(
     process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
   );
@@ -81,6 +85,25 @@ async function writeLocalStore(store: LocalStore): Promise<void> {
 
 function respondentHash(clientId: string): string {
   return hashWithSecret(clientId, process.env.POLLS_EXPORT_SECRET ?? "");
+}
+
+function fieldForClient(clientId: string): string {
+  return ballotStorageField(clientId);
+}
+
+function readBallot(
+  ballots: Record<string, Ballot>,
+  clientId: string,
+): Ballot | undefined {
+  return ballots[fieldForClient(clientId)] ?? ballots[clientId];
+}
+
+function rowRespondentHash(fieldKey: string, ballot: Ballot, clientIdHint?: string): string {
+  if (ballot.respondentHash) return ballot.respondentHash;
+  if (clientIdHint && CLIENT_ID_FIELD.test(clientIdHint)) return respondentHash(clientIdHint);
+  if (CLIENT_ID_FIELD.test(fieldKey)) return respondentHash(fieldKey);
+  if (fieldKey.startsWith("b:") && fieldKey.length >= 18) return fieldKey.slice(2, 18);
+  return "";
 }
 
 async function readPollBallots(pollId: string): Promise<Record<string, Ballot>> {
@@ -134,7 +157,7 @@ export async function getClientPulseState(clientId: string): Promise<{
   const voted: Record<string, string> = {};
   const tallies: Record<string, PulsePollTally> = {};
 
-  if (useRedis()) {
+  if (redisStoreEnabled()) {
     const redis = getRedis();
     const pipeline = redis.pipeline();
     for (const poll of PULSE_POLLS) {
@@ -145,7 +168,7 @@ export async function getClientPulseState(clientId: string): Promise<{
     for (let i = 0; i < PULSE_POLLS.length; i++) {
       const poll = PULSE_POLLS[i];
       const ballots = results[i] ?? {};
-      const mine = ballots[clientId];
+      const mine = readBallot(ballots, clientId);
       if (!mine) continue;
       voted[poll.id] = mine.optionId;
       tallies[poll.id] = tallyPoll(poll.id, ballots);
@@ -154,7 +177,7 @@ export async function getClientPulseState(clientId: string): Promise<{
     const store = await readLocalStore();
     for (const poll of PULSE_POLLS) {
       const ballots = store.ballots[poll.id] ?? {};
-      const mine = ballots[clientId];
+      const mine = readBallot(ballots, clientId);
       if (!mine) continue;
       voted[poll.id] = mine.optionId;
       tallies[poll.id] = tallyPoll(poll.id, ballots);
@@ -174,7 +197,7 @@ export async function recordPulseAnswer(
     throw new Error("Invalid ballot");
   }
 
-  if (useRedis()) {
+  if (redisStoreEnabled()) {
     return recordViaRedis(clientId, pollId, optionId, profile);
   }
   return recordViaLocal(clientId, pollId, optionId, profile);
@@ -188,8 +211,10 @@ async function recordViaRedis(
 ): Promise<{ optionId: string; tally: PulsePollTally; first: boolean; row: PulseBallotRow }> {
   const redis = getRedis();
   const key = pollKey(pollId);
+  const field = fieldForClient(clientId);
 
-  const existing = await redis.hget<Ballot>(key, clientId);
+  const existing =
+    (await redis.hget<Ballot>(key, field)) ?? (await redis.hget<Ballot>(key, clientId));
   if (existing) {
     const ballots = await readPollBallots(pollId);
     const poll = getPulsePoll(pollId);
@@ -197,7 +222,7 @@ async function recordViaRedis(
       optionId: existing.optionId,
       tally: tallyPoll(pollId, ballots),
       first: false,
-      row: toRow(pollId, clientId, existing, poll),
+      row: toRow(pollId, field, existing, poll, clientId),
     };
   }
 
@@ -212,9 +237,10 @@ async function recordViaRedis(
     gender: profile.gender,
     zone: profile.zone,
     recordedAt: new Date().toISOString(),
+    respondentHash: respondentHash(clientId),
   };
 
-  await redis.hset(key, { [clientId]: ballot });
+  await redis.hset(key, { [field]: ballot });
 
   const ballots = await readPollBallots(pollId);
   const poll = getPulsePoll(pollId);
@@ -222,7 +248,7 @@ async function recordViaRedis(
     optionId,
     tally: tallyPoll(pollId, ballots),
     first: true,
-    row: toRow(pollId, clientId, ballot, poll),
+    row: toRow(pollId, field, ballot, poll, clientId),
   };
 }
 
@@ -235,13 +261,14 @@ async function recordViaLocal(
   const store = await readLocalStore();
   const current = { ...(store.ballots[pollId] ?? {}) };
   const poll = getPulsePoll(pollId);
-  const existing = current[clientId];
+  const field = fieldForClient(clientId);
+  const existing = readBallot(current, clientId);
   if (existing) {
     return {
       optionId: existing.optionId,
       tally: tallyPoll(pollId, current),
       first: false,
-      row: toRow(pollId, clientId, existing, poll),
+      row: toRow(pollId, field, existing, poll, clientId),
     };
   }
 
@@ -255,34 +282,35 @@ async function recordViaLocal(
     gender: profile.gender,
     zone: profile.zone,
     recordedAt: new Date().toISOString(),
+    respondentHash: respondentHash(clientId),
   };
-  current[clientId] = ballot;
+  current[field] = ballot;
   store.ballots[pollId] = current;
   await writeLocalStore(store);
   return {
     optionId,
     tally: tallyPoll(pollId, current),
     first: true,
-    row: toRow(pollId, clientId, ballot, poll),
+    row: toRow(pollId, field, ballot, poll, clientId),
   };
 }
 
 export async function listPulseBallotRows(): Promise<PulseBallotRow[]> {
   const rows: PulseBallotRow[] = [];
 
-  if (useRedis()) {
+  if (redisStoreEnabled()) {
     for (const poll of PULSE_POLLS) {
       const ballots = await readPollBallots(poll.id);
-      for (const [clientId, ballot] of Object.entries(ballots)) {
-        rows.push(toRow(poll.id, clientId, ballot, poll));
+      for (const [fieldKey, ballot] of Object.entries(ballots)) {
+        rows.push(toRow(poll.id, fieldKey, ballot, poll));
       }
     }
   } else {
     const store = await readLocalStore();
     for (const poll of PULSE_POLLS) {
       const ballots = store.ballots[poll.id] ?? {};
-      for (const [clientId, ballot] of Object.entries(ballots)) {
-        rows.push(toRow(poll.id, clientId, ballot, poll));
+      for (const [fieldKey, ballot] of Object.entries(ballots)) {
+        rows.push(toRow(poll.id, fieldKey, ballot, poll));
       }
     }
   }
@@ -293,9 +321,10 @@ export async function listPulseBallotRows(): Promise<PulseBallotRow[]> {
 
 function toRow(
   pollId: string,
-  clientId: string,
+  fieldKey: string,
   ballot: Ballot,
   poll: ReturnType<typeof getPulsePoll>,
+  clientIdHint?: string,
 ): PulseBallotRow {
   const optionLabel = poll?.options.find((option) => option.id === ballot.optionId)?.label ?? ballot.optionId;
   return {
@@ -308,6 +337,6 @@ function toRow(
     age: ballot.age,
     gender: ballot.gender,
     zone: ballot.zone,
-    respondentHash: respondentHash(clientId),
+    respondentHash: rowRespondentHash(fieldKey, ballot, clientIdHint),
   };
 }

@@ -8,7 +8,7 @@ import { LinkButton } from "@/components/ui/LinkButton";
 
 export const metadata: Metadata = {
   title: "Ask the Archive",
-  description: "A conversational guide into Naija2050's sourced content.",
+  description: "A conversational guide into Nigeria2050's sourced content.",
 };
 
 export default function AskPage() {

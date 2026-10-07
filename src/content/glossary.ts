@@ -4,7 +4,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "112",
     definition:
-      "The single emergency number used across the European Union, and the model for Nigeria’s unpublished national desk. A working 112 answers in seconds, locates the caller on a postal code, and radios police, fire, or an ambulance. Naija2050’s dispatch mock treats a number that rings into voicemail as unlaunched.",
+      "The single emergency number used across the European Union, and the model for Nigeria’s unpublished national desk. A working 112 answers in seconds, locates the caller on a postal code, and radios police, fire, or an ambulance. Nigeria2050’s dispatch mock treats a number that rings into voicemail as unlaunched.",
     relatedSlugs: ["security", "healthcare", "technology"],
   },
   {
@@ -22,7 +22,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "Agenda 2050",
     definition:
-      "A National Planning Commission plan (2022) that targets a multi-trillion-dollar economy and a top-20 global ranking by 2050. It assumes sustained high growth, heavy infrastructure spend, and human-capital gains. Naija2050 treats it as one input among World Bank, McKinsey, and PwC scenarios, and stress-tests the assumptions on each sector page.",
+      "A National Planning Commission plan (2022) that targets a multi-trillion-dollar economy and a top-20 global ranking by 2050. It assumes sustained high growth, heavy infrastructure spend, and human-capital gains. Nigeria2050 treats it as one input among World Bank, McKinsey, and PwC scenarios, and stress-tests the assumptions on each sector page.",
     relatedSlugs: ["economy", "governance"],
   },
   {
@@ -34,13 +34,13 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "Appropriation Act",
     definition:
-      "The annual law that authorises federal spending. President Tinubu assented to the 2026 Act on 17 April 2026 for an aggregate ₦68.32tn, with capital about half of the envelope, plus a 2025 capital extension to 30 June 2026. Naija2050’s open-budgets mock uses those State House totals as the sourced vintage; contract rows on that page are editorial.",
+      "The annual law that authorises federal spending. President Tinubu assented to the 2026 Act on 17 April 2026 for an aggregate ₦68.32tn, with capital about half of the envelope, plus a 2025 capital extension to 30 June 2026. Nigeria2050’s open-budgets mock uses those State House totals as the sourced vintage; contract rows on that page are editorial.",
     relatedSlugs: ["governance", "economy"],
   },
   {
     term: "Base case",
     definition:
-      "The headline 2050 path on a sector page: the middle of a low / base / high range where those bands exist. It is a scenario with stated assumptions, internally consistent within the sector. Naija2050 does not run an econometric model, and the base case is never blended into same-year G7 tables.",
+      "The headline 2050 path on a sector page: the middle of a low / base / high range where those bands exist. A scenario with stated assumptions, internally consistent within the sector. Nigeria2050 does not run an econometric model, and the base case is never blended into same-year G7 tables.",
     relatedSlugs: ["economy"],
   },
   {
@@ -70,7 +70,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "Certificate of Occupancy",
     definition:
-      "The paper (C of O) that records a right of occupancy under the Land Use Act. Banks treat it as collateral when it is mapped, queryable, and carries governor’s or FCT minister’s consent on the same record. A letter with no polygon is still the common urban title; Naija2050’s land-title mock tests folios against those five conditions.",
+      "The paper (C of O) that records a right of occupancy under the Land Use Act. Banks treat it as collateral when it is mapped, queryable, and carries governor’s or FCT minister’s consent on the same record. A letter with no polygon is still the common urban title; Nigeria2050’s land-title mock tests folios against those five conditions.",
     relatedSlugs: ["real-estate", "governance", "financial-inclusion"],
   },
   {
@@ -94,7 +94,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "DisCo",
     definition:
-      "Electricity Distribution Company, the 11 privatised utilities that sell power to homes and firms after generation and transmission. A feeder ID, a restoration window, and a timestamp are what a clinic or welder actually needs. Naija2050’s grid mock is a frozen schematic hour; it is labelled editorial.",
+      "Electricity Distribution Company, the 11 privatised utilities that sell power to homes and firms after generation and transmission. A feeder ID, a restoration window, and a timestamp are what a clinic or welder actually needs. Nigeria2050’s grid mock is a frozen schematic hour. Labelled editorial.",
     relatedSlugs: ["energy"],
   },
   {
@@ -142,13 +142,13 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "G7",
     definition:
-      "Group of Seven: Canada, France, Germany, Italy, Japan, the United Kingdom, and the United States. Naija2050’s comparator uses one indicator definition and one reference year per row for Nigeria and all seven members (typically WDI 2021–2024 vintages). 2050 scenario values appear separately and are never averaged into the G7 mean.",
+      "Group of Seven: Canada, France, Germany, Italy, Japan, the United Kingdom, and the United States. Nigeria2050’s comparator uses one indicator definition and one reference year per row for Nigeria and all seven members (typically WDI 2021–2024 vintages). 2050 scenario values appear separately and are never averaged into the G7 mean.",
     relatedSlugs: ["economy", "governance"],
   },
   {
     term: "GDP",
     definition:
-      "Gross Domestic Product, the total value of goods and services produced in a country in a year. Divided by population it becomes GDP per capita, a rough output-per-person yardstick. Naija2050’s economy baseline uses on the order of $450B total and about $2,200 per person (2024 vintage); the 2050 base case is $4.2T and $12,500 per person, with low and high bands on the sector page.",
+      "Gross Domestic Product, the total value of goods and services produced in a country in a year. Divided by population it becomes GDP per capita, a rough output-per-person yardstick. Nigeria2050’s economy baseline uses on the order of $450B total and about $2,162 per person (WDI 2022 vintage); the 2050 base case is $4.2T and $12,500 per person, with low and high bands on the sector page.",
     relatedSlugs: ["economy"],
   },
   {
@@ -172,13 +172,13 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "Harmattan",
     definition:
-      "The dry, dusty northeasterly wind that reaches Nigeria from the Sahara, usually from November to March. Mornings can be cold on the Jos Plateau; cities further south see haze and cracked lips. Your Nigeria 2050 uses harmattan, rainy, and dry as the three seasons a vignette can be set in, because climate stays even when the grid and the clinic improve.",
+      "The dry, dusty northeasterly wind that reaches Nigeria from the Sahara, usually from November to March. Mornings can be cold on the Jos Plateau; cities further south see haze and cracked lips. Harmattan sits alongside the rainy and dry seasons in how Nigerians talk about the year, and climate stays even when the grid and the clinic improve.",
     relatedSlugs: ["agriculture"],
   },
   {
     term: "Housing deficit",
     definition:
-      "The gap between households and adequate dwellings. The Centre for Affordable Housing Finance in Africa cites about 28 million missing units for Nigeria in 2023; the Federal Mortgage Bank of Nigeria has used about 22 million. Naija2050 treats 22–28 million as the sourced range and does not use larger political figures. Closing it requires on the order of hundreds of thousands of formal units a year.",
+      "The gap between households and adequate dwellings. The Centre for Affordable Housing Finance in Africa cites about 28 million missing units for Nigeria in 2023; the Federal Mortgage Bank of Nigeria has used about 22 million. Nigeria2050 treats 22–28 million as the sourced range and does not use larger political figures. Closing it requires on the order of hundreds of thousands of formal units a year.",
     relatedSlugs: ["real-estate"],
   },
   {
@@ -214,7 +214,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "LPI",
     definition:
-      "Logistics Performance Index, a World Bank score from 1 to 5 that combines customs, infrastructure, international shipments, logistics quality, tracking, and timeliness. Nigeria scored 2.6 in the 2023 LPI (rank 88). The transportation 2050 figure of 3.5 is a Naija2050 scenario toward today’s Italy (3.7). It assumes freight rail and port dwell times.",
+      "Logistics Performance Index, a World Bank score from 1 to 5 that combines customs, infrastructure, international shipments, logistics quality, tracking, and timeliness. Nigeria scored 2.6 in the 2023 LPI (rank 88). The transportation 2050 figure of 3.5 is a Nigeria2050 scenario toward today’s Italy (3.7). It assumes freight rail and port dwell times.",
     relatedSlugs: ["transportation", "economy"],
   },
   {
@@ -274,7 +274,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "Postal code",
     definition:
-      "A stable public index for a street or settlement. Nigeria has postcodes on paper; daily life still runs on landmarks. Naija2050’s engine mock uses a plate-based scheme (example FC-U01-001): state, density band, capital district 01, then an odd/even street zone. Rural clusters stay one code until roads are gazetted. Used codes unlock 112, titles, and census revisits.",
+      "A stable public index for a street or settlement. Nigeria has postcodes on paper; daily life still runs on landmarks. Nigeria2050’s engine mock uses a plate-based scheme (example FC-U01-001): state, density band, capital district 01, then an odd/even street zone. Rural clusters stay one code until roads are gazetted. Used codes unlock 112, titles, and census revisits.",
     relatedSlugs: ["transportation", "real-estate", "governance"],
   },
   {
@@ -292,7 +292,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: "Scenario projection",
     definition:
-      "A modeled future outcome built on a sourced baseline, milestone narratives (2030 / 2040 / 2050), and explicit assumptions. Naija2050 projections show what could happen if stated reforms and trends continue. They are labelled scenarios on every sector page, morph slider, and G7 row that carries a 2050 figure.",
+      "A modeled future outcome built on a sourced baseline, milestone narratives (2030 / 2040 / 2050), and explicit assumptions. Nigeria2050 projections show what could happen if stated reforms and trends continue. They are labelled scenarios on every sector page, morph slider, and G7 row that carries a 2050 figure.",
   },
   {
     term: "Slum (UN-Habitat)",

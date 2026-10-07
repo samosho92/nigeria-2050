@@ -3,7 +3,6 @@ import {
   IconArrowsLeftRight,
   IconChartBar,
   IconScale,
-  IconSparkles,
   IconTimeline,
   IconUsers,
   IconBulb,
@@ -15,6 +14,7 @@ import { DataSaverToggle } from "@/components/ui/DataSaverToggle";
 import { SearchDialog } from "@/components/search/SearchDialog";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Container } from "@/components/ui/Container";
+import { siteName } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 interface NavLink {
@@ -30,7 +30,6 @@ const HISTORY_LINKS: NavLink[] = [
 
 const VISION_LINKS: NavLink[] = [
   { href: "/sectors", label: "Sectors", icon: IconChartBar },
-  { href: "/your-2050", label: "Your 2050", icon: IconSparkles },
   { href: "/projects", label: "Projects", icon: IconBulb },
   { href: "/pulse", label: "Pulse", icon: IconWheel },
 ];
@@ -63,9 +62,9 @@ export function SiteHeader() {
   return (
     <header className="relative sticky top-0 z-50 border-b border-border bg-header-background backdrop-blur-md">
       <Container className="flex items-center justify-between py-4">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2" aria-label={siteName}>
           <span className="text-lg font-bold tracking-tight">
-            Naija<span className="text-accent">2050</span>
+            Nigeria<span className="text-accent">2050</span>
           </span>
         </Link>
 

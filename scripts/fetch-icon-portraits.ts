@@ -13,7 +13,7 @@ import { ICON_COHORT_LATER } from "../src/content/icons/cohort-later";
 import { ICON_COHORT_MODERN } from "../src/content/icons/cohort-modern";
 import { ICON_PORTRAITS as EXISTING } from "../src/content/icons/portraits";
 
-const USER_AGENT = "Naija2050/1.0 (https://naija2050.org; portraits for civic education)";
+const USER_AGENT = "Nigeria2050/1.0 (https://nigeria2050.com; portraits for civic education)";
 const OUT_DIR = path.join(process.cwd(), "public", "icons");
 const MANIFEST = path.join(process.cwd(), "src", "content", "icons", "portraits.ts");
 

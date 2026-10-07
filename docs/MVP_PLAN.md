@@ -1,4 +1,4 @@
-# Naija2050 — MVP Plan
+# Nigeria2050 — MVP Plan
 
 **Derived from:** [Nigeria2050_PRD.md](./Nigeria2050_PRD.md) (Draft v2, Aug 17 2026)  
 **Build plan:** [BUILD_PLAN.md](./BUILD_PLAN.md) — Phase 1 launch checklist + Phase 2 done / deferred  
@@ -178,7 +178,7 @@
 - 7 expansion sectors (original 5 plus transportation + real estate) → **13 total**
 - 9 extra timeline entries → **26 total**
 - Nigeria vs. G7 (`/compare/g7`)
-- Your Nigeria 2050 (`/your-2050`, client-side grounded vignettes — no LLM API)
+- Your Nigeria 2050 (`/your-2050`) — **hidden for launch** (redirects home; rewrite later)
 - Icons of Nigeria (`/icons`, 150 sourced figures)
 - Cool Projects (`/projects`, 26 editorial ideas + anonymous vote/submit)
 - Correction form + `/api/corrections` (origin, rate limit, URL allowlist)

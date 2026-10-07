@@ -19,15 +19,17 @@ export default function PulsePage() {
         aside={
           <PageHeroAsidePanel watermark="Pulse">
             <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-primary-foreground/70">
-              Unlock after you answer
+              {PULSE_META.asideEyebrow}
             </p>
             <p className="mt-6 font-serif text-[clamp(2.5rem,6vw,4rem)] font-bold leading-none">
               {PULSE_SESSION_SIZE}
             </p>
             <p className="mt-3 max-w-xs text-sm text-primary-foreground/80">
-              Questions per round, drawn from {PULSE_POLLS.length} across{" "}
-              {PULSE_CATEGORIES.length} categories. Refresh for a new round. Live n. Bands
-              only.
+              {PULSE_META.asideBody(
+                PULSE_SESSION_SIZE,
+                PULSE_POLLS.length,
+                PULSE_CATEGORIES.length,
+              )}
             </p>
           </PageHeroAsidePanel>
         }

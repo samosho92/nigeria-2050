@@ -1,7 +1,7 @@
-# Naija2050 — Build Plan (Phase 1 & Phase 2)
+# Nigeria2050 — Build Plan (Phase 1 & Phase 2)
 
 **Derived from:** [Nigeria2050_PRD.md](./Nigeria2050_PRD.md) · [MVP_PLAN.md](./MVP_PLAN.md)  
-**Last updated:** August 19, 2026
+**Last updated:** October 4, 2026
 
 ---
 
@@ -13,7 +13,7 @@
 | **Phase 2** | Expand content, localization, AI depth, engagement | ⚠️ **Content + engagement mostly shipped** (Icons, Cool Projects, Ask API) · i18n, audio, commissioned art, WebGL, CMS **deferred** |
 | **Phase 3** | Commercialization (licensing, membership, white-label) | 🧪 Street Pulse MVP started |
 
-**What is live in the repo today:** 14 sectors, 27 timeline entries, 42 editorial sources (+ 150 icon citations), G7 comparator, Your Nigeria 2050, Icons of Nigeria (150), Cool Projects (27 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, grid-outage, and open-budget mocks), Street Pulse (`/pulse`, 8 categories × 4 questions, random draw, unlock-after-answer, Nigeria-only, Upstash Redis in production), FAQ (`/faq`), cookie consent banner, correction form, home map, 6 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails and Nigeria basics retrieval. **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
+**What is live in the repo today:** 14 sectors, 27 timeline entries, 42 editorial sources (+ 150 icon citations), G7 comparator, Icons of Nigeria (150), Cool Projects (27 editorial ideas + vote/submit, plus postal-code, road-sign, public-library, emergency-112, land-title, grid-outage, and open-budget mocks), Street Pulse (`/pulse`, 8 categories × 4 questions, random draw, unlock-after-answer, Nigeria-only, Upstash Redis in production), FAQ (`/faq`), cookie consent banner, correction form, home map, 6 sector quizzes, privacy/terms, server-side Ask the Archive with expanded guardrails and Nigeria basics retrieval. **Hidden for launch:** Your Nigeria 2050 (`/your-2050` redirects home; code retained). **What is not:** production deploy, historian/economist sign-off, Hausa/Yoruba/Igbo, TTS audio, React Three Fiber map, headless CMS.
 
 ---
 
@@ -36,12 +36,12 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 
 | Deliverable | Route / location | Notes |
 |---|---|---|
-| Home | `/` | Hero metrics, pillar overview, sector grid, isometric zone map, Ask / Projects / Pulse / Your 2050 CTAs |
+| Home | `/` | Hero metrics, pillar overview, sector grid, isometric zone map, Ask / Projects / Pulse CTAs. **Seasonal:** Independence Month commemorative (1–31 Oct 2026 Africa/Lagos) via `isIndependenceDaySeasonActive()` — **delete after 31 Oct 2026** (`src/content/independence-day.ts`, `src/lib/independence-day.ts`, `src/components/home/IndependenceDayCommemorative.tsx`, homepage import, `independence_day_cta` analytics) |
 | Sector vision pages | `/sectors/[slug]` | Editorial hero, baseline chart, scenario ranges, interactive milestone timeline, How We Got Here, assumptions/risks, sources. **14 sectors live** (6 MVP + 8 expansion) |
 | Interactive history timeline | `/timeline` | 8 eras, 27 entries, scrollytelling spine, era scrubber, sector cross-links |
 | Now vs. 2050 comparator | `/compare` | Morph slider; 2030–2050 figures labeled as scenarios |
 | Nigeria vs. G7 | `/compare/g7` | Same-indicator, same-year benchmarks (Phase 2 addition) |
-| Your Nigeria 2050 | `/your-2050` | Client-side grounded vignette; display names sanitized (Phase 2 addition) |
+| Your Nigeria 2050 | `/your-2050` | **Hidden for launch** (redirects home; `noindex`; off nav/sitemap). Code kept for a later rewrite. |
 | Icons of Nigeria | `/icons` | 150 sourced figures, Wikimedia portraits, no sitting officeholders, no AI likenesses |
 | Cool Projects | `/projects` | 27 editorial civic ideas with Tabler icons; anonymous vote + idea submit. Working mocks: postal codes (`/projects/postal-codes`), road signs (`/projects/road-signs`), public libraries (`/projects/public-libraries`), emergency 112 (`/projects/emergency-112`), land titles (`/projects/land-titles`), grid outage (`/projects/grid-outage`), open budgets (`/projects/open-budgets`) |
 | Street Pulse | `/pulse` | 8 questions per round from a pool of 32 (8 categories × 4). Nigeria-only (edge country header). Refresh or Draw another 8 starts a new round from unanswered items. Unlock-after-answer. Age band, gender, zone. Live n. Optional `POLLS_WEBHOOK_URL`. MVP for aggregate research licensing |
@@ -81,7 +81,7 @@ Phase 1 is the full co-equal product described in the PRD: neither history nor f
 
 | Asset | Count |
 |---|---|
-| Editorial sources | 42 |
+| Editorial sources | 57+ (Oct 2026 refresh: UN WPP, NERC, ETP, GSMA PDF, UIS literacy/tertiary, NBS NLFS, WB NDU, IRENA, WUP) |
 | Icon citations (Wikimedia / named sources) | 150 |
 | Timeline eras | 8 |
 | Timeline entries | 27 (17 MVP + 10 Phase 2) |
@@ -268,14 +268,15 @@ Guardrails (`src/lib/ask-guardrails.ts`) cover abuse, NSFW, spam, prompt injecti
 
 ### "Your Nigeria 2050" personalized scenario
 
-**Status:** ✅ **Done** at `/your-2050` — **without** a paid LLM API.
+**Status:** ⏸️ **Hidden for launch** — route redirects to `/`; removed from nav, footer, homepage, sitemap; `robots` disallows `/your-2050`. Implementation retained (`src/lib/your-2050.ts`, `src/content/your-2050-settings.ts`, `src/components/your-2050/`) for a later quality rewrite.
 
-Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/content/your-2050-settings.ts`): user picks sectors, city, and season; copy is composed only from that sector's sourced 2050 projections. Optional first name is sanitized (`sanitizeDisplayName`). Labeled fiction, not a forecast. No PII stored.
+Reason: template vignettes were below the editorial bar (thin metric grounding, “AI-generated” label without an LLM, uneven sector coverage). Prefer an honest rewrite or grounded LLM later over shipping a weak engagement toy.
 
 **Deferred vs original spec:**
 
-- [ ] Server route / OpenAI / Anthropic generation
-- [ ] Per-vignette OG image cards (share text exists; unique OG per vignette does not)
+- [ ] Honest rewrite (metric-grounded scenario sketches) or server LLM path
+- [ ] Re-enable discovery (nav, homepage, sitemap) only after quality sign-off
+- [ ] Per-vignette OG image cards
 
 ### AI-narrated audio walkthroughs
 
@@ -285,7 +286,7 @@ Shipped as a client-side templated vignette (`src/lib/your-2050.ts`, `src/conten
 - [ ] `<audio>` player component with transcript fallback
 - [ ] Data-saver: disable auto-load
 
-**Exit criteria (original):** Your Nigeria 2050 live on `/your-2050` ✅; audio on ≥ 8 timeline entries ❌. **Added:** server-side Ask + expanded guardrails ✅.
+**Exit criteria (original):** Your Nigeria 2050 live on `/your-2050` (built, then hidden for launch); audio on ≥ 8 timeline entries ❌. **Added:** server-side Ask + expanded guardrails ✅.
 
 ---
 
@@ -434,7 +435,7 @@ Pull from here only after launch (or if a specific item is funded).
 | Hausa / Yoruba / Igbo | Sprint B | Needs EN copy lock + translators; no `next-intl` yet |
 | Commissioned era illustration | Sprint A | Abstract SVG ships; paid art is editorial + budget |
 | TTS audio walkthroughs | Sprint C | Cost, asset pipeline, data-saver budget |
-| LLM-backed Your 2050 | Sprint C | Current generator is grounded without API cost/PII |
+| Your 2050 quality rewrite (or LLM) | Sprint C | Hidden for launch until vignette quality clears editorial bar |
 | Era quizzes + remaining sector quizzes | Sprint D | 5 sector quizzes exist; timeline quizzes not built |
 | React Three Fiber 3D map | Sprint D | Isometric SVG map covers the explore use case |
 | Headless CMS | Infrastructure | Typed TS content is enough at current cadence |
@@ -495,7 +496,7 @@ Sprint A, Icons, Cool Projects, and Ask hardening ran **before** launch. Localiz
 | Phase 1 launch prep | 3–5 days | 2–4 weeks external review | ⚠️ Review + deploy still open |
 | Sprint A | 1 week | 6–8 weeks | ✅ Shipped (14 sectors) |
 | Sprint B | 3–4 weeks | 4–6 weeks per language | ⏸️ Deferred |
-| Sprint C | 3–4 weeks | 2 weeks prompt/grounding QA | ⚠️ Your 2050 + Ask API/guardrails done; audio deferred |
+| Sprint C | 3–4 weeks | 2 weeks prompt/grounding QA | ⚠️ Ask API/guardrails done; Your 2050 hidden pending rewrite; audio deferred |
 | Sprint D | 4–5 weeks | 2 weeks quiz copy | ⚠️ Corrections, map, Icons, Cool Projects, partial quizzes; WebGL deferred |
 
 ---

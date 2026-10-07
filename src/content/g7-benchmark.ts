@@ -190,14 +190,14 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     label: "Adult Literacy Rate",
     definition: "Literacy rate, adult total (% of people ages 15 and above). UNESCO UIS harmonized series.",
     unit: "%",
-    referenceYear: 2022,
-    nigeria: 62,
+    referenceYear: 2024,
+    nigeria: 70.4,
     g7Countries: { CA: 99, FR: 99, DE: 99, IT: 99, JP: 99, GB: 99, US: 99 },
     nigeria2050: 94,
     higherIsBetter: true,
     sourceId: "unesco-literacy-nigeria",
     sourceSeries: "UIS · SE.ADT.LITR.ZS",
-    context: "Roughly 80 million Nigerian adults lack functional literacy at today's rate.",
+    context: "About three in ten Nigerian adults still lack functional literacy at the latest UIS rate.",
   },
   {
     id: "tertiary-enrollment",
@@ -205,13 +205,14 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     label: "Gross Tertiary Enrollment",
     definition: "School enrollment, tertiary (% gross), same UNESCO definition including all tertiary institutions.",
     unit: "% gross",
-    referenceYear: 2022,
-    nigeria: 12.3,
+    referenceYear: 2011,
+    nigeria: 10.2,
     g7Countries: { CA: 68, FR: 65, DE: 70, IT: 62, JP: 63, GB: 66, US: 88 },
     nigeria2050: 45,
     higherIsBetter: true,
-    sourceId: "undp-hdi-nigeria",
+    sourceId: "unesco-tertiary-enrollment",
     sourceSeries: "UIS · SE.TER.ENRR",
+    context: "Nigeria's internationally comparable tertiary series is sparse after 2011; the 2050 figure is a scenario.",
   },
   {
     id: "doctors-per-capita",
@@ -268,7 +269,7 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     g7Countries: { CA: 100, FR: 100, DE: 100, IT: 100, JP: 100, GB: 100, US: 100 },
     nigeria2050: 98,
     higherIsBetter: true,
-    sourceId: "world-bank-g7-indicators",
+    sourceId: "world-bank-electricity-access",
     sourceSeries: "WDI · EG.ELC.ACCS.ZS",
   },
   {
@@ -284,6 +285,8 @@ export const G7_BENCHMARK_METRICS: G7BenchmarkMetric[] = [
     higherIsBetter: true,
     sourceId: "iea-nigeria-energy",
     sourceSeries: "WDI · EG.ELC.RNEW.ZS",
+    context:
+      "Base-case 2050 scenario is 65%. Nigeria's Energy Transition Plan high case approaches ~82% renewables by 2050 (excluding hydrogen).",
   },
 
   // ── Security ─────────────────────────────────────────────────────────────
@@ -336,29 +339,6 @@ export function g7GapMultiplier(metric: G7BenchmarkMetric): number {
   }
   if (g7Average <= 0) return 99;
   return metric.nigeria / g7Average;
-}
-
-export function formatBenchmarkValue(value: number, unit: string): string {
-  if (unit === "USD") return `$${Math.round(value).toLocaleString()}`;
-  if (unit === "%" || unit === "% of GDP" || unit === "% gross") return `${value}%`;
-  if (unit === "WGI score") return value.toFixed(2);
-  if (unit === "/100") return `${value}/100`;
-  if (unit === "global rank") return `#${Math.round(value)}`;
-  if (unit === "per 100k") return `${value} per 100k`;
-  if (unit === "kWh/year") return `${Math.round(value).toLocaleString()} kWh`;
-  if (unit === "physicians") return value.toFixed(2);
-  if (unit === "per 100 people") return `${value} per 100`;
-  if (unit === "per 1,000 people") return `${Math.round(value).toLocaleString()} per 1,000`;
-  if (unit === "score 1–5") return value.toFixed(1);
-  if (unit === "per km²") return `${Math.round(value).toLocaleString()} / km²`;
-  if (unit === "sites") return `${Math.round(value)} sites`;
-  return `${value.toLocaleString()} ${unit}`;
-}
-
-export function formatGapLabel(multiplier: number): string {
-  if (multiplier >= 10) return `${Math.round(multiplier)}×`;
-  if (multiplier >= 2) return `${multiplier.toFixed(1)}×`;
-  return `${multiplier.toFixed(2)}×`;
 }
 
 /** All rows in a dataset share this reference year, shown in page header. */

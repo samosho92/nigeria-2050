@@ -8,6 +8,7 @@ interface LinkButtonProps {
   children: ReactNode;
   variant?: "primary" | "secondary" | "link";
   className?: string;
+  onClick?: () => void;
 }
 
 const linkVariantMap = {
@@ -16,9 +17,15 @@ const linkVariantMap = {
   link: buttonVariants({ variant: "link", size: "sm" }),
 };
 
-export function LinkButton({ href, children, variant = "primary", className }: LinkButtonProps) {
+export function LinkButton({
+  href,
+  children,
+  variant = "primary",
+  className,
+  onClick,
+}: LinkButtonProps) {
   return (
-    <Link href={href} className={cn(linkVariantMap[variant], className)}>
+    <Link href={href} onClick={onClick} className={cn(linkVariantMap[variant], className)}>
       {children}
     </Link>
   );

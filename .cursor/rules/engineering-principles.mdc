@@ -1,9 +1,9 @@
 ---
-description: Core engineering principles for Naija2050 — DRY, performance, security, scalability
+description: Core engineering principles for Nigeria2050 — DRY, performance, security, scalability
 alwaysApply: true
 ---
 
-# Naija2050 Engineering Principles
+# Nigeria2050 Engineering Principles
 
 ## DRY and maintainability
 

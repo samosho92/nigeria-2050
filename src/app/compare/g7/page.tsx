@@ -3,33 +3,34 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
 import { G7GapExplorer } from "@/components/compare/G7GapExplorer";
 import { SourcePanel } from "@/components/ui/SourceCitation";
-import { G7_BENCHMARK_METRICS, G7_COUNTRY_LABELS, getBenchmarkYearRange } from "@/content/g7-benchmark";
+import { getG7PageMeta } from "@/content/compare-meta";
+import { G7_BENCHMARK_METRICS } from "@/content/g7-benchmark";
 import { getSourcesByIds } from "@/content/sources";
 
+const g7Meta = getG7PageMeta();
+
 export const metadata: Metadata = {
-  title: "Nigeria vs. G7",
-  description:
-    "Same-indicator, same-year benchmarks: Nigeria against each G7 country across all sector tabs.",
+  title: g7Meta.title,
+  description: g7Meta.description,
 };
 
 export default function G7ComparePage() {
   const sourceIds = [...new Set(G7_BENCHMARK_METRICS.map((m) => m.sourceId))];
   const sources = getSourcesByIds(sourceIds);
-  const { earliest, latest } = getBenchmarkYearRange();
-  const g7List = Object.values(G7_COUNTRY_LABELS).join(", ");
+  const meta = getG7PageMeta();
 
   return (
     <>
       <PageHero
         backLink={{ href: "/compare", label: "Now vs. 2050" }}
-        eyebrow="International benchmarks"
-        title="Nigeria vs. the G7"
-        description={`Apples-to-apples only: each row uses one indicator definition and one reference year (${earliest}–${latest}) for Nigeria and all G7 members (${g7List}). Hover any metric title for the exact dataset and series ID. 2050 figures are Naija2050 scenarios. They are never mixed into the same-year cross-country baselines.`}
+        eyebrow={meta.eyebrow}
+        title={meta.pageTitle}
+        description={meta.pageDescription}
       />
       <Container className="py-12 md:py-16">
         <G7GapExplorer />
         <div className="mt-16">
-          <SourcePanel sources={sources} title="Benchmark Data Sources" />
+          <SourcePanel sources={sources} title={meta.sourcesTitle} />
         </div>
       </Container>
     </>

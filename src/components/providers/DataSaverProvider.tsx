@@ -17,7 +17,7 @@ export function DataSaverProvider({ children }: { children: ReactNode }) {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("naija2050-data-saver") === "true";
+    const stored = localStorage.getItem("nigeria2050-data-saver") === "true";
     setEnabled(stored);
     document.documentElement.dataset.saver = stored ? "true" : "false";
     setHydrated(true);
@@ -26,7 +26,7 @@ export function DataSaverProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!hydrated) return;
     document.documentElement.dataset.saver = enabled ? "true" : "false";
-    localStorage.setItem("naija2050-data-saver", String(enabled));
+    localStorage.setItem("nigeria2050-data-saver", String(enabled));
   }, [enabled, hydrated]);
 
   return (
