@@ -112,8 +112,8 @@ export function LiteratureWorkCard({ work }: LiteratureWorkCardProps) {
 
           <div className="mt-auto space-y-2 border-t border-border pt-4">
             {sources.length > 0 ? (
-              <details>
-                <summary className="cursor-pointer text-sm font-medium text-accent">
+              <details className="group/sources">
+                <summary className="cursor-pointer text-sm font-medium text-accent transition hover:underline">
                   {LITERATURE_PAGE_META.sourcesToggle(sources.length)}
                 </summary>
                 <ul className="mt-2 space-y-1.5">

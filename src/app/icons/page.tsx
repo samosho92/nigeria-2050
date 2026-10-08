@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
-import { BackToTop } from "@/components/layout/BackToTop";
 import { IconsTimeline } from "@/components/icons/IconsTimeline";
 import { ICONS, ICONS_PAGE_META } from "@/content/icons";
 import { CONTENT_STATS } from "@/lib/content-stats";
@@ -37,7 +36,6 @@ export default function IconsPage() {
         </p>
         <IconsTimeline figures={ICONS} sectorTitles={getSectorTitles()} />
       </Container>
-      <BackToTop />
     </>
   );
 }

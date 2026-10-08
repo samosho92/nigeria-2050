@@ -151,8 +151,8 @@ export function PageHeroRail({ items }: { items: PageHeroRailItem[] }) {
               />
               <span
                 className={cn(
-                  "font-serif text-2xl font-bold tracking-tight sm:text-3xl",
-                  era.accent ? "text-accent" : "text-foreground",
+                  "font-serif text-2xl font-bold tracking-tight transition-colors sm:text-3xl",
+                  era.accent ? "text-accent" : "text-foreground group-hover:text-accent",
                 )}
               >
                 {era.year}

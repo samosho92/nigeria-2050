@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/layout/PageHero";
-import { BackToTop } from "@/components/layout/BackToTop";
 import { GlossaryList } from "@/components/glossary/GlossaryList";
 import { GLOSSARY, GLOSSARY_PAGE_META } from "@/content/glossary";
 
@@ -21,7 +20,6 @@ export default function GlossaryPage() {
       <Container size="narrow" className="py-12 md:py-16">
         <GlossaryList terms={GLOSSARY} />
       </Container>
-      <BackToTop />
     </>
   );
 }

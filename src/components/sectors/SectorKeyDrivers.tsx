@@ -119,7 +119,7 @@ export function SectorKeyDrivers({
           return (
             <li
               key={driver.id}
-              className="flex flex-col rounded-xl border border-border bg-card p-5"
+              className="flex flex-col rounded-xl border border-border bg-card p-5 transition hover:border-accent/40"
             >
               <div className="flex items-start gap-3">
                 <span

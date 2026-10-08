@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { TimelineExperience } from "@/components/timeline/TimelineExperience";
-import { BackToTop } from "@/components/layout/BackToTop";
 import { PageHero } from "@/components/layout/PageHero";
 import { TIMELINE_ENTRIES, TIMELINE_PAGE_META } from "@/content/timeline";
 import { getSectorTitles } from "@/lib/content";
@@ -30,7 +29,6 @@ export default function TimelinePage() {
           sectorTitles={getSectorTitles()}
         />
       </Container>
-      <BackToTop />
     </>
   );
 }

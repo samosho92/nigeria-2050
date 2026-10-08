@@ -16,7 +16,14 @@ const variants = {
 
 export function Section({ children, className, id, variant = "default" }: SectionProps) {
   return (
-    <section id={id} className={cn("px-6 py-16 lg:px-8 lg:py-20", variants[variant], className)}>
+    <section
+      id={id}
+      className={cn(
+        "scroll-mt-28 px-6 py-16 lg:px-8 lg:py-20",
+        variants[variant],
+        className,
+      )}
+    >
       <div className="mx-auto max-w-6xl">{children}</div>
     </section>
   );

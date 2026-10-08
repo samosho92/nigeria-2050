@@ -4,7 +4,6 @@ import { AssumptionsPanel } from "@/components/ui/AssumptionsPanel";
 import { MotifDivider } from "@/components/ui/MotifDivider";
 import { Section } from "@/components/ui/Section";
 import { SourcePanel } from "@/components/ui/SourceCitation";
-import { BackToTop } from "@/components/layout/BackToTop";
 import { HowWeGotHere } from "@/components/sectors/HowWeGotHere";
 import { MilestoneTimeline } from "@/components/sectors/MilestoneTimeline";
 import { ScenarioRangePanel } from "@/components/sectors/ScenarioRangePanel";
@@ -106,7 +105,6 @@ export default async function SectorPage({ params }: SectorPageProps) {
       )}
 
       <SectorContinuum sectors={SECTORS} currentSlug={sector.slug} />
-      <BackToTop />
     </div>
   );
 }

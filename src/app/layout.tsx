@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SkipLink } from "@/components/layout/SkipLink";
@@ -85,6 +86,7 @@ export default function RootLayout({
               {children}
             </main>
             <SiteFooter />
+            <BackToTop />
             <CookieConsentBanner />
           </DataSaverProvider>
         </ThemeProvider>

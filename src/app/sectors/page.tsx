@@ -32,7 +32,7 @@ export default function SectorsPage() {
           {SECTORS.map((sector) => (
             <li key={sector.slug}>
               <Link href={`/sectors/${sector.slug}`} className="group block h-full">
-                <Card className="h-full transition hover:border-accent hover:bg-surface-elevated">
+                <Card className="h-full transition duration-200 hover:-translate-y-0.5 hover:border-accent hover:bg-surface-elevated">
                   <CardHeader>
                     {NEW_SECTOR_SLUGS.has(sector.slug) && (
                       <Badge variant="accent" className="mb-1 w-fit">

@@ -48,6 +48,7 @@ function NavItem({ href, label, icon: Icon }: NavLink) {
       className={cn(
         "flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted-foreground transition",
         "hover:bg-muted hover:text-foreground",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
       )}
     >
       <Icon className="size-4" stroke={1.5} aria-hidden />
@@ -64,7 +65,15 @@ export function SiteHeader() {
   return (
     <header className="relative sticky top-0 z-50 border-b border-border bg-header-background backdrop-blur-md">
       <Container className="flex items-center justify-between py-4">
-        <Link href="/" className="flex items-center gap-2" aria-label={siteName}>
+        <Link
+          href="/"
+          className="group flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          aria-label={siteName}
+        >
+          <span
+            className="size-1.5 shrink-0 bg-accent transition group-hover:scale-125"
+            aria-hidden
+          />
           <span className="text-lg font-bold tracking-tight">
             Nigeria<span className="text-accent">2050</span>
           </span>
@@ -94,6 +103,7 @@ export function SiteHeader() {
                     className={cn(
                       "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm text-muted-foreground transition",
                       "hover:bg-muted hover:text-foreground",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                     )}
                   >
                     <Icon className="size-4" stroke={1.5} aria-hidden />
