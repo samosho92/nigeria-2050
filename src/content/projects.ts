@@ -311,6 +311,13 @@ export function getCoolProjectById(id: string): CoolProject | undefined {
   return COOL_PROJECTS.find((project) => project.id === id);
 }
 
+export function getCoolProjectsBySectorSlug(sectorSlug: string, limit = 3): CoolProject[] {
+  return COOL_PROJECTS.filter((project) => project.sectorSlugs.includes(sectorSlug)).slice(
+    0,
+    limit,
+  );
+}
+
 export const PROJECT_MOCK_UI = {
   eyebrow: "Cool Projects mock",
   backLabel: "Cool Projects",

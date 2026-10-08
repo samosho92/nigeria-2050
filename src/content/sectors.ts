@@ -1,7 +1,8 @@
 import type { Sector } from "@/types/content";
+import { SECTOR_KEY_DRIVERS } from "./sector-drivers";
 import { PHASE2_SECTORS } from "./phase2/sectors";
 
-export const SECTORS: Sector[] = [
+const SECTOR_DEFS: Sector[] = [
   {
     slug: "economy",
     title: "Economy & GDP",
@@ -141,6 +142,7 @@ export const SECTORS: Sector[] = [
       "nbs-gdp-report-2024",
       "nbs-nlfs-2024",
       "ilo-employment-stats",
+      "unido-manufacturing",
       "world-bank-ndu-2025",
       "mckinsey-nigeria-2050",
       "pwc-nigeria-2050",
@@ -833,6 +835,11 @@ export const SECTORS: Sector[] = [
   ...PHASE2_SECTORS,
 ];
 
+export const SECTORS: Sector[] = SECTOR_DEFS.map((sector) => ({
+  ...sector,
+  keyDrivers: SECTOR_KEY_DRIVERS[sector.slug] ?? [],
+}));
+
 export function getSectorBySlug(slug: string): Sector | undefined {
   return SECTORS.find((s) => s.slug === slug);
 }
@@ -868,18 +875,18 @@ export const SECTOR_DETAIL_UI = {
   eyebrow: (sectorNumber: string, sectorCount: number) =>
     `Sector ${sectorNumber} · ${sectorCount} flagship projections`,
   methodologyCta: "How we model projections",
-  reviewLabels: {
-    reviewed: "Editorially reviewed",
-    "pending-review": "Pending review",
-    draft: "Draft",
-  } as const,
-  snapshotToday: "Today",
-  snapshotScenario: "2050 scenario",
-  snapshotScenarioCaption: (label: string) => `${label} (scenario)`,
-  snapshotProjection: "Projection",
-  baselineTitle: "Sourced baseline",
-  baselineLead: "Figures below are from named datasets in the source panel on this page.",
-  baselineChartTitle: "Where Nigeria stands today",
+  railDriversYear: "01",
+  railDriversLabel: "Drivers",
+  railScenariosYear: "02",
+  railScenariosLabel: "2050 bands",
+  railRoadYear: "03",
+  railRoadLabel: "Road",
+  railHistoryYear: "04",
+  railHistoryLabel: "History",
+  driversTitle: "Key drivers we monitor",
+  driversLead:
+    "Sourced signals we track from today's baseline through the 2050 scenarios on this page. Every figure links to a named source.",
+  driversSourceLabel: "Source:",
   roadTitle: "The Road to 2050",
   assumptionsTitle: "Scenario Assumptions & Risks",
   howWeGotHereTitle: "How We Got Here",
@@ -895,4 +902,45 @@ export const SECTOR_DETAIL_UI = {
   risksHeading: "Risks to This Scenario",
   risksLead:
     "Known ways the base case could fail, reflected in the low end of scenario ranges where applicable.",
+  relatedIdeasTitle: "Civic ideas in this sector",
+  relatedIdeasLead: "Cool Projects that touch this flagship vision.",
+  relatedIdeasEyebrow: "Cool Project",
+  relatedIdeasOpen: "Open idea",
+  relatedIdeasCta: "Browse Cool Projects",
+  continuumLabel: "Sector atlas",
+  continuumOf: (current: number, total: number) => `${current} of ${total}`,
+  continuumPrev: "Previous",
+  continuumNext: "Next",
 } as const;
+
+export function getSectorHeroRail(hasScenarios: boolean) {
+  const ui = SECTOR_DETAIL_UI;
+  const items = [
+    {
+      year: ui.railDriversYear,
+      label: ui.railDriversLabel,
+      href: "#drivers",
+    },
+    ...(hasScenarios
+      ? [
+          {
+            year: ui.railScenariosYear,
+            label: ui.railScenariosLabel,
+            href: "#scenarios",
+          },
+        ]
+      : []),
+    {
+      year: hasScenarios ? ui.railRoadYear : ui.railScenariosYear,
+      label: ui.railRoadLabel,
+      href: "#road",
+    },
+    {
+      year: ui.railHistoryYear,
+      label: ui.railHistoryLabel,
+      href: "#history",
+      accent: true as const,
+    },
+  ];
+  return items;
+}

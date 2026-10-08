@@ -1,29 +1,27 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import dynamic from "next/dynamic";
 import { AssumptionsPanel } from "@/components/ui/AssumptionsPanel";
 import { MotifDivider } from "@/components/ui/MotifDivider";
 import { Section } from "@/components/ui/Section";
 import { SourcePanel } from "@/components/ui/SourceCitation";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { HowWeGotHere } from "@/components/sectors/HowWeGotHere";
 import { MilestoneTimeline } from "@/components/sectors/MilestoneTimeline";
 import { ScenarioRangePanel } from "@/components/sectors/ScenarioRangePanel";
+import { SectorContinuum } from "@/components/sectors/SectorContinuum";
 import { SectorHero } from "@/components/sectors/SectorHero";
-import { FadeIn } from "@/components/motion";
+import { SectorKeyDrivers } from "@/components/sectors/SectorKeyDrivers";
+import { SectorRelatedIdeas } from "@/components/sectors/SectorRelatedIdeas";
 import { getSectorQuiz } from "@/content/quizzes";
 import { QuizPanel } from "@/components/quizzes/QuizPanel";
 import { SCENARIO_UI_NOTE } from "@/content/methodology";
 import { SECTOR_DETAIL_UI } from "@/content/sectors";
-import { getSectorBySlug, getSourcesByIds, SECTORS } from "@/lib/content";
-
-const DataChart = dynamic(
-  () => import("@/components/sectors/DataChart").then((mod) => mod.DataChart),
-  {
-    loading: () => (
-      <div className="h-64 rounded-lg border border-border bg-muted/40" aria-hidden />
-    ),
-  },
-);
+import {
+  getCoolProjectsBySectorSlug,
+  getSectorBySlug,
+  getSourcesByIds,
+  SECTORS,
+} from "@/lib/content";
 
 interface SectorPageProps {
   params: Promise<{ slug: string }>;
@@ -47,27 +45,30 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
   const sources = getSourcesByIds(sector.sourceIds);
   const sectorQuiz = getSectorQuiz(sector.slug);
+  const relatedIdeas = getCoolProjectsBySectorSlug(sector.slug, 3);
   const ui = SECTOR_DETAIL_UI;
+  const drivers = sector.keyDrivers ?? [];
 
   return (
     <div>
       <SectorHero sector={sector} />
 
-      <Section variant="surface">
-        <FadeIn>
-          <h2 className="mb-2 text-2xl font-bold">{ui.baselineTitle}</h2>
-          <p className="mb-6 max-w-2xl text-sm text-muted-foreground">{ui.baselineLead}</p>
-          <DataChart data={sector.baseline} title={ui.baselineChartTitle} />
-        </FadeIn>
+      <Section variant="surface" id="drivers">
+        <SectorKeyDrivers
+          drivers={drivers}
+          title={ui.driversTitle}
+          lead={ui.driversLead}
+          sourceLabel={ui.driversSourceLabel}
+        />
       </Section>
 
       {sector.scenarioRanges && sector.scenarioRanges.length > 0 && (
-        <Section>
+        <Section id="scenarios">
           <ScenarioRangePanel ranges={sector.scenarioRanges} />
         </Section>
       )}
 
-      <Section>
+      <Section id="road">
         <h2 className="mb-3 text-2xl font-bold">{ui.roadTitle}</h2>
         <p className="mb-10 max-w-2xl text-sm text-muted-foreground">{SCENARIO_UI_NOTE}</p>
         <MilestoneTimeline projections={sector.projections} />
@@ -75,9 +76,15 @@ export default async function SectorPage({ params }: SectorPageProps) {
 
       <MotifDivider />
 
-      <Section variant="muted">
+      <Section variant="muted" id="history">
         <HowWeGotHere waypoints={sector.historicalWaypoints} />
       </Section>
+
+      {relatedIdeas.length > 0 && (
+        <Section>
+          <SectorRelatedIdeas projects={relatedIdeas} />
+        </Section>
+      )}
 
       <Section>
         <h2 className="mb-6 text-2xl font-bold">{ui.assumptionsTitle}</h2>
@@ -97,6 +104,9 @@ export default async function SectorPage({ params }: SectorPageProps) {
           />
         </Section>
       )}
+
+      <SectorContinuum sectors={SECTORS} currentSlug={sector.slug} />
+      <BackToTop />
     </div>
   );
 }

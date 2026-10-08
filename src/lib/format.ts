@@ -28,6 +28,30 @@ export function formatScenarioValue(
   return raw;
 }
 
+/** Parse a scenario range endpoint for layout math (bars, markers). */
+export function parseScenarioNumber(value: number | string): number | null {
+  if (typeof value === "number") return Number.isFinite(value) ? value : null;
+  const parsed = Number.parseFloat(String(value).replace(/[^0-9.-]/g, ""));
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+/**
+ * Position of the base case between low and high (0–100), or null when
+ * endpoints are non-numeric or identical.
+ */
+export function scenarioBasePositionPercent(
+  low: number | string,
+  base: number | string,
+  high: number | string,
+): number | null {
+  const lowN = parseScenarioNumber(low);
+  const baseN = parseScenarioNumber(base);
+  const highN = parseScenarioNumber(high);
+  if (lowN === null || baseN === null || highN === null || highN === lowN) return null;
+  const pct = ((baseN - lowN) / (highN - lowN)) * 100;
+  return Math.min(100, Math.max(0, pct));
+}
+
 /** Compact naira for civic tables (₦68.32tn, ₦186bn, ₦890m). */
 export function formatNaira(naira: number): string {
   const abs = Math.abs(naira);

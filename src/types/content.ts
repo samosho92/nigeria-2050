@@ -40,12 +40,73 @@ export interface SectorProjection {
   metrics: Record<string, number | string>;
 }
 
+/** Curated icon keys for sector key-driver cards (mapped to Tabler icons in UI). */
+export type SectorDriverIconId =
+  | "chart"
+  | "factory"
+  | "oil"
+  | "briefcase"
+  | "wifi"
+  | "world-www"
+  | "rocket"
+  | "device-mobile"
+  | "scale"
+  | "vote"
+  | "building-bank"
+  | "device-desktop"
+  | "book"
+  | "school"
+  | "users"
+  | "stethoscope"
+  | "bolt"
+  | "plug"
+  | "sun"
+  | "home-bolt"
+  | "alert"
+  | "shield"
+  | "building"
+  | "gavel"
+  | "heart"
+  | "heartbeat"
+  | "baby-carriage"
+  | "plant"
+  | "droplet"
+  | "truck"
+  | "movie"
+  | "music"
+  | "palette"
+  | "coin"
+  | "building-store"
+  | "road"
+  | "train"
+  | "plane"
+  | "home"
+  | "map-pin"
+  | "photo";
+
+/**
+ * A signal we monitor for a sector from today's sourced baseline through 2050 scenarios.
+ * Baseline figures must cite an existing source id; do not invent values here.
+ */
+export interface SectorKeyDriver {
+  id: string;
+  icon: SectorDriverIconId;
+  label: string;
+  /** Why this signal matters on the path to 2050. */
+  why: string;
+  /** Display-ready baseline figure already published in sector content / Tier-1 series. */
+  baseline: string;
+  sourceId: string;
+}
+
 export interface Sector {
   slug: string;
   title: string;
   tagline: string;
   headline2050: string;
   baseline: Record<string, number | string>;
+  /** Icon-led signals shown first on the sector page. */
+  keyDrivers?: SectorKeyDriver[];
   scenarioRanges?: ScenarioRange[];
   projections: SectorProjection[];
   historicalWaypoints: HistoricalWaypoint[];

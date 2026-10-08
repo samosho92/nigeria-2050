@@ -111,24 +111,28 @@ export function LiteratureWorkCard({ work }: LiteratureWorkCardProps) {
           </p>
 
           <div className="mt-auto space-y-2 border-t border-border pt-4">
-            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-              {LITERATURE_PAGE_META.sourcesHeading}
-            </p>
-            <ul className="space-y-1.5">
-              {sources.map((source) => (
-                <li key={source.id} className="text-sm">
-                  <Link
-                    href={`/sources#${source.id}`}
-                    className="font-medium text-foreground hover:text-accent"
-                  >
-                    {source.title}
-                  </Link>
-                  <div className="mt-0.5">
-                    <SourceCitation source={source} compact />
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {sources.length > 0 ? (
+              <details>
+                <summary className="cursor-pointer text-sm font-medium text-accent">
+                  {LITERATURE_PAGE_META.sourcesToggle(sources.length)}
+                </summary>
+                <ul className="mt-2 space-y-1.5">
+                  {sources.map((source) => (
+                    <li key={source.id} className="text-sm">
+                      <Link
+                        href={`/sources#${source.id}`}
+                        className="font-medium text-foreground hover:text-accent"
+                      >
+                        {source.title}
+                      </Link>
+                      <div className="mt-0.5">
+                        <SourceCitation source={source} compact />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ) : null}
             {leadIcon?.image ? (
               <p className="text-[0.6875rem] text-muted-foreground">
                 {LITERATURE_PAGE_META.portraitCredit}: {leadIcon.image.credit} ·{" "}

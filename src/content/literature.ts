@@ -12,7 +12,7 @@ export const LITERATURE_PAGE_META = {
   mediumAll: "All media",
   sourcesNote: "Open a source to check the claim independently.",
   verifiedLabel: "Verified:",
-  sourcesHeading: "Sources",
+  sourcesToggle: (count: number) => (count === 1 ? "1 source" : `${count} sources`),
   portraitCredit: "Portrait",
   emptyFilter: "No works in that filter yet.",
   railEarliestLabel: "Earliest here",
